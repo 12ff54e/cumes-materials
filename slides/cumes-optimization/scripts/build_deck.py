@@ -338,15 +338,15 @@ add('Evidence and reproduction',table(['Artifact','What it contains'],[
     ['data/local/','Raw fixed-iteration JSON, CLI logs, exact inputs, GPU provenance'],
     ['scripts/build_history.py → measure.py → summarize.py','Historical worktrees, controlled measurements, statistical summary'],
     ['scripts/build_deck.py','Static HTML generation from narrative and measured results']])+p('Open locally to present. <strong>O</strong> overview · <strong data-math-ignore>N</strong> notes · <strong>← / →</strong> navigation · browser print for 16:9 PDF.'),
-    'Offline deck · Technical Blueprint style · reviewed 2026-09-07',
-    'All presentation runtime assets are local, including KaTeX and its fonts. Scratch worktrees and binaries live in ../tmp/cumes-optimization-slides-20260907. This deck does not alter the cuMES working checkout.',chapter='Closing')
+    'Web deck · Technical Blueprint style · reviewed 2026-09-07',
+    'Hosted decks load KaTeX from a pinned CDN. The standalone exporter embeds all presentation resources for offline use. Scratch worktrees and binaries live in ../tmp/cumes-optimization-slides-20260907. This deck does not alter the cuMES working checkout.',chapter='Closing')
 
 template=(deck.parent/'cumes-run/index.html').read_text()
 tail=template.split('  </main>',1)[1]
 head='''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#04101a"><meta name="description" content="Measured optimization history of cuMES: CUDA execution and convergence trajectory changes.">
-<title>Making cuMES faster</title><link rel="stylesheet" href="vendor/katex/katex-swap.min.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
+<title>Making cuMES faster</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
 '''
 (deck/'index.html').write_text(format_html(head+'\n'.join(slides)+'\n</main>'+tail))
 print(f'Built {len(slides)} slides')

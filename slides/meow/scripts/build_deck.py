@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the offline presentation from frozen evidence. Edit the narrative here."""
+"""Build the web presentation from frozen evidence. Edit the narrative here."""
 
 from html import escape
 import json
@@ -360,7 +360,7 @@ head = '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#04101a"><meta name="description" content="How meow optimizes cuMES equilibria, measured derivative strategies, and Landreman QA/QH reproduction.">
 <title>meow · Quasisymmetric equilibrium optimization</title>
-<link rel="stylesheet" href="vendor/katex/katex-swap.min.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="meow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="meow.css">
 </head><body><main class="deck" aria-live="polite">
 '''
 (DECK / "index.html").write_text(format_html(head + "\n".join(slides) + "\n</main>" + tail))

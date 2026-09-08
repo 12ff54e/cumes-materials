@@ -29,9 +29,12 @@ Preserve unrelated work in this repository and sibling repositories.
   QA/QH reproduction. Edit `scripts/build_deck.py`; redraw figures with
   `scripts/plot_results.py` using the included frozen data.
 - Each deck's `README.md` describes its editing, preview, and reproduction workflow.
-- HTML decks use `styles.css`, `deck.js`, and local `vendor/katex/` assets. The
+- HTML decks use `styles.css`, `deck.js`, and pinned KaTeX CDN assets. The
   optimization deck also has `optimization.css`, `evidence.md`, `data/`, and
   reproduction scripts.
+- `index.html` and `site.css` form the GitHub Pages landing page.
+  `scripts/build_site.py` stages the published site in `_site/`.
+  `scripts/export_standalone.py` creates single-file offline decks in `exports/`.
 
 Place new decks under `slides/<topic>/` with their assets and usage instructions.
 Check the target deck's source/generator relationship before editing. Update
@@ -89,7 +92,10 @@ speaker notes or the evidence ledger. Use plots, diagrams, and comparison tables
 when they explain the result better than prose. Follow the target deck's visual
 language unless the task requests a new style. For the existing HTML decks:
 
-- Keep runtime dependencies local so presenting works offline.
+- Hosted decks load third-party libraries from pinned CDN URLs; keep matching
+  integrity attributes on library CSS/JavaScript. Do not vendor or embed libraries
+  in the GitHub Pages site. Use `scripts/export_standalone.py` to embed scripts,
+  styles, fonts, and figures when an offline presentation is needed.
 - Reuse CSS layout classes and code-native diagrams where practical; choose other
   tools or assets when they improve the presentation.
 - Write equations with the existing `data-tex` convention.
@@ -105,7 +111,8 @@ language unless the task requests a new style. For the existing HTML decks:
   `.speaker-notes` where relevant.
 - Preserve semantic structure, accessibility, keyboard/touch navigation, and
   16:9 print output.
-- Avoid hand-editing vendored libraries; retain their licenses.
+- Retain third-party licenses in `licenses/` and standalone exports. Exporters
+  should bundle the pinned library bytes without changing their implementation.
 
 ## Preview and validation
 
@@ -117,6 +124,11 @@ python3 -m http.server 8000
 ```
 
 Then visit `http://localhost:8000/slides/<topic>/` for the target deck.
+Hosted/source decks need internet access for KaTeX. To preview the complete Pages
+site, run `python3 scripts/build_site.py` and serve `_site/`. Validate standalone
+exports with browser networking disabled; rendering must not request remote assets.
+Publishing from `main` uses `.github/workflows/pages.yml`. Keep temporary exports,
+dependency caches, and staging directories out of Git.
 
 Validate in proportion to the change:
 

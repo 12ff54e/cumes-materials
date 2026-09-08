@@ -1,6 +1,6 @@
 # meow: quasisymmetric equilibrium optimization
 
-An offline, 35-slide presentation in the repository's Technical Blueprint style.
+A 35-slide web presentation in the repository's Technical Blueprint style.
 
 - [Open the presentation](index.html)
 - [16:9 PDF](meow.pdf)
@@ -28,7 +28,18 @@ python3 -m http.server 8000
 Visit `http://localhost:8000/slides/meow/`. Use arrows, Home/End, `O` for overview,
 `N` for speaker notes, `?` for help, and `F` for fullscreen. Touch devices support
 horizontal swipes and vertical scrolling. Wide figures and tables scroll
-horizontally on small screens. KaTeX, fonts, and presentation assets are local.
+horizontally on small screens. KaTeX and its fonts load from a pinned CDN;
+figures and presentation code remain local. To present without internet access,
+export a single-file HTML deck from the repository root:
+
+```bash
+python3 scripts/export_standalone.py meow --output exports/meow.html
+```
+
+The first export downloads the dependencies; later exports reuse the cache.
+The resulting file embeds scripts, styles, fonts, images, and the KaTeX license.
+See the repository [README](../../README.md) for GitHub Pages publishing,
+all-deck export, and validation with browser networking disabled.
 
 Edit `scripts/build_deck.py`, then regenerate from the repository root:
 

@@ -664,7 +664,8 @@
     "all_math_rendered": true,
     "math_case_preserved": true,
     "mobile_scroll": true,
-    "swipe": true
+    "swipe": true,
+    "offline_no_http_requests": true
   },
   "print": [
     {
@@ -946,5 +947,6 @@
   ],
   "pdf_pages": 46,
   "runtime_errors": [],
-  "network_failures": []
+  "network_failures": [],
+  "http_requests": []
 }

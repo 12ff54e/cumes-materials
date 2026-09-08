@@ -135,7 +135,17 @@
   }
 
   function renderMath() {
-    if (!window.katex) return;
+    if (!window.katex) {
+      const warning = document.createElement("p");
+      warning.className = "math-load-warning";
+      warning.setAttribute("role", "alert");
+      warning.textContent = "Equations could not load. Connect to the internet and reload, or open a standalone export.";
+      document.body.prepend(warning);
+      document.querySelectorAll("[data-tex]").forEach((element) => {
+        element.textContent = element.dataset.tex;
+      });
+      return;
+    }
     document.querySelectorAll("[data-tex]").forEach((element) => {
       window.katex.render(element.dataset.tex, element, {
         displayMode: element.classList.contains("math-display"),

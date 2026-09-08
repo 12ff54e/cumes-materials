@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#04101a"><meta name="description" content="Measured optimization history of cuMES: CUDA execution and convergence trajectory changes.">
-<title>Making cuMES faster</title><link rel="stylesheet" href="vendor/katex/katex-swap.min.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
+<title>Making cuMES faster</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
 <section class="slide " data-title="Making cuMES faster" data-chapter="Orientation" data-summary="Optimization during cuMES development">
 <header class="slide-header"><div><p class="eyebrow">Optimization during cuMES development</p><h2>Making cuMES faster</h2></div><span class="slide-index">01</span></header>
 <div class="content narrative"><div class="hero"><div><p class="dek">Spend less time on each GPU pass.<br>Then need fewer passes to reach equilibrium.</p><div class="tag-row"><span class="tag">CUDA execution</span><span class="tag free">convergence trajectory</span><span class="tag">commit-backed measurements</span></div></div><div class="hero-metrics"><article class="panel "><div class="panel-title">RTX 4090 · iteration latency</div><strong class="hero-number"><span class="math-inline" data-tex="-19.1\%"></span></strong><p>W7-X · <span class="math-inline" data-tex="660.81 \to  534.53\,\mu\mathrm{s}"></span>/pass</p></article><article class="panel free"><div class="panel-title">v1.1 → v1.2 · convergence</div><strong class="hero-number amber"><span class="math-inline" data-tex="-25.4\%"></span></strong><p>W7-X · <span class="math-inline" data-tex="5{,}505 \to  4{,}106"></span> passes</p></article></div></div></div>
@@ -230,8 +230,8 @@
 <section class="slide " data-title="Evidence and reproduction" data-chapter="Closing" data-summary="Evidence and reproduction">
 <header class="slide-header"><div><p class="eyebrow">Closing</p><h2>Evidence and reproduction</h2></div><span class="slide-index">46</span></header>
 <div class="content narrative"><div class="table-wrap"><table class="measure"><thead><tr><th>Artifact</th><th>What it contains</th></tr></thead><tbody><tr><td>evidence.md</td><td>Pinned source citations, measurement scopes, and limits</td></tr><tr><td>data/commit-audit.tsv</td><td>All <span class="math-inline" data-tex="197"></span> post-design-closeout commits and changed files</td></tr><tr><td>data/optimization-commits.md</td><td><span class="math-inline" data-tex="42"></span> highlighted optimization/support/evidence records</td></tr><tr><td>data/local/</td><td>Raw fixed-iteration JSON, CLI logs, exact inputs, GPU provenance</td></tr><tr><td>scripts/build_history.py → measure.py → summarize.py</td><td>Historical worktrees, controlled measurements, statistical summary</td></tr><tr><td>scripts/build_deck.py</td><td>Static HTML generation from narrative and measured results</td></tr></tbody></table></div><p>Open locally to present. <strong>O</strong> overview · <strong data-math-ignore>N</strong> notes · <strong>← / →</strong> navigation · browser print for 16:9 PDF.</p></div>
-<footer class="slide-footer"><span>Offline deck · Technical Blueprint style · reviewed 2026-09-07</span><span class="footer-rule"></span><span>Closing · cuMES</span></footer>
-<aside class="speaker-notes">All presentation runtime assets are local, including KaTeX and its fonts. Scratch worktrees and binaries live in ../tmp/cumes-optimization-slides-20260907. This deck does not alter the cuMES working checkout. Source paths refer to the sibling cuMES repository; pinned references and qualifications are in evidence.md.</aside></section>
+<footer class="slide-footer"><span>Web deck · Technical Blueprint style · reviewed 2026-09-07</span><span class="footer-rule"></span><span>Closing · cuMES</span></footer>
+<aside class="speaker-notes">Hosted decks load KaTeX from a pinned CDN. The standalone exporter embeds all presentation resources for offline use. Scratch worktrees and binaries live in ../tmp/cumes-optimization-slides-20260907. This deck does not alter the cuMES working checkout. Source paths refer to the sibling cuMES repository; pinned references and qualifications are in evidence.md.</aside></section>
 </main>
 
   <div class="hud" aria-hidden="true"><span class="chapter">Orientation</span><span>·</span><span class="slide-count">01 / 01</span></div>
@@ -257,7 +257,7 @@
     </div><p class="muted" style="margin:24px 0 0">Swipe horizontally on touch devices. Print from the browser to export a 16:9 PDF. Press Esc to close.</p></div>
   </div>
 
-  <script src="vendor/katex/katex.min.js"></script>
-  <script src="deck.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.js" integrity="sha384-ykMNcWQhhTUb0YV9SPpPUFURHZ+tWmubkakGBP+OgNK/UXdO2gtzglWx0Rj9hnO3" crossorigin="anonymous"></script>
+  <script defer src="deck.js"></script>
 </body>
 </html>

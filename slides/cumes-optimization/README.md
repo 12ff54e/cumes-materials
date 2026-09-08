@@ -1,6 +1,6 @@
 # Making cuMES faster
 
-A 46-slide, offline presentation in the existing Technical Blueprint style.
+A 46-slide web presentation in the existing Technical Blueprint style.
 The two main parts cover CUDA execution/data movement and convergence-trajectory
 changes. An appendix covers later concurrency, cold-start, sensitivity, and float
 work. The history audit includes 197 commits after design closeout, with 42
@@ -17,7 +17,16 @@ Visit `http://localhost:8000`. Arrow keys/Space/Page Up/Page Down navigate;
 `O` opens overview, `N` opens notes, `F` requests fullscreen, `?` opens help,
 and Escape closes overlays. Home/End jump to the first/last slide. Touch supports
 horizontal swipes; narrow layouts scroll vertically and wide tables horizontally.
-Browser printing uses 16:9 pages. All KaTeX assets and fonts are local.
+Browser printing uses 16:9 pages. KaTeX and its fonts load from a pinned CDN.
+For a single-file offline deck, run this from the repository root:
+
+```bash
+python3 scripts/export_standalone.py cumes-optimization
+```
+
+The exported `exports/cumes-optimization.html` includes all scripts, styles,
+fonts, figures, and the KaTeX license. Only the first export needs to download
+the dependencies. See the repository [README](../../README.md) for deployment.
 
 ## Content
 
@@ -75,10 +84,11 @@ The generator reuses the original deck's control markup and the measured summary
 It applies the shared `../../scripts/inline_math.py` formatter to variables and
 quantities in prose, tables, and notes. Use `inline(r"...")` for complete or
 ambiguous expressions, and `<code>` for literal program text. Chart labels use
-the same local KaTeX renderer. Regeneration does not rerun measurements.
+the same KaTeX renderer. Regeneration does not rerun measurements.
 The checked-in HTML is static and requires no Python to present. `styles.css`
 and `deck.js` were copied from the original deck; `optimization.css` contains
-the new tables/charts/layouts. Vendor files are copied without modification.
+the new tables/charts/layouts. The standalone exporter embeds the pinned library
+and its license; library binaries are not shipped in the hosted site.
 
 `scripts/audit_history.py` regenerates the complete commit inventory from the
 pinned range. `scripts/summarize.py` preserves all samples and calculates median,

@@ -25,10 +25,17 @@ def main():
                         help="Deck directory; defaults to this meow presentation")
     parser.add_argument("--pdf", type=Path, help="PDF output; defaults to DECK/DECKNAME.pdf")
     parser.add_argument("--report", type=Path, help="JSON report; defaults to DECK/data/validation.json")
+    target = parser.add_mutually_exclusive_group()
+    target.add_argument("--url", help="Served deck URL instead of DECK/index.html")
+    target.add_argument("--html", type=Path, help="Standalone HTML file instead of DECK/index.html")
+    parser.add_argument("--offline", action="store_true", help="Disable networking and verify no HTTP requests")
     args = parser.parse_args()
     deck = args.deck.resolve()
     pdf_path = args.pdf or deck / f"{deck.name}.pdf"
     report_path = args.report or deck / "data/validation.json"
+    page_url = args.url or (args.html or deck / "index.html").resolve().as_uri()
+    if args.offline and not page_url.startswith("file:"):
+        parser.error("Offline validation requires a local HTML file")
     scratch = args.scratch.resolve()
     scratch.mkdir(parents=True, exist_ok=True)
     origin = f"http://localhost:{args.port}"
@@ -79,7 +86,11 @@ def main():
         cdp("Page.enable")
         cdp("Runtime.enable")
         cdp("Network.enable")
-        cdp("Page.navigate", {"url": (deck / "index.html").as_uri()})
+        cdp("Network.setCacheDisabled", {"cacheDisabled": True})
+        if args.offline:
+            cdp("Network.emulateNetworkConditions", {"offline": True, "latency": 0,
+                "downloadThroughput": 0, "uploadThroughput": 0})
+        cdp("Page.navigate", {"url": page_url})
         for _ in range(100):
             if js("document.readyState==='complete' && !!document.querySelector('.overview') && document.querySelectorAll('.slide').length>0"):
                 break
@@ -167,6 +178,11 @@ def main():
         results["pdf_pages"] = len(re.findall(rb"/Type /Page\b", pdf))
         results["runtime_errors"] = [event for event in events if event.get("method") == "Runtime.exceptionThrown"]
         results["network_failures"] = [event for event in events if event.get("method") == "Network.loadingFailed"]
+        results["http_requests"] = sorted({event["params"]["request"]["url"] for event in events
+            if event.get("method") == "Network.requestWillBeSent"
+            and event["params"]["request"]["url"].startswith(("http:", "https:"))})
+        if args.offline:
+            results["checks"]["offline_no_http_requests"] = not results["http_requests"]
         report_path.parent.mkdir(parents=True, exist_ok=True)
         report_path.write_text(json.dumps(results, indent=2) + "\n")
         for group in range((count + 11) // 12):
