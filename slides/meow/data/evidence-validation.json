@@ -1,0 +1,18 @@
+{
+  "qa_gpu_force_gate": true,
+  "qa_gpu_objective": true,
+  "qa_gpu_unweighted": true,
+  "qa_terminal_oracle": true,
+  "qh_gpu_force_gate": true,
+  "qh_gpu_objective": true,
+  "qh_gpu_unweighted": true,
+  "qh_terminal_oracle": true,
+  "early-tangent/qh-analytic_endpoint": true,
+  "early-tangent/qh-finite-difference_endpoint": true,
+  "corrected-tangent/qa-analytic_endpoint": true,
+  "corrected-tangent/qh-analytic_endpoint": true,
+  "four-worker-broyden/qa_endpoint": true,
+  "four-worker-broyden/qh_endpoint": true,
+  "all_local_assets": true,
+  "authored_whitespace": true
+}

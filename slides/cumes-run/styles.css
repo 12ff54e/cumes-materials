@@ -322,9 +322,13 @@ h3 {
 }
 
 .big-number.trajectory-number {
-  font-size: clamp(27px, 3.25vw, 54px);
+  font-size: clamp(23px, 2.7vw, 44px);
   letter-spacing: -0.07em;
   white-space: nowrap;
+}
+
+.big-number.formula-number {
+  font-size: clamp(24px, 3vw, 48px);
 }
 
 .metric-label {
@@ -432,6 +436,8 @@ li::marker {
 }
 
 .math-inline {
+  text-transform: none;
+  letter-spacing: normal;
   display: inline-block;
   max-width: 100%;
   white-space: nowrap;

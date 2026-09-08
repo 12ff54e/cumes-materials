@@ -1,0 +1,730 @@
+{
+  "slides": 35,
+  "layouts": {
+    "1600x900": [
+      {
+        "title": "Optimizing quasisymmetry with meow",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 1
+      },
+      {
+        "title": "Two questions for this presentation",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 2
+      },
+      {
+        "title": "meow closes the loop around cuMES",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 3
+      },
+      {
+        "title": "Optimize the boundary, hold its scale",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 4
+      },
+      {
+        "title": "TRF turns residuals into boundary steps",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 5
+      },
+      {
+        "title": "A Jacobian is the expensive part",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 6
+      },
+      {
+        "title": "The tangent crosses a clear API boundary",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 7
+      },
+      {
+        "title": "Tangents remove nonlinear work",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 8
+      },
+      {
+        "title": "Early speed comes with worse endpoints",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 9
+      },
+      {
+        "title": "Check the whole Jacobian, then the endpoint",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 10
+      },
+      {
+        "title": "Correct wiring changes the tangent result",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 11
+      },
+      {
+        "title": "Corrected tangent: no qualified speedup yet",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 12
+      },
+      {
+        "title": "Reuse reliable derivatives between refreshes",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 13
+      },
+      {
+        "title": "Schedule independent columns concurrently",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 14
+      },
+      {
+        "title": "Qualified full constructions are faster",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 15
+      },
+      {
+        "title": "Time and quality must improve together",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 16
+      },
+      {
+        "title": "Reproducing Landreman QA and QH",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 17
+      },
+      {
+        "title": "The published geometries",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 18
+      },
+      {
+        "title": "Three distinct reproduction comparisons",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 19
+      },
+      {
+        "title": "Match the physical QS functional",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 20
+      },
+      {
+        "title": "Keep targets and stages comparable",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 21
+      },
+      {
+        "title": "Unlock shape modes through continuation",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 22
+      },
+      {
+        "title": "A faithful seed needs faithful derivative policy",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 23
+      },
+      {
+        "title": "QA: construction reaches the reference scale",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 24
+      },
+      {
+        "title": "QA: the reconstructed boundary",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 25
+      },
+      {
+        "title": "QH: construction reaches the reference scale",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 26
+      },
+      {
+        "title": "QH: the reconstructed boundary",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 27
+      },
+      {
+        "title": "The target oracle reproduces the archived totals",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 28
+      },
+      {
+        "title": "Published boundaries converge in cuMES",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 29
+      },
+      {
+        "title": "QA: compare the full radial QS profile",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 30
+      },
+      {
+        "title": "QH: compare the full radial QS profile",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 31
+      },
+      {
+        "title": "Boozer coordinates expose the reference symmetry",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 32
+      },
+      {
+        "title": "A spectral diagnostic is a separate check",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 33
+      },
+      {
+        "title": "Run the current JSON workflow",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 34
+      },
+      {
+        "title": "What the measurements establish",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 35
+      }
+    ],
+    "1280x720": [
+      {
+        "title": "Optimizing quasisymmetry with meow",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 1
+      },
+      {
+        "title": "Two questions for this presentation",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 2
+      },
+      {
+        "title": "meow closes the loop around cuMES",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 3
+      },
+      {
+        "title": "Optimize the boundary, hold its scale",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 4
+      },
+      {
+        "title": "TRF turns residuals into boundary steps",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 5
+      },
+      {
+        "title": "A Jacobian is the expensive part",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 6
+      },
+      {
+        "title": "The tangent crosses a clear API boundary",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 7
+      },
+      {
+        "title": "Tangents remove nonlinear work",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 8
+      },
+      {
+        "title": "Early speed comes with worse endpoints",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 9
+      },
+      {
+        "title": "Check the whole Jacobian, then the endpoint",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 10
+      },
+      {
+        "title": "Correct wiring changes the tangent result",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 11
+      },
+      {
+        "title": "Corrected tangent: no qualified speedup yet",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 12
+      },
+      {
+        "title": "Reuse reliable derivatives between refreshes",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 13
+      },
+      {
+        "title": "Schedule independent columns concurrently",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 14
+      },
+      {
+        "title": "Qualified full constructions are faster",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 15
+      },
+      {
+        "title": "Time and quality must improve together",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 16
+      },
+      {
+        "title": "Reproducing Landreman QA and QH",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 17
+      },
+      {
+        "title": "The published geometries",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 18
+      },
+      {
+        "title": "Three distinct reproduction comparisons",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 19
+      },
+      {
+        "title": "Match the physical QS functional",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 20
+      },
+      {
+        "title": "Keep targets and stages comparable",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 21
+      },
+      {
+        "title": "Unlock shape modes through continuation",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 22
+      },
+      {
+        "title": "A faithful seed needs faithful derivative policy",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 23
+      },
+      {
+        "title": "QA: construction reaches the reference scale",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 24
+      },
+      {
+        "title": "QA: the reconstructed boundary",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 25
+      },
+      {
+        "title": "QH: construction reaches the reference scale",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 26
+      },
+      {
+        "title": "QH: the reconstructed boundary",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 27
+      },
+      {
+        "title": "The target oracle reproduces the archived totals",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 28
+      },
+      {
+        "title": "Published boundaries converge in cuMES",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 29
+      },
+      {
+        "title": "QA: compare the full radial QS profile",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 30
+      },
+      {
+        "title": "QH: compare the full radial QS profile",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 31
+      },
+      {
+        "title": "Boozer coordinates expose the reference symmetry",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 32
+      },
+      {
+        "title": "A spectral diagnostic is a separate check",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 33
+      },
+      {
+        "title": "Run the current JSON workflow",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 34
+      },
+      {
+        "title": "What the measurements establish",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 35
+      }
+    ]
+  },
+  "checks": {
+    "next": true,
+    "previous": true,
+    "overview": true,
+    "notes": true,
+    "notes_math": true,
+    "help": true,
+    "end": true,
+    "home": true,
+    "images_loaded": true,
+    "metadata": true,
+    "all_math_rendered": true,
+    "math_case_preserved": true,
+    "mobile_scroll": true,
+    "swipe": true
+  },
+  "print": [
+    {
+      "slide": 1,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 2,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 3,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 4,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 5,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 6,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 7,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 8,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 9,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 10,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 11,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 12,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 13,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 14,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 15,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 16,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 17,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 18,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 19,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 20,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 21,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 22,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 23,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 24,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 25,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 26,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 27,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 28,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 29,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 30,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 31,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 32,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 33,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 34,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 35,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    }
+  ],
+  "pdf_pages": 35,
+  "runtime_errors": [],
+  "network_failures": []
+}

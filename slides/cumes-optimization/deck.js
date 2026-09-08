@@ -120,7 +120,11 @@
 
   function toggleNotes() {
     const notes = slides[current].querySelector(".speaker-notes");
-    notesCopy.textContent = notes?.textContent.trim() || "No additional notes for this slide.";
+    if (notes) {
+      notesCopy.replaceChildren(...Array.from(notes.childNodes, node => node.cloneNode(true)));
+    } else {
+      notesCopy.textContent = "No additional notes for this slide.";
+    }
     toggleOverlay(notesOverlay);
   }
 

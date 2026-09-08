@@ -35,3 +35,16 @@ under `vendor/katex/` for TeX-quality equations and accessible MathML output.
 - `styles.css`: Technical Blueprint visual system and print/mobile layouts
 - `deck.js`: navigation, overview, notes, fullscreen, fragments, and URL hashes
 - `vendor/katex/`: self-hosted math renderer, fonts, and MIT license
+
+Write mathematical variables and quantities in prose, captions, tables, and
+notes as `<span class="math-inline" data-tex="..."></span>`. Preserve literal
+code, versions, source references, and navigation labels. The optional static
+formatter covers the notation already used in these decks:
+
+```bash
+python3 scripts/inline_math.py --write slides/cumes-run/index.html
+```
+
+Run this from the repository root and review its output. Use explicit TeX for
+new or ambiguous expressions; `data-math-ignore` exempts a literal label. This
+deck is edited directly in `index.html`, without a content generator.

@@ -1,0 +1,1483 @@
+beginning max_mode=1 variables=8 jacobian_method=analytic stage_restart=0
+evaluation=1 objective=10.5719742232 qs=1.57197422316 aspect=5 mean_iota=-0.758775538368 solver_iterations=1021
+evaluation=2 objective=10.5716054142 qs=1.5716054142 aspect=5 mean_iota=-0.759431678788 solver_iterations=1021
+evaluation=3 objective=10.573594196 qs=1.57359419603 aspect=5 mean_iota=-0.759423647615 solver_iterations=1021
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=743 worst_linear_residual=0.0145709061064 worst_relative_linear_residual=4.98302343477e-06
+ iter   nfev              cost        optimality       radius
+    0      1        5.285987112       42.10026786          0.4
+evaluation=4 objective=29.4852633038 qs=12.2019104908 aspect=12.1573251993 mean_iota=-0.66780579965 solver_iterations=1184
+evaluation=5 objective=4.43401264553 qs=0.673972721648 aspect=6.06091776247 mean_iota=-0.821865013537 solver_iterations=1044
+evaluation=6 objective=4.43338333509 qs=0.673179080361 aspect=6.06087538958 mean_iota=-0.822539774992 solver_iterations=1044
+evaluation=7 objective=4.43448938035 qs=0.674449456461 aspect=6.06091776247 mean_iota=-0.82255206267 solver_iterations=1042
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=786 worst_linear_residual=0.0314936301337 worst_relative_linear_residual=4.97280188076e-06
+accepted mode=1 iteration=1 objective=4.43401264553
+    1      3        2.217006323       38.69760487  0.104104954
+evaluation=8 rejected_equilibrium=1 failed_stage=0 fsqr=1 fsqz=1 fsql=1 penalty_objective=96454.31715
+evaluation=9 objective=2.16499573952 qs=0.517447321949 aspect=6.71643137403 mean_iota=-0.851138650086 solver_iterations=1055
+evaluation=10 objective=2.16469655914 qs=0.517034990415 aspect=6.71638729801 mean_iota=-0.85182086543 solver_iterations=1054
+evaluation=11 objective=2.16537532984 qs=0.517826912273 aspect=6.71643137403 mean_iota=-0.851840310372 solver_iterations=1055
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=800 worst_linear_residual=0.046832200981 worst_relative_linear_residual=4.99012647086e-06
+accepted mode=1 iteration=2 objective=2.16499573952
+    2      5         1.08249787       32.072327510.04534258006
+evaluation=12 objective=0.371607244909 qs=0.223084567565 aspect=8.38538640005 mean_iota=-0.946238489492 solver_iterations=1085
+evaluation=13 objective=0.371469298413 qs=0.223004547422 aspect=8.38531123912 mean_iota=-0.946853093468 solver_iterations=1087
+evaluation=14 objective=0.371268541309 qs=0.222745863964 aspect=8.38538640005 mean_iota=-0.946922732691 solver_iterations=1084
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=912 worst_linear_residual=0.135210932534 worst_relative_linear_residual=4.99540591959e-06
+accepted mode=1 iteration=3 objective=0.371607244909
+    3      6       0.1858036225       15.626555120.09068516012
+evaluation=15 objective=0.620592685573 qs=0.617677136263 aspect=7.94600417321 mean_iota=-0.859473324977 solver_iterations=1156
+evaluation=16 objective=0.203829392812 qs=0.200824831839 aspect=8.05481387573 mean_iota=-0.969926631724 solver_iterations=1219
+evaluation=17 objective=0.20384553242 qs=0.200847446392 aspect=8.05475478087 mean_iota=-0.970497949389 solver_iterations=1219
+evaluation=18 objective=0.20385302619 qs=0.200848465217 aspect=8.05481387573 mean_iota=-0.970574995576 solver_iterations=1219
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=935 worst_linear_residual=0.12574876639 worst_relative_linear_residual=4.98503208482e-06
+accepted mode=1 iteration=4 objective=0.203829392812
+    4      8       0.1019146964       1.2774732410.03075162201
+evaluation=19 objective=0.188078585691 qs=0.186550051763 aspect=8.03909646951 mean_iota=-0.913523956587 solver_iterations=1293
+evaluation=20 objective=0.188053376215 qs=0.186527958231 aspect=8.03905659974 mean_iota=-0.91398492272 solver_iterations=1288
+evaluation=21 objective=0.188254368479 qs=0.186725834551 aspect=8.03909646951 mean_iota=-0.914049545003 solver_iterations=1293
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=931 worst_linear_residual=0.122121060707 worst_relative_linear_residual=4.97390139302e-06
+accepted mode=1 iteration=5 objective=0.188078585691
+    5      9      0.09403929285       2.3769505220.06150324402
+evaluation=22 objective=0.170012900165 qs=0.167568282956 aspect=8.04944307039 mean_iota=-0.839782179822 solver_iterations=1250
+evaluation=23 objective=0.169697891257 qs=0.16725484032 aspect=8.04942722869 mean_iota=-0.840049269569 solver_iterations=1250
+evaluation=24 objective=0.170460002702 qs=0.168015385493 aspect=8.04944307039 mean_iota=-0.840089054552 solver_iterations=1250
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=913 worst_linear_residual=0.120880098479 worst_relative_linear_residual=4.95913156482e-06
+accepted mode=1 iteration=6 objective=0.170012900165
+    6     10      0.08500645008       8.726855304  0.123006488
+evaluation=25 objective=0.199367081697 qs=0.162963729406 aspect=8.19079662547 mean_iota=-0.994659239105 solver_iterations=1277
+evaluation=26 objective=0.148451362 qs=0.14682243177 aspect=8.0403600078 mean_iota=-0.890673443902 solver_iterations=1266
+evaluation=27 objective=0.148401150053 qs=0.146773355631 aspect=8.0403459344 mean_iota=-0.890883242177 solver_iterations=1253
+evaluation=28 objective=0.148585118369 qs=0.146956188139 aspect=8.0403600078 mean_iota=-0.890917627101 solver_iterations=1254
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=944 worst_linear_residual=0.12657458576 worst_relative_linear_residual=4.93957296582e-06
+accepted mode=1 iteration=7 objective=0.148451362
+    7     12        0.074225681       2.846816801 0.0397930074
+evaluation=29 objective=0.146349334448 qs=0.140786010335 aspect=8.07458769411 mean_iota=-0.985632563433 solver_iterations=1271
+evaluation=30 objective=0.146334037018 qs=0.14077192243 aspect=8.07457958559 mean_iota=-0.985755735335 solver_iterations=1271
+evaluation=31 objective=0.146348876835 qs=0.140785552722 aspect=8.07458769411 mean_iota=-0.985776066938 solver_iterations=1271
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=958 worst_linear_residual=0.133231898035 worst_relative_linear_residual=4.9590065568e-06
+accepted mode=1 iteration=8 objective=0.146349334448
+    8     13      0.07317466722       3.1051319780.009948251851
+evaluation=32 objective=0.14134183395 qs=0.14077044569 aspect=8.023903729 mean_iota=-0.954623419674 solver_iterations=1230
+evaluation=33 objective=0.141278211516 qs=0.140707329628 aspect=8.02389313474 mean_iota=-0.954762789289 solver_iterations=1231
+evaluation=34 objective=0.141405003194 qs=0.140833614933 aspect=8.023903729 mean_iota=-0.95478630728 solver_iterations=1231
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=947 worst_linear_residual=0.133046717791 worst_relative_linear_residual=4.98989594265e-06
+accepted mode=1 iteration=9 objective=0.14134183395
+    9     14      0.07067091698       1.946064943 0.0198965037
+evaluation=35 objective=0.141294066993 qs=0.140721382289 aspect=8.02393083167 mean_iota=-0.927210211809 solver_iterations=1300
+evaluation=36 objective=0.141223603028 qs=0.140651486437 aspect=8.0239189588 mean_iota=-0.927365219001 solver_iterations=1301
+evaluation=37 objective=0.14138011773 qs=0.140807433026 aspect=8.02393083167 mean_iota=-0.927391015905 solver_iterations=1300
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=944 worst_linear_residual=0.127047653798 worst_relative_linear_residual=4.94527436128e-06
+accepted mode=1 iteration=10 objective=0.141294066993
+   10     15       0.0706470335       2.6049472260.002479107859
+evaluation=38 objective=0.140573586453 qs=0.139820834262 aspect=8.02743632976 mean_iota=-0.935723420507 solver_iterations=1248
+evaluation=39 objective=0.140578803274 qs=0.139826672984 aspect=8.02742499389 mean_iota=-0.935874124358 solver_iterations=1248
+evaluation=40 objective=0.140582389789 qs=0.139829637598 aspect=8.02743632976 mean_iota=-0.93589934123 solver_iterations=1248
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=946 worst_linear_residual=0.128966077264 worst_relative_linear_residual=4.91822350678e-06
+accepted mode=1 iteration=11 objective=0.140573586453
+   11     16      0.07028679323     0.078726864960.004958215718
+evaluation=41 objective=0.140739730337 qs=0.140009186438 aspect=8.02702857561 mean_iota=-0.952158468258 solver_iterations=1257
+evaluation=42 objective=0.140561975889 qs=0.139822032425 aspect=8.02720190185 mean_iota=-0.939726443285 solver_iterations=1256
+evaluation=43 objective=0.140568001103 qs=0.139828667166 aspect=8.02719069578 mean_iota=-0.939874997077 solver_iterations=1256
+evaluation=44 objective=0.14056798841 qs=0.139828044946 aspect=8.02720190185 mean_iota=-0.939899920011 solver_iterations=1256
+analytic_jacobian columns=8 residuals=44353 tangent_columns=6 blackbox_columns=2 linear_iterations=946 worst_linear_residual=0.129716509743 worst_relative_linear_residual=4.93637383077e-06
+accepted mode=1 iteration=12 objective=0.140561975889
+   12     18      0.07028098794     0.023969262930.0003098884824
+evaluation=45 objective=0.140563675565 qs=0.13982909133 aspect=8.02710321449 mean_iota=-0.940716643151 solver_iterations=1256
+evaluation=46 objective=0.140562100412 qs=0.139826939921 aspect=8.02711384317 mean_iota=-0.939959799735 solver_iterations=1253
+evaluation=47 objective=0.140561998604 qs=0.139825878879 aspect=8.02713152639 mean_iota=-0.939775072553 solver_iterations=1253
+evaluation=48 objective=0.140562038352 qs=0.139824237516 aspect=8.02716248951 mean_iota=-0.939733639372 solver_iterations=1252
+evaluation=49 objective=0.140561997891 qs=0.13982274894 aspect=8.02718913294 mean_iota=-0.939726798801 solver_iterations=1252
+evaluation=50 objective=0.14056198886 qs=0.139822218266 aspect=8.02719872412 mean_iota=-0.939726356738 solver_iterations=1252
+evaluation=51 objective=0.140561989722 qs=0.139822089081 aspect=8.0272011147 mean_iota=-0.939726410259 solver_iterations=1252
+evaluation=52 objective=0.140561990286 qs=0.139822057499 aspect=8.02720170559 mean_iota=-0.939726435293 solver_iterations=1252
+evaluation=53 objective=0.140561990453 qs=0.139822049656 aspect=8.02720185282 mean_iota=-0.939726442279 solver_iterations=1252
+evaluation=54 objective=0.14056199049 qs=0.139822047693 aspect=8.02720188959 mean_iota=-0.93972644408 solver_iterations=1252
+evaluation=55 objective=0.140561990502 qs=0.139822047205 aspect=8.02720189878 mean_iota=-0.939726444531 solver_iterations=1252
+evaluation=56 objective=0.140561990507 qs=0.139822047085 aspect=8.02720190108 mean_iota=-0.939726444643 solver_iterations=1252
+evaluation=57 objective=0.140561990506 qs=0.139822047052 aspect=8.02720190166 mean_iota=-0.939726444675 solver_iterations=1252
+evaluation=58 objective=0.140561990509 qs=0.139822047048 aspect=8.0272019018 mean_iota=-0.939726444686 solver_iterations=1252
+evaluation=59 objective=0.14056199051 qs=0.139822047046 aspect=8.02720190184 mean_iota=-0.939726444682 solver_iterations=1252
+evaluation=60 objective=0.140561990504 qs=0.13982204704 aspect=8.02720190185 mean_iota=-0.939726444684 solver_iterations=1252
+evaluation=61 objective=0.140561990511 qs=0.139822047046 aspect=8.02720190185 mean_iota=-0.939726444681 solver_iterations=1252
+evaluation=62 objective=0.140561990509 qs=0.139822047045 aspect=8.02720190185 mean_iota=-0.939726444684 solver_iterations=1252
+evaluation=63 objective=0.140561990508 qs=0.139822047044 aspect=8.02720190185 mean_iota=-0.939726444684 solver_iterations=1252
+evaluation=64 objective=0.14056199051 qs=0.139822047046 aspect=8.02720190185 mean_iota=-0.939726444685 solver_iterations=1252
+evaluation=65 objective=0.140561990508 qs=0.139822047043 aspect=8.02720190185 mean_iota=-0.939726444678 solver_iterations=1252
+finished max_mode=1 status=The step size satisfies xtol. objective=0.140561975889 evaluations=38 iterations=12 equilibrium_evaluations=65 nonlinear_iterations=77757 analytic_jacobians=13 hot_restart_jacobians=0 linear_iterations=11705
+beginning max_mode=2 variables=24 jacobian_method=analytic stage_restart=0
+evaluation=1 objective=0.141020877317 qs=0.140280933852 aspect=8.02720190185 mean_iota=-0.938783137114 solver_iterations=2255
+evaluation=2 objective=0.14103177035 qs=0.140292436413 aspect=8.02719069578 mean_iota=-0.938930335746 solver_iterations=2257
+evaluation=3 objective=0.141020732309 qs=0.140280788814 aspect=8.02720190242 mean_iota=-0.938783105015 solver_iterations=2255
+evaluation=4 objective=0.141024676468 qs=0.140284733004 aspect=8.02720190185 mean_iota=-0.938955767524 solver_iterations=2256
+evaluation=5 objective=0.141020362145 qs=0.140280418681 aspect=8.02720190185 mean_iota=-0.938783103044 solver_iterations=2255
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5184 worst_linear_residual=0.145397416875 worst_relative_linear_residual=4.99586907481e-06
+ iter   nfev              cost        optimality       radius
+    0      1      0.07051043866       5.481272331 0.2759630961
+evaluation=6 rejected_equilibrium=1 failed_stage=0 fsqr=1 fsqz=1 fsql=1 penalty_objective=18920.75808
+evaluation=7 objective=0.0510628773252 qs=0.0502191369831 aspect=8.02904720885 mean_iota=-1.01390023346 solver_iterations=1935
+evaluation=8 objective=0.0512283009757 qs=0.0503850033583 aspect=8.02903958707 mean_iota=-1.01408600385 solver_iterations=1935
+evaluation=9 objective=0.0510638151534 qs=0.0502200757139 aspect=8.02904719332 mean_iota=-1.01389984214 solver_iterations=1935
+evaluation=10 objective=0.0508830070654 qs=0.0500392667233 aspect=8.02904720885 mean_iota=-1.01410596457 solver_iterations=1935
+evaluation=11 objective=0.0510589893514 qs=0.0502152490092 aspect=8.02904720885 mean_iota=-1.01389989557 solver_iterations=1935
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5010 worst_linear_residual=0.137455741235 worst_relative_linear_residual=4.99883787471e-06
+accepted mode=2 iteration=1 objective=0.0510628773252
+    1      3      0.02553143866       14.354733960.02888057574
+evaluation=12 objective=0.0550916943741 qs=0.0541637476339 aspect=7.96953778176 mean_iota=-1.01105274575 solver_iterations=2960
+evaluation=13 objective=0.0308505651205 qs=0.0307917616339 aspect=8.00766834314 mean_iota=-1.02668380578 solver_iterations=2182
+evaluation=14 objective=0.0308273699613 qs=0.0307686596254 aspect=8.00766226702 mean_iota=-1.02687822197 solver_iterations=2182
+evaluation=15 objective=0.0308497705096 qs=0.0307909707377 aspect=8.00766810094 mean_iota=-1.02668313917 solver_iterations=2182
+evaluation=16 objective=0.0308361732572 qs=0.0307773697706 aspect=8.00766834314 mean_iota=-1.02689811494 solver_iterations=2182
+evaluation=17 objective=0.030850264573 qs=0.0307914610864 aspect=8.00766834314 mean_iota=-1.02668345225 solver_iterations=2182
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5263 worst_linear_residual=0.141195238028 worst_relative_linear_residual=4.99329947602e-06
+accepted mode=2 iteration=2 objective=0.0308505651205
+    2      5      0.01542528256       3.5558382090.01444028787
+evaluation=18 objective=0.0184598681677 qs=0.0184548512933 aspect=7.99776016198 mean_iota=-1.05417403324 solver_iterations=2918
+evaluation=19 objective=0.0185464146249 qs=0.0185413939396 aspect=7.99775931141 mean_iota=-1.05436964893 solver_iterations=2917
+evaluation=20 objective=0.0184533430602 qs=0.0184483216171 aspect=7.99775914234 mean_iota=-1.05417344623 solver_iterations=2918
+evaluation=21 objective=0.0183800164556 qs=0.0183749995813 aspect=7.99776016198 mean_iota=-1.05439074959 solver_iterations=2918
+evaluation=22 objective=0.0184744700478 qs=0.0184694531734 aspect=7.99776016198 mean_iota=-1.05417431848 solver_iterations=2918
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5743 worst_linear_residual=0.150125574878 worst_relative_linear_residual=4.99988441592e-06
+accepted mode=2 iteration=3 objective=0.0184598681677
+    3      6     0.009229934084        5.562191510.02888057574
+evaluation=23 objective=0.0552381186335 qs=0.0534235693098 aspect=7.9574024728 mean_iota=-1.12726279012 solver_iterations=3350
+evaluation=24 objective=0.0142729060328 qs=0.0142722339504 aspect=8.00081980636 mean_iota=-1.07127177199 solver_iterations=3062
+evaluation=25 objective=0.0142568613469 qs=0.014256186482 aspect=8.00082150165 mean_iota=-1.07146774258 solver_iterations=3061
+evaluation=26 objective=0.014262994237 qs=0.0142623240651 aspect=8.00081864033 mean_iota=-1.07127183209 solver_iterations=3061
+evaluation=27 objective=0.0142861681879 qs=0.0142854961054 aspect=8.00081980636 mean_iota=-1.07148500372 solver_iterations=3061
+evaluation=28 objective=0.0142759514833 qs=0.0142752794008 aspect=8.00081980636 mean_iota=-1.07127265033 solver_iterations=3061
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5760 worst_linear_residual=0.149398034362 worst_relative_linear_residual=4.99788024143e-06
+accepted mode=2 iteration=4 objective=0.0142729060328
+    4      8     0.007136453016       1.4806280320.01213436541
+evaluation=29 objective=0.0125895878838 qs=0.0125438461516 aspect=7.99323673657 mean_iota=-1.10126047913 solver_iterations=3224
+evaluation=30 objective=0.0125891515788 qs=0.0125434842581 aspect=7.99324223997 mean_iota=-1.10146093485 solver_iterations=3224
+evaluation=31 objective=0.0125698746408 qs=0.0125241170279 aspect=7.99323556263 mean_iota=-1.10126174521 solver_iterations=3225
+evaluation=32 objective=0.012624821979 qs=0.0125790802468 aspect=7.99323673657 mean_iota=-1.10147257067 solver_iterations=3224
+evaluation=33 objective=0.0125863890463 qs=0.0125406473141 aspect=7.99323673657 mean_iota=-1.10126207921 solver_iterations=3225
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5707 worst_linear_residual=0.143456229753 worst_relative_linear_residual=4.9974655345e-06
+accepted mode=2 iteration=5 objective=0.0125895878838
+    5      9     0.006294793942       4.3570120470.01213436541
+evaluation=34 objective=0.0103019099058 qs=0.0102837334497 aspect=8.00426338552 mean_iota=-1.11231200573 solver_iterations=2629
+evaluation=35 objective=0.0103911703657 qs=0.0103729553116 aspect=8.00426790981 mean_iota=-1.11252694191 solver_iterations=2629
+evaluation=36 objective=0.0103010262756 qs=0.0102828590435 aspect=8.00426230361 mean_iota=-1.11231399746 solver_iterations=2630
+evaluation=37 objective=0.0102394866057 qs=0.0102213101496 aspect=8.00426338552 mean_iota=-1.11253950187 solver_iterations=2629
+evaluation=38 objective=0.0103087615123 qs=0.0102905850562 aspect=8.00426338552 mean_iota=-1.11231491805 solver_iterations=2629
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5614 worst_linear_residual=0.136742943493 worst_relative_linear_residual=4.9957331375e-06
+accepted mode=2 iteration=6 objective=0.0103019099058
+    6     10     0.005150954953       4.7730408150.01213436541
+evaluation=39 objective=0.00913517014611 qs=0.00912787468882 aspect=8.00270101042 mean_iota=-1.10211718758 solver_iterations=2719
+evaluation=40 objective=0.00911010042776 qs=0.00910279031428 aspect=8.00270372215 mean_iota=-1.10235866122 solver_iterations=2717
+evaluation=41 objective=0.0091351475116 qs=0.00912785901697 aspect=8.00269972121 mean_iota=-1.10212079661 solver_iterations=2708
+evaluation=42 objective=0.00915803456803 qs=0.00915073911073 aspect=8.00270101042 mean_iota=-1.10237598906 solver_iterations=2719
+evaluation=43 objective=0.00914084703115 qs=0.00913355157385 aspect=8.00270101042 mean_iota=-1.10212151774 solver_iterations=2720
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5444 worst_linear_residual=0.130077839409 worst_relative_linear_residual=4.99927435504e-06
+accepted mode=2 iteration=7 objective=0.00913517014611
+    7     11     0.004567585073       1.1566391210.02426873083
+evaluation=44 objective=0.00850221472897 qs=0.00850136219636 aspect=8.00092332693 mean_iota=-1.10070023168 solver_iterations=2305
+evaluation=45 objective=0.00850154871006 qs=0.00850069035866 aspect=8.00092647256 mean_iota=-1.10096574144 solver_iterations=2314
+evaluation=46 objective=0.00850771656537 qs=0.00850686654753 aspect=8.00092196412 mean_iota=-1.10070480737 solver_iterations=2310
+evaluation=47 objective=0.00851480245777 qs=0.00851394992515 aspect=8.00092332693 mean_iota=-1.1009862762 solver_iterations=2314
+evaluation=48 objective=0.00850045840654 qs=0.00849960587392 aspect=8.00092332693 mean_iota=-1.10070573065 solver_iterations=2308
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5431 worst_linear_residual=0.127041290325 worst_relative_linear_residual=4.99942657642e-06
+accepted mode=2 iteration=8 objective=0.00850221472897
+    8     12     0.004251107364      0.29832751260.02426873083
+evaluation=49 objective=0.00809538782815 qs=0.00808710701995 aspect=8.00287763934 mean_iota=-1.10118174133 solver_iterations=2015
+evaluation=50 objective=0.00803967221401 qs=0.00803138132139 aspect=8.00287939101 mean_iota=-1.10149748163 solver_iterations=2015
+evaluation=51 objective=0.00811436040078 qs=0.00810608886084 aspect=8.0028760285 mean_iota=-1.10118955337 solver_iterations=2017
+evaluation=52 objective=0.00814228475953 qs=0.00813400395133 aspect=8.00287763934 mean_iota=-1.1015277053 solver_iterations=2015
+evaluation=53 objective=0.00809009373514 qs=0.00808181292694 aspect=8.00287763934 mean_iota=-1.10119050751 solver_iterations=2015
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5385 worst_linear_residual=0.123797306368 worst_relative_linear_residual=4.9999476498e-06
+accepted mode=2 iteration=9 objective=0.00809538782815
+    9     13     0.004047693914       1.8338687730.02426873083
+evaluation=54 objective=0.00734190792383 qs=0.00734136351742 aspect=7.99926216099 mean_iota=-1.1149809799 solver_iterations=2061
+evaluation=55 objective=0.00727100713911 qs=0.00727046522569 aspect=7.99926385231 mean_iota=-1.11534423313 solver_iterations=2060
+evaluation=56 objective=0.0073484174294 qs=0.00734787023016 aspect=7.99926027084 mean_iota=-1.11499163269 solver_iterations=2061
+evaluation=57 objective=0.0074309334873 qs=0.00743038908089 aspect=7.99926216099 mean_iota=-1.11538482392 solver_iterations=2061
+evaluation=58 objective=0.00733260335157 qs=0.00733205894516 aspect=7.99926216099 mean_iota=-1.11499254499 solver_iterations=2061
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5379 worst_linear_residual=0.123562285796 worst_relative_linear_residual=4.99921317444e-06
+accepted mode=2 iteration=10 objective=0.00734190792383
+   10     14     0.003670953962       2.5073951360.02426873083
+evaluation=59 objective=0.00675359600227 qs=0.00674748812661 aspect=7.99752858833 mean_iota=-1.13170048562 solver_iterations=1613
+evaluation=60 objective=0.00672335459092 qs=0.00671725231252 aspect=7.99752972099 mean_iota=-1.13210187926 solver_iterations=1592
+evaluation=61 objective=0.00674921296372 qs=0.00674309476126 aspect=7.99752649996 mean_iota=-1.131713688 solver_iterations=1609
+evaluation=62 objective=0.00681370969142 qs=0.00680760181576 aspect=7.99752858833 mean_iota=-1.13214952571 solver_iterations=1592
+evaluation=63 objective=0.00675365921969 qs=0.00674755134402 aspect=7.99752858833 mean_iota=-1.13171386633 solver_iterations=1610
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5306 worst_linear_residual=0.121851931142 worst_relative_linear_residual=4.99693991843e-06
+accepted mode=2 iteration=11 objective=0.00675359600227
+   11     15     0.003376798001       1.3284594290.02426873083
+evaluation=64 objective=0.00647343924719 qs=0.00647325425155 aspect=7.99956988881 mean_iota=-1.13722810717 solver_iterations=1549
+evaluation=65 objective=0.00650032415243 qs=0.00650013973064 aspect=7.99957055642 mean_iota=-1.13764021925 solver_iterations=1551
+evaluation=66 objective=0.00647186423183 qs=0.00647167741807 aspect=7.99956778043 mean_iota=-1.1372417851 solver_iterations=1549
+evaluation=67 objective=0.00647846066175 qs=0.00647827566612 aspect=7.99956988881 mean_iota=-1.13768922698 solver_iterations=1552
+evaluation=68 objective=0.006478376574 qs=0.00647819157836 aspect=7.99956988881 mean_iota=-1.13724169922 solver_iterations=1549
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5334 worst_linear_residual=0.121797500643 worst_relative_linear_residual=4.99436822437e-06
+accepted mode=2 iteration=12 objective=0.00647343924719
+   12     16     0.003236719624      0.41430791860.02426873083
+evaluation=69 objective=0.00633992475657 qs=0.00633955855519 aspect=8.00060514576 mean_iota=-1.14214514493 solver_iterations=1483
+evaluation=70 objective=0.00636265286172 qs=0.00636228560417 aspect=8.00060601778 mean_iota=-1.14256538199 solver_iterations=1469
+evaluation=71 objective=0.00634215416934 qs=0.00634179067401 aspect=8.00060290574 mean_iota=-1.142159124 solver_iterations=1483
+evaluation=72 objective=0.00635018413622 qs=0.00634981793484 aspect=8.00060514576 mean_iota=-1.14261611733 solver_iterations=1469
+evaluation=73 objective=0.00634138469324 qs=0.00634101849185 aspect=8.00060514576 mean_iota=-1.14215919294 solver_iterations=1483
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5373 worst_linear_residual=0.121283560105 worst_relative_linear_residual=4.99518393756e-06
+accepted mode=2 iteration=13 objective=0.00633992475657
+   13     17     0.003169962378     0.096260193310.02426873083
+evaluation=74 objective=0.00622902358173 qs=0.00622857200833 aspect=8.00067199211 mean_iota=-1.14310362653 solver_iterations=1522
+evaluation=75 objective=0.00624869948007 qs=0.00624824664702 aspect=8.00067292871 mean_iota=-1.1435262872 solver_iterations=1522
+evaluation=76 objective=0.00623187471981 qs=0.00623142623543 aspect=8.00066968976 mean_iota=-1.14311756567 solver_iterations=1526
+evaluation=77 objective=0.00624146660355 qs=0.00624101503016 aspect=8.00067199211 mean_iota=-1.14357761344 solver_iterations=1522
+evaluation=78 objective=0.00623056844399 qs=0.0062301168706 aspect=8.00067199211 mean_iota=-1.14311783178 solver_iterations=1526
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5389 worst_linear_residual=0.120863445443 worst_relative_linear_residual=4.99932093987e-06
+accepted mode=2 iteration=14 objective=0.00622902358173
+   14     18     0.003114511791     0.065204347070.02426873083
+evaluation=79 objective=0.00612955462299 qs=0.00612904632253 aspect=8.00071295193 mean_iota=-1.14229767061 solver_iterations=1517
+evaluation=80 objective=0.00614810086158 qs=0.00614759114423 aspect=8.00071394492 mean_iota=-1.14272026108 solver_iterations=1517
+evaluation=81 objective=0.00613223614323 qs=0.00613173115135 aspect=8.00071062781 mean_iota=-1.14231146125 solver_iterations=1520
+evaluation=82 objective=0.00614292222219 qs=0.00614241392173 aspect=8.00071295193 mean_iota=-1.14277171849 solver_iterations=1518
+evaluation=83 objective=0.00613103985254 qs=0.00613053155208 aspect=8.00071295193 mean_iota=-1.14231182186 solver_iterations=1520
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5384 worst_linear_residual=0.120828390191 worst_relative_linear_residual=4.99716138022e-06
+accepted mode=2 iteration=15 objective=0.00612955462299
+   15     19     0.003064777311     0.056113437790.02426873083
+evaluation=84 objective=0.00604657325489 qs=0.00604605319257 aspect=8.00072115346 mean_iota=-1.1421430107 solver_iterations=1555
+evaluation=85 objective=0.00606500963018 qs=0.00606448788347 aspect=8.00072232036 mean_iota=-1.14256575732 solver_iterations=1555
+evaluation=86 objective=0.00604912088926 qs=0.00604860423654 aspect=8.00071878559 mean_iota=-1.14215670603 solver_iterations=1554
+evaluation=87 objective=0.00606013480196 qs=0.00605961473964 aspect=8.00072115346 mean_iota=-1.14261759039 solver_iterations=1555
+evaluation=88 objective=0.00604782336345 qs=0.00604730330113 aspect=8.00072115346 mean_iota=-1.14215721949 solver_iterations=1555
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5381 worst_linear_residual=0.121176315467 worst_relative_linear_residual=4.99827198268e-06
+accepted mode=2 iteration=16 objective=0.00604657325489
+   16     20     0.003023286627     0.051886257010.02426873083
+evaluation=89 objective=0.00597684229992 qs=0.00597631126177 aspect=8.00072872364 mean_iota=-1.14426729886 solver_iterations=1510
+evaluation=90 objective=0.00599625448311 qs=0.00599572135506 aspect=8.00073015618 mean_iota=-1.14469298175 solver_iterations=1510
+evaluation=91 objective=0.00597976605443 qs=0.00597923858943 aspect=8.00072626786 mean_iota=-1.14428123194 solver_iterations=1509
+evaluation=92 objective=0.00598980825971 qs=0.00598927722156 aspect=8.00072872364 mean_iota=-1.14474577725 solver_iterations=1510
+evaluation=93 objective=0.0059783676926 qs=0.00597783665446 aspect=8.00072872364 mean_iota=-1.14428191148 solver_iterations=1509
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5396 worst_linear_residual=0.121860938294 worst_relative_linear_residual=4.99966914032e-06
+accepted mode=2 iteration=17 objective=0.00597684229992
+   17     21      0.00298842115     0.049760070830.02426873083
+evaluation=94 objective=0.00590966227781 qs=0.00590913424111 aspect=8.00072666133 mean_iota=-1.1426141819 solver_iterations=1577
+evaluation=95 objective=0.00592823273144 qs=0.00592770258216 aspect=8.00072811351 mean_iota=-1.14303827536 solver_iterations=1580
+evaluation=96 objective=0.00591260145821 qs=0.00591207698165 aspect=8.00072420753 mean_iota=-1.14262777192 solver_iterations=1582
+evaluation=97 objective=0.00592318742617 qs=0.00592265938947 aspect=8.00072666133 mean_iota=-1.14309086387 solver_iterations=1578
+evaluation=98 objective=0.00591114150733 qs=0.00591061347064 aspect=8.00072666133 mean_iota=-1.14262856059 solver_iterations=1577
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5390 worst_linear_residual=0.120752643531 worst_relative_linear_residual=4.99733267059e-06
+accepted mode=2 iteration=18 objective=0.00590966227781
+   18     22     0.002954831139     0.043648075570.02426873083
+evaluation=99 objective=0.0058502215937 qs=0.00584964682496 aspect=8.00075813505 mean_iota=-1.14108207634 solver_iterations=1439
+evaluation=100 objective=0.00586843852549 qs=0.00586786142804 aspect=8.0007596693 mean_iota=-1.14150462276 solver_iterations=1439
+evaluation=101 objective=0.00585286492218 qs=0.00585229387828 aspect=8.00075567447 mean_iota=-1.1410954345 solver_iterations=1439
+evaluation=102 objective=0.0058639320284 qs=0.00586335725965 aspect=8.00075813505 mean_iota=-1.14155716576 solver_iterations=1446
+evaluation=103 objective=0.00585164383852 qs=0.00585106906977 aspect=8.00075813505 mean_iota=-1.14109631666 solver_iterations=1439
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5380 worst_linear_residual=0.120409956932 worst_relative_linear_residual=4.9966696988e-06
+accepted mode=2 iteration=19 objective=0.0058502215937
+   19     23     0.002925110797     0.038990816440.02426873083
+evaluation=104 objective=0.00580085677749 qs=0.00580024796524 aspect=8.00078026422 mean_iota=-1.14148861257 solver_iterations=1419
+evaluation=105 objective=0.00581936352956 qs=0.00581875199296 aspect=8.00078200805 mean_iota=-1.14191164937 solver_iterations=1419
+evaluation=106 objective=0.00580367206751 qs=0.00580306716424 aspect=8.00077775528 mean_iota=-1.14150194342 solver_iterations=1422
+evaluation=107 objective=0.0058142322818 qs=0.00581362346956 aspect=8.00078026422 mean_iota=-1.14196459015 solver_iterations=1418
+evaluation=108 objective=0.0058023825801 qs=0.00580177376785 aspect=8.00078026422 mean_iota=-1.14150295665 solver_iterations=1419
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5383 worst_linear_residual=0.120569814722 worst_relative_linear_residual=4.99796281405e-06
+accepted mode=2 iteration=20 objective=0.00580085677749
+   20     24     0.002900428389      0.03607186210.02426873083
+evaluation=109 objective=0.00575820021767 qs=0.0057575726359 aspect=8.00079220059 mean_iota=-1.14063035261 solver_iterations=1561
+evaluation=110 objective=0.00577658014865 qs=0.00577594972487 aspect=8.00079399231 mean_iota=-1.14105267215 solver_iterations=1564
+evaluation=111 objective=0.00576088110756 qs=0.00576025750183 aspect=8.00078968711 mean_iota=-1.14064349438 solver_iterations=1569
+evaluation=112 objective=0.00577188709813 qs=0.00577125951635 aspect=8.00079220059 mean_iota=-1.14110552933 solver_iterations=1571
+evaluation=113 objective=0.00575972376282 qs=0.00575909618104 aspect=8.00079220059 mean_iota=-1.14064461819 solver_iterations=1573
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5381 worst_linear_residual=0.121011247082 worst_relative_linear_residual=4.99900248109e-06
+accepted mode=2 iteration=21 objective=0.00575820021767
+   21     25     0.002879100109     0.033395507810.02426873083
+evaluation=114 objective=0.00572055373666 qs=0.00571992179271 aspect=8.00079494902 mean_iota=-1.13982448544 solver_iterations=1600
+evaluation=115 objective=0.0057386980716 qs=0.00573806303116 aspect=8.00079689425 mean_iota=-1.14024576408 solver_iterations=1600
+evaluation=116 objective=0.00572329520574 qs=0.00572266728868 aspect=8.00079241217 mean_iota=-1.1398375226 solver_iterations=1600
+evaluation=117 objective=0.00573386776979 qs=0.00573323582584 aspect=8.00079494902 mean_iota=-1.14029871497 solver_iterations=1602
+evaluation=118 objective=0.00572195155928 qs=0.00572131961533 aspect=8.00079494902 mean_iota=-1.13983874822 solver_iterations=1599
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5371 worst_linear_residual=0.121112963857 worst_relative_linear_residual=4.99850668707e-06
+accepted mode=2 iteration=22 objective=0.00572055373666
+   22     26     0.002860276868     0.034574758340.02426873083
+evaluation=119 objective=0.00568842028262 qs=0.00568777630053 aspect=8.00080248495 mean_iota=-1.14177242859 solver_iterations=1571
+evaluation=120 objective=0.00570748780534 qs=0.00570684046809 aspect=8.00080457271 mean_iota=-1.14219651798 solver_iterations=1569
+evaluation=121 objective=0.00569107800365 qs=0.00569043816499 aspect=8.00079989916 mean_iota=-1.14178555072 solver_iterations=1571
+evaluation=122 objective=0.00570155254048 qs=0.00570090855839 aspect=8.00080248495 mean_iota=-1.14225011769 solver_iterations=1570
+evaluation=123 objective=0.00568979982798 qs=0.00568915584588 aspect=8.00080248495 mean_iota=-1.14178687584 solver_iterations=1571
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5391 worst_linear_residual=0.121799822638 worst_relative_linear_residual=4.99739753403e-06
+accepted mode=2 iteration=23 objective=0.00568842028262
+   23     27     0.002844210141     0.029274880120.02426873083
+evaluation=124 objective=0.00565999920787 qs=0.00565938433014 aspect=8.00078414139 mean_iota=-1.1433395195 solver_iterations=1616
+evaluation=125 objective=0.00567906137252 qs=0.00567844299557 aspect=8.00078636947 mean_iota=-1.14376573495 solver_iterations=1619
+evaluation=126 objective=0.00566308471359 qs=0.00566247396533 aspect=8.00078150385 mean_iota=-1.14335278927 solver_iterations=1608
+evaluation=127 objective=0.00567325914587 qs=0.00567264426814 aspect=8.00078414139 mean_iota=-1.14381984993 solver_iterations=1626
+evaluation=128 objective=0.00566177360136 qs=0.00566115872363 aspect=8.00078414139 mean_iota=-1.14335423478 solver_iterations=1611
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5403 worst_linear_residual=0.122775124219 worst_relative_linear_residual=4.99770135069e-06
+accepted mode=2 iteration=24 objective=0.00565999920787
+   24     28     0.002829999604     0.027178986840.02426873083
+evaluation=129 objective=0.00562628882229 qs=0.00562564494713 aspect=8.00080241832 mean_iota=-1.13975473039 solver_iterations=1692
+evaluation=130 objective=0.00564480115436 qs=0.00564415389057 aspect=8.00080452706 mean_iota=-1.14017697617 solver_iterations=1692
+evaluation=131 objective=0.00562904872267 qs=0.00562840896522 aspect=8.00079984839 mean_iota=-1.13976753669 solver_iterations=1692
+evaluation=132 objective=0.0056397222621 qs=0.00563907838694 aspect=8.00080241832 mean_iota=-1.14023007222 solver_iterations=1693
+evaluation=133 objective=0.00562761851256 qs=0.0056269746374 aspect=8.00080241832 mean_iota=-1.13976898417 solver_iterations=1692
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5381 worst_linear_residual=0.120938526873 worst_relative_linear_residual=4.99768939226e-06
+accepted mode=2 iteration=25 objective=0.00562628882229
+   25     29     0.002813144411     0.025960602540.02426873083
+evaluation=134 objective=0.00559960294705 qs=0.00559889156893 aspect=8.00084343235 mean_iota=-1.14047518772 solver_iterations=1554
+evaluation=135 objective=0.00561774531779 qs=0.00561703002379 aspect=8.00084575055 mean_iota=-1.14089834099 solver_iterations=1556
+evaluation=136 objective=0.00560224093332 qs=0.00560153396396 aspect=8.0008408147 mean_iota=-1.14048795728 solver_iterations=1551
+evaluation=137 objective=0.00561274608793 qs=0.00561203470981 aspect=8.00084343235 mean_iota=-1.1409519577 solver_iterations=1560
+evaluation=138 objective=0.00560108724977 qs=0.00560037587165 aspect=8.00084343235 mean_iota=-1.14048953177 solver_iterations=1552
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5387 worst_linear_residual=0.122815918082 worst_relative_linear_residual=4.99718000705e-06
+accepted mode=2 iteration=26 objective=0.00559960294705
+   26     30     0.002799801474     0.029140184620.02426873083
+evaluation=139 objective=0.0055840034249 qs=0.0055834637376 aspect=8.00073463413 mean_iota=-1.14491996051 solver_iterations=1437
+evaluation=140 objective=0.00560456175325 qs=0.00560401848571 aspect=8.00073706685 mean_iota=-1.14534898721 solver_iterations=1437
+evaluation=141 objective=0.00558709975021 qs=0.00558656399932 aspect=8.00073195006 mean_iota=-1.14493312724 solver_iterations=1437
+evaluation=142 objective=0.00559706684118 qs=0.00559652715387 aspect=8.00073463413 mean_iota=-1.14540357488 solver_iterations=1443
+evaluation=143 objective=0.00558549158369 qs=0.00558495189638 aspect=8.00073463413 mean_iota=-1.14493478215 solver_iterations=1437
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5413 worst_linear_residual=0.121878506499 worst_relative_linear_residual=4.99902367596e-06
+accepted mode=2 iteration=27 objective=0.0055840034249
+   27     31     0.002792001712     0.032810007370.02426873083
+evaluation=144 objective=0.00555376637814 qs=0.00555314296147 aspect=8.00078956739 mean_iota=-1.1392506586 solver_iterations=1664
+evaluation=145 objective=0.00557290143973 qs=0.00557227440519 aspect=8.00079185513 mean_iota=-1.13967280787 solver_iterations=1660
+evaluation=146 objective=0.00555692934636 qs=0.00555631003075 aspect=8.00078696608 mean_iota=-1.13926257015 solver_iterations=2568
+evaluation=147 objective=0.00556658648917 qs=0.0055659630725 aspect=8.00078956739 mean_iota=-1.13972602447 solver_iterations=1658
+evaluation=148 objective=0.00555507161376 qs=0.00555444819709 aspect=8.00078956739 mean_iota=-1.13926492864 solver_iterations=1703
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5379 worst_linear_residual=0.122133303408 worst_relative_linear_residual=4.99876647121e-06
+accepted mode=2 iteration=28 objective=0.00555376637814
+   28     32     0.002776883189     0.032844018470.02426873083
+evaluation=149 objective=0.00553005485813 qs=0.00552930241424 aspect=8.00086743524 mean_iota=-1.13960778408 solver_iterations=1613
+evaluation=150 objective=0.00554851912898 qs=0.00554776239827 aspect=8.0008699027 mean_iota=-1.14003031072 solver_iterations=1613
+evaluation=151 objective=0.00553258592644 qs=0.00553183802813 aspect=8.00086481114 mean_iota=-1.1396202855 solver_iterations=1611
+evaluation=152 objective=0.00554383546499 qs=0.0055430830211 aspect=8.00086743524 mean_iota=-1.14008386852 solver_iterations=1615
+evaluation=153 objective=0.00553133770461 qs=0.00553058526072 aspect=8.00086743524 mean_iota=-1.13962204547 solver_iterations=1611
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5377 worst_linear_residual=0.12136831206 worst_relative_linear_residual=4.99879533815e-06
+accepted mode=2 iteration=29 objective=0.00553005485813
+   29     33     0.002765027429     0.026435474110.02426873083
+evaluation=154 objective=0.00551271988096 qs=0.0055119915027 aspect=8.00085345079 mean_iota=-1.13985298357 solver_iterations=1717
+evaluation=155 objective=0.00553120546219 qs=0.00553047263509 aspect=8.00085605321 mean_iota=-1.14027551388 solver_iterations=1711
+evaluation=156 objective=0.00551539414486 qs=0.00551467031038 aspect=8.00085078463 mean_iota=-1.13986537843 solver_iterations=1707
+evaluation=157 objective=0.00552582427836 qs=0.00552509590011 aspect=8.00085345079 mean_iota=-1.14032938825 solver_iterations=1711
+evaluation=158 objective=0.00551410924921 qs=0.00551338087096 aspect=8.00085345079 mean_iota=-1.13986725528 solver_iterations=1707
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5386 worst_linear_residual=0.122255810249 worst_relative_linear_residual=4.99717412225e-06
+accepted mode=2 iteration=30 objective=0.00551271988096
+   30     34      0.00275635994     0.021480129330.02426873083
+evaluation=159 objective=0.00550039350134 qs=0.00549971761648 aspect=8.00082212217 mean_iota=-1.14249504303 solver_iterations=1528
+evaluation=160 objective=0.00551954607292 qs=0.00551886572207 aspect=8.00082483383 mean_iota=-1.14292108045 solver_iterations=1526
+evaluation=161 objective=0.00550355991017 qs=0.00550288847206 aspect=8.00081941327 mean_iota=-1.14250791404 solver_iterations=1530
+evaluation=162 objective=0.00551376478062 qs=0.00551308889576 aspect=8.00082212217 mean_iota=-1.14297555145 solver_iterations=1525
+evaluation=163 objective=0.00550216580145 qs=0.00550148991659 aspect=8.00082212217 mean_iota=-1.14250984679 solver_iterations=1530
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5401 worst_linear_residual=0.122808467262 worst_relative_linear_residual=4.99900692805e-06
+accepted mode=2 iteration=31 objective=0.00550039350134
+   31     35     0.002750196751     0.023778989370.02426873083
+evaluation=164 objective=0.00547578486904 qs=0.00547506991404 aspect=8.00084555012 mean_iota=-1.13689132872 solver_iterations=1598
+evaluation=165 objective=0.00549497292498 qs=0.0054942537886 aspect=8.00084801909 mean_iota=-1.13731088121 solver_iterations=1598
+evaluation=166 objective=0.00547870046181 qs=0.00547798988321 aspect=8.00084295824 mean_iota=-1.13690359028 solver_iterations=1606
+evaluation=167 objective=0.00548860354858 qs=0.00548788859357 aspect=8.00084555012 mean_iota=-1.13736376354 solver_iterations=1600
+evaluation=168 objective=0.00547690072542 qs=0.00547618577041 aspect=8.00084555012 mean_iota=-1.1369054696 solver_iterations=1606
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5360 worst_linear_residual=0.121976381388 worst_relative_linear_residual=4.99893550159e-06
+accepted mode=2 iteration=32 objective=0.00547578486904
+   32     36     0.002737892435     0.038138289050.02426873083
+evaluation=169 objective=0.00546084697713 qs=0.0054600467843 aspect=8.00089453498 mean_iota=-1.13762758879 solver_iterations=1658
+evaluation=170 objective=0.00547925374767 qs=0.00547844869562 aspect=8.00089724693 mean_iota=-1.13804762547 solver_iterations=1657
+evaluation=171 objective=0.00546335490047 qs=0.00546255942053 aspect=8.00089189682 mean_iota=-1.13763978181 solver_iterations=1658
+evaluation=172 objective=0.00547412471089 qs=0.00547332451807 aspect=8.00089453498 mean_iota=-1.13810103634 solver_iterations=1657
+evaluation=173 objective=0.00546229709649 qs=0.00546149690367 aspect=8.00089453498 mean_iota=-1.13764176878 solver_iterations=1658
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5362 worst_linear_residual=0.121659265431 worst_relative_linear_residual=4.9977852621e-06
+accepted mode=2 iteration=33 objective=0.00546084697713
+   33     37     0.002730423489      0.02576459220.02426873083
+evaluation=174 objective=0.00544920438421 qs=0.00544844453381 aspect=8.00087169398 mean_iota=-1.13863559461 solver_iterations=1767
+evaluation=175 objective=0.00546765362074 qs=0.00546688889303 aspect=8.00087448711 mean_iota=-1.13905692641 solver_iterations=1768
+evaluation=176 objective=0.005452078922 qs=0.00545132371059 aspect=8.000869029 mean_iota=-1.13864793908 solver_iterations=1769
+evaluation=177 objective=0.00546251378881 qs=0.00546175393841 aspect=8.00087169398 mean_iota=-1.13911058969 solver_iterations=1766
+evaluation=178 objective=0.00545081238096 qs=0.00545005253056 aspect=8.00087169398 mean_iota=-1.13865000467 solver_iterations=1768
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5377 worst_linear_residual=0.122930165288 worst_relative_linear_residual=4.9987878971e-06
+accepted mode=2 iteration=34 objective=0.00544920438421
+   34     38     0.002724602192      0.01981337140.02426873083
+evaluation=179 objective=0.00543576706519 qs=0.0054349665452 aspect=8.00089471783 mean_iota=-1.13707434453 solver_iterations=1644
+evaluation=180 objective=0.00545387315961 qs=0.0054530677564 aspect=8.00089744259 mean_iota=-1.13749394693 solver_iterations=1644
+evaluation=181 objective=0.00543838945719 qs=0.00543759363217 aspect=8.00089209025 mean_iota=-1.13708642316 solver_iterations=1643
+evaluation=182 objective=0.0054492130749 qs=0.0054484125549 aspect=8.00089471783 mean_iota=-1.13754708013 solver_iterations=1644
+evaluation=183 objective=0.0054371209439 qs=0.00543632042391 aspect=8.00089471783 mean_iota=-1.13708847587 solver_iterations=1644
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5368 worst_linear_residual=0.122900131253 worst_relative_linear_residual=4.99906603798e-06
+accepted mode=2 iteration=35 objective=0.00543576706519
+   35     39     0.002717883533     0.020909629240.02426873083
+evaluation=184 objective=0.00542531937249 qs=0.00542453587484 aspect=8.00088515403 mean_iota=-1.13886309606 solver_iterations=1787
+evaluation=185 objective=0.00544404277013 qs=0.00544325410566 aspect=8.00088806783 mean_iota=-1.13928479624 solver_iterations=1788
+evaluation=186 objective=0.00542809860562 qs=0.00542731983732 aspect=8.0008824785 mean_iota=-1.13887530544 solver_iterations=1787
+evaluation=187 objective=0.00543850522939 qs=0.00543772173174 aspect=8.00088515403 mean_iota=-1.13933847371 solver_iterations=1787
+evaluation=188 objective=0.00542688370154 qs=0.00542610020389 aspect=8.00088515403 mean_iota=-1.13887747822 solver_iterations=1787
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5386 worst_linear_residual=0.122235661352 worst_relative_linear_residual=4.99517801238e-06
+accepted mode=2 iteration=36 objective=0.00542531937249
+   36     40     0.002712659686     0.019731521580.02426873083
+evaluation=189 objective=0.00541296868492 qs=0.00541216310437 aspect=8.00089754139 mean_iota=-1.13768528621 solver_iterations=1796
+evaluation=190 objective=0.00543125312775 qs=0.00543044247384 aspect=8.00090036321 mean_iota=-1.13810590279 solver_iterations=1799
+evaluation=191 objective=0.00541553795881 qs=0.00541473711667 aspect=8.00089489784 mean_iota=-1.13769724544 solver_iterations=1794
+evaluation=192 objective=0.00542672172279 qs=0.00542591614225 aspect=8.00089754139 mean_iota=-1.13815920344 solver_iterations=1806
+evaluation=193 objective=0.00541433923106 qs=0.00541353365051 aspect=8.00089754139 mean_iota=-1.1376994358 solver_iterations=1794
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5382 worst_linear_residual=0.122713853767 worst_relative_linear_residual=4.99893439594e-06
+accepted mode=2 iteration=37 objective=0.00541296868492
+   37     41     0.002706484342     0.019244831730.02426873083
+evaluation=194 objective=0.00540013068176 qs=0.00539934840827 aspect=8.00088446226 mean_iota=-1.13785443602 solver_iterations=1783
+evaluation=195 objective=0.00541849651058 qs=0.00541770888812 aspect=8.00088748096 mean_iota=-1.13827471678 solver_iterations=1783
+evaluation=196 objective=0.00540311935166 qs=0.00540234181105 aspect=8.00088178263 mean_iota=-1.13786662465 solver_iterations=1790
+evaluation=197 objective=0.00541313758888 qs=0.0054123553154 aspect=8.00088446226 mean_iota=-1.1383282119 solver_iterations=1786
+evaluation=198 objective=0.00540188420701 qs=0.00540110193353 aspect=8.00088446226 mean_iota=-1.13786888333 solver_iterations=1790
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5383 worst_linear_residual=0.123019066188 worst_relative_linear_residual=4.99878302022e-06
+accepted mode=2 iteration=38 objective=0.00540013068176
+   38     42     0.002700065341     0.020434896990.02426873083
+evaluation=199 objective=0.00538505532957 qs=0.00538422413409 aspect=8.00091169922 mean_iota=-1.1358799461 solver_iterations=1590
+evaluation=200 objective=0.00540324517203 qs=0.00540240877518 aspect=8.00091454734 mean_iota=-1.13629827106 solver_iterations=1593
+evaluation=201 objective=0.00538759984301 qs=0.00538677339719 aspect=8.00090909065 mean_iota=-1.13589170871 solver_iterations=1598
+evaluation=202 objective=0.00539852630072 qs=0.00539769510525 aspect=8.00091169922 mean_iota=-1.13635097561 solver_iterations=1593
+evaluation=203 objective=0.00538634776789 qs=0.00538551657242 aspect=8.00091169922 mean_iota=-1.13589393777 solver_iterations=1598
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5367 worst_linear_residual=0.12221496437 worst_relative_linear_residual=4.99741983483e-06
+accepted mode=2 iteration=39 objective=0.00538505532957
+   39     43     0.002692527665     0.023988781590.02426873083
+evaluation=204 objective=0.00537414497649 qs=0.00537332317063 aspect=8.00090653509 mean_iota=-1.13687779548 solver_iterations=1746
+evaluation=205 objective=0.00539262899139 qs=0.00539180162356 aspect=8.00090959762 mean_iota=-1.13729693713 solver_iterations=1749
+evaluation=206 objective=0.00537671020367 qs=0.00537589320457 aspect=8.00090388002 mean_iota=-1.1368895572 solver_iterations=1742
+evaluation=207 objective=0.0053873290838 qs=0.00538650727794 aspect=8.00090653509 mean_iota=-1.1373501482 solver_iterations=1749
+evaluation=208 objective=0.00537568671265 qs=0.00537486490678 aspect=8.00090653509 mean_iota=-1.13689202921 solver_iterations=1746
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5375 worst_linear_residual=0.122842729933 worst_relative_linear_residual=4.99935027071e-06
+accepted mode=2 iteration=40 objective=0.00537414497649
+   40     44     0.002687072488     0.020216254860.02426873083
+evaluation=209 objective=0.005365292266 qs=0.00536448680832 aspect=8.00089747294 mean_iota=-1.13698155247 solver_iterations=1588
+evaluation=210 objective=0.00538340379707 qs=0.00538259280097 aspect=8.00090055322 mean_iota=-1.13740080925 solver_iterations=1588
+evaluation=211 objective=0.00536811724597 qs=0.00536731654426 aspect=8.00089481937 mean_iota=-1.13699342563 solver_iterations=1588
+evaluation=212 objective=0.00537858250822 qs=0.00537777705054 aspect=8.00089747294 mean_iota=-1.13745389983 solver_iterations=1583
+evaluation=213 objective=0.00536674151808 qs=0.00536593606039 aspect=8.00089747294 mean_iota=-1.13699579351 solver_iterations=1588
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5378 worst_linear_residual=0.123546405334 worst_relative_linear_residual=4.99780030579e-06
+accepted mode=2 iteration=41 objective=0.005365292266
+   41     45     0.002682646133     0.020487073010.02426873083
+evaluation=214 objective=0.00535547667778 qs=0.00535466956595 aspect=8.00089839403 mean_iota=-1.13727324803 solver_iterations=1757
+evaluation=215 objective=0.00537369997104 qs=0.00537288735074 aspect=8.00090145455 mean_iota=-1.13769307849 solver_iterations=1757
+evaluation=216 objective=0.00535788112631 qs=0.00535707875801 aspect=8.00089575013 mean_iota=-1.13728480074 solver_iterations=1749
+evaluation=217 objective=0.00536902776413 qs=0.0053682206523 aspect=8.00089839403 mean_iota=-1.13774618343 solver_iterations=1757
+evaluation=218 objective=0.00535690382797 qs=0.00535609671614 aspect=8.00089839403 mean_iota=-1.13728744909 solver_iterations=1757
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5386 worst_linear_residual=0.122568406246 worst_relative_linear_residual=4.99998455935e-06
+accepted mode=2 iteration=42 objective=0.00535547667778
+   42     46     0.002677738339     0.020282651740.02426873083
+evaluation=219 objective=0.00534980154309 qs=0.00534902230893 aspect=8.00088274241 mean_iota=-1.13909905538 solver_iterations=1778
+evaluation=220 objective=0.00536980362167 qs=0.00536901867942 aspect=8.00088596967 mean_iota=-1.1395209725 solver_iterations=1669
+evaluation=221 objective=0.00535261453289 qs=0.00535184004255 aspect=8.00088005133 mean_iota=-1.1391108873 solver_iterations=1772
+evaluation=222 objective=0.00536412759532 qs=0.00536334836116 aspect=8.00088274241 mean_iota=-1.13957468906 solver_iterations=1669
+evaluation=223 objective=0.00535128755275 qs=0.00535050831858 aspect=8.00088274241 mean_iota=-1.13911350565 solver_iterations=1778
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5400 worst_linear_residual=0.123282244995 worst_relative_linear_residual=4.99493310276e-06
+accepted mode=2 iteration=43 objective=0.00534980154309
+   43     47     0.002674900772     0.022296797850.02426873083
+evaluation=224 objective=0.00533731453311 qs=0.00533655189624 aspect=8.00087329083 mean_iota=-1.13434790874 solver_iterations=1746
+evaluation=225 objective=0.00535597604865 qs=0.00535520793341 aspect=8.00087642184 mean_iota=-1.13476381199 solver_iterations=1746
+evaluation=226 objective=0.00534022481176 qs=0.00533946674227 aspect=8.00087067186 mean_iota=-1.13435964881 solver_iterations=1754
+evaluation=227 objective=0.00534977713858 qs=0.0053490145017 aspect=8.00087329083 mean_iota=-1.13481648349 solver_iterations=1754
+evaluation=228 objective=0.00533871186484 qs=0.00533794922796 aspect=8.00087329083 mean_iota=-1.13436206748 solver_iterations=1753
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5366 worst_linear_residual=0.12298672363 worst_relative_linear_residual=4.99973940557e-06
+accepted mode=2 iteration=44 objective=0.00533731453311
+   44     48     0.002668657267     0.027897062510.02426873083
+evaluation=229 objective=0.00532605778765 qs=0.00532519607332 aspect=8.00092828569 mean_iota=-1.13449718985 solver_iterations=1876
+evaluation=230 objective=0.00534407638061 qs=0.0053432087554 aspect=8.00093146401 mean_iota=-1.13491320464 solver_iterations=1876
+evaluation=231 objective=0.00532846788153 qs=0.00532761099897 aspect=8.00092567951 mean_iota=-1.13450862942 solver_iterations=1877
+evaluation=232 objective=0.00533933795563 qs=0.00533847624131 aspect=8.00092828569 mean_iota=-1.13496561681 solver_iterations=1876
+evaluation=233 objective=0.00532731228275 qs=0.00532645056842 aspect=8.00092828569 mean_iota=-1.13451108138 solver_iterations=1877
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5362 worst_linear_residual=0.123549816398 worst_relative_linear_residual=4.9985160385e-06
+accepted mode=2 iteration=45 objective=0.00532605778765
+   45     49     0.002663028894     0.024936802230.02426873083
+evaluation=234 objective=0.00531888364861 qs=0.0053181191056 aspect=8.0008743815 mean_iota=-1.13721788144 solver_iterations=1738
+evaluation=235 objective=0.00533773612257 qs=0.00533696575721 aspect=8.0008777046 mean_iota=-1.1376371629 solver_iterations=1737
+evaluation=236 objective=0.00532166206378 qs=0.00532090216345 aspect=8.00087172262 mean_iota=-1.13722959908 solver_iterations=1741
+evaluation=237 objective=0.00533429668484 qs=0.00533353214183 aspect=8.0008743815 mean_iota=-1.13769273271 solver_iterations=1803
+evaluation=238 objective=0.0053202956089 qs=0.00531953106589 aspect=8.0008743815 mean_iota=-1.13723208851 solver_iterations=1737
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5389 worst_linear_residual=0.123373222288 worst_relative_linear_residual=4.99968043192e-06
+accepted mode=2 iteration=46 objective=0.00531888364861
+   46     50     0.002659441824     0.027320567340.02426873083
+evaluation=239 objective=0.0053094400952 qs=0.00530872023324 aspect=8.0008484468 mean_iota=-1.13297677659 solver_iterations=1851
+evaluation=240 objective=0.00532838538594 qs=0.00532766000715 aspect=8.00085169172 mean_iota=-1.13339018691 solver_iterations=1848
+evaluation=241 objective=0.00531081395162 qs=0.00531009849233 aspect=8.00084584826 mean_iota=-1.13298679321 solver_iterations=1808
+evaluation=242 objective=0.00532135540266 qs=0.00532063554069 aspect=8.0008484468 mean_iota=-1.13344211731 solver_iterations=1846
+evaluation=243 objective=0.00530909639991 qs=0.00530837653794 aspect=8.0008484468 mean_iota=-1.13298931713 solver_iterations=1808
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5342 worst_linear_residual=0.122782070476 worst_relative_linear_residual=4.99964016587e-06
+accepted mode=2 iteration=47 objective=0.0053094400952
+   47     51     0.002654720048     0.056004232040.02426873083
+evaluation=244 objective=0.00529450952262 qs=0.00529372401595 aspect=8.00088628814 mean_iota=-1.13717288818 solver_iterations=1736
+evaluation=245 objective=0.00531349768956 qs=0.00531270619042 aspect=8.00088966237 mean_iota=-1.13759180408 solver_iterations=1736
+evaluation=246 objective=0.00529705606218 qs=0.00529627526141 aspect=8.00088362932 mean_iota=-1.13718419998 solver_iterations=1729
+evaluation=247 objective=0.0053077761979 qs=0.00530699069123 aspect=8.00088628814 mean_iota=-1.13764518594 solver_iterations=1743
+evaluation=248 objective=0.00529559077143 qs=0.00529480526476 aspect=8.00088628814 mean_iota=-1.13718693654 solver_iterations=1732
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5374 worst_linear_residual=0.12262254481 worst_relative_linear_residual=4.99608719791e-06
+accepted mode=2 iteration=48 objective=0.00529450952262
+   48     52     0.002647254761     0.036657896710.02426873083
+evaluation=249 objective=0.00529465701911 qs=0.00529392665563 aspect=8.00085461306 mean_iota=-1.13866388236 solver_iterations=1751
+evaluation=250 objective=0.00529151881477 qs=0.00529073020442 aspect=8.00088803736 mean_iota=-1.13735175666 solver_iterations=1737
+evaluation=251 objective=0.00530976695274 qs=0.00530897226822 aspect=8.00089145079 mean_iota=-1.13777066466 solver_iterations=1737
+evaluation=252 objective=0.00529438724935 qs=0.00529360337882 aspect=8.00088536463 mean_iota=-1.13736341106 solver_iterations=1737
+evaluation=253 objective=0.00530473007683 qs=0.00530394146649 aspect=8.00088803736 mean_iota=-1.13782400453 solver_iterations=1737
+evaluation=254 objective=0.00529313298638 qs=0.00529234437603 aspect=8.00088803736 mean_iota=-1.13736611733 solver_iterations=1737
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5381 worst_linear_residual=0.124117735623 worst_relative_linear_residual=4.99986194014e-06
+accepted mode=2 iteration=49 objective=0.00529151881477
+   49     54     0.002645759407     0.021175837830.0002446954403
+evaluation=255 objective=0.00528265102534 qs=0.0052818466506 aspect=8.00089686941 mean_iota=-1.13715165263 solver_iterations=1709
+evaluation=256 objective=0.00530091544668 qs=0.00530010504188 aspect=8.00090022486 mean_iota=-1.13757052746 solver_iterations=1709
+evaluation=257 objective=0.00528533458739 qs=0.00528453495231 aspect=8.00089422317 mean_iota=-1.13716322548 solver_iterations=1709
+evaluation=258 objective=0.00529615136009 qs=0.00529534698535 aspect=8.00089686941 mean_iota=-1.13762366249 solver_iterations=1711
+evaluation=259 objective=0.00528409289651 qs=0.00528328852177 aspect=8.00089686941 mean_iota=-1.13716592413 solver_iterations=1709
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5384 worst_linear_residual=0.123341194392 worst_relative_linear_residual=4.99797442227e-06
+accepted mode=2 iteration=50 objective=0.00528265102534
+   50     55     0.002641325513     0.021467385820.0004893908806
+evaluation=260 objective=0.00527425742804 qs=0.00527344414166 aspect=8.00090182392 mean_iota=-1.13712027924 solver_iterations=1731
+evaluation=261 objective=0.00529247661449 qs=0.00529165730952 aspect=8.00090515467 mean_iota=-1.13753938111 solver_iterations=1734
+evaluation=262 objective=0.00527679835538 qs=0.00527598981133 aspect=8.00089919077 mean_iota=-1.13713175317 solver_iterations=1729
+evaluation=263 objective=0.00528778324951 qs=0.00528696996312 aspect=8.00090182392 mean_iota=-1.13759244723 solver_iterations=1736
+evaluation=264 objective=0.00527563586401 qs=0.00527482257762 aspect=8.00090182392 mean_iota=-1.13713443793 solver_iterations=1730
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5391 worst_linear_residual=0.124019446312 worst_relative_linear_residual=4.99977895306e-06
+accepted mode=2 iteration=51 objective=0.00527425742804
+   51     56     0.002637128714     0.020882319390.0004893908806
+evaluation=265 objective=0.00527160647938 qs=0.00527080433243 aspect=8.00089562657 mean_iota=-1.13785267539 solver_iterations=1745
+evaluation=266 objective=0.00529000715726 qs=0.00528919889124 aspect=8.00089903616 mean_iota=-1.13827258431 solver_iterations=1745
+evaluation=267 objective=0.00527435401043 qs=0.00527355660502 aspect=8.00089297559 mean_iota=-1.13786432319 solver_iterations=1745
+evaluation=268 objective=0.00528499531841 qs=0.00528419317146 aspect=8.00089562657 mean_iota=-1.13832577779 solver_iterations=1745
+evaluation=269 objective=0.00527314770572 qs=0.00527234555877 aspect=8.00089562657 mean_iota=-1.13786705392 solver_iterations=1745
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5398 worst_linear_residual=0.123126920578 worst_relative_linear_residual=4.99889379554e-06
+accepted mode=2 iteration=52 objective=0.00527160647938
+   52     57      0.00263580324     0.021206225490.0004893908806
+evaluation=270 objective=0.00526184704985 qs=0.00526101254651 aspect=8.00091351154 mean_iota=-1.13693345871 solver_iterations=1750
+evaluation=271 objective=0.00528003789383 qs=0.00527919733437 aspect=8.0009168203 mean_iota=-1.13735250416 solver_iterations=1750
+evaluation=272 objective=0.00526450035185 qs=0.00526367061777 aspect=8.0009108974 mean_iota=-1.13694504628 solver_iterations=1752
+evaluation=273 objective=0.00527534126541 qs=0.00527450676207 aspect=8.00091351154 mean_iota=-1.13740525239 solver_iterations=1750
+evaluation=274 objective=0.00526324629408 qs=0.00526241179074 aspect=8.00091351154 mean_iota=-1.13694769881 solver_iterations=1750
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5396 worst_linear_residual=0.123426240739 worst_relative_linear_residual=4.99876055346e-06
+accepted mode=2 iteration=53 objective=0.00526184704985
+   53     58     0.002630923525     0.021476000370.0009787817612
+evaluation=275 objective=0.00525622363746 qs=0.0052553901258 aspect=8.0009129686 mean_iota=-1.13722271611 solver_iterations=1747
+evaluation=276 objective=0.00527452826277 qs=0.00527368859656 aspect=8.00091633302 mean_iota=-1.13764201081 solver_iterations=1747
+evaluation=277 objective=0.00525884547432 qs=0.00525801673248 aspect=8.00091035259 mean_iota=-1.13723429956 solver_iterations=1749
+evaluation=278 objective=0.00526976091303 qs=0.00526892740137 aspect=8.0009129686 mean_iota=-1.1376948264 solver_iterations=1747
+evaluation=279 objective=0.0052576540767 qs=0.00525682056504 aspect=8.0009129686 mean_iota=-1.13723698323 solver_iterations=1747
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5399 worst_linear_residual=0.123643191246 worst_relative_linear_residual=4.99519410314e-06
+accepted mode=2 iteration=54 objective=0.00525622363746
+   54     59     0.002628111819      0.02092038820.0009787817612
+evaluation=280 objective=0.00524957044379 qs=0.00524873273335 aspect=8.00091526523 mean_iota=-1.1367418326 solver_iterations=1755
+evaluation=281 objective=0.00526771801828 qs=0.00526687415751 aspect=8.00091861895 mean_iota=-1.13716043087 solver_iterations=1752
+evaluation=282 objective=0.00525212987074 qs=0.00525129691895 aspect=8.00091266192 mean_iota=-1.13675337547 solver_iterations=1757
+evaluation=283 objective=0.00526298103591 qs=0.00526214332547 aspect=8.00091526523 mean_iota=-1.13721304864 solver_iterations=1752
+evaluation=284 objective=0.00525095794346 qs=0.00525012023303 aspect=8.00091526523 mean_iota=-1.1367561128 solver_iterations=1757
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5397 worst_linear_residual=0.123967333819 worst_relative_linear_residual=4.99842895992e-06
+accepted mode=2 iteration=55 objective=0.00524957044379
+   55     60     0.002624785222     0.021353973420.0009787817612
+evaluation=285 objective=0.00524303893603 qs=0.0052422378223 aspect=8.00089504957 mean_iota=-1.13832216274 solver_iterations=1656
+evaluation=286 objective=0.00526170974968 qs=0.00526090247375 aspect=8.00089848535 mean_iota=-1.13874278685 solver_iterations=1656
+evaluation=287 objective=0.00524567994584 qs=0.00524488352321 aspect=8.00089242514 mean_iota=-1.13833371697 solver_iterations=1656
+evaluation=288 objective=0.00525869628437 qs=0.00525789517064 aspect=8.00089504957 mean_iota=-1.13879804765 solver_iterations=1712
+evaluation=289 objective=0.00524446149832 qs=0.00524366038459 aspect=8.00089504957 mean_iota=-1.13833653891 solver_iterations=1656
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5408 worst_linear_residual=0.123140417942 worst_relative_linear_residual=4.99917418794e-06
+accepted mode=2 iteration=56 objective=0.00524303893603
+   56     61     0.002621519468     0.021551501320.001957563522
+evaluation=290 objective=0.00522932819683 qs=0.00522855544909 aspect=8.00087906071 mean_iota=-1.13514748246 solver_iterations=1732
+evaluation=291 objective=0.00524827211632 qs=0.00524749334381 aspect=8.00088248088 mean_iota=-1.13556357234 solver_iterations=1730
+evaluation=292 objective=0.00523221542568 qs=0.00523144723133 aspect=8.00087646697 mean_iota=-1.13515903708 solver_iterations=1739
+evaluation=293 objective=0.00524169337352 qs=0.00524092062579 aspect=8.00087906071 mean_iota=-1.13561587031 solver_iterations=1730
+evaluation=294 objective=0.00523052596779 qs=0.00522975322006 aspect=8.00087906071 mean_iota=-1.13516157734 solver_iterations=1732
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5386 worst_linear_residual=0.123525975912 worst_relative_linear_residual=4.99607413105e-06
+accepted mode=2 iteration=57 objective=0.00522932819683
+   57     62     0.002614664098     0.034239156960.003915127045
+evaluation=295 objective=0.0052223646711 qs=0.00522152810713 aspect=8.00091463871 mean_iota=-1.13674052597 solver_iterations=1707
+evaluation=296 objective=0.00524068156468 qs=0.00523983868866 aspect=8.0009180828 mean_iota=-1.13715895638 solver_iterations=1707
+evaluation=297 objective=0.00522468817551 qs=0.00522385633866 aspect=8.0009120509 mean_iota=-1.13675178504 solver_iterations=1705
+evaluation=298 objective=0.0052359589015 qs=0.00523512233753 aspect=8.00091463871 mean_iota=-1.13721148117 solver_iterations=1707
+evaluation=299 objective=0.00522366353037 qs=0.0052228269664 aspect=8.00091463871 mean_iota=-1.13675460253 solver_iterations=1705
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5399 worst_linear_residual=0.123827823126 worst_relative_linear_residual=4.99835418148e-06
+accepted mode=2 iteration=58 objective=0.0052223646711
+   58     63     0.002611182336       0.0231431140.003915127045
+evaluation=300 objective=0.00522201167994 qs=0.00522123126317 aspect=8.000883412 mean_iota=-1.13824706242 solver_iterations=1653
+evaluation=301 objective=0.00524080187397 qs=0.0052400151967 aspect=8.00088694829 mean_iota=-1.13866716775 solver_iterations=1653
+evaluation=302 objective=0.00522470328891 qs=0.00522392749788 aspect=8.00088079 mean_iota=-1.13825858832 solver_iterations=1654
+evaluation=303 objective=0.00523533509077 qs=0.005234554674 aspect=8.000883412 mean_iota=-1.13872006985 solver_iterations=1653
+evaluation=304 objective=0.00522355064297 qs=0.00522277022621 aspect=8.000883412 mean_iota=-1.13826162359 solver_iterations=1656
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5408 worst_linear_residual=0.123522690732 worst_relative_linear_residual=4.99698448127e-06
+accepted mode=2 iteration=59 objective=0.00522201167994
+   59     64      0.00261100584     0.024053680940.0002222614157
+evaluation=305 objective=0.00521374598882 qs=0.00521292910681 aspect=8.00090381525 mean_iota=-1.13808082298 solver_iterations=1630
+evaluation=306 objective=0.0052323216245 qs=0.00523149844243 aspect=8.00090729382 mean_iota=-1.13850079917 solver_iterations=1631
+evaluation=307 objective=0.00521634154748 qs=0.00521552935563 aspect=8.00090121687 mean_iota=-1.13809226243 solver_iterations=1627
+evaluation=308 objective=0.0052273839317 qs=0.00522656704969 aspect=8.00090381525 mean_iota=-1.13855346732 solver_iterations=1631
+evaluation=309 objective=0.00521508392003 qs=0.00521426703802 aspect=8.00090381525 mean_iota=-1.13809516571 solver_iterations=1630
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5408 worst_linear_residual=0.123814150848 worst_relative_linear_residual=4.99876357382e-06
+accepted mode=2 iteration=60 objective=0.00521374598882
+   60     65     0.002606872994     0.019877637460.0004445228314
+evaluation=310 objective=0.00521102502151 qs=0.00521020127158 aspect=8.00090760671 mean_iota=-1.13755796261 solver_iterations=1712
+evaluation=311 objective=0.00522938227161 qs=0.00522855220208 aspect=8.00091108152 mean_iota=-1.13797735718 solver_iterations=1712
+evaluation=312 objective=0.0052136223392 qs=0.00521280328293 aspect=8.00090501728 mean_iota=-1.13756936886 solver_iterations=1712
+evaluation=313 objective=0.00522457442104 qs=0.00522375067111 aspect=8.00090760671 mean_iota=-1.13802992497 solver_iterations=1712
+evaluation=314 objective=0.00521242816262 qs=0.00521160441269 aspect=8.00090760671 mean_iota=-1.13757228371 solver_iterations=1712
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5408 worst_linear_residual=0.124051116886 worst_relative_linear_residual=4.99940423585e-06
+accepted mode=2 iteration=61 objective=0.00521102502151
+   61     66     0.002605512511     0.021828316920.0004445228314
+evaluation=315 objective=0.00520222469461 qs=0.00520139411181 aspect=8.00091136315 mean_iota=-1.1373568504 solver_iterations=1647
+evaluation=316 objective=0.00522053754154 qs=0.00521970057875 aspect=8.00091485671 mean_iota=-1.13777594763 solver_iterations=1647
+evaluation=317 objective=0.00520485807877 qs=0.00520403219206 aspect=8.00090878309 mean_iota=-1.13736828005 solver_iterations=1649
+evaluation=318 objective=0.00521573913 qs=0.0052149085472 aspect=8.00091136315 mean_iota=-1.13782832653 solver_iterations=1646
+evaluation=319 objective=0.00520365910015 qs=0.00520282851735 aspect=8.00091136315 mean_iota=-1.1373712062 solver_iterations=1649
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5408 worst_linear_residual=0.124187761468 worst_relative_linear_residual=4.99626753837e-06
+accepted mode=2 iteration=62 objective=0.00520222469461
+   62     67     0.002601112347     0.019710945630.0004445228314
+evaluation=320 objective=0.00519674100058 qs=0.00519590078596 aspect=8.00091663222 mean_iota=-1.13663546238 solver_iterations=1737
+evaluation=321 objective=0.00521517142247 qs=0.00521432483579 aspect=8.00092010145 mean_iota=-1.13705368341 solver_iterations=1740
+evaluation=322 objective=0.00519934972166 qs=0.00519851418886 aspect=8.00091407483 mean_iota=-1.1366467053 solver_iterations=1737
+evaluation=323 objective=0.00521033697893 qs=0.00520949676431 aspect=8.00091663222 mean_iota=-1.13710580814 solver_iterations=1740
+evaluation=324 objective=0.00519816160164 qs=0.00519732138702 aspect=8.00091663222 mean_iota=-1.13664963474 solver_iterations=1737
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5405 worst_linear_residual=0.124125705687 worst_relative_linear_residual=4.99954342019e-06
+accepted mode=2 iteration=63 objective=0.00519674100058
+   63     68       0.0025983705     0.020879613220.0008890456628
+evaluation=325 objective=0.00518701742794 qs=0.00518616461526 aspect=8.00092347857 mean_iota=-1.1350794475 solver_iterations=1712
+evaluation=326 objective=0.00520503477132 qs=0.00520417554996 aspect=8.00092694194 mean_iota=-1.1354955296 solver_iterations=1712
+evaluation=327 objective=0.00518945326015 qs=0.00518860511083 aspect=8.00092095023 mean_iota=-1.1350905625 solver_iterations=1712
+evaluation=328 objective=0.00520039355706 qs=0.00519954074439 aspect=8.00092347857 mean_iota=-1.13554715473 solver_iterations=1712
+evaluation=329 objective=0.00518819372095 qs=0.00518734090827 aspect=8.00092347857 mean_iota=-1.13509346923 solver_iterations=1712
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5394 worst_linear_residual=0.123859824668 worst_relative_linear_residual=4.99680378471e-06
+accepted mode=2 iteration=64 objective=0.00518701742794
+   64     69     0.002593508714     0.023503384930.001778091326
+evaluation=330 objective=0.00518392144376 qs=0.00518311740757 aspect=8.00089668065 mean_iota=-1.13779487306 solver_iterations=1560
+evaluation=331 objective=0.00520289176327 qs=0.00520208115316 aspect=8.00090033889 mean_iota=-1.13821397593 solver_iterations=1560
+evaluation=332 objective=0.00518653313855 qs=0.00518573372529 aspect=8.00089409913 mean_iota=-1.1378064172 solver_iterations=1559
+evaluation=333 objective=0.00519707908567 qs=0.00519627504949 aspect=8.00089668065 mean_iota=-1.13826638027 solver_iterations=1558
+evaluation=334 objective=0.00518534038115 qs=0.00518453634497 aspect=8.00089668065 mean_iota=-1.13780932258 solver_iterations=1561
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5412 worst_linear_residual=0.124493228219 worst_relative_linear_residual=4.99982363214e-06
+accepted mode=2 iteration=65 objective=0.00518392144376
+   65     70     0.002591960722     0.025788757260.001778091326
+evaluation=335 objective=0.00517908898532 qs=0.00517825679896 aspect=8.00091224249 mean_iota=-1.1366418933 solver_iterations=1684
+evaluation=336 objective=0.00519720651418 qs=0.00519636788529 aspect=8.00091576683 mean_iota=-1.13705963375 solver_iterations=1683
+evaluation=337 objective=0.0051816325121 qs=0.00518080495074 aspect=8.000909704 mean_iota=-1.13665319592 solver_iterations=1684
+evaluation=338 objective=0.00519230183209 qs=0.00519146964573 aspect=8.00091224249 mean_iota=-1.13711129656 solver_iterations=1677
+evaluation=339 objective=0.00518043733296 qs=0.0051796051466 aspect=8.00091224249 mean_iota=-1.1366561647 solver_iterations=1685
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5410 worst_linear_residual=0.123579881254 worst_relative_linear_residual=4.9962128893e-06
+accepted mode=2 iteration=66 objective=0.00517908898532
+   66     71     0.002589544493     0.021658136680.001778091326
+evaluation=340 objective=0.00517335581441 qs=0.00517258894863 aspect=8.00087570873 mean_iota=-1.13903410351 solver_iterations=1505
+evaluation=341 objective=0.00519224678246 qs=0.00519147363984 aspect=8.00087928529 mean_iota=-1.13945508006 solver_iterations=1505
+evaluation=342 objective=0.00517584205994 qs=0.00517507967045 aspect=8.00087314918 mean_iota=-1.13904544424 solver_iterations=1507
+evaluation=343 objective=0.00518714253466 qs=0.00518637566888 aspect=8.00087570873 mean_iota=-1.13950739989 solver_iterations=1505
+evaluation=344 objective=0.00517464252825 qs=0.00517387566247 aspect=8.00087570873 mean_iota=-1.13904848717 solver_iterations=1507
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5427 worst_linear_residual=0.124351541265 worst_relative_linear_residual=4.99976722482e-06
+accepted mode=2 iteration=67 objective=0.00517335581441
+   67     72     0.002586677907     0.023773649380.001778091326
+evaluation=345 objective=0.00516791363828 qs=0.00516710796847 aspect=8.00089759112 mean_iota=-1.1375904435 solver_iterations=1590
+evaluation=346 objective=0.00518632169455 qs=0.00518550959465 aspect=8.00090116585 mean_iota=-1.13800921923 solver_iterations=1590
+evaluation=347 objective=0.00517035259578 qs=0.00516955148987 aspect=8.0008950452 mean_iota=-1.13760227527 solver_iterations=1585
+evaluation=348 objective=0.00518117036406 qs=0.00518036469425 aspect=8.00089759112 mean_iota=-1.13806104237 solver_iterations=1589
+evaluation=349 objective=0.00516921540437 qs=0.00516840973456 aspect=8.00089759112 mean_iota=-1.13760496557 solver_iterations=1591
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5418 worst_linear_residual=0.124552962047 worst_relative_linear_residual=4.9993632269e-06
+accepted mode=2 iteration=68 objective=0.00516791363828
+   68     73     0.002583956819     0.020821589570.001778091326
+evaluation=350 objective=0.00516443864263 qs=0.00516369798017 aspect=8.00086061748 mean_iota=-1.14055413046 solver_iterations=1524
+evaluation=351 objective=0.00518390760954 qs=0.00518316054431 aspect=8.00086432935 mean_iota=-1.14097675571 solver_iterations=1525
+evaluation=352 objective=0.00516723818642 qs=0.00516650197421 aspect=8.0008580281 mean_iota=-1.14056568778 solver_iterations=1527
+evaluation=353 objective=0.00517813671918 qs=0.00517739605673 aspect=8.00086061748 mean_iota=-1.14102947052 solver_iterations=1524
+evaluation=354 objective=0.00516582641042 qs=0.00516508574797 aspect=8.00086061748 mean_iota=-1.14056880477 solver_iterations=1525
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5437 worst_linear_residual=0.125109111747 worst_relative_linear_residual=4.99771780227e-06
+accepted mode=2 iteration=69 objective=0.00516443864263
+   69     74     0.002582219321     0.025497517760.001778091326
+evaluation=355 objective=0.00515445419545 qs=0.00515364264504 aspect=8.00090086093 mean_iota=-1.13750763025 solver_iterations=1551
+evaluation=356 objective=0.00517308740351 qs=0.00517226948801 aspect=8.00090438681 mean_iota=-1.13792637413 solver_iterations=1550
+evaluation=357 objective=0.00515707153103 qs=0.0051562645122 aspect=8.00089834227 mean_iota=-1.13751881553 solver_iterations=1550
+evaluation=358 objective=0.0051677410401 qs=0.0051669294897 aspect=8.00090086093 mean_iota=-1.13797809847 solver_iterations=1550
+evaluation=359 objective=0.00515574433695 qs=0.00515493278655 aspect=8.00090086093 mean_iota=-1.13752187294 solver_iterations=1550
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5420 worst_linear_residual=0.12375101222 worst_relative_linear_residual=4.99944723291e-06
+accepted mode=2 iteration=70 objective=0.00515445419545
+   70     75     0.002577227098     0.027312611720.003556182651
+evaluation=360 objective=0.00514700617823 qs=0.00514617493376 aspect=8.00091172609 mean_iota=-1.1378417633 solver_iterations=1549
+evaluation=361 objective=0.00516559621565 qs=0.00516475834882 aspect=8.00091535066 mean_iota=-1.13826085503 solver_iterations=1550
+evaluation=362 objective=0.00514935264715 qs=0.00514852599874 aspect=8.00090920207 mean_iota=-1.13785286862 solver_iterations=1545
+evaluation=363 objective=0.00516056759071 qs=0.00515973634624 aspect=8.00091172609 mean_iota=-1.13831266465 solver_iterations=1550
+evaluation=364 objective=0.00514820981325 qs=0.00514737856879 aspect=8.00091172609 mean_iota=-1.13785594264 solver_iterations=1545
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5422 worst_linear_residual=0.124597421848 worst_relative_linear_residual=4.9984796443e-06
+accepted mode=2 iteration=71 objective=0.00514700617823
+   71     76     0.002573503089     0.020598236010.003556182651
+evaluation=365 objective=0.00514211925006 qs=0.00514133643726 aspect=8.00088476709 mean_iota=-1.13903353406 solver_iterations=1723
+evaluation=366 objective=0.00516049411968 qs=0.0051597047257 aspect=8.00088847846 mean_iota=-1.13945388009 solver_iterations=1725
+evaluation=367 objective=0.0051447332082 qs=0.00514395490709 aspect=8.00088221376 mean_iota=-1.13904488123 solver_iterations=1705
+evaluation=368 objective=0.00515561186621 qs=0.00515482905341 aspect=8.00088476709 mean_iota=-1.13950613119 solver_iterations=1733
+evaluation=369 objective=0.00514356851014 qs=0.00514278569734 aspect=8.00088476709 mean_iota=-1.13904806315 solver_iterations=1710
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5435 worst_linear_residual=0.124182063923 worst_relative_linear_residual=4.99960790993e-06
+accepted mode=2 iteration=72 objective=0.00514211925006
+   72     77     0.002571059625     0.021563987060.003556182651
+evaluation=370 objective=0.00513635423941 qs=0.005135578185 aspect=8.0008809395 mean_iota=-1.13976123726 solver_iterations=1540
+evaluation=371 objective=0.0051553214522 qs=0.00515453894202 aspect=8.00088459605 mean_iota=-1.14018263106 solver_iterations=1540
+evaluation=372 objective=0.00513885305169 qs=0.00513808145872 aspect=8.00087840365 mean_iota=-1.13977262502 solver_iterations=1540
+evaluation=373 objective=0.00515017130849 qs=0.00514939525408 aspect=8.0008809395 mean_iota=-1.14023488903 solver_iterations=1544
+evaluation=374 objective=0.00513772051107 qs=0.00513694445666 aspect=8.0008809395 mean_iota=-1.13977576434 solver_iterations=1540
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5440 worst_linear_residual=0.124411370682 worst_relative_linear_residual=4.98870062803e-06
+accepted mode=2 iteration=73 objective=0.00513635423941
+   73     78      0.00256817712     0.019318931080.003556182651
+evaluation=375 objective=0.00512844953841 qs=0.00512767053759 aspect=8.00088261023 mean_iota=-1.13728000802 solver_iterations=1535
+evaluation=376 objective=0.00514705122441 qs=0.00514626578407 aspect=8.00088625072 mean_iota=-1.13769809326 solver_iterations=1536
+evaluation=377 objective=0.00513103139222 qs=0.0051302568061 aspect=8.00088010575 mean_iota=-1.13729120234 solver_iterations=1538
+evaluation=378 objective=0.00514169303943 qs=0.0051409140386 aspect=8.00088261023 mean_iota=-1.13774961819 solver_iterations=1540
+evaluation=379 objective=0.00512971840752 qs=0.00512893940669 aspect=8.00088261023 mean_iota=-1.13729432581 solver_iterations=1538
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5424 worst_linear_residual=0.124009388295 worst_relative_linear_residual=4.99493638508e-06
+accepted mode=2 iteration=74 objective=0.00512844953841
+   74     79     0.002564224769      0.02408408580.003556182651
+evaluation=380 objective=0.00512239796322 qs=0.00512157692648 aspect=8.00090611078 mean_iota=-1.13810542897 solver_iterations=1497
+evaluation=381 objective=0.00514095533981 qs=0.00514012754874 aspect=8.00090983024 mean_iota=-1.13852448797 solver_iterations=1498
+evaluation=382 objective=0.00512486643278 qs=0.00512404994223 aspect=8.00090359867 mean_iota=-1.13811661505 solver_iterations=1498
+evaluation=383 objective=0.0051360270812 qs=0.00513520604445 aspect=8.00090611078 mean_iota=-1.13857614815 solver_iterations=1498
+evaluation=384 objective=0.00512372300518 qs=0.00512290196843 aspect=8.00090611078 mean_iota=-1.13811979656 solver_iterations=1498
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5430 worst_linear_residual=0.124046924836 worst_relative_linear_residual=4.99906380535e-06
+accepted mode=2 iteration=75 objective=0.00512239796322
+   75     80     0.002561198982      0.02004813160.003556182651
+evaluation=385 objective=0.00511795980826 qs=0.00511714305847 aspect=8.0009037421 mean_iota=-1.13737939468 solver_iterations=1530
+evaluation=386 objective=0.00513639332898 qs=0.00513556985233 aspect=8.00090745614 mean_iota=-1.13779732984 solver_iterations=1530
+evaluation=387 objective=0.00512053764841 qs=0.00511972540981 aspect=8.00090124281 mean_iota=-1.13739059961 solver_iterations=1533
+evaluation=388 objective=0.00513152838876 qs=0.00513071163897 aspect=8.0009037421 mean_iota=-1.13784870445 solver_iterations=1528
+evaluation=389 objective=0.00511936541537 qs=0.00511854866558 aspect=8.0009037421 mean_iota=-1.13739377463 solver_iterations=1533
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5427 worst_linear_residual=0.12418617669 worst_relative_linear_residual=4.99632537783e-06
+accepted mode=2 iteration=76 objective=0.00511795980826
+   76     81     0.002558979904     0.020730947210.003556182651
+evaluation=390 objective=0.00511115268867 qs=0.00511032882199 aspect=8.00090767102 mean_iota=-1.13572180484 solver_iterations=1512
+evaluation=391 objective=0.0051292463873 qs=0.00512841578744 aspect=8.00091137251 mean_iota=-1.13613748784 solver_iterations=1510
+evaluation=392 objective=0.00511354016153 qs=0.00511272076338 aspect=8.00090520614 mean_iota=-1.13573277144 solver_iterations=1512
+evaluation=393 objective=0.00512431160139 qs=0.00512348773472 aspect=8.00090767102 mean_iota=-1.13618806408 solver_iterations=1501
+evaluation=394 objective=0.00511231928219 qs=0.00511149541551 aspect=8.00090767102 mean_iota=-1.13573590977 solver_iterations=1512
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5419 worst_linear_residual=0.124784282176 worst_relative_linear_residual=4.99526238837e-06
+accepted mode=2 iteration=77 objective=0.00511115268867
+   77     82     0.002555576344     0.023815139570.003556182651
+evaluation=395 objective=0.00510810525472 qs=0.00510739551739 aspect=8.0008424591 mean_iota=-1.13952988488 solver_iterations=1722
+evaluation=396 objective=0.00512754192722 qs=0.00512682570514 aspect=8.00084629905 mean_iota=-1.13995019176 solver_iterations=1722
+evaluation=397 objective=0.00511034628071 qs=0.00510964077624 aspect=8.00083994314 mean_iota=-1.13954093868 solver_iterations=1687
+evaluation=398 objective=0.00512163724588 qs=0.00512092750856 aspect=8.0008424591 mean_iota=-1.14000212242 solver_iterations=1735
+evaluation=399 objective=0.00510908575444 qs=0.00510837601711 aspect=8.0008424591 mean_iota=-1.13954433945 solver_iterations=1700
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5443 worst_linear_residual=0.12466192525 worst_relative_linear_residual=4.99184831579e-06
+accepted mode=2 iteration=78 objective=0.00510810525472
+   78     83     0.002554052627     0.029568494010.003556182651
+evaluation=400 objective=0.00510825365064 qs=0.00510752969933 aspect=8.00085085329 mean_iota=-1.14080179448 solver_iterations=1520
+evaluation=401 objective=0.00510423151623 qs=0.00510345444627 aspect=8.00088151572 mean_iota=-1.13978063447 solver_iterations=1883
+evaluation=402 objective=0.00512247308563 qs=0.00512168911313 aspect=8.00088542221 mean_iota=-1.1402008588 solver_iterations=1910
+evaluation=403 objective=0.00510742035693 qs=0.00510664774713 aspect=8.00087898225 mean_iota=-1.13979236834 solver_iterations=1769
+evaluation=404 objective=0.0051184639479 qs=0.00511768687794 aspect=8.00088151572 mean_iota=-1.14025346633 solver_iterations=1962
+evaluation=405 objective=0.00510606498552 qs=0.00510528791556 aspect=8.00088151572 mean_iota=-1.13979559637 solver_iterations=1825
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5441 worst_linear_residual=0.124983064678 worst_relative_linear_residual=4.99989477028e-06
+accepted mode=2 iteration=79 objective=0.00510423151623
+   79     85     0.002552115758     0.019182681240.0001618179338
+evaluation=406 objective=0.00509889636194 qs=0.00509812728197 aspect=8.00087697205 mean_iota=-1.13970512982 solver_iterations=1935
+evaluation=407 objective=0.00511856988289 qs=0.00511779403681 aspect=8.00088082125 mean_iota=-1.14012571448 solver_iterations=1942
+evaluation=408 objective=0.00510123645334 qs=0.00510047177377 aspect=8.00087445959 mean_iota=-1.13971604535 solver_iterations=1889
+evaluation=409 objective=0.00511235151255 qs=0.00511158243257 aspect=8.00087697205 mean_iota=-1.14017710948 solver_iterations=1921
+evaluation=410 objective=0.00510015230679 qs=0.00509938322681 aspect=8.00087697205 mean_iota=-1.13971945037 solver_iterations=1904
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5443 worst_linear_residual=0.125031749439 worst_relative_linear_residual=4.99833026372e-06
+accepted mode=2 iteration=80 objective=0.00509889636194
+   80     86     0.002549448181     0.020442219840.0001618179338
+evaluation=411 objective=0.00509503692738 qs=0.00509425650342 aspect=8.00088341608 mean_iota=-1.13958733124 solver_iterations=2097
+evaluation=412 objective=0.00511355207061 qs=0.00511276480116 aspect=8.00088728206 mean_iota=-1.14000745241 solver_iterations=2087
+evaluation=413 objective=0.00509774369249 qs=0.00509696769236 aspect=8.0008809087 mean_iota=-1.13959864433 solver_iterations=2065
+evaluation=414 objective=0.00510875177934 qs=0.00510797135538 aspect=8.00088341608 mean_iota=-1.14005905055 solver_iterations=2042
+evaluation=415 objective=0.00509646498316 qs=0.0050956845592 aspect=8.00088341608 mean_iota=-1.13960192722 solver_iterations=2079
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5443 worst_linear_residual=0.125163805528 worst_relative_linear_residual=4.99446929795e-06
+accepted mode=2 iteration=81 objective=0.00509503692738
+   81     87     0.002547518464     0.019430123340.0003236358676
+evaluation=416 objective=0.00508834642118 qs=0.00508755310779 aspect=8.00089068142 mean_iota=-1.13914315162 solver_iterations=1595
+evaluation=417 objective=0.0051068909906 qs=0.00510609096087 aspect=8.00089444381 mean_iota=-1.13956281616 solver_iterations=1577
+evaluation=418 objective=0.00509098377367 qs=0.00509019485685 aspect=8.0008882099 mean_iota=-1.13915426583 solver_iterations=2136
+evaluation=419 objective=0.00510207957456 qs=0.00510128626117 aspect=8.00089068142 mean_iota=-1.13961411503 solver_iterations=1570
+evaluation=420 objective=0.00508971742543 qs=0.00508892411203 aspect=8.00089068142 mean_iota=-1.13915755453 solver_iterations=1652
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5443 worst_linear_residual=0.125247478835 worst_relative_linear_residual=4.99837130088e-06
+accepted mode=2 iteration=82 objective=0.00508834642118
+   82     88     0.002544173211     0.019509108340.0006472717352
+evaluation=421 objective=0.00508309229705 qs=0.00508226735759 aspect=8.00090826178 mean_iota=-1.13800006037 solver_iterations=1512
+evaluation=422 objective=0.00510120184113 qs=0.00510037019477 aspect=8.00091194647 mean_iota=-1.13841856916 solver_iterations=1512
+evaluation=423 objective=0.00508511623692 qs=0.00508429570597 aspect=8.00090583164 mean_iota=-1.13801087599 solver_iterations=1511
+evaluation=424 objective=0.00509682093046 qs=0.00509599599101 aspect=8.00090826178 mean_iota=-1.13846923423 solver_iterations=1513
+evaluation=425 objective=0.0050844762138 qs=0.00508365127435 aspect=8.00090826178 mean_iota=-1.13801431078 solver_iterations=1512
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5440 worst_linear_residual=0.125032704899 worst_relative_linear_residual=4.99499473055e-06
+accepted mode=2 iteration=83 objective=0.00508309229705
+   83     89     0.002541546149     0.019817484530.00129454347
+evaluation=426 objective=0.00507948221205 qs=0.00507870422173 aspect=8.0008820376 mean_iota=-1.14025266301 solver_iterations=1509
+evaluation=427 objective=0.00509915178568 qs=0.00509836684837 aspect=8.00088596688 mean_iota=-1.14067349206 solver_iterations=1509
+evaluation=428 objective=0.00508214496515 qs=0.00508137136319 aspect=8.00087954645 mean_iota=-1.14026389908 solver_iterations=1507
+evaluation=429 objective=0.00509273757679 qs=0.00509195958646 aspect=8.0008820376 mean_iota=-1.14072505611 solver_iterations=1514
+evaluation=430 objective=0.00508069635017 qs=0.00507991835985 aspect=8.0008820376 mean_iota=-1.14026724751 solver_iterations=1507
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5450 worst_linear_residual=0.125465150962 worst_relative_linear_residual=4.99895277855e-06
+accepted mode=2 iteration=84 objective=0.00507948221205
+   84     90     0.002539741106     0.022223949950.00129454347
+evaluation=431 objective=0.00507195634096 qs=0.00507115167474 aspect=8.00089703189 mean_iota=-1.13805639351 solver_iterations=1765
+evaluation=432 objective=0.00508992338255 qs=0.00508911194594 aspect=8.00090079776 mean_iota=-1.13847404844 solver_iterations=1734
+evaluation=433 objective=0.00507342844467 qs=0.00507262814753 aspect=8.00089459328 mean_iota=-1.13806674153 solver_iterations=1750
+evaluation=434 objective=0.00508556658712 qs=0.0050847619209 aspect=8.00089703189 mean_iota=-1.13852548328 solver_iterations=1751
+evaluation=435 objective=0.00507263887824 qs=0.00507183421203 aspect=8.00089703189 mean_iota=-1.13806999141 solver_iterations=1745
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5441 worst_linear_residual=0.124004951006 worst_relative_linear_residual=4.99689486876e-06
+accepted mode=2 iteration=85 objective=0.00507195634096
+   85     91      0.00253597817     0.023499290370.002589086941
+evaluation=436 objective=0.00506650508974 qs=0.00506574492589 aspect=8.00087187376 mean_iota=-1.13981642068 solver_iterations=1732
+evaluation=437 objective=0.00508583868064 qs=0.00508507138767 aspect=8.0008759526 mean_iota=-1.14023606582 solver_iterations=1737
+evaluation=438 objective=0.00506920194856 qs=0.005068446163 aspect=8.00086935928 mean_iota=-1.13982753961 solver_iterations=1713
+evaluation=439 objective=0.00507946545239 qs=0.00507870528854 aspect=8.00087187376 mean_iota=-1.14028749251 solver_iterations=1736
+evaluation=440 objective=0.0050679890755 qs=0.00506722891166 aspect=8.00087187376 mean_iota=-1.13983120568 solver_iterations=1714
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5448 worst_linear_residual=0.125066396728 worst_relative_linear_residual=4.99897609707e-06
+accepted mode=2 iteration=86 objective=0.00506650508974
+   86     92     0.002533252545     0.025618264560.002589086941
+evaluation=441 objective=0.00505707110222 qs=0.0050562698313 aspect=8.00089513738 mean_iota=-1.1381794956 solver_iterations=1742
+evaluation=442 objective=0.00507543075232 qs=0.00507462256511 aspect=8.00089899233 mean_iota=-1.13859754572 solver_iterations=1723
+evaluation=443 objective=0.00505974547281 qs=0.00505894856231 aspect=8.00089269843 mean_iota=-1.13819071129 solver_iterations=1762
+evaluation=444 objective=0.00507182434699 qs=0.00507102307606 aspect=8.00089513738 mean_iota=-1.13864848172 solver_iterations=1718
+evaluation=445 objective=0.00505931186337 qs=0.00505851059244 aspect=8.00089513738 mean_iota=-1.1381941408 solver_iterations=1749
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5441 worst_linear_residual=0.125238780577 worst_relative_linear_residual=4.99931488116e-06
+accepted mode=2 iteration=87 objective=0.00505707110222
+   87     93     0.002528535551     0.028913546180.002589086941
+evaluation=446 objective=0.00505035318053 qs=0.00504973628513 aspect=8.00078542689 mean_iota=-1.13417633363 solver_iterations=1803
+evaluation=447 objective=0.0050695735598 qs=0.00506895049431 aspect=8.00078934497 mean_iota=-1.13458862425 solver_iterations=1801
+evaluation=448 objective=0.00505235331068 qs=0.00505174011131 aspect=8.00078307047 mean_iota=-1.13418678544 solver_iterations=1803
+evaluation=449 objective=0.00506319650801 qs=0.00506257961261 aspect=8.00078542689 mean_iota=-1.13463802129 solver_iterations=1803
+evaluation=450 objective=0.00505055147952 qs=0.00504993458412 aspect=8.00078542689 mean_iota=-1.13418997369 solver_iterations=1803
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5407 worst_linear_residual=0.124830806188 worst_relative_linear_residual=4.99658353059e-06
+accepted mode=2 iteration=88 objective=0.00505035318053
+   88     94      0.00252517659     0.055723587330.002589086941
+evaluation=451 objective=0.00504531511676 qs=0.00504460195653 aspect=8.00084448815 mean_iota=-1.13834076677 solver_iterations=1454
+evaluation=452 objective=0.00506558945885 qs=0.00506486902778 aspect=8.00084878211 mean_iota=-1.13875804574 solver_iterations=1453
+evaluation=453 objective=0.00504832938775 qs=0.00504762044465 aspect=8.00084198759 mean_iota=-1.13835203328 solver_iterations=1451
+evaluation=454 objective=0.00505737271663 qs=0.0050566595564 aspect=8.00084448815 mean_iota=-1.13880919992 solver_iterations=1454
+evaluation=455 objective=0.00504712553469 qs=0.00504641237446 aspect=8.00084448815 mean_iota=-1.13835552443 solver_iterations=1451
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5439 worst_linear_residual=0.124754001422 worst_relative_linear_residual=4.99470527416e-06
+accepted mode=2 iteration=89 objective=0.00504531511676
+   89     95     0.002522657558     0.042483061580.0006472717352
+evaluation=456 objective=0.00503708759857 qs=0.00503629811492 aspect=8.00088852892 mean_iota=-1.13786000058 solver_iterations=1512
+evaluation=457 objective=0.00505581746837 qs=0.00505502089469 aspect=8.00089250976 mean_iota=-1.13827702272 solver_iterations=1515
+evaluation=458 objective=0.00503910942624 qs=0.00503832420774 aspect=8.00088612556 mean_iota=-1.13787077343 solver_iterations=1506
+evaluation=459 objective=0.00505081977748 qs=0.00505003029383 aspect=8.00088852892 mean_iota=-1.13832722772 solver_iterations=1514
+evaluation=460 objective=0.0050381386683 qs=0.00503734918465 aspect=8.00088852892 mean_iota=-1.13787405695 solver_iterations=1506
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5437 worst_linear_residual=0.12494022019 worst_relative_linear_residual=4.99999882937e-06
+accepted mode=2 iteration=90 objective=0.00503708759857
+   90     96     0.002518543799     0.016899494170.0006472717352
+evaluation=461 objective=0.00503581812663 qs=0.00503506058196 aspect=8.00087037042 mean_iota=-1.13868744022 solver_iterations=1632
+evaluation=462 objective=0.00505418810571 qs=0.00505342334349 aspect=8.00087450684 mean_iota=-1.13910506805 solver_iterations=1637
+evaluation=463 objective=0.00503823251057 qs=0.00503747924212 aspect=8.00086791039 mean_iota=-1.13869834132 solver_iterations=1631
+evaluation=464 objective=0.00504850732516 qs=0.0050477497805 aspect=8.00087037042 mean_iota=-1.13915606379 solver_iterations=1643
+evaluation=465 objective=0.00503727058529 qs=0.00503651304062 aspect=8.00087037042 mean_iota=-1.13870183758 solver_iterations=1634
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5448 worst_linear_residual=0.124481077176 worst_relative_linear_residual=4.99873069544e-06
+accepted mode=2 iteration=91 objective=0.00503581812663
+   91     97     0.002517909063     0.023346970710.0001618179338
+evaluation=466 objective=0.0050298185216 qs=0.00502904641856 aspect=8.00087869394 mean_iota=-1.13891492438 solver_iterations=1656
+evaluation=467 objective=0.00504809150395 qs=0.00504731214191 aspect=8.00088281484 mean_iota=-1.1393327886 solver_iterations=1663
+evaluation=468 objective=0.00503226309259 qs=0.0050314952794 aspect=8.0008762495 mean_iota=-1.13892599013 solver_iterations=1655
+evaluation=469 objective=0.00504146890089 qs=0.00504069679785 aspect=8.00087869394 mean_iota=-1.13938154401 solver_iterations=1605
+evaluation=470 objective=0.00503132303868 qs=0.00503055093565 aspect=8.00087869394 mean_iota=-1.13892942583 solver_iterations=1654
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5449 worst_linear_residual=0.124417264522 worst_relative_linear_residual=4.99231442371e-06
+accepted mode=2 iteration=92 objective=0.0050298185216
+   92     98     0.002514909261     0.018541047410.0003236358676
+evaluation=471 objective=0.00502664907037 qs=0.00502588184733 aspect=8.00087591269 mean_iota=-1.13933874985 solver_iterations=1859
+evaluation=472 objective=0.00504402766007 qs=0.00504325330774 aspect=8.00087997292 mean_iota=-1.13975693226 solver_iterations=1854
+evaluation=473 objective=0.00502818637663 qs=0.00502742338003 aspect=8.00087349676 mean_iota=-1.13934950909 solver_iterations=1862
+evaluation=474 objective=0.00504032893305 qs=0.00503956171001 aspect=8.00087591269 mean_iota=-1.13980732494 solver_iterations=1855
+evaluation=475 objective=0.00502743835804 qs=0.005026671135 aspect=8.00087591269 mean_iota=-1.13935300511 solver_iterations=1861
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5449 worst_linear_residual=0.124354602728 worst_relative_linear_residual=4.99997012911e-06
+accepted mode=2 iteration=93 objective=0.00502664907037
+   93     99     0.002513324535     0.021646672350.0003236358676
+evaluation=476 objective=0.00502606968048 qs=0.00502532662174 aspect=8.00086200855 mean_iota=-1.13974064716 solver_iterations=1495
+evaluation=477 objective=0.00504380862935 qs=0.00504305817685 aspect=8.00086628661 mean_iota=-1.14015919508 solver_iterations=1499
+evaluation=478 objective=0.00502903194128 qs=0.00502829312617 aspect=8.00085954355 mean_iota=-1.1397519909 solver_iterations=1502
+evaluation=479 objective=0.00504004987001 qs=0.00503930681127 aspect=8.00086200855 mean_iota=-1.14021000678 solver_iterations=1500
+evaluation=480 objective=0.00502745926774 qs=0.00502671620901 aspect=8.00086200855 mean_iota=-1.139755391 solver_iterations=1495
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5451 worst_linear_residual=0.124695645102 worst_relative_linear_residual=4.99736872827e-06
+accepted mode=2 iteration=94 objective=0.00502606968048
+   94    100      0.00251303484     0.017918977548.09089669e-05
+evaluation=481 objective=0.00502105973823 qs=0.0050203123855 aspect=8.00086449565 mean_iota=-1.13972574003 solver_iterations=1702
+evaluation=482 objective=0.00504081878089 qs=0.00504006405254 aspect=8.00086875103 mean_iota=-1.1401441536 solver_iterations=1709
+evaluation=483 objective=0.00502453421624 qs=0.00502379110894 aspect=8.00086203672 mean_iota=-1.13973649484 solver_iterations=1708
+evaluation=484 objective=0.00503568163191 qs=0.00503493427919 aspect=8.00086449565 mean_iota=-1.14019508113 solver_iterations=1709
+evaluation=485 objective=0.00502408980958 qs=0.00502334245685 aspect=8.00086449565 mean_iota=-1.13974027643 solver_iterations=1718
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5451 worst_linear_residual=0.124890283564 worst_relative_linear_residual=4.99915373865e-06
+accepted mode=2 iteration=95 objective=0.00502105973823
+   95    101     0.002510529869     0.053271410130.0001618179338
+evaluation=486 objective=0.0050193404799 qs=0.00501860825797 aspect=8.00085569967 mean_iota=-1.13957951865 solver_iterations=1525
+evaluation=487 objective=0.00503907774463 qs=0.00503833833351 aspect=8.00085989018 mean_iota=-1.13999785114 solver_iterations=1525
+evaluation=488 objective=0.00502130432183 qs=0.00502057625865 aspect=8.00085326619 mean_iota=-1.13959072934 solver_iterations=1506
+evaluation=489 objective=0.00503155967436 qs=0.00503082745243 aspect=8.00085569967 mean_iota=-1.14004845141 solver_iterations=1511
+evaluation=490 objective=0.00501917624144 qs=0.00501844401951 aspect=8.00085569967 mean_iota=-1.13959388936 solver_iterations=1495
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5452 worst_linear_residual=0.124699692952 worst_relative_linear_residual=4.99744992911e-06
+accepted mode=2 iteration=96 objective=0.0050193404799
+   96    102      0.00250967024     0.048344190234.045448345e-05
+evaluation=491 objective=0.00501595171641 qs=0.0050151671911 aspect=8.00088573433 mean_iota=-1.13963363701 solver_iterations=1686
+evaluation=492 objective=0.00503421544339 qs=0.00503342338742 aspect=8.00088997527 mean_iota=-1.14005173471 solver_iterations=1705
+evaluation=493 objective=0.00501857108305 qs=0.00501779087105 aspect=8.0008832961 mean_iota=-1.1396444363 solver_iterations=1739
+evaluation=494 objective=0.00502933782041 qs=0.0050285532951 aspect=8.00088573433 mean_iota=-1.1401022926 solver_iterations=1704
+evaluation=495 objective=0.00501721271507 qs=0.00501642818977 aspect=8.00088573433 mean_iota=-1.13964811595 solver_iterations=1718
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5452 worst_linear_residual=0.124734206724 worst_relative_linear_residual=4.99610716516e-06
+accepted mode=2 iteration=97 objective=0.00501595171641
+   97    103     0.002507975858     0.015610299818.09089669e-05
+evaluation=496 objective=0.00501359550788 qs=0.00501283060593 aspect=8.00087458673 mean_iota=-1.13968371059 solver_iterations=1684
+evaluation=497 objective=0.00503205645282 qs=0.00503128410207 aspect=8.00087883488 mean_iota=-1.14010192218 solver_iterations=1692
+evaluation=498 objective=0.0050162450983 qs=0.00501548445224 aspect=8.00087215025 mean_iota=-1.13969463705 solver_iterations=1719
+evaluation=499 objective=0.00502693508708 qs=0.00502617018513 aspect=8.00087458673 mean_iota=-1.14015213748 solver_iterations=1679
+evaluation=500 objective=0.00501494346663 qs=0.00501417856468 aspect=8.00087458673 mean_iota=-1.13969802301 solver_iterations=1698
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5452 worst_linear_residual=0.1248736084 worst_relative_linear_residual=4.99884553325e-06
+accepted mode=2 iteration=98 objective=0.00501359550788
+   98    104     0.002506797754      0.01722217360.0001618179338
+evaluation=501 objective=0.0050085487266 qs=0.00500779194276 aspect=8.00086993324 mean_iota=-1.13972271092 solver_iterations=1703
+evaluation=502 objective=0.0050269603745 qs=0.00502619625115 aspect=8.0008741415 mean_iota=-1.14014060306 solver_iterations=1692
+evaluation=503 objective=0.00501058082343 qs=0.00500982824252 aspect=8.00086751421 mean_iota=-1.1397334886 solver_iterations=1684
+evaluation=504 objective=0.00502184742359 qs=0.00502109063975 aspect=8.00086993324 mean_iota=-1.14019132271 solver_iterations=1699
+evaluation=505 objective=0.0050095460356 qs=0.00500878925176 aspect=8.00086993324 mean_iota=-1.13973699618 solver_iterations=1685
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5454 worst_linear_residual=0.124999614006 worst_relative_linear_residual=4.99633052453e-06
+accepted mode=2 iteration=99 objective=0.0050085487266
+   99    105     0.002504274363      0.01688616980.0003236358676
+evaluation=506 objective=0.00501035322565 qs=0.00500963080076 aspect=8.00084995582 mean_iota=-1.14023232639 solver_iterations=1539
+evaluation=507 objective=0.00500860548598 qs=0.00500784715135 aspect=8.00087082411 mean_iota=-1.13979712976 solver_iterations=1511
+evaluation=508 objective=0.00500817174285 qs=0.00500740101026 aspect=8.00087791377 mean_iota=-1.13974289969 solver_iterations=1692
+evaluation=509 objective=0.00502698984735 qs=0.0050262116773 aspect=8.00088213947 mean_iota=-1.14016134246 solver_iterations=1708
+evaluation=510 objective=0.00501090901318 qs=0.00501014252463 aspect=8.00087549332 mean_iota=-1.13975414052 solver_iterations=1705
+evaluation=511 objective=0.00502209780591 qs=0.00502132707331 aspect=8.00087791377 mean_iota=-1.1402116164 solver_iterations=1711
+evaluation=512 objective=0.00500987351389 qs=0.0050091027813 aspect=8.00087791377 mean_iota=-1.1397576188 solver_iterations=1705
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5454 worst_linear_residual=0.125003390468 worst_relative_linear_residual=4.99766925415e-06
+accepted mode=2 iteration=100 objective=0.00500817174285
+  100    108     0.002504085871     0.015563148212.022724172e-05
+evaluation=513 objective=0.00500804229538 qs=0.00500728071295 aspect=8.0008726869 mean_iota=-1.13973489988 solver_iterations=1709
+evaluation=514 objective=0.00502741109834 qs=0.00502664213001 aspect=8.0008769084 mean_iota=-1.14015310449 solver_iterations=1702
+evaluation=515 objective=0.00501050153969 qs=0.0050097441734 aspect=8.00087026794 mean_iota=-1.1397460211 solver_iterations=1706
+evaluation=516 objective=0.0050210819694 qs=0.00502032038697 aspect=8.0008726869 mean_iota=-1.14020312758 solver_iterations=1710
+evaluation=517 objective=0.00500912902896 qs=0.00500836744653 aspect=8.0008726869 mean_iota=-1.13974939789 solver_iterations=1701
+analytic_jacobian columns=24 residuals=44353 tangent_columns=20 blackbox_columns=4 linear_iterations=5454 worst_linear_residual=0.125001692256 worst_relative_linear_residual=4.99689133288e-06
+accepted mode=2 iteration=101 objective=0.00500804229538
+  101    109     0.002504021148     0.016637449335.056810431e-06
+evaluation=518 objective=0.00500871282475 qs=0.00500794500393 aspect=8.00087625386 mean_iota=-1.13973829446 solver_iterations=1501
+evaluation=519 objective=0.00500859310654 qs=0.00500782991527 aspect=8.00087360819 mean_iota=-1.1397354905 solver_iterations=1497
+evaluation=520 objective=0.00500860533594 qs=0.00500784354451 aspect=8.00087280664 mean_iota=-1.13973482762 solver_iterations=1497
+evaluation=521 objective=0.00500860833315 qs=0.00500784673135 aspect=8.000872698 mean_iota=-1.13973468288 solver_iterations=1497
+evaluation=522 objective=0.00500860910382 qs=0.0050078475194 aspect=8.00087268804 mean_iota=-1.13973465016 solver_iterations=1497
+evaluation=523 objective=0.00500860929995 qs=0.00500784771722 aspect=8.00087268708 mean_iota=-1.13973464227 solver_iterations=1497
+evaluation=524 objective=0.00500860935405 qs=0.00500784777156 aspect=8.00087268694 mean_iota=-1.13973464033 solver_iterations=1497
+evaluation=525 objective=0.0050086093629 qs=0.00500784778046 aspect=8.00087268691 mean_iota=-1.13973463984 solver_iterations=1497
+evaluation=526 objective=0.00500860936657 qs=0.00500784778413 aspect=8.0008726869 mean_iota=-1.13973463971 solver_iterations=1497
+evaluation=527 objective=0.00500860936549 qs=0.00500784778306 aspect=8.0008726869 mean_iota=-1.13973463968 solver_iterations=1497
+evaluation=528 objective=0.00500860936495 qs=0.00500784778252 aspect=8.0008726869 mean_iota=-1.13973463967 solver_iterations=1497
+evaluation=529 objective=0.00500860936863 qs=0.0050078477862 aspect=8.0008726869 mean_iota=-1.13973463968 solver_iterations=1497
+evaluation=530 objective=0.00500860936835 qs=0.00500784778592 aspect=8.0008726869 mean_iota=-1.13973463967 solver_iterations=1497
+evaluation=531 objective=0.00500860937126 qs=0.00500784778883 aspect=8.0008726869 mean_iota=-1.13973463968 solver_iterations=1497
+evaluation=532 objective=0.00500860936623 qs=0.0050078477838 aspect=8.0008726869 mean_iota=-1.13973463967 solver_iterations=1497
+evaluation=533 objective=0.00500860936677 qs=0.00500784778434 aspect=8.0008726869 mean_iota=-1.13973463967 solver_iterations=1497
+evaluation=534 objective=0.00500860936839 qs=0.00500784778596 aspect=8.0008726869 mean_iota=-1.13973463967 solver_iterations=1497
+evaluation=535 objective=0.00500860936686 qs=0.00500784778443 aspect=8.0008726869 mean_iota=-1.13973463967 solver_iterations=1497
+finished max_mode=2 status=The step size satisfies xtol. objective=0.00500804229538 evaluations=126 iterations=101 equilibrium_evaluations=535 nonlinear_iterations=929325 analytic_jacobians=102 hot_restart_jacobians=0 linear_iterations=551836
+beginning max_mode=3 variables=48 jacobian_method=analytic stage_restart=0
+evaluation=1 objective=0.00506491900194 qs=0.00506415741951 aspect=8.0008726869 mean_iota=-1.13977286606 solver_iterations=2165
+evaluation=2 objective=0.00508206699866 qs=0.00508129803033 aspect=8.0008769084 mean_iota=-1.14019115305 solver_iterations=2164
+evaluation=3 objective=0.0050692773943 qs=0.005068520028 aspect=8.00087026794 mean_iota=-1.13978388105 solver_iterations=2184
+evaluation=4 objective=0.00506492976807 qs=0.00506416818762 aspect=8.00087268577 mean_iota=-1.1397728505 solver_iterations=2165
+evaluation=5 objective=0.00507827085407 qs=0.00507750927164 aspect=8.0008726869 mean_iota=-1.14024148985 solver_iterations=2164
+evaluation=6 objective=0.00506673590357 qs=0.00506597432114 aspect=8.0008726869 mean_iota=-1.13978747264 solver_iterations=2176
+evaluation=7 objective=0.00506462756323 qs=0.0050638659808 aspect=8.0008726869 mean_iota=-1.13977286023 solver_iterations=2165
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10755 worst_linear_residual=0.124669005202 worst_relative_linear_residual=4.99977098833e-06
+ iter   nfev              cost        optimality       radius
+    0      1     0.002532459501       2.450787144 0.3324827022
+evaluation=8 objective=0.105877251519 qs=0.103734089659 aspect=7.95370570381 mean_iota=-1.23961781589 solver_iterations=2229
+evaluation=9 objective=0.0249331771758 qs=0.0243735556598 aspect=7.97634367915 mean_iota=-1.159492797 solver_iterations=2514
+evaluation=10 objective=0.00274365090307 qs=0.00274363396715 aspect=7.99986986193 mean_iota=-1.14360193259 solver_iterations=2406
+evaluation=11 objective=0.00271506856779 qs=0.00271505351609 aspect=7.9998773146 mean_iota=-1.14401016336 solver_iterations=2408
+evaluation=12 objective=0.00276377113129 qs=0.00276375359389 aspect=7.99986757117 mean_iota=-1.14361539058 solver_iterations=2406
+evaluation=13 objective=0.00274525400887 qs=0.00274523706954 aspect=7.99986984881 mean_iota=-1.14360190452 solver_iterations=2406
+evaluation=14 objective=0.00279063305987 qs=0.00279061612395 aspect=7.99986986193 mean_iota=-1.14406029229 solver_iterations=2411
+evaluation=15 objective=0.00272734284322 qs=0.00272732590731 aspect=7.99986986193 mean_iota=-1.14361865754 solver_iterations=2406
+evaluation=16 objective=0.00274264660618 qs=0.00274262967026 aspect=7.99986986193 mean_iota=-1.14360195087 solver_iterations=2406
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10699 worst_linear_residual=0.125501722689 worst_relative_linear_residual=4.99964184794e-06
+accepted mode=3 iteration=1 objective=0.00274365090307
+    1      4     0.001371825452       2.0782602230.006483215127
+evaluation=17 objective=0.00319143288789 qs=0.00314303881579 aspect=7.9930434152 mean_iota=-1.14818476675 solver_iterations=2398
+evaluation=18 objective=0.00211210477543 qs=0.00211204209121 aspect=8.00025036817 mean_iota=-1.14416930513 solver_iterations=2289
+evaluation=19 objective=0.00211556203115 qs=0.00211549476858 aspect=8.00025935029 mean_iota=-1.14457174757 solver_iterations=2292
+evaluation=20 objective=0.00211935463112 qs=0.00211929309012 aspect=8.00024807459 mean_iota=-1.14418337132 solver_iterations=2290
+evaluation=21 objective=0.00211216654653 qs=0.00211210387374 aspect=8.00025034535 mean_iota=-1.14416928631 solver_iterations=2289
+evaluation=22 objective=0.00213198595126 qs=0.00213192326704 aspect=8.00025036817 mean_iota=-1.14462327079 solver_iterations=2290
+evaluation=23 objective=0.00210857086106 qs=0.00210850817684 aspect=8.00025036817 mean_iota=-1.14418675952 solver_iterations=2289
+evaluation=24 objective=0.00211249119043 qs=0.00211242850621 aspect=8.00025036817 mean_iota=-1.14416935819 solver_iterations=2289
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10755 worst_linear_residual=0.125860679626 worst_relative_linear_residual=4.99962462301e-06
+accepted mode=3 iteration=2 objective=0.00211210477543
+    2      6     0.001056052388      0.66149710730.003241607563
+evaluation=25 objective=0.00171626189034 qs=0.00171450217249 aspect=7.99867345643 mean_iota=-1.1464617834 solver_iterations=2330
+evaluation=26 objective=0.00169142859912 qs=0.00168969981761 aspect=7.99868516864 mean_iota=-1.1468549597 solver_iterations=2331
+evaluation=27 objective=0.00173522072501 qs=0.00173345465403 aspect=7.99867106397 mean_iota=-1.14647626231 solver_iterations=2328
+evaluation=28 objective=0.00171629325105 qs=0.00171453344363 aspect=7.99867342267 mean_iota=-1.1464617674 solver_iterations=2330
+evaluation=29 objective=0.00175414251659 qs=0.00175238279874 aspect=7.99867345643 mean_iota=-1.14690859839 solver_iterations=2328
+evaluation=30 objective=0.00170308693872 qs=0.00170132722087 aspect=7.99867345643 mean_iota=-1.14648003584 solver_iterations=2328
+evaluation=31 objective=0.00171891561415 qs=0.0017171558963 aspect=7.99867345643 mean_iota=-1.14646191854 solver_iterations=2330
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10889 worst_linear_residual=0.127340116229 worst_relative_linear_residual=4.99999129691e-06
+accepted mode=3 iteration=3 objective=0.00171626189034
+    3      7    0.0008581309452       1.9348723040.003241607563
+evaluation=32 objective=0.00139223212407 qs=0.00139112633625 aspect=7.99894843553 mean_iota=-1.1508000378 solver_iterations=2393
+evaluation=33 objective=0.00140021136618 qs=0.00139913577197 aspect=7.99896289141 mean_iota=-1.15118680484 solver_iterations=2396
+evaluation=34 objective=0.0013983517203 qs=0.00139724057538 aspect=7.99894589141 mean_iota=-1.15081487882 solver_iterations=2394
+evaluation=35 objective=0.00139255879672 qs=0.00139145293119 aspect=7.99894839859 mean_iota=-1.15079997145 solver_iterations=2393
+evaluation=36 objective=0.00140601301318 qs=0.00140490722535 aspect=7.99894843553 mean_iota=-1.15124306604 solver_iterations=2396
+evaluation=37 objective=0.00139441304648 qs=0.00139330725866 aspect=7.99894843553 mean_iota=-1.15081895629 solver_iterations=2396
+evaluation=38 objective=0.0013923956144 qs=0.00139128982657 aspect=7.99894843553 mean_iota=-1.1508002006 solver_iterations=2393
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10902 worst_linear_residual=0.129136554116 worst_relative_linear_residual=4.99993652532e-06
+accepted mode=3 iteration=4 objective=0.00139223212407
+    4      8     0.000696116062      0.34369997670.006483215127
+evaluation=39 objective=0.00123427299971 qs=0.00122537809583 aspect=7.99701756746 mean_iota=-1.1631450699 solver_iterations=2444
+evaluation=40 objective=0.00129702190541 qs=0.00128823134641 aspect=7.99703511231 mean_iota=-1.16353401689 solver_iterations=2446
+evaluation=41 objective=0.00122525278863 qs=0.00121634091205 aspect=7.99701472337 mean_iota=-1.16316090264 solver_iterations=2443
+evaluation=42 objective=0.00123401176728 qs=0.00122511660279 aspect=7.99701752376 mean_iota=-1.16314495256 solver_iterations=2444
+evaluation=43 objective=0.0011925199548 qs=0.00118362505092 aspect=7.99701756746 mean_iota=-1.16359543686 solver_iterations=2488
+evaluation=44 objective=0.00126262432525 qs=0.00125372942137 aspect=7.99701756746 mean_iota=-1.16316616002 solver_iterations=2443
+evaluation=45 objective=0.00123184937748 qs=0.0012229544736 aspect=7.99701756746 mean_iota=-1.16314521968 solver_iterations=2444
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10949 worst_linear_residual=0.131640569774 worst_relative_linear_residual=4.99722458663e-06
+accepted mode=3 iteration=5 objective=0.00123427299971
+    5      9    0.0006171364999       2.0157171080.006483215127
+evaluation=46 objective=0.000939469012137 qs=0.000937254655105 aspect=7.99851192842 mean_iota=-1.17794839655 solver_iterations=2536
+evaluation=47 objective=0.00099692156718 qs=0.000994765320982 aspect=7.99853158378 mean_iota=-1.17834335604 solver_iterations=2589
+evaluation=48 objective=0.000960770007467 qs=0.000958546390918 aspect=7.99850882042 mean_iota=-1.17795775252 solver_iterations=2615
+evaluation=49 objective=0.00093897459012 qs=0.000936760090474 aspect=7.9985118805 mean_iota=-1.1779482835 solver_iterations=2536
+evaluation=50 objective=0.000930987036102 qs=0.00092877267907 aspect=7.99851192842 mean_iota=-1.17840618841 solver_iterations=2589
+evaluation=51 objective=0.000960242358751 qs=0.000958028001719 aspect=7.99851192842 mean_iota=-1.17796359917 solver_iterations=2615
+evaluation=52 objective=0.000938930123701 qs=0.000936715766669 aspect=7.99851192842 mean_iota=-1.17794854319 solver_iterations=2537
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11014 worst_linear_residual=0.133469864323 worst_relative_linear_residual=4.999528369e-06
+accepted mode=3 iteration=6 objective=0.000939469012137
+    6     10    0.0004697345061      0.71856097650.01296643025
+evaluation=53 objective=0.00154959860439 qs=0.00154758173993 aspect=7.99857983647 mean_iota=-1.20549442287 solver_iterations=2374
+evaluation=54 objective=0.000839998325744 qs=0.000839986381615 aspect=8.0001092892 mean_iota=-1.18635682527 solver_iterations=2523
+evaluation=55 objective=0.000905983500142 qs=0.000905966661089 aspect=8.00012976538 mean_iota=-1.18676567068 solver_iterations=2778
+evaluation=56 objective=0.000839413901092 qs=0.000839402592026 aspect=8.00010634409 mean_iota=-1.18637543422 solver_iterations=2498
+evaluation=57 objective=0.000839672172611 qs=0.000839660238994 aspect=8.0001092411 mean_iota=-1.18635675137 solver_iterations=2522
+evaluation=58 objective=0.000854009621063 qs=0.000853997676934 aspect=8.0001092892 mean_iota=-1.18682010894 solver_iterations=2567
+evaluation=59 objective=0.000845570175594 qs=0.000845558231464 aspect=8.0001092892 mean_iota=-1.18638106349 solver_iterations=2503
+evaluation=60 objective=0.000839764503034 qs=0.000839752558905 aspect=8.0001092892 mean_iota=-1.1863569969 solver_iterations=2522
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=10983 worst_linear_residual=0.134345573789 worst_relative_linear_residual=4.9997211136e-06
+accepted mode=3 iteration=7 objective=0.000839998325744
+    7     12    0.0004199991629      0.48819606470.003241607563
+evaluation=61 objective=0.00076912252269 qs=0.000769039375986 aspect=7.9997116483 mean_iota=-1.19244658126 solver_iterations=2388
+evaluation=62 objective=0.000795108785908 qs=0.000795037037959 aspect=7.99973214192 mean_iota=-1.19285667235 solver_iterations=2388
+evaluation=63 objective=0.000773349288225 qs=0.000773264422217 aspect=7.99970868229 mean_iota=-1.19246712345 solver_iterations=2383
+evaluation=64 objective=0.000769616113518 qs=0.000769532936966 aspect=7.99971159655 mean_iota=-1.19244654718 solver_iterations=2388
+evaluation=65 objective=0.000774305659885 qs=0.00077422251318 aspect=7.9997116483 mean_iota=-1.19291242788 solver_iterations=2390
+evaluation=66 objective=0.000773393613779 qs=0.000773310467074 aspect=7.9997116483 mean_iota=-1.19247264074 solver_iterations=2383
+evaluation=67 objective=0.000768489393603 qs=0.000768406246899 aspect=7.9997116483 mean_iota=-1.19244678587 solver_iterations=2388
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11003 worst_linear_residual=0.134404749091 worst_relative_linear_residual=4.99921351621e-06
+accepted mode=3 iteration=8 objective=0.00076912252269
+    8     13    0.0003845612613      0.30662829820.003241607563
+evaluation=68 objective=0.000698061962553 qs=0.000698045631382 aspect=8.00012779347 mean_iota=-1.20073532528 solver_iterations=2235
+evaluation=69 objective=0.000716310548137 qs=0.000716288150661 aspect=8.00014965786 mean_iota=-1.20114977589 solver_iterations=2235
+evaluation=70 objective=0.000701209319697 qs=0.000701193748744 aspect=8.00012478362 mean_iota=-1.20075605168 solver_iterations=2236
+evaluation=71 objective=0.000697911140701 qs=0.000697894823376 aspect=8.00012773928 mean_iota=-1.20073525024 solver_iterations=2234
+evaluation=72 objective=0.000715103192328 qs=0.000715086861158 aspect=8.00012779347 mean_iota=-1.20120491163 solver_iterations=2236
+evaluation=73 objective=0.000702530766554 qs=0.000702514435383 aspect=8.00012779347 mean_iota=-1.20076170219 solver_iterations=2236
+evaluation=74 objective=0.000698358279857 qs=0.000698341948686 aspect=8.00012779347 mean_iota=-1.20073549561 solver_iterations=2234
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11050 worst_linear_residual=0.135477493176 worst_relative_linear_residual=4.99632901532e-06
+accepted mode=3 iteration=9 objective=0.000698061962553
+    9     14    0.0003490309813      0.32045624630.003241607563
+evaluation=75 objective=0.000668062963066 qs=0.000668047848741 aspect=8.00012294033 mean_iota=-1.20890100194 solver_iterations=2817
+evaluation=76 objective=0.000689023830693 qs=0.000689002536198 aspect=8.00014592633 mean_iota=-1.20932040198 solver_iterations=2906
+evaluation=77 objective=0.000669834534762 qs=0.000669820146472 aspect=8.0001199512 mean_iota=-1.20892248769 solver_iterations=2826
+evaluation=78 objective=0.000667880083636 qs=0.000667864983191 aspect=8.00012288387 mean_iota=-1.20890098007 solver_iterations=2817
+evaluation=79 objective=0.00068443286677 qs=0.000684417752444 aspect=8.00012294033 mean_iota=-1.20937398578 solver_iterations=2823
+evaluation=80 objective=0.000673336521458 qs=0.000673321407132 aspect=8.00012294033 mean_iota=-1.20892828514 solver_iterations=2822
+evaluation=81 objective=0.000668068602604 qs=0.000668053488279 aspect=8.00012294033 mean_iota=-1.20890123505 solver_iterations=2817
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11103 worst_linear_residual=0.137010739028 worst_relative_linear_residual=4.99989428995e-06
+accepted mode=3 iteration=10 objective=0.000668062963066
+   10     15    0.0003340314815      0.32548659860.003241607563
+evaluation=82 objective=0.000606663911184 qs=0.000606644845123 aspect=8.00013807991 mean_iota=-1.21653215366 solver_iterations=2110
+evaluation=83 objective=0.00062624636558 qs=0.00062622005893 aspect=8.00016219325 mean_iota=-1.21695658172 solver_iterations=2109
+evaluation=84 objective=0.000610553709027 qs=0.000610535455971 aspect=8.00013510387 mean_iota=-1.2165544325 solver_iterations=2111
+evaluation=85 objective=0.000606682516503 qs=0.000606663466362 aspect=8.00013802225 mean_iota=-1.21653214011 solver_iterations=2110
+evaluation=86 objective=0.000624018900313 qs=0.000623999834252 aspect=8.00013807991 mean_iota=-1.21700974987 solver_iterations=2110
+evaluation=87 objective=0.000609750551664 qs=0.000609731485603 aspect=8.00013807991 mean_iota=-1.21656144948 solver_iterations=2119
+evaluation=88 objective=0.000606949463341 qs=0.00060693039728 aspect=8.00013807991 mean_iota=-1.21653239942 solver_iterations=2110
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11108 worst_linear_residual=0.137718925571 worst_relative_linear_residual=4.99948001291e-06
+accepted mode=3 iteration=11 objective=0.000606663911184
+   11     16    0.0003033319556      0.30979244520.003241607563
+evaluation=89 objective=0.000573862811534 qs=0.000573857814935 aspect=8.00007068663 mean_iota=-1.2232000454 solver_iterations=2318
+evaluation=90 objective=0.000595137994875 qs=0.000595128869819 aspect=8.00009552516 mean_iota=-1.22362904221 solver_iterations=2305
+evaluation=91 objective=0.000579102716643 qs=0.000579098149047 aspect=8.00006758399 mean_iota=-1.2232239114 solver_iterations=2317
+evaluation=92 objective=0.000574110306774 qs=0.000574105318745 aspect=8.00007062598 mean_iota=-1.22320006537 solver_iterations=2318
+evaluation=93 objective=0.000591593985736 qs=0.000591588989137 aspect=8.00007068663 mean_iota=-1.22368346384 solver_iterations=2310
+evaluation=94 objective=0.00057773536287 qs=0.000577730366271 aspect=8.00007068663 mean_iota=-1.22322927692 solver_iterations=2309
+evaluation=95 objective=0.000574165772881 qs=0.000574160776282 aspect=8.00007068663 mean_iota=-1.22320032056 solver_iterations=2318
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11169 worst_linear_residual=0.138593760051 worst_relative_linear_residual=4.99834132565e-06
+accepted mode=3 iteration=12 objective=0.000573862811534
+   12     17    0.0002869314058      0.31820831880.003241607563
+evaluation=96 objective=0.000518299517045 qs=0.000518298865144 aspect=7.99997446766 mean_iota=-1.23045823751 solver_iterations=2300
+evaluation=97 objective=0.000534405888001 qs=0.00053440588791 aspect=8.00000030229 mean_iota=-1.2308918447 solver_iterations=2326
+evaluation=98 objective=0.000523657581376 qs=0.000523656764541 aspect=7.99997141968 mean_iota=-1.23048225663 solver_iterations=2288
+evaluation=99 objective=0.000518260933938 qs=0.000518260278821 aspect=7.99997440475 mean_iota=-1.23045824173 solver_iterations=2300
+evaluation=100 objective=0.000541634455813 qs=0.000541633803913 aspect=7.99997446766 mean_iota=-1.23094552856 solver_iterations=2299
+evaluation=101 objective=0.000521029626115 qs=0.000521028974215 aspect=7.99997446766 mean_iota=-1.23048826349 solver_iterations=2289
+evaluation=102 objective=0.000518708212568 qs=0.000518707560667 aspect=7.99997446766 mean_iota=-1.23045853483 solver_iterations=2300
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11210 worst_linear_residual=0.140504494554 worst_relative_linear_residual=4.99919568622e-06
+accepted mode=3 iteration=13 objective=0.000518299517045
+   13     18    0.0002591497585       0.2358280510.003241607563
+evaluation=103 objective=0.000499163676304 qs=0.000499163097487 aspect=8.00002405861 mean_iota=-1.23611060522 solver_iterations=2070
+evaluation=104 objective=0.000517069248766 qs=0.000517066707288 aspect=8.00005041307 mean_iota=-1.23654847912 solver_iterations=2061
+evaluation=105 objective=0.000504468512274 qs=0.000504468072907 aspect=8.00002096107 mean_iota=-1.2361358339 solver_iterations=2068
+evaluation=106 objective=0.000499364609422 qs=0.000499364033678 aspect=8.00002399468 mean_iota=-1.23611061009 solver_iterations=2069
+evaluation=107 objective=0.000520384265326 qs=0.000520383686509 aspect=8.00002405861 mean_iota=-1.23660412217 solver_iterations=2063
+evaluation=108 objective=0.000502027670691 qs=0.000502027091874 aspect=8.00002405861 mean_iota=-1.23614160953 solver_iterations=2068
+evaluation=109 objective=0.000499438885413 qs=0.000499438306596 aspect=8.00002405861 mean_iota=-1.2361109056 solver_iterations=2069
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11193 worst_linear_residual=0.140737420781 worst_relative_linear_residual=4.99941771609e-06
+accepted mode=3 iteration=14 objective=0.000499163676304
+   14     19    0.0002495818382      0.23488037290.003241607563
+evaluation=110 objective=0.000477945257397 qs=0.000477945096655 aspect=7.99998732158 mean_iota=-1.24181903973 solver_iterations=1938
+evaluation=111 objective=0.000493897253224 qs=0.000493897054861 aspect=8.00001408415 mean_iota=-1.24226176671 solver_iterations=1934
+evaluation=112 objective=0.000482157361261 qs=0.000482157106954 aspect=7.99998405298 mean_iota=-1.2418459369 solver_iterations=1938
+evaluation=113 objective=0.00047823189997 qs=0.000478231737584 aspect=7.99998725689 mean_iota=-1.24181916046 solver_iterations=1938
+evaluation=114 objective=0.000503662018024 qs=0.000503661857282 aspect=7.99998732158 mean_iota=-1.24232004891 solver_iterations=1935
+evaluation=115 objective=0.000481674605421 qs=0.000481674444678 aspect=7.99998732158 mean_iota=-1.24185131094 solver_iterations=1938
+evaluation=116 objective=0.000478210653961 qs=0.000478210493219 aspect=7.99998732158 mean_iota=-1.24181943631 solver_iterations=1938
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11200 worst_linear_residual=0.140732685311 worst_relative_linear_residual=4.99487040948e-06
+accepted mode=3 iteration=15 objective=0.000477945257397
+   15     20    0.0002389726287      0.22830747040.003241607563
+evaluation=117 objective=0.000464126112631 qs=0.000464126088135 aspect=8.00000494938 mean_iota=-1.2477802895 solver_iterations=1769
+evaluation=118 objective=0.000481875735876 qs=0.000481874719719 aspect=8.00003187721 mean_iota=-1.24822952357 solver_iterations=1767
+evaluation=119 objective=0.000468217752337 qs=0.000468217749816 aspect=8.00000158771 mean_iota=-1.24780825519 solver_iterations=1768
+evaluation=120 objective=0.000464315841807 qs=0.00046431581797 aspect=8.00000488233 mean_iota=-1.24778042023 solver_iterations=1769
+evaluation=121 objective=0.000489669666914 qs=0.000489669642418 aspect=8.00000494938 mean_iota=-1.24828973962 solver_iterations=1768
+evaluation=122 objective=0.000468386272441 qs=0.000468386247945 aspect=8.00000494938 mean_iota=-1.24781389787 solver_iterations=1769
+evaluation=123 objective=0.000464439409014 qs=0.000464439384518 aspect=8.00000494938 mean_iota=-1.24778072228 solver_iterations=1769
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11204 worst_linear_residual=0.140985795284 worst_relative_linear_residual=4.99986481541e-06
+accepted mode=3 iteration=16 objective=0.000464126112631
+   16     21    0.0002320630563      0.22451214440.003241607563
+evaluation=124 objective=0.000455744676572 qs=0.00045574311744 aspect=7.99996051416 mean_iota=-1.25360428791 solver_iterations=1839
+evaluation=125 objective=0.000473682145824 qs=0.000473681995583 aspect=7.99998774272 mean_iota=-1.25405983146 solver_iterations=1839
+evaluation=126 objective=0.000461183666812 qs=0.000461181825391 aspect=7.99995708822 mean_iota=-1.25363357179 solver_iterations=1849
+evaluation=127 objective=0.000455981734013 qs=0.000455980169482 aspect=7.99996044585 mean_iota=-1.25360497014 solver_iterations=1840
+evaluation=128 objective=0.000481788257007 qs=0.000481786697876 aspect=7.99996051416 mean_iota=-1.25412163258 solver_iterations=1846
+evaluation=129 objective=0.000459446783465 qs=0.000459445224333 aspect=7.99996051416 mean_iota=-1.25363938989 solver_iterations=1848
+evaluation=130 objective=0.000456133530544 qs=0.000456131971412 aspect=7.99996051416 mean_iota=-1.25360517917 solver_iterations=1840
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11199 worst_linear_residual=0.141210816742 worst_relative_linear_residual=4.99998994557e-06
+accepted mode=3 iteration=17 objective=0.000455744676572
+   17     22    0.0002278723383      0.22516489670.0008104018908
+evaluation=131 objective=0.000442380151161 qs=0.000442371241765 aspect=8.0000943896 mean_iota=-1.25435254206 solver_iterations=1770
+evaluation=132 objective=0.00046465898502 qs=0.000464644221928 aspect=8.00012150346 mean_iota=-1.25480958196 solver_iterations=1771
+evaluation=133 objective=0.000447611581118 qs=0.000447603304228 aspect=8.00009097742 mean_iota=-1.25438178287 solver_iterations=1783
+evaluation=134 objective=0.000442550389273 qs=0.000442541492528 aspect=8.00009432256 mean_iota=-1.25435297145 solver_iterations=1770
+evaluation=135 objective=0.000464354661411 qs=0.000464345752014 aspect=8.0000943896 mean_iota=-1.25487056353 solver_iterations=1782
+evaluation=136 objective=0.000446903335837 qs=0.00044689442644 aspect=8.0000943896 mean_iota=-1.2543874534 solver_iterations=1781
+evaluation=137 objective=0.000442581641656 qs=0.00044257273226 aspect=8.0000943896 mean_iota=-1.2543530897 solver_iterations=1770
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11199 worst_linear_residual=0.141069669961 worst_relative_linear_residual=4.99898871651e-06
+accepted mode=3 iteration=18 objective=0.000442380151161
+   18     23    0.0002211900756      0.19433639930.0008104018908
+evaluation=138 objective=0.000433848908194 qs=0.000433839181588 aspect=8.00009862356 mean_iota=-1.25495791021 solver_iterations=1827
+evaluation=139 objective=0.000456742525763 qs=0.000456726731029 aspect=8.0001256771 mean_iota=-1.25541634044 solver_iterations=1828
+evaluation=140 objective=0.000439352054429 qs=0.000439342988828 aspect=8.00009521345 mean_iota=-1.25498870149 solver_iterations=1805
+evaluation=141 objective=0.000433972945852 qs=0.000433963232319 aspect=8.00009855726 mean_iota=-1.25495810784 solver_iterations=1827
+evaluation=142 objective=0.000455295752379 qs=0.000455286025772 aspect=8.00009862356 mean_iota=-1.25547804695 solver_iterations=1829
+evaluation=143 objective=0.000438347415328 qs=0.000438337688721 aspect=8.00009862356 mean_iota=-1.25499300949 solver_iterations=1827
+evaluation=144 objective=0.000434042446632 qs=0.000434032720026 aspect=8.00009862356 mean_iota=-1.25495841038 solver_iterations=1827
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11187 worst_linear_residual=0.141027888352 worst_relative_linear_residual=4.99985199387e-06
+accepted mode=3 iteration=19 objective=0.000433848908194
+   19     24    0.0002169244541      0.18117372950.0008104018908
+evaluation=145 objective=0.000426000086475 qs=0.000425990661917 aspect=8.00009708016 mean_iota=-1.25552780433 solver_iterations=1851
+evaluation=146 objective=0.000449382660437 qs=0.000449367267729 aspect=8.00012406735 mean_iota=-1.25598706655 solver_iterations=1854
+evaluation=147 objective=0.000431602054514 qs=0.000431593278594 aspect=8.00009367988 mean_iota=-1.25555806357 solver_iterations=1839
+evaluation=148 objective=0.000426116941368 qs=0.000426107529688 aspect=8.00009701382 mean_iota=-1.2555284888 solver_iterations=1839
+evaluation=149 objective=0.000447026629967 qs=0.00044701720541 aspect=8.00009708016 mean_iota=-1.2560474703 solver_iterations=1855
+evaluation=150 objective=0.000430509248775 qs=0.000430499824217 aspect=8.00009708016 mean_iota=-1.25556314032 solver_iterations=1839
+evaluation=151 objective=0.000426196609253 qs=0.000426187184696 aspect=8.00009708016 mean_iota=-1.25552906416 solver_iterations=1837
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11185 worst_linear_residual=0.140881636172 worst_relative_linear_residual=4.9975724388e-06
+accepted mode=3 iteration=20 objective=0.000426000086475
+   20     25    0.0002130000432      0.16758768980.0008104018908
+evaluation=152 objective=0.00042076849718 qs=0.000420759957342 aspect=8.00009241124 mean_iota=-1.25613121261 solver_iterations=1895
+evaluation=153 objective=0.000444176615367 qs=0.000444162370973 aspect=8.00011934988 mean_iota=-1.25659214833 solver_iterations=1895
+evaluation=154 objective=0.000426555898308 qs=0.000426547973591 aspect=8.00008902088 mean_iota=-1.25616213011 solver_iterations=1895
+evaluation=155 objective=0.000420893741413 qs=0.0004208852138 aspect=8.00009234508 mean_iota=-1.25613147037 solver_iterations=1895
+evaluation=156 objective=0.000441948107716 qs=0.000441939567878 aspect=8.00009241124 mean_iota=-1.25665267721 solver_iterations=1895
+evaluation=157 objective=0.000425369102904 qs=0.000425360563066 aspect=8.00009241124 mean_iota=-1.25616697419 solver_iterations=1895
+evaluation=158 objective=0.000420978764649 qs=0.000420970224811 aspect=8.00009241124 mean_iota=-1.25613177635 solver_iterations=1895
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11176 worst_linear_residual=0.141157841854 worst_relative_linear_residual=4.99833801654e-06
+accepted mode=3 iteration=21 objective=0.00042076849718
+   21     26    0.0002103842486      0.16264633130.0002026004727
+evaluation=159 objective=0.000415689331105 qs=0.000415671526239 aspect=8.00013343488 mean_iota=-1.2561122951 solver_iterations=1861
+evaluation=160 objective=0.000439350526402 qs=0.000439324818647 aspect=8.00016033638 mean_iota=-1.25657374809 solver_iterations=1864
+evaluation=161 objective=0.000421405467389 qs=0.000421388553947 aspect=8.00013005169 mean_iota=-1.25614334881 solver_iterations=1864
+evaluation=162 objective=0.00041582873374 qs=0.000415810946429 aspect=8.00013336908 mean_iota=-1.25611255232 solver_iterations=1861
+evaluation=163 objective=0.000436481026102 qs=0.000436463221236 aspect=8.00013343488 mean_iota=-1.25663422731 solver_iterations=1861
+evaluation=164 objective=0.000420280787001 qs=0.000420262982135 aspect=8.00013343488 mean_iota=-1.2561478519 solver_iterations=1861
+evaluation=165 objective=0.000415866430383 qs=0.000415848625517 aspect=8.00013343488 mean_iota=-1.2561128541 solver_iterations=1861
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11176 worst_linear_residual=0.141089769574 worst_relative_linear_residual=4.99946290706e-06
+accepted mode=3 iteration=22 objective=0.000415689331105
+   22     27    0.0002078446656      0.15047011650.0002026004727
+evaluation=166 objective=0.000410625560006 qs=0.000410608073271 aspect=8.00013223742 mean_iota=-1.25613416147 solver_iterations=1846
+evaluation=167 objective=0.000434240287406 qs=0.00043421496608 aspect=8.00015912676 mean_iota=-1.25659696996 solver_iterations=1856
+evaluation=168 objective=0.000416448706888 qs=0.000416432102173 aspect=8.00012885928 mean_iota=-1.25616573422 solver_iterations=1825
+evaluation=169 objective=0.000410769392608 qs=0.000410751923215 aspect=8.00013217183 mean_iota=-1.25613450807 solver_iterations=1846
+evaluation=170 objective=0.000431381569874 qs=0.000431364083139 aspect=8.00013223742 mean_iota=-1.25665607033 solver_iterations=1843
+evaluation=171 objective=0.000415263225446 qs=0.000415245738711 aspect=8.00013223742 mean_iota=-1.25616990141 solver_iterations=1837
+evaluation=172 objective=0.00041081406401 qs=0.000410796577274 aspect=8.00013223742 mean_iota=-1.25613485772 solver_iterations=1846
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11177 worst_linear_residual=0.140835108631 worst_relative_linear_residual=4.99871904007e-06
+accepted mode=3 iteration=23 objective=0.000410625560006
+   23     28      0.00020531278      0.14068231510.0002026004727
+evaluation=173 objective=0.000406885935187 qs=0.000406869251741 aspect=8.00012916441 mean_iota=-1.25615502476 solver_iterations=1867
+evaluation=174 objective=0.000430766748622 qs=0.000430742402045 aspect=8.0001560339 mean_iota=-1.25661716012 solver_iterations=1854
+evaluation=175 objective=0.000412976497793 qs=0.000412960672721 aspect=8.00012579774 mean_iota=-1.25618619523 solver_iterations=1892
+evaluation=176 objective=0.000407029505865 qs=0.000407012839223 aspect=8.00012909935 mean_iota=-1.25615530748 solver_iterations=1867
+evaluation=177 objective=0.0004268408089 qs=0.000426824125455 aspect=8.00012916441 mean_iota=-1.25667817135 solver_iterations=1867
+evaluation=178 objective=0.000411172235864 qs=0.000411155552419 aspect=8.00012916441 mean_iota=-1.25619103176 solver_iterations=1866
+evaluation=179 objective=0.000407029855087 qs=0.000407013171642 aspect=8.00012916441 mean_iota=-1.25615567187 solver_iterations=1867
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11177 worst_linear_residual=0.140862447501 worst_relative_linear_residual=4.99704538678e-06
+accepted mode=3 iteration=24 objective=0.000406885935187
+   24     29    0.0002034429676      0.13191371010.0002026004727
+evaluation=180 objective=0.000404426434484 qs=0.000404410276985 aspect=8.00012711215 mean_iota=-1.25624106553 solver_iterations=1868
+evaluation=181 objective=0.000429138525371 qs=0.000429114834247 aspect=8.00015391921 mean_iota=-1.25670143944 solver_iterations=1868
+evaluation=182 objective=0.000410226408443 qs=0.000410211091944 aspect=8.00012375984 mean_iota=-1.25627262078 solver_iterations=1842
+evaluation=183 objective=0.000404565958944 qs=0.000404549817896 aspect=8.00012704742 mean_iota=-1.2562413451 solver_iterations=1868
+evaluation=184 objective=0.000424265325564 qs=0.000424249168065 aspect=8.00012711215 mean_iota=-1.25676439298 solver_iterations=1865
+evaluation=185 objective=0.000408675964432 qs=0.000408659806933 aspect=8.00012711215 mean_iota=-1.25627729144 solver_iterations=1867
+evaluation=186 objective=0.000404566407877 qs=0.000404550250378 aspect=8.00012711215 mean_iota=-1.25624171061 solver_iterations=1868
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11169 worst_linear_residual=0.141187348881 worst_relative_linear_residual=4.99592045414e-06
+accepted mode=3 iteration=25 objective=0.000404426434484
+   25     30    0.0002022132172      0.12898933475.065011818e-05
+evaluation=187 objective=0.000395043536492 qs=0.000395020097074 aspect=8.00015309937 mean_iota=-1.25621429344 solver_iterations=1925
+evaluation=188 objective=0.000421167743401 qs=0.000421135379391 aspect=8.0001799 mean_iota=-1.25667047429 solver_iterations=1834
+evaluation=189 objective=0.000401563845159 qs=0.000401541421508 aspect=8.00014974529 mean_iota=-1.25624205557 solver_iterations=1928
+evaluation=190 objective=0.000395193194457 qs=0.000395169774898 aspect=8.0001530345 mean_iota=-1.25621452619 solver_iterations=1926
+evaluation=191 objective=0.000414715777132 qs=0.000414692337713 aspect=8.00015309937 mean_iota=-1.25673895436 solver_iterations=2023
+evaluation=192 objective=0.000398323469228 qs=0.000398300029809 aspect=8.00015309937 mean_iota=-1.2562533486 solver_iterations=1889
+evaluation=193 objective=0.000395171687622 qs=0.000395148248204 aspect=8.00015309937 mean_iota=-1.25621505591 solver_iterations=1922
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11171 worst_linear_residual=0.141455472004 worst_relative_linear_residual=4.99899205262e-06
+accepted mode=3 iteration=26 objective=0.000395043536492
+   26     31    0.0001975217682     0.087671716940.0001013002364
+evaluation=194 objective=0.0003989800584 qs=0.00039896306137 aspect=8.00013037266 mean_iota=-1.25622361252 solver_iterations=2170
+evaluation=195 objective=0.000392415882579 qs=0.000392381442364 aspect=8.00018558075 mean_iota=-1.25620138371 solver_iterations=2024
+evaluation=196 objective=0.000417825431883 qs=0.000417780322825 aspect=8.00021238893 mean_iota=-1.25666006307 solver_iterations=2026
+evaluation=197 objective=0.000398070078158 qs=0.000398036872025 aspect=8.0001822255 mean_iota=-1.25623175253 solver_iterations=2022
+evaluation=198 objective=0.000392550771292 qs=0.000392516355125 aspect=8.00018551595 mean_iota=-1.25620167571 solver_iterations=2024
+evaluation=199 objective=0.000414674547652 qs=0.000414640107436 aspect=8.00018558075 mean_iota=-1.25671506939 solver_iterations=2006
+evaluation=200 objective=0.00039851598469 qs=0.000398481544475 aspect=8.00018558075 mean_iota=-1.25623142201 solver_iterations=2013
+evaluation=201 objective=0.000392584030776 qs=0.000392549590561 aspect=8.00018558075 mean_iota=-1.2562020415 solver_iterations=2024
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11170 worst_linear_residual=0.140658245444 worst_relative_linear_residual=4.99964651459e-06
+accepted mode=3 iteration=27 objective=0.000392415882579
+   27     33    0.0001962079413     0.070073056522.532505909e-05
+evaluation=202 objective=0.000392063082563 qs=0.000392032195103 aspect=8.00017574828 mean_iota=-1.25616151875 solver_iterations=2013
+evaluation=203 objective=0.000417517154046 qs=0.000417476128061 aspect=8.00020254872 mean_iota=-1.25661991501 solver_iterations=2026
+evaluation=204 objective=0.000397843957153 qs=0.000397814237633 aspect=8.0001723935 mean_iota=-1.25619236072 solver_iterations=2013
+evaluation=205 objective=0.000392199070713 qs=0.000392168206075 aspect=8.00017568335 mean_iota=-1.25616181688 solver_iterations=2013
+evaluation=206 objective=0.000414372571684 qs=0.000414341684225 aspect=8.00017574828 mean_iota=-1.25667460494 solver_iterations=2007
+evaluation=207 objective=0.000397981868122 qs=0.000397950980662 aspect=8.00017574828 mean_iota=-1.25619122371 solver_iterations=2013
+evaluation=208 objective=0.000392290795629 qs=0.000392259908169 aspect=8.00017574828 mean_iota=-1.25616211875 solver_iterations=2013
+analytic_jacobian columns=48 residuals=44353 tangent_columns=42 blackbox_columns=6 linear_iterations=11171 worst_linear_residual=0.140744516332 worst_relative_linear_residual=4.99990940838e-06
+accepted mode=3 iteration=28 objective=0.000392063082563
+   28     34    0.0001960315413      0.06724879866.331264772e-06
+evaluation=209 objective=0.00039239249216 qs=0.000392356312036 aspect=8.00019021074 mean_iota=-1.25615221821 solver_iterations=2012
+evaluation=210 objective=0.00039227919035 qs=0.000392246585736 aspect=8.00018056748 mean_iota=-1.25615908065 solver_iterations=2012
+evaluation=211 objective=0.000392249236604 qs=0.000392217895039 aspect=8.00017703549 mean_iota=-1.25616076145 solver_iterations=2012
+evaluation=212 objective=0.000392242978489 qs=0.000392211975852 aspect=8.00017607566 mean_iota=-1.25616117516 solver_iterations=2012
+evaluation=213 objective=0.000392241629548 qs=0.000392210713188 aspect=8.00017583049 mean_iota=-1.25616127779 solver_iterations=2012
+evaluation=214 objective=0.000392241312115 qs=0.000392210417424 aspect=8.00017576886 mean_iota=-1.25616130341 solver_iterations=2012
+evaluation=215 objective=0.000392241234025 qs=0.000392210344757 aspect=8.00017575343 mean_iota=-1.25616130983 solver_iterations=2012
+evaluation=216 objective=0.000392241215404 qs=0.000392210327492 aspect=8.00017574957 mean_iota=-1.25616131144 solver_iterations=2012
+evaluation=217 objective=0.000392241211598 qs=0.000392210324026 aspect=8.00017574861 mean_iota=-1.25616131187 solver_iterations=2012
+evaluation=218 objective=0.000392241210304 qs=0.000392210322816 aspect=8.00017574836 mean_iota=-1.25616131194 solver_iterations=2012
+evaluation=219 objective=0.000392241210967 qs=0.0003922103235 aspect=8.0001757483 mean_iota=-1.25616131203 solver_iterations=2012
+evaluation=220 objective=0.000392241212571 qs=0.000392210325109 aspect=8.00017574829 mean_iota=-1.25616131207 solver_iterations=2012
+evaluation=221 objective=0.000392241209823 qs=0.000392210322364 aspect=8.00017574829 mean_iota=-1.25616131201 solver_iterations=2012
+evaluation=222 objective=0.000392241210418 qs=0.000392210322958 aspect=8.00017574828 mean_iota=-1.25616131201 solver_iterations=2012
+evaluation=223 objective=0.000392241209755 qs=0.000392210322296 aspect=8.00017574828 mean_iota=-1.25616131201 solver_iterations=2012
+evaluation=224 objective=0.000392241208862 qs=0.000392210321403 aspect=8.00017574828 mean_iota=-1.25616131197 solver_iterations=2012
+evaluation=225 objective=0.000392241208827 qs=0.000392210321368 aspect=8.00017574828 mean_iota=-1.25616131197 solver_iterations=2012
+evaluation=226 objective=0.000392241208882 qs=0.000392210321423 aspect=8.00017574828 mean_iota=-1.25616131195 solver_iterations=2012
+evaluation=227 objective=0.000392241208459 qs=0.000392210320999 aspect=8.00017574828 mean_iota=-1.25616131193 solver_iterations=2012
+finished max_mode=3 status=The step size satisfies xtol. objective=0.000392063082563 evaluations=52 iterations=28 equilibrium_evaluations=227 nonlinear_iterations=481804 analytic_jacobians=29 hot_restart_jacobians=0 linear_iterations=321343
+beginning max_mode=4 variables=80 jacobian_method=analytic stage_restart=1
+evaluation=1 objective=0.000392241208459 qs=0.000392210320999 aspect=8.00017574828 mean_iota=-1.25616131193 solver_iterations=1
+evaluation=2 objective=0.000416893612303 qs=0.000416852586318 aspect=8.00020254872 mean_iota=-1.25662132649 solver_iterations=2033
+evaluation=3 objective=0.000397817462267 qs=0.000397787742747 aspect=8.0001723935 mean_iota=-1.25619262644 solver_iterations=2013
+evaluation=4 objective=0.000392373871474 qs=0.000392343006836 aspect=8.00017568335 mean_iota=-1.25616161792 solver_iterations=2012
+evaluation=5 objective=0.000392213263343 qs=0.000392182375944 aspect=8.00017574811 mean_iota=-1.25616130456 solver_iterations=2012
+evaluation=6 objective=0.00041309874789 qs=0.000413067860431 aspect=8.00017574828 mean_iota=-1.2566868897 solver_iterations=1851
+evaluation=7 objective=0.000398388934171 qs=0.000398358046712 aspect=8.00017574828 mean_iota=-1.25618969031 solver_iterations=2010
+evaluation=8 objective=0.000392506589423 qs=0.000392475701963 aspect=8.00017574828 mean_iota=-1.2561618572 solver_iterations=2012
+evaluation=9 objective=0.00039218851514 qs=0.000392157627681 aspect=8.00017574828 mean_iota=-1.25616130589 solver_iterations=2012
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17175 worst_linear_residual=0.140741738622 worst_relative_linear_residual=4.99942120816e-06
+ iter   nfev              cost        optimality       radius
+    0      1    0.0001961206042      0.5932588375 0.3657490784
+evaluation=10 objective=0.00189938341397 qs=0.00183649803911 aspect=7.99206997006 mean_iota=-1.26730001147 solver_iterations=2054
+evaluation=11 objective=0.000239959561661 qs=0.000239936613283 aspect=7.99984851278 mean_iota=-1.25799085951 solver_iterations=2268
+evaluation=12 objective=0.000243958201139 qs=0.000243943021268 aspect=7.99987679338 mean_iota=-1.25844900539 solver_iterations=2273
+evaluation=13 objective=0.000239436555495 qs=0.000239412660469 aspect=7.99984541984 mean_iota=-1.25802184257 solver_iterations=2270
+evaluation=14 objective=0.000241108387481 qs=0.000241085418121 aspect=7.99984844354 mean_iota=-1.25799119688 solver_iterations=2268
+evaluation=15 objective=0.000239990646485 qs=0.000239967697901 aspect=7.9998485121 mean_iota=-1.2579908473 solver_iterations=2268
+evaluation=16 objective=0.000283907513588 qs=0.000283884565211 aspect=7.99984851278 mean_iota=-1.25850458659 solver_iterations=2269
+evaluation=17 objective=0.000245142802707 qs=0.00024511985433 aspect=7.99984851278 mean_iota=-1.25802666502 solver_iterations=2270
+evaluation=18 objective=0.000239917946731 qs=0.000239894998354 aspect=7.99984851278 mean_iota=-1.25799164489 solver_iterations=2268
+evaluation=19 objective=0.000240059284073 qs=0.000240036335696 aspect=7.99984851278 mean_iota=-1.25799085514 solver_iterations=2268
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17151 worst_linear_residual=0.143441218088 worst_relative_linear_residual=4.99965572482e-06
+accepted mode=4 iteration=1 objective=0.000239959561661
+    1      3    0.0001199797808      0.50826519330.004259808777
+evaluation=20 objective=0.000220141130779 qs=0.000218918380601 aspect=7.99889421965 mean_iota=-1.26626974492 solver_iterations=1894
+evaluation=21 objective=0.000251205983895 qs=0.000250047729028 aspect=7.9989237775 mean_iota=-1.26672916009 solver_iterations=1901
+evaluation=22 objective=0.000232251830915 qs=0.000231022398227 aspect=7.99889120214 mean_iota=-1.2663030786 solver_iterations=1893
+evaluation=23 objective=0.000215131295877 qs=0.000213908371753 aspect=7.998894141 mean_iota=-1.26627039387 solver_iterations=1894
+evaluation=24 objective=0.000220148711328 qs=0.000218925959608 aspect=7.99889421896 mean_iota=-1.26626974068 solver_iterations=1894
+evaluation=25 objective=0.00023405610527 qs=0.000232833355091 aspect=7.99889421965 mean_iota=-1.2667836792 solver_iterations=1892
+evaluation=26 objective=0.00021990453031 qs=0.000218681780132 aspect=7.99889421965 mean_iota=-1.2663079428 solver_iterations=1895
+evaluation=27 objective=0.000226920556354 qs=0.000225697806176 aspect=7.99889421965 mean_iota=-1.26627077752 solver_iterations=1894
+evaluation=28 objective=0.000219611611876 qs=0.000218388861698 aspect=7.99889421965 mean_iota=-1.26626974705 solver_iterations=1894
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17301 worst_linear_residual=0.145791574215 worst_relative_linear_residual=4.99946401393e-06
+accepted mode=4 iteration=2 objective=0.000220141130779
+    2      4    0.0001100705654       2.3104975230.004259808777
+evaluation=29 objective=0.00013688211637 qs=0.000136729436296 aspect=7.99960925702 mean_iota=-1.27759825399 solver_iterations=1993
+evaluation=30 objective=0.000157272309445 qs=0.000157142858941 aspect=7.99964020769 mean_iota=-1.27806022236 solver_iterations=1993
+evaluation=31 objective=0.000148584894866 qs=0.000148429869104 aspect=7.99960626689 mean_iota=-1.27763278053 solver_iterations=1994
+evaluation=32 objective=0.000136678978035 qs=0.000136526223334 aspect=7.99960916154 mean_iota=-1.27759896437 solver_iterations=1993
+evaluation=33 objective=0.000136900920059 qs=0.000136748239119 aspect=7.99960925591 mean_iota=-1.27759824181 solver_iterations=1993
+evaluation=34 objective=0.000161978645329 qs=0.000161825965255 aspect=7.99960925702 mean_iota=-1.27811738405 solver_iterations=1993
+evaluation=35 objective=0.000137043544443 qs=0.000136890864369 aspect=7.99960925702 mean_iota=-1.27763933676 solver_iterations=1994
+evaluation=36 objective=0.000138265141023 qs=0.000138112460949 aspect=7.99960925702 mean_iota=-1.27759946095 solver_iterations=1993
+evaluation=37 objective=0.000136680764462 qs=0.000136528084388 aspect=7.99960925702 mean_iota=-1.27759825656 solver_iterations=1993
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17432 worst_linear_residual=0.146300405831 worst_relative_linear_residual=4.99877280901e-06
+accepted mode=4 iteration=3 objective=0.00013688211637
+    3      5    6.844105819e-05      0.34305258670.008519617554
+evaluation=38 objective=0.000131077408504 qs=0.000131029514185 aspect=7.99978115229 mean_iota=-1.29990081338 solver_iterations=2039
+evaluation=39 objective=0.000155203999792 qs=0.000155169794321 aspect=7.99981505279 mean_iota=-1.30036549554 solver_iterations=2024
+evaluation=40 objective=0.000149011436011 qs=0.000148962195154 aspect=7.99977809719 mean_iota=-1.29994376717 solver_iterations=2066
+evaluation=41 objective=0.000131759532294 qs=0.00013171158682 aspect=7.99978103545 mean_iota=-1.2999016471 solver_iterations=2041
+evaluation=42 objective=0.000130844039341 qs=0.000130796144295 aspect=7.99978115063 mean_iota=-1.29990067881 solver_iterations=2039
+evaluation=43 objective=0.000158572330275 qs=0.000158524435956 aspect=7.99978115229 mean_iota=-1.30041669433 solver_iterations=1984
+evaluation=44 objective=0.000124337102405 qs=0.000124289208086 aspect=7.99978115229 mean_iota=-1.29995185122 solver_iterations=2068
+evaluation=45 objective=0.000132313591932 qs=0.000132265697614 aspect=7.99978115229 mean_iota=-1.2999033803 solver_iterations=2045
+evaluation=46 objective=0.000131068603832 qs=0.000131020709513 aspect=7.99978115229 mean_iota=-1.29990070579 solver_iterations=2039
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17524 worst_linear_residual=0.14929924262 worst_relative_linear_residual=4.99805328859e-06
+accepted mode=4 iteration=4 objective=0.000131077408504
+    4      6    6.553870425e-05      0.72094458730.002129904388
+evaluation=47 objective=0.000103115441114 qs=0.000103091791679 aspect=7.99984621627 mean_iota=-1.30570758749 solver_iterations=2013
+evaluation=48 objective=0.000134146222067 qs=0.000134131972264 aspect=7.99988062746 mean_iota=-1.30618263066 solver_iterations=2013
+evaluation=49 objective=0.000109364396813 qs=0.000109339794583 aspect=7.99984314902 mean_iota=-1.30574525497 solver_iterations=2013
+evaluation=50 objective=0.000103503277209 qs=0.000103479589976 aspect=7.99984609343 mean_iota=-1.3057085217 solver_iterations=2013
+evaluation=51 objective=0.000103108913276 qs=0.000103085263284 aspect=7.99984621446 mean_iota=-1.3057075667 solver_iterations=2013
+evaluation=52 objective=0.000121251183039 qs=0.000121227533604 aspect=7.99984621627 mean_iota=-1.30624336483 solver_iterations=2013
+evaluation=53 objective=0.00011162240997 qs=0.000111598760536 aspect=7.99984621627 mean_iota=-1.30575348688 solver_iterations=2013
+evaluation=54 objective=0.000103287960822 qs=0.000103264311387 aspect=7.99984621627 mean_iota=-1.30570921285 solver_iterations=2013
+evaluation=55 objective=0.000103157612288 qs=0.000103133962854 aspect=7.99984621627 mean_iota=-1.30570759389 solver_iterations=2013
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17459 worst_linear_residual=0.149084285045 worst_relative_linear_residual=4.99934539518e-06
+accepted mode=4 iteration=5 objective=0.000103115441114
+    5      7    5.155772056e-05      0.10285525990.002129904388
+evaluation=56 objective=0.000103068024028 qs=0.000103068022997 aspect=7.99999898468 mean_iota=-1.3115485395 solver_iterations=2247
+evaluation=57 objective=0.000128689750415 qs=0.000128688637841 aspect=8.00003335527 mean_iota=-1.31202910105 solver_iterations=2252
+evaluation=58 objective=0.000109186023199 qs=0.000109186008139 aspect=7.9999961193 mean_iota=-1.31158718297 solver_iterations=2247
+evaluation=59 objective=0.000103385898546 qs=0.000103385897263 aspect=7.99999886736 mean_iota=-1.31154960969 solver_iterations=2247
+evaluation=60 objective=0.0001031031472 qs=0.000103103146165 aspect=7.99999898278 mean_iota=-1.31154852281 solver_iterations=2247
+evaluation=61 objective=0.000128362028452 qs=0.000128362027421 aspect=7.99999898468 mean_iota=-1.31208567448 solver_iterations=2246
+evaluation=62 objective=0.000110135629837 qs=0.000110135628806 aspect=7.99999898468 mean_iota=-1.31159502663 solver_iterations=2247
+evaluation=63 objective=0.00010361648964 qs=0.000103616488609 aspect=7.99999898468 mean_iota=-1.31155027779 solver_iterations=2247
+evaluation=64 objective=0.000103086499567 qs=0.000103086498536 aspect=7.99999898468 mean_iota=-1.31154855265 solver_iterations=2247
+analytic_jacobian columns=80 residuals=44353 tangent_columns=72 blackbox_columns=8 linear_iterations=17359 worst_linear_residual=0.149671759911 worst_relative_linear_residual=4.9993225462e-06
+accepted mode=4 iteration=6 objective=0.000103068024028
+    6      8    5.153401201e-05      0.07177033920.0005324760971
+evaluation=65 objective=0.000112442595796 qs=0.000112440611367 aspect=8.00004454693 mean_iota=-1.31175548793 solver_iterations=2432
+evaluation=66 objective=0.000106859853074 qs=0.000106856454207 aspect=8.0000582998 mean_iota=-1.31158291372 solver_iterations=2230
+evaluation=67 objective=0.000103922032048 qs=0.000103919357501 aspect=8.00005171603 mean_iota=-1.31163233213 solver_iterations=2277
+evaluation=68 objective=0.000103577309755 qs=0.00010357528576 aspect=8.00004498883 mean_iota=-1.31157165093 solver_iterations=2264
+evaluation=69 objective=0.000103466214531 qs=0.000103465972379 aspect=8.00001556123 mean_iota=-1.31155340966 solver_iterations=2256
+evaluation=70 objective=0.00010343314999 qs=0.000103433145555 aspect=8.00000210598 mean_iota=-1.31155064746 solver_iterations=2255
+evaluation=71 objective=0.000103452687625 qs=0.000103452687493 aspect=7.9999996368 mean_iota=-1.31155017666 solver_iterations=2255
+evaluation=72 objective=0.000103464733831 qs=0.000103464733088 aspect=7.99999913789 mean_iota=-1.31155007347 solver_iterations=2255
+evaluation=73 objective=0.000103468446795 qs=0.00010346844584 aspect=7.99999902234 mean_iota=-1.31155004889 solver_iterations=2255
+evaluation=74 objective=0.00010346942241 qs=0.000103469421398 aspect=7.99999899405 mean_iota=-1.31155004282 solver_iterations=2255
+evaluation=75 objective=0.000103469668075 qs=0.000103469667049 aspect=7.99999898702 mean_iota=-1.3115500413 solver_iterations=2255
+evaluation=76 objective=0.000103469729838 qs=0.000103469728808 aspect=7.99999898526 mean_iota=-1.31155004092 solver_iterations=2255
+evaluation=77 objective=0.000103469746409 qs=0.000103469745378 aspect=7.99999898482 mean_iota=-1.31155004083 solver_iterations=2255
+evaluation=78 objective=0.000103469751542 qs=0.000103469750511 aspect=7.99999898471 mean_iota=-1.31155004081 solver_iterations=2255
+evaluation=79 objective=0.00010346975078 qs=0.000103469749749 aspect=7.99999898469 mean_iota=-1.3115500408 solver_iterations=2255
+evaluation=80 objective=0.000103469751079 qs=0.000103469750048 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=2255
+evaluation=81 objective=0.000103469751184 qs=0.000103469750153 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=2255
+evaluation=82 objective=0.000103469750705 qs=0.000103469749674 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=2255
+evaluation=83 objective=0.000103469751335 qs=0.000103469750304 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=2255
+evaluation=84 objective=0.000103469751716 qs=0.000103469750685 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=2255
+evaluation=85 objective=0.000103469751759 qs=0.000103469750729 aspect=7.99999898468 mean_iota=-1.31155004081 solver_iterations=2255
+evaluation=86 objective=0.000103469751052 qs=0.000103469750021 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=2255
+finished max_mode=4 status=The step size satisfies xtol. objective=0.000103068024028 evaluations=29 iterations=6 equilibrium_evaluations=86 nonlinear_iterations=179905 analytic_jacobians=7 hot_restart_jacobians=0 linear_iterations=121401
+beginning max_mode=5 variables=120 jacobian_method=analytic stage_restart=1
+evaluation=1 objective=0.000103469751052 qs=0.000103469750021 aspect=7.99999898468 mean_iota=-1.3115500408 solver_iterations=1
+evaluation=2 objective=0.000128979143572 qs=0.000128978030998 aspect=8.00003335527 mean_iota=-1.31203008403 solver_iterations=2256
+evaluation=3 objective=0.000109581165158 qs=0.000109581150098 aspect=7.9999961193 mean_iota=-1.31158866697 solver_iterations=2255
+evaluation=4 objective=0.000103787077792 qs=0.00010378707651 aspect=7.99999886736 mean_iota=-1.3115511072 solver_iterations=2255
+evaluation=5 objective=0.000103504535129 qs=0.000103504534095 aspect=7.99999898278 mean_iota=-1.31155002256 solver_iterations=2255
+evaluation=6 objective=0.000103451501719 qs=0.000103451500688 aspect=7.99999898463 mean_iota=-1.31155003482 solver_iterations=2255
+evaluation=7 objective=0.000128760774032 qs=0.000128760773002 aspect=7.99999898468 mean_iota=-1.31208721396 solver_iterations=2254
+evaluation=8 objective=0.000110531826649 qs=0.000110531825618 aspect=7.99999898468 mean_iota=-1.31159650626 solver_iterations=2256
+evaluation=9 objective=0.000104017876083 qs=0.000104017875052 aspect=7.99999898468 mean_iota=-1.31155177395 solver_iterations=2255
+evaluation=10 objective=0.000103488087074 qs=0.000103488086043 aspect=7.99999898468 mean_iota=-1.31155005236 solver_iterations=2255
+evaluation=11 objective=0.000103480432151 qs=0.00010348043112 aspect=7.99999898468 mean_iota=-1.31155003544 solver_iterations=2255
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23947 worst_linear_residual=0.149686776481 worst_relative_linear_residual=4.99937477957e-06
+ iter   nfev              cost        optimality       radius
+    0      1    5.173487553e-05      0.6440763163 0.3799088612
+evaluation=12 objective=0.00209087720387 qs=0.00206298358167 aspect=7.9947185587 mean_iota=-1.38793282313 solver_iterations=2355
+evaluation=13 objective=0.000187445788735 qs=0.000185815275266 aspect=7.99872308439 mean_iota=-1.330475157 solver_iterations=2349
+evaluation=14 objective=0.000147794619685 qs=0.000147756839775 aspect=7.99980562945 mean_iota=-1.31375083993 solver_iterations=2583
+evaluation=15 objective=0.000146932600482 qs=0.000146931696876 aspect=8.00003006003 mean_iota=-1.3115600701 solver_iterations=2457
+evaluation=16 objective=0.000105594992656 qs=0.000105592942753 aspect=8.00004527586 mean_iota=-1.31160493842 solver_iterations=2435
+evaluation=17 objective=9.79557441227e-05 qs=9.79536612669e-05 aspect=8.00004563831 mean_iota=-1.31156535051 solver_iterations=2278
+evaluation=18 objective=0.000124947039703 qs=0.000124940637086 aspect=8.00008001635 mean_iota=-1.31204543819 solver_iterations=2280
+evaluation=19 objective=0.000104374219633 qs=0.000104372389944 aspect=8.00004277486 mean_iota=-1.31160420679 solver_iterations=2277
+evaluation=20 objective=9.8440794806e-05 qs=9.84387226207e-05 aspect=8.00004552126 mean_iota=-1.31156643852 solver_iterations=2278
+evaluation=21 objective=9.79688485216e-05 qs=9.79667658378e-05 aspect=8.00004563643 mean_iota=-1.31156533522 solver_iterations=2278
+evaluation=22 objective=9.79549499566e-05 qs=9.7952867105e-05 aspect=8.00004563827 mean_iota=-1.31156534575 solver_iterations=2278
+evaluation=23 objective=0.000122186688637 qs=0.000122184605781 aspect=8.00004563831 mean_iota=-1.31210259082 solver_iterations=2275
+evaluation=24 objective=0.000104546235241 qs=0.000104544152385 aspect=8.00004563831 mean_iota=-1.31161221805 solver_iterations=2279
+evaluation=25 objective=9.84206711096e-05 qs=9.84185882538e-05 aspect=8.00004563831 mean_iota=-1.31156711614 solver_iterations=2278
+evaluation=26 objective=9.79734088135e-05 qs=9.79713259577e-05 aspect=8.00004563831 mean_iota=-1.31156536758 solver_iterations=2278
+evaluation=27 objective=9.79550781957e-05 qs=9.79529953399e-05 aspect=8.00004563831 mean_iota=-1.31156534676 solver_iterations=2278
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23934 worst_linear_residual=0.14947173834 worst_relative_linear_residual=4.99963182363e-06
+accepted mode=5 iteration=1 objective=9.79557441227e-05
+    1      7    4.897787206e-05      0.35364934842.839822276e-05
+evaluation=28 objective=9.73888399815e-05 qs=9.7386207208e-05 aspect=8.00005131056 mean_iota=-1.31159247733 solver_iterations=2219
+evaluation=29 objective=0.000124509568077 qs=0.000124502225521 aspect=8.00008568871 mean_iota=-1.3120724817 solver_iterations=2219
+evaluation=30 objective=0.000103761178058 qs=0.000103758830875 aspect=8.00004844773 mean_iota=-1.31163123984 solver_iterations=2219
+evaluation=31 objective=9.78862078355e-05 qs=9.7883587062e-05 aspect=8.00005119349 mean_iota=-1.31159355756 solver_iterations=2219
+evaluation=32 objective=9.74022927138e-05 qs=9.73996601327e-05 aspect=8.00005130868 mean_iota=-1.31159246146 solver_iterations=2219
+evaluation=33 objective=9.7389357324e-05 qs=9.73867245553e-05 aspect=8.00005131051 mean_iota=-1.3115924722 solver_iterations=2219
+evaluation=34 objective=0.00012116635043 qs=0.000121163717657 aspect=8.00005131056 mean_iota=-1.3121287189 solver_iterations=2214
+evaluation=35 objective=0.000104077079131 qs=0.000104074446357 aspect=8.00005131056 mean_iota=-1.3116394531 solver_iterations=2220
+evaluation=36 objective=9.78524612546e-05 qs=9.78498284811e-05 aspect=8.00005131056 mean_iota=-1.31159423725 solver_iterations=2219
+evaluation=37 objective=9.74060171462e-05 qs=9.74033843727e-05 aspect=8.00005131056 mean_iota=-1.31159249545 solver_iterations=2219
+evaluation=38 objective=9.7388233227e-05 qs=9.73856004535e-05 aspect=8.00005131056 mean_iota=-1.31159247363 solver_iterations=2219
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23926 worst_linear_residual=0.149086240657 worst_relative_linear_residual=4.99964127702e-06
+accepted mode=5 iteration=2 objective=9.73888399815e-05
+    2      8    4.869441999e-05      0.30699425947.09955569e-06
+evaluation=39 objective=9.71785683253e-05 qs=9.71765963346e-05 aspect=8.0000444071 mean_iota=-1.31160332977 solver_iterations=2220
+evaluation=40 objective=0.000124291080502 qs=0.000124284873409 aspect=8.0000787851 mean_iota=-1.3120833255 solver_iterations=2221
+evaluation=41 objective=0.000103544361473 qs=0.000103542635534 aspect=8.00004154442 mean_iota=-1.31164206585 solver_iterations=2220
+evaluation=42 objective=9.76765456437e-05 qs=9.7674584038e-05 aspect=8.00004429002 mean_iota=-1.31160440538 solver_iterations=2220
+evaluation=43 objective=9.71914539395e-05 qs=9.71894821152e-05 aspect=8.00004440523 mean_iota=-1.3116033133 solver_iterations=2220
+evaluation=44 objective=9.71787090524e-05 qs=9.71767370659e-05 aspect=8.00004440705 mean_iota=-1.31160332452 solver_iterations=2220
+evaluation=45 objective=0.00012131763229 qs=0.000121315660299 aspect=8.0000444071 mean_iota=-1.31214050655 solver_iterations=2220
+evaluation=46 objective=0.000103921571576 qs=0.000103919599586 aspect=8.0000444071 mean_iota=-1.31165044263 solver_iterations=2223
+evaluation=47 objective=9.76397465009e-05 qs=9.76377745102e-05 aspect=8.0000444071 mean_iota=-1.31160508277 solver_iterations=2220
+evaluation=48 objective=9.71966053674e-05 qs=9.71946333766e-05 aspect=8.0000444071 mean_iota=-1.31160334763 solver_iterations=2220
+evaluation=49 objective=9.71778607383e-05 qs=9.71758887475e-05 aspect=8.0000444071 mean_iota=-1.31160332606 solver_iterations=2220
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23926 worst_linear_residual=0.148973844139 worst_relative_linear_residual=4.99925756922e-06
+accepted mode=5 iteration=3 objective=9.71785683253e-05
+    3      9    4.858928416e-05      0.29623390611.774888922e-06
+evaluation=50 objective=9.71188670559e-05 qs=9.71171335723e-05 aspect=8.00004163512 mean_iota=-1.31160614913 solver_iterations=2220
+evaluation=51 objective=0.00012444172237 qs=0.000124435944378 aspect=8.0000760131 mean_iota=-1.31208665481 solver_iterations=2223
+evaluation=52 objective=0.000103702972672 qs=0.000103701469367 aspect=8.00003877248 mean_iota=-1.31164540072 solver_iterations=2223
+evaluation=53 objective=9.76158693285e-05 qs=9.76141455811e-05 aspect=8.00004151804 mean_iota=-1.31160722407 solver_iterations=2220
+evaluation=54 objective=9.71316256131e-05 qs=9.71298922855e-05 aspect=8.00004163325 mean_iota=-1.31160613265 solver_iterations=2220
+evaluation=55 objective=9.71189280925e-05 qs=9.71171946129e-05 aspect=8.00004163508 mean_iota=-1.31160614387 solver_iterations=2220
+evaluation=56 objective=0.000121268550165 qs=0.000121266816681 aspect=8.00004163512 mean_iota=-1.31214332306 solver_iterations=2220
+evaluation=57 objective=0.000103847322331 qs=0.000103845588847 aspect=8.00004163512 mean_iota=-1.3116530464 solver_iterations=2226
+evaluation=58 objective=9.77939094708e-05 qs=9.77921759872e-05 aspect=8.00004163512 mean_iota=-1.31160840648 solver_iterations=2223
+evaluation=59 objective=9.71375150649e-05 qs=9.71357815813e-05 aspect=8.00004163512 mean_iota=-1.31160616706 solver_iterations=2220
+evaluation=60 objective=9.71179917313e-05 qs=9.71162582477e-05 aspect=8.00004163512 mean_iota=-1.31160614541 solver_iterations=2220
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23924 worst_linear_residual=0.14894736071 worst_relative_linear_residual=4.99948412733e-06
+accepted mode=5 iteration=4 objective=9.71188670559e-05
+    4     10    4.855943353e-05       0.2913765864.437222306e-07
+evaluation=61 objective=9.7123889005e-05 qs=9.71221786725e-05 aspect=8.00004135617 mean_iota=-1.31160638029 solver_iterations=2220
+evaluation=62 objective=9.71188868155e-05 qs=9.71171557094e-05 aspect=8.00004160656 mean_iota=-1.31160617119 solver_iterations=2220
+evaluation=63 objective=9.71167756416e-05 qs=9.71150426708e-05 aspect=8.00004162897 mean_iota=-1.31160614999 solver_iterations=2220
+evaluation=64 objective=0.000124439780623 qs=0.000124434003568 aspect=8.00007600694 mean_iota=-1.31208665569 solver_iterations=2223
+evaluation=65 objective=0.00010370025998 qs=0.000103698757152 aspect=8.00003876632 mean_iota=-1.31164540153 solver_iterations=2223
+evaluation=66 objective=9.76140117405e-05 qs=9.76122885044e-05 aspect=8.00004151188 mean_iota=-1.31160722494 solver_iterations=2220
+evaluation=67 objective=9.71292787931e-05 qs=9.71275459781e-05 aspect=8.00004162709 mean_iota=-1.31160613351 solver_iterations=2220
+evaluation=68 objective=9.71168920942e-05 qs=9.71151591273e-05 aspect=8.00004162892 mean_iota=-1.31160614473 solver_iterations=2220
+evaluation=69 objective=0.000121266228209 qs=0.000121264495238 aspect=8.00004162897 mean_iota=-1.31214332387 solver_iterations=2220
+evaluation=70 objective=0.00010384591587 qs=0.000103844182899 aspect=8.00004162897 mean_iota=-1.31165304723 solver_iterations=2226
+evaluation=71 objective=9.75787761416e-05 qs=9.75770431707e-05 aspect=8.00004162897 mean_iota=-1.31160790226 solver_iterations=2220
+evaluation=72 objective=9.71358100046e-05 qs=9.71340770337e-05 aspect=8.00004162897 mean_iota=-1.31160616792 solver_iterations=2220
+evaluation=73 objective=9.71158284012e-05 qs=9.71140954303e-05 aspect=8.00004162897 mean_iota=-1.31160614628 solver_iterations=2220
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23924 worst_linear_residual=0.148947265127 worst_relative_linear_residual=4.99948252185e-06
+accepted mode=5 iteration=5 objective=9.71167756416e-05
+    5     13    4.855838782e-05      0.29155467776.933159853e-09
+evaluation=74 objective=9.71169494161e-05 qs=9.71152165693e-05 aspect=8.00004162748 mean_iota=-1.31160615158 solver_iterations=2220
+evaluation=75 objective=9.71168131044e-05 qs=9.71150801643e-05 aspect=8.0000416286 mean_iota=-1.31160615037 solver_iterations=2220
+evaluation=76 objective=9.71167767845e-05 qs=9.71150438212e-05 aspect=8.00004162887 mean_iota=-1.31160615007 solver_iterations=2220
+evaluation=77 objective=9.71167722426e-05 qs=9.71150392737e-05 aspect=8.00004162894 mean_iota=-1.31160615 solver_iterations=2220
+evaluation=78 objective=0.000124439770688 qs=0.000124433993636 aspect=8.00007600692 mean_iota=-1.3120866557 solver_iterations=2223
+evaluation=79 objective=0.000103700249881 qs=0.000103698747056 aspect=8.0000387663 mean_iota=-1.31164540154 solver_iterations=2223
+evaluation=80 objective=9.7614006622e-05 qs=9.76122833878e-05 aspect=8.00004151186 mean_iota=-1.31160722495 solver_iterations=2220
+evaluation=81 objective=9.7129268052e-05 qs=9.7127535239e-05 aspect=8.00004162707 mean_iota=-1.31160613351 solver_iterations=2220
+evaluation=82 objective=9.71168853001e-05 qs=9.71151523351e-05 aspect=8.0000416289 mean_iota=-1.31160614474 solver_iterations=2220
+evaluation=83 objective=0.00012126622327 qs=0.000121264490301 aspect=8.00004162894 mean_iota=-1.31214332389 solver_iterations=2220
+evaluation=84 objective=0.000103845906392 qs=0.000103844173423 aspect=8.00004162894 mean_iota=-1.31165304723 solver_iterations=2226
+evaluation=85 objective=9.75787695056e-05 qs=9.75770365366e-05 aspect=8.00004162894 mean_iota=-1.31160790227 solver_iterations=2220
+evaluation=86 objective=9.71358037191e-05 qs=9.71340707501e-05 aspect=8.00004162894 mean_iota=-1.31160616793 solver_iterations=2220
+evaluation=87 objective=9.71158192765e-05 qs=9.71140863075e-05 aspect=8.00004162894 mean_iota=-1.31160614629 solver_iterations=2220
+analytic_jacobian columns=120 residuals=44353 tangent_columns=110 blackbox_columns=10 linear_iterations=23924 worst_linear_residual=0.148947264903 worst_relative_linear_residual=4.99948251711e-06
+accepted mode=5 iteration=6 objective=9.71167722426e-05
+finished max_mode=5 status=The step size satisfies xtol. objective=9.71167722426e-05 evaluations=17 iterations=6 equilibrium_evaluations=87 nonlinear_iterations=193016 analytic_jacobians=7 hot_restart_jacobians=0 linear_iterations=167505

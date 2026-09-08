@@ -3,6 +3,10 @@ from pathlib import Path
 from html import escape as esc
 import json
 import re
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'scripts'))
+from inline_math import format_html, span as inline, number_tex
 
 deck=Path(__file__).resolve().parents[1]
 local=json.loads((deck/'data/local/summary.json').read_text())
@@ -80,9 +84,9 @@ add('Parallelize the Jacobian validity reduction',grid(
     panel('W7-X kernel measurement',bars([('Old reduction',104.7,''),('Two-stage',7.2,'green')],'μs')+p('<strong>14.54× kernel speedup</strong> · 93.1% less kernel time')),
     panel('Keep the validity semantics',p('One serially loaded block becomes up to 128 blocks of 256 threads, followed by one final reduction.')+table(['Preserved result','Implementation'],[['Minimum oriented √g','Tie-break by lowest linear index'],['Maximum |√g|','Include sign-flipped samples'],['Non-finite count','Accumulate across all blocks']]))),
     '5379fca · geometry_impl.cuh · archived RTX kernel profile',
-    'The partial arrays contain three T values and two ints per block: at most 4096 bytes in double, excluding arena alignment. This is kernel latency, not whole-pass or solve speedup. The reduction remains a geometry-validity gate.')
+    'The partial arrays contain three <code>T</code> values and two ints per block: at most 4096 bytes in double, excluding arena alignment. This is kernel latency, not whole-pass or solve speedup. The reduction remains a geometry-validity gate.')
 add('Expose all theta points to the GPU',grid(
-    panel('Before',eq(r'(\theta/2,\;\zeta_{\mathrm{tile}})\quad\times\;2\text{ serial theta passes}')+p('One lane synthesizes a point in each poloidal half.')),
+    panel('Before',eq(r'(\theta/2,\;\zeta_{\mathrm{tile}})\quad\times\;2\text{ serial }\theta\text{ passes}')+p('One lane synthesizes a point in each poloidal half.')),
     panel('After',eq(r'(\theta,\;\zeta_{\mathrm{tile}})\quad\times\;1\text{ point per lane}')+p('The modal accumulation order for each output is retained. The block policy caps the total thread count.'),'free'))+
     callout('W7-X has 30 theta points: the theta dimension grows from 15 to 30 lanes. Its isolated latency gain was not separately recorded.'),
     '5379fca · fourier_impl.cuh · inverse_accumulate_kernel',
@@ -122,15 +126,15 @@ add('Makegrid: improve one-time host work',grid(
     'The worker cap is ceil(work_items/32), also capped by requested or hardware thread count and work_items. Threading preserves the within-point filament evaluation order. Flat storage and CPU parallelism should not be confused with a new vacuum numerical algorithm.')
 add('Supporting tools also became faster',grid(
     panel('Figure generation',bars([('Before',42,''),('After',17,'green')],'s')+p('Recorded wall time: <strong>59.5% lower</strong> · 2.47× speedup.')),
-    panel('Changes in 5310769',p('Batched 2-D IFFT replaces a direct mode sum, checked to 10⁻¹⁴. Figure rendering uses separate processes and copy-on-write input data.')+p('The commit also reports ≈100× synthesis acceleration, without a reproducible timing protocol.'))),
-    '5310769 · commit message / scripts/plot_w7x.py · Aug 21',
+    panel('Changes in <code>5310769</code>',p('Batched 2-D IFFT replaces a direct mode sum, checked to 10⁻¹⁴. Figure rendering uses separate processes and copy-on-write input data.')+p('The commit also reports ≈100× synthesis acceleration, without a reproducible timing protocol.'))),
+    '<code>5310769</code> · commit message / scripts/plot_w7x.py · Aug 21',
     'This is plotting throughput, not solver convergence or CUDA iteration latency. The archived 42-to-17 s observation changes rendering as well as parallelism; hardware, sample count and dispersion are not recorded. Event-line compilation in 2dea659 is another unquantified tooling/observability optimization.')
 add('B-spline setup belongs off the critical path',table(['W7-X transfer','Direct host batch','Host matrix construction','Uploaded map'],[
     ['33 → 66','1.90 ms','36.7 μs','17,424 bytes'],['66 → 99','2.94 ms','136.5 μs','52,272 bytes']])+grid(
     panel('One reusable map, 936 profiles',p('Apply the map to all six spectral families on the GPU. The spectral state stays device-resident.')),
     panel('Overlap with stage 1',p('Both maps take <strong>173.3 μs</strong> in total; one average W7-X device iteration was ≈462 μs. The coarse stage takes <strong>1,315 iterations</strong>.'),'free')),
     'b13cd87 / 12435fa · ADR-0012 · 10,000 warmed host calls',
-    'Matrix construction figures are gervais host medians. Direct host batch costs total 4.84 ms before PCIe staging; prior complete Catmull boundaries cost 0.084+0.232=0.316 ms. The asynchronous path builds all scheduled maps in one background task. B-spline numerical benefits are separated in part two. Bytes are derived from ns_new*ns_old*8, not measured PCIe bandwidth.')
+    'Matrix construction figures are gervais host medians. Direct host batch costs total 4.84 ms before PCIe staging; prior complete Catmull boundaries cost 0.084+0.232=0.316 ms. The asynchronous path builds all scheduled maps in one background task. B-spline numerical benefits are separated in part two. Bytes are derived from ' + inline(r'n_{s,\mathrm{new}}n_{s,\mathrm{old}}\cdot8') + ', not measured PCIe bandwidth.')
 add('Later: coordinate capture, overlap independent solves',table(['Eight finite-difference columns','Serial','Two workers','Throughput'],[
     ['QA','2.823 s','1.247 s','2.26×'],['QH','2.250 s','1.025 s','2.20×']])+callout('One process-wide host mutex protects graph capture against a concurrent device-wide stage fence. Ordinary graph execution and the iteration loop remain unlocked.'),
     'd0f408b · performance.md §3.4 · later v1.3 work',
@@ -145,7 +149,7 @@ add('Measured execution ideas that did not ship',table(['Experiment','Measuremen
     'Force splitting predates overhaul closeout and is included as background. Launch tiles, mapping and table experiments are post-v1.2. All tile/mapping candidates preserved the relevant state hashes. Register-capping and split forward-reduction prototypes in the August RTX session were likewise removed.')
 add('Resource reuse had a small upper bound',table(['Eight-solve aggregate','QA','QH'],[
     ['Multigrid wall','3.1525 s','2.6627 s'],['Stage setup','0.13690 s · 4.3%','0.14062 s · 5.3%'],['Iteration','2.89850 s · 91.9%','2.40979 s · 90.5%'],['Derived-field capture','0.06035 s','0.06185 s'],['Stage teardown','0.04174 s','0.03798 s'],['Other orchestration','0.01505 s','0.01246 s']])+callout('Even deleting all setup and teardown gives only a 5.6% / 6.7% ceiling, while retaining ≈69 MB per W7-X worker. Caching was rejected without implementation.'),
-    '6106e0b / 5720583 / 480c91d · performance.md §3.5',
+    '6106e0b / <code>5720583</code> / 480c91d · performance.md §3.5',
     'Three-run full-package Release profile, averaged over groups of eight finite-difference solves. Rounded components need not sum exactly. Stream-only facade setup was only 0.12% QA and 0.19% QH. This is an optimistic removable-time bound, not a measured speedup.')
 
 chapter('02','Fewer iterations','Change the starting state and continuation path. Keep the force tolerances and validity gates explicit.')
@@ -272,9 +276,14 @@ def residual_plot():
             x=85+int(n)/3100*925;y=45+(min(0,max(-13,math.log10(residual)))*-1)/13*340
             coords.append(f'{x:.2f},{y:.2f}')
         curves.append(f'<polyline points="{" ".join(coords)}" fill="none" stroke="{color}" stroke-width="3"/>')
-    ticks=''.join(f'<line x1="85" y1="{45+i/13*340:.1f}" x2="1010" y2="{45+i/13*340:.1f}" stroke="#224051"/><text x="67" y="{50+i/13*340:.1f}" text-anchor="end">10⁻{i}</text>' for i in (2,4,6,8,10,12))
-    ticks+=''.join(f'<text x="{85+i/3100*925:.1f}" y="415" text-anchor="middle">{i}</text>' for i in (0,500,1000,1500,2000,2500,3000))
-    return '<svg class="residual-chart" viewBox="0 0 1080 455" role="img" aria-label="Sampled maximum residual against iteration for W7-X single grid; v1.2 reaches tolerance sooner."><g fill="#b6cbd7" font-size="17" font-family="sans-serif">'+ticks+'<text x="90" y="24">max(FSQR, FSQZ, FSQL)</text><text x="850" y="447">reported iteration</text><text x="680" y="24" fill="#43d9ff">v1.1 · 2953</text><text x="860" y="24" fill="#ffb454">v1.2 · 2465</text></g>'+''.join(curves)+'</svg>'
+    def label(x, y, width, html, align='left', color='#b6cbd7'):
+        # KaTeX needs HTML inside the SVG; text elements cannot contain spans.
+        return f'<foreignObject x="{x:.1f}" y="{y:.1f}" width="{width}" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="font:17px/26px sans-serif;color:{color};text-align:{align};white-space:nowrap">{html}</div></foreignObject>'
+    ticks=''.join(f'<line x1="85" y1="{45+i/13*340:.1f}" x2="1010" y2="{45+i/13*340:.1f}" stroke="#224051"/>' + label(0,32+i/13*340,67,inline(f'10^{{-{i}}}'),'right') for i in (2,4,6,8,10,12))
+    ticks+=''.join(label(50+i/3100*925,397,70,inline(str(i)),'center') for i in (0,500,1000,1500,2000,2500,3000))
+    labels = label(90,5,460,inline(r'\max(\mathrm{FSQR},\mathrm{FSQZ},\mathrm{FSQL})')) + label(850,425,220,'reported iteration')
+    labels += label(680,5,180,'v1.1 · '+inline('2953'),color=colors[0]) + label(860,5,180,'v1.2 · '+inline('2465'),color=colors[1])
+    return '<svg class="residual-chart" viewBox="0 0 1080 455" role="img" aria-label="Sampled maximum residual against iteration for W7-X single grid; v1.2 reaches tolerance sooner.">'+ticks+labels+''.join(curves)+'</svg>'
 add('A shorter convergence path, sampled from the logs',residual_plot()+p('W7-X · single ns=99 · same 10⁻¹² tolerance. Lines join printed samples; early restart details between samples are not resolved.'),
     'NEW · cli-w7x-single-v1.1-1.log / v1.2-1.log',
     'The y-axis is logarithmic and plots the maximum of the three printed residual components. X is the logged iteration index, not wall time. Lines are straight interpolation between printed samples, not a reconstructed every-pass trace.',chapter='Trajectory')
@@ -301,7 +310,7 @@ add('v1.3: very coarse 3-D seeds help QA and QH differently',table(['Analytic ce
 add('Sensitivity reuse solves a different performance problem',grid(
     panel('Retained linearized equilibrium',eq(r'F_u\,\delta u=-F_x\,\delta x')+p('Analytic CUDA JVPs and right-preconditioned restarted GMRES reuse the converged operator session for successive boundary directions.')),
     panel('Reported qualification',p('QH residual-vector derivative difference: <strong>5.2%</strong>.<br>Coordinate-invariant objective derivative difference: <strong>0.14%</strong>.')+p('No isolated timing is used here to claim faster nonlinear equilibrium convergence.'))),
-    '2d07d47 / 0064e98 / c1abf20 · ADR-0013',
+    '2d07d47 / <code>0064e98</code> / c1abf20 · ADR-0013',
     'This replaces repeated nonlinear solves in a derivative workflow with retained linear solves. It is a different algorithm and workload from the v1.1→v1.2 equilibrium trajectory. Dense forward Jacobian cost still scales with parameter count. Gauge differences affect the residual-vector comparison.',chapter='Later work')
 add('Current float branch: accuracy unlocks convergence',table(['W7-X float · every stage ftol=10⁻⁵','Result','Extra per-pass work'],[
     ['Absolute R₀₀ quantization diagnostic','Double-evaluated FSQR 2.1083e-4','Precision floor evidence'],
@@ -328,7 +337,7 @@ add('Evidence and reproduction',table(['Artifact','What it contains'],[
     ['data/optimization-commits.md','42 highlighted optimization/support/evidence records'],
     ['data/local/','Raw fixed-iteration JSON, CLI logs, exact inputs, GPU provenance'],
     ['scripts/build_history.py → measure.py → summarize.py','Historical worktrees, controlled measurements, statistical summary'],
-    ['scripts/build_deck.py','Static HTML generation from narrative and measured results']])+p('Open locally to present. <strong>O</strong> overview · <strong>N</strong> notes · <strong>← / →</strong> navigation · browser print for 16:9 PDF.'),
+    ['scripts/build_deck.py','Static HTML generation from narrative and measured results']])+p('Open locally to present. <strong>O</strong> overview · <strong data-math-ignore>N</strong> notes · <strong>← / →</strong> navigation · browser print for 16:9 PDF.'),
     'Offline deck · Technical Blueprint style · reviewed 2026-09-07',
     'All presentation runtime assets are local, including KaTeX and its fonts. Scratch worktrees and binaries live in ../tmp/cumes-optimization-slides-20260907. This deck does not alter the cuMES working checkout.',chapter='Closing')
 
@@ -339,5 +348,5 @@ head='''<!doctype html>
 <meta name="theme-color" content="#04101a"><meta name="description" content="Measured optimization history of cuMES: CUDA execution and convergence trajectory changes.">
 <title>Making cuMES faster</title><link rel="stylesheet" href="vendor/katex/katex-swap.min.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
 '''
-(deck/'index.html').write_text(head+'\n'.join(slides)+'\n</main>'+tail)
+(deck/'index.html').write_text(format_html(head+'\n'.join(slides)+'\n</main>'+tail))
 print(f'Built {len(slides)} slides')

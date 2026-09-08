@@ -1,0 +1,3 @@
+# Preserve producer formatting in frozen evidence and Matplotlib SVG output.
+slides/*/data/** -whitespace
+slides/meow/assets/*.svg -whitespace

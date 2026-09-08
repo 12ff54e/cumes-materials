@@ -1,0 +1,629 @@
+[
+  {
+    "source": "meow/README.md",
+    "sha256": "68154700a0a04146b744b11ec26958f658867fa47873efa34189de0da32e0038",
+    "bytes": 6039,
+    "saved_as": "data/sources/meow/README.md"
+  },
+  {
+    "source": "meow/docs/landreman-paul-reproduction.md",
+    "sha256": "9d344670135ca59090cb4eea85f5470045636e85c20bc1586450912fbe6a64d8",
+    "bytes": 77523,
+    "saved_as": "data/sources/meow/docs/landreman-paul-reproduction.md"
+  },
+  {
+    "source": "meow/docs/relaxation-rundown.md",
+    "sha256": "e389d289535281203ace61a4fa5f510bae16c7b8d518a29ecd5706c2a0a4822f",
+    "bytes": 5185,
+    "saved_as": "data/sources/meow/docs/relaxation-rundown.md"
+  },
+  {
+    "source": "meow/examples/landreman/README.md",
+    "sha256": "fd9898f543b3e6bdcf8e13fa83ab4f9dad9099702ca75f7e1c0700f0007d1143",
+    "bytes": 6247,
+    "saved_as": "data/sources/meow/examples/landreman/README.md"
+  },
+  {
+    "source": "meow/examples/landreman/qa-construction.rundown.json",
+    "sha256": "0db2772efdaf811e73aa55c38dea0001a0de83ce758dd5e2c2b88f897b659462",
+    "bytes": 3247,
+    "saved_as": "data/inputs/qa-construction.rundown.json"
+  },
+  {
+    "source": "meow/examples/landreman/qa-refinement.rundown.json",
+    "sha256": "0056afef3c2e77453bfb5aef79f58a7e7413a93c07ccacd099404c2de641d07c",
+    "bytes": 2189,
+    "saved_as": "data/inputs/qa-refinement.rundown.json"
+  },
+  {
+    "source": "meow/examples/landreman/qa.json",
+    "sha256": "556507bf64f9b7e62bc797f48640b65e51f08db2f00394a47f78ef78044222cc",
+    "bytes": 10928,
+    "saved_as": "data/inputs/qa.json"
+  },
+  {
+    "source": "meow/examples/landreman/qa_analytic.json",
+    "sha256": "1262216baa3026582cb4ab39c7e6c002d62f00d767701def23412c79dc57e234",
+    "bytes": 1076,
+    "saved_as": "data/inputs/qa_analytic.json"
+  },
+  {
+    "source": "meow/examples/landreman/qa_start.json",
+    "sha256": "aa6be785acdc52e5f1dacd6149cd05f869bb3834f13733c2f46c1f1b214369ce",
+    "bytes": 7347,
+    "saved_as": "data/inputs/qa_start.json"
+  },
+  {
+    "source": "meow/examples/landreman/qh-construction.rundown.json",
+    "sha256": "ff4933c83ad2da9c12334b3616ae2b37faa069b758385c60cc119417c113c2a3",
+    "bytes": 3750,
+    "saved_as": "data/inputs/qh-construction.rundown.json"
+  },
+  {
+    "source": "meow/examples/landreman/qh-refinement.rundown.json",
+    "sha256": "759f3d7b18ea6d3c2475f17f39024095dbeccef207f7dc7de179ab3c2ad58bcb",
+    "bytes": 2187,
+    "saved_as": "data/inputs/qh-refinement.rundown.json"
+  },
+  {
+    "source": "meow/examples/landreman/qh.json",
+    "sha256": "ea7d2df786dc104735f1e162a8b29de98de005090aba49acec2b99fd2b92adad",
+    "bytes": 10699,
+    "saved_as": "data/inputs/qh.json"
+  },
+  {
+    "source": "meow/examples/landreman/qh_analytic.json",
+    "sha256": "a31e2f5650c658691cf5a74c263394ec7616f8e7ec44f2c320a87b9853bd313b",
+    "bytes": 1188,
+    "saved_as": "data/inputs/qh_analytic.json"
+  },
+  {
+    "source": "meow/examples/landreman/qh_start.json",
+    "sha256": "4c349d5aca185377676ee8e178969c9c0ab893b20b5651268684382b24049415",
+    "bytes": 7336,
+    "saved_as": "data/inputs/qh_start.json"
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/README",
+    "sha256": "58c0c59d0970dfb47f642febd28c342927a9c079cf2374ed5fc99cd89d3e9dab",
+    "bytes": 772,
+    "saved_as": "data/sources/zenodo-README.txt"
+  },
+  {
+    "source": "meow/apps/cumes_landreman_optimize.cpp",
+    "sha256": "73069fa7cbf24b5777454381edeb86403f0b2914973fcf3467e17c4cc4e8215e",
+    "bytes": 80002
+  },
+  {
+    "source": "meow/src/trf.cpp",
+    "sha256": "3e8171ecd3e65fb923b7c67a662e78d352a5e94496799eb702a617032463c500",
+    "bytes": 33255
+  },
+  {
+    "source": "meow/include/meow/cumes/quasisymmetry_target.hpp",
+    "sha256": "d28530735a8c279210b2175ec0f832305a88d1b3236d4d0eb430a279949a74e3",
+    "bytes": 21105
+  },
+  {
+    "source": "meow/include/meow/cumes/boundary_parameterization.hpp",
+    "sha256": "3e7ccf90f92352ad844936e4bf1f39a940cb3b0dc506ac3e7de8c7692c17aada",
+    "bytes": 10792
+  },
+  {
+    "source": "meow/include/meow/cumes/quasisymmetry_target_jvp.hpp",
+    "sha256": "e548bf887faae66384abed9e595c7eee6d34a16c9a5ab540814c76072fa9a626",
+    "bytes": 11944
+  },
+  {
+    "source": "meow/examples/cumes_landreman_evaluate.cpp",
+    "sha256": "5b29419a9816271808c23ed634ff965841cd120d8ca706cc4a949a3dd45ad60c",
+    "bytes": 5236
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-analytic/result.json",
+    "sha256": "f347a3d5924cba8837e52be9f08dc1ef78e6db9155953b14ea85a7c4daa20d0b",
+    "bytes": 4634,
+    "saved_as": "data/archived/early-tangent/qa-analytic/result.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-analytic/result.json.construction.mode1.json",
+    "sha256": "9f97f8a301b28b4e93703d5e1da599a48c39ba97b843cc5f7d112ffdf19e4010",
+    "bytes": 1257,
+    "saved_as": "data/archived/early-tangent/qa-analytic/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-analytic/result.json.construction.mode2.json",
+    "sha256": "1dfb693198e903c4e47a8dd7d3af1cc77eeb3d9dffcc19a1573901b652ad4ce4",
+    "bytes": 2053,
+    "saved_as": "data/archived/early-tangent/qa-analytic/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-analytic/result.json.construction.mode3.json",
+    "sha256": "dafd10eb8d68c65a2d435aac7e544965a8a364ae54244a891c1fcc1add59b3de",
+    "bytes": 3185,
+    "saved_as": "data/archived/early-tangent/qa-analytic/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-analytic/result.json.construction.mode4.json",
+    "sha256": "f347a3d5924cba8837e52be9f08dc1ef78e6db9155953b14ea85a7c4daa20d0b",
+    "bytes": 4634,
+    "saved_as": "data/archived/early-tangent/qa-analytic/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-analytic/time.txt",
+    "sha256": "2523062845dde533a88c26b68049b1b025f0935bd1c8435ca5c63beba78fb17e",
+    "bytes": 80,
+    "saved_as": "data/archived/early-tangent/qa-analytic/time.txt"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-finite-difference/result.json",
+    "sha256": "ee6c53bd507036af3971ca4eba7c23a0081ae7072b68996a1939ded57d687a9b",
+    "bytes": 4659,
+    "saved_as": "data/archived/early-tangent/qa-finite-difference/result.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-finite-difference/result.json.construction.mode1.json",
+    "sha256": "402f1d2d10c0dee7b6443e2497e299210ea22e673405d08abbab786265dd2333",
+    "bytes": 1255,
+    "saved_as": "data/archived/early-tangent/qa-finite-difference/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-finite-difference/result.json.construction.mode2.json",
+    "sha256": "7847ad91abf5093786c1bed81e21c47b313310ebc748120da73ece203341a1cb",
+    "bytes": 2052,
+    "saved_as": "data/archived/early-tangent/qa-finite-difference/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-finite-difference/result.json.construction.mode3.json",
+    "sha256": "77b4a86ea3a43955b0fa980c2a868f6b5a53c3a9ae122caf94b3ece4a06fb852",
+    "bytes": 3193,
+    "saved_as": "data/archived/early-tangent/qa-finite-difference/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-finite-difference/result.json.construction.mode4.json",
+    "sha256": "ee6c53bd507036af3971ca4eba7c23a0081ae7072b68996a1939ded57d687a9b",
+    "bytes": 4659,
+    "saved_as": "data/archived/early-tangent/qa-finite-difference/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qa-finite-difference/time.txt",
+    "sha256": "7684728d50c1fb861dcb61b805ed230ae752a9c412fc3bb16e5a1ee9cd18596d",
+    "bytes": 81,
+    "saved_as": "data/archived/early-tangent/qa-finite-difference/time.txt"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/result.json",
+    "sha256": "07ac9abec9f6908e5854a418029c00d6c841c2b2b906803e4ca48b1ccbcea78f",
+    "bytes": 6491,
+    "saved_as": "data/archived/early-tangent/qh-analytic/result.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/result.json.construction.mode1.json",
+    "sha256": "a3bf3bf8306573a3a6ab65845f99d31772ac3efca932bbfd91c9362daacfd988",
+    "bytes": 1254,
+    "saved_as": "data/archived/early-tangent/qh-analytic/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/result.json.construction.mode2.json",
+    "sha256": "cc91104f13e01d3743494c7689f890135bb2b6d8113ad9edde8374a2fd0bfd88",
+    "bytes": 2056,
+    "saved_as": "data/archived/early-tangent/qh-analytic/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/result.json.construction.mode3.json",
+    "sha256": "d5e1cf8674a916bc46d183361232741f7f3cdc11b9d92ac5cb200a401a856b79",
+    "bytes": 3197,
+    "saved_as": "data/archived/early-tangent/qh-analytic/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/result.json.construction.mode4.json",
+    "sha256": "8b3e5d572760bc6f93c9d8e92cc9e4dea83cf2749c359be4e7424844044d295c",
+    "bytes": 4660,
+    "saved_as": "data/archived/early-tangent/qh-analytic/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/result.json.construction.mode5.json",
+    "sha256": "07ac9abec9f6908e5854a418029c00d6c841c2b2b906803e4ca48b1ccbcea78f",
+    "bytes": 6491,
+    "saved_as": "data/archived/early-tangent/qh-analytic/result.json.construction.mode5.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/run.log",
+    "sha256": "7f9f9410882dd5629249c86c6db1de5d17c95de8b3c0b8fe817112b2a9e6e79e",
+    "bytes": 83389,
+    "saved_as": "data/archived/early-tangent/qh-analytic/run.log"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-analytic/time.txt",
+    "sha256": "112518d4333839f17d851b7cd6c54e2b77ac42bd7e834b658fa654505bf644ce",
+    "bytes": 82,
+    "saved_as": "data/archived/early-tangent/qh-analytic/time.txt"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/result.json",
+    "sha256": "1032e44e96aca39495f0442d01df5a69c40fcdb12675382e11ee9671447ece9e",
+    "bytes": 6481,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/result.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/result.json.construction.mode1.json",
+    "sha256": "601d30925dacc2f9640222d2620acccd9f129f267e02466b4100b57715382380",
+    "bytes": 1256,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/result.json.construction.mode2.json",
+    "sha256": "7d455b65a7354f977fddc9826b6cb52ccdd2075c07cd8caeb7f982c31be62c4e",
+    "bytes": 2044,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/result.json.construction.mode3.json",
+    "sha256": "d4760eaf03d9cfc6726d1f2d85ecc732e3100daeee6b8d0d17db904163530916",
+    "bytes": 3187,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/result.json.construction.mode4.json",
+    "sha256": "5c181670a963d1d03e5406c7c312477812ee00c62b94fb6d33effeb2d139d274",
+    "bytes": 4633,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/result.json.construction.mode5.json",
+    "sha256": "1032e44e96aca39495f0442d01df5a69c40fcdb12675382e11ee9671447ece9e",
+    "bytes": 6481,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/result.json.construction.mode5.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/run.log",
+    "sha256": "1e6ff11ea91f5fdc150f7535f10a4d81dd3842931a5658f2dd38afb95954d0b6",
+    "bytes": 579381,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/run.log"
+  },
+  {
+    "source": "benchmark-forward-tangent-20260902/qh-finite-difference/time.txt",
+    "sha256": "b020f1d9d08b976d76b01a9d83590849f3224a4ecbf39a792301c6d29535513f",
+    "bytes": 83,
+    "saved_as": "data/archived/early-tangent/qh-finite-difference/time.txt"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/result.json",
+    "sha256": "5355fe49dfe0beb86101c37acb7ff2d55f37e9715f0bb17781ce733d65bb7e4f",
+    "bytes": 4661,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/result.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/result.json.construction.mode1.json",
+    "sha256": "1f0b8233455f07958dadf283b5b0aaa4a4ac21f5e8f96d0b230eae1818975eb2",
+    "bytes": 1254,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/result.json.construction.mode2.json",
+    "sha256": "1492ab8c7bfcee2ba6f15e574c4e9e416db96e31e4f907f962b3c92d79981c1b",
+    "bytes": 2053,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/result.json.construction.mode3.json",
+    "sha256": "001a759ce35d743e4ba65cd155eb9cb4ac7f918a77ed118de4dbb2f451ee7370",
+    "bytes": 3194,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/result.json.construction.mode4.json",
+    "sha256": "5355fe49dfe0beb86101c37acb7ff2d55f37e9715f0bb17781ce733d65bb7e4f",
+    "bytes": 4661,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/run.log",
+    "sha256": "1e5d7b63dd96262a2bc485eaa7b4df0cf9d5db588235f941a997e0c52b4c032d",
+    "bytes": 107985,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/run.log"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qa-analytic/time.txt",
+    "sha256": "272885753dd63ae853e59da9f79086c6703465575f7a15d64deaae3607e9c9a6",
+    "bytes": 963,
+    "saved_as": "data/archived/corrected-tangent/qa-analytic/time.txt"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/result.json",
+    "sha256": "a7685736c4d7dffc21cd968a6dc101b6c94362cb65dd460b4c0b322c9f2a921f",
+    "bytes": 6488,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/result.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/result.json.construction.mode1.json",
+    "sha256": "a62f7efcf7f0fb01f8ecde068dd54792482056e4443c3d26dd83f82ac78963d4",
+    "bytes": 1259,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/result.json.construction.mode2.json",
+    "sha256": "9a902c9275e57ef5d79050e469abb199f8fa7478c8e03c003dfd2555ad332059",
+    "bytes": 2057,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/result.json.construction.mode3.json",
+    "sha256": "4d5b6eb272b246d46dcebd943e4f3d0c8bb2f56dd6a8d22636c8dc28832402ff",
+    "bytes": 3200,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/result.json.construction.mode4.json",
+    "sha256": "c94965d8c903dcf96dde980a744db379f7aa72e0ecacfee5ee46dea02a326bb9",
+    "bytes": 4643,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/result.json.construction.mode5.json",
+    "sha256": "a7685736c4d7dffc21cd968a6dc101b6c94362cb65dd460b4c0b322c9f2a921f",
+    "bytes": 6488,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/result.json.construction.mode5.json"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/run.log",
+    "sha256": "dede403445b9d680ecb9379229385b13a379314d916cdee7c0dc6c2796ef59a5",
+    "bytes": 181129,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/run.log"
+  },
+  {
+    "source": "benchmark-forward-tangent-corrected-20260903/qh-analytic/time.txt",
+    "sha256": "f754c4ea0c994823d9b28104b075d316ba2397156b9f170b529e9fc9be3f0054",
+    "bytes": 963,
+    "saved_as": "data/archived/corrected-tangent/qh-analytic/time.txt"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/result.json",
+    "sha256": "2c21c330a91054cc99b380223f81eaf9c5ef46691bb6cec84a2de929a648fca5",
+    "bytes": 4651,
+    "saved_as": "data/archived/four-worker-broyden/qa/result.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/result.json.construction.mode1.json",
+    "sha256": "568b34350c4378908d396b90259591ddaa735c4b0516b19585524ecd87433016",
+    "bytes": 1256,
+    "saved_as": "data/archived/four-worker-broyden/qa/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/result.json.construction.mode2.json",
+    "sha256": "9b9fea7920d99596c2d85b57a92eabf1e2512e118c648de68593480b1593e9ee",
+    "bytes": 2054,
+    "saved_as": "data/archived/four-worker-broyden/qa/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/result.json.construction.mode3.json",
+    "sha256": "374b5c99ddc3a44b1ddffdb20b81149712b17a245bcff3e8f7bf57800e3b71f8",
+    "bytes": 3195,
+    "saved_as": "data/archived/four-worker-broyden/qa/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/result.json.construction.mode4.json",
+    "sha256": "2c21c330a91054cc99b380223f81eaf9c5ef46691bb6cec84a2de929a648fca5",
+    "bytes": 4651,
+    "saved_as": "data/archived/four-worker-broyden/qa/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/run.log",
+    "sha256": "5ab39ddb6c00861b2b4261cc1391e75296dc555d554d3c4cdc4ce003e3caad2f",
+    "bytes": 45476,
+    "saved_as": "data/archived/four-worker-broyden/qa/run.log"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qa/time.txt",
+    "sha256": "7d0cbd3a634728d03ecc867f1b197e86d5f7efccc2e5ec625f730a9f97ecafa3",
+    "bytes": 978,
+    "saved_as": "data/archived/four-worker-broyden/qa/time.txt"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/result.json",
+    "sha256": "4adffdcd0a8f43b576aeaaa1d256ff07b4eef8fa7800bbdb7b9a870562f05421",
+    "bytes": 6479,
+    "saved_as": "data/archived/four-worker-broyden/qh/result.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/result.json.construction.mode1.json",
+    "sha256": "34da77b674826203c50c16252c1732bfe7cd621e157bee1c3d813af1f0542aa7",
+    "bytes": 1255,
+    "saved_as": "data/archived/four-worker-broyden/qh/result.json.construction.mode1.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/result.json.construction.mode2.json",
+    "sha256": "ad2637089cf0d213af0bd9f44f5a8ee7e835fd6ffb798497721db2bd4040ba54",
+    "bytes": 2047,
+    "saved_as": "data/archived/four-worker-broyden/qh/result.json.construction.mode2.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/result.json.construction.mode3.json",
+    "sha256": "5e87da7c1cc61e810c2ca9bef35c193afb7d63a79f508d91af3c6c719b45a001",
+    "bytes": 3180,
+    "saved_as": "data/archived/four-worker-broyden/qh/result.json.construction.mode3.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/result.json.construction.mode4.json",
+    "sha256": "537da6c2b777cdc947961154c21f6ee81815d57c8e653d2f182f5120635d491b",
+    "bytes": 4637,
+    "saved_as": "data/archived/four-worker-broyden/qh/result.json.construction.mode4.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/result.json.construction.mode5.json",
+    "sha256": "4adffdcd0a8f43b576aeaaa1d256ff07b4eef8fa7800bbdb7b9a870562f05421",
+    "bytes": 6479,
+    "saved_as": "data/archived/four-worker-broyden/qh/result.json.construction.mode5.json"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/run.log",
+    "sha256": "71add26438b2dd38fa5edda1e50815f9e433f75d0ca953ac4713f7e9802ab7e4",
+    "bytes": 63982,
+    "saved_as": "data/archived/four-worker-broyden/qh/run.log"
+  },
+  {
+    "source": "benchmark-four-worker-aggressive-broyden-20260904/qh/time.txt",
+    "sha256": "98afafcb23e9999cd6bf08c03db34beb92c5fec2737e83910cb3d9988577e52a",
+    "bytes": 984,
+    "saved_as": "data/archived/four-worker-broyden/qh/time.txt"
+  },
+  {
+    "source": "opt-qa-analytic-accepted-axis/latest.json",
+    "sha256": "d4293ffbbb51f3475caa3a38f605d83f0422bdf97b189950df90f0d654df079c",
+    "bytes": 4662,
+    "saved_as": "data/archived/accepted-axis/qa/latest.json"
+  },
+  {
+    "source": "opt-qa-analytic-accepted-axis/latest.json.construction.mode1.json",
+    "sha256": "91c4215ce8404ec4cdb30fbe56fae2ad997a58f0b35fa79604696511f5698d0b",
+    "bytes": 1260,
+    "saved_as": "data/archived/accepted-axis/qa/latest.json.construction.mode1.json"
+  },
+  {
+    "source": "opt-qa-analytic-accepted-axis/latest.json.construction.mode2.json",
+    "sha256": "a4a8b282576294bfba68f9efd4de0ece5583c9feb9a67d352cba6ba293a88964",
+    "bytes": 2050,
+    "saved_as": "data/archived/accepted-axis/qa/latest.json.construction.mode2.json"
+  },
+  {
+    "source": "opt-qa-analytic-accepted-axis/latest.json.construction.mode3.json",
+    "sha256": "10abf308fe7f04b6798a71ec32ff13fb0be255f02debe8c1fa241fe717b12f98",
+    "bytes": 3195,
+    "saved_as": "data/archived/accepted-axis/qa/latest.json.construction.mode3.json"
+  },
+  {
+    "source": "opt-qa-analytic-accepted-axis/latest.json.construction.mode4.json",
+    "sha256": "d4293ffbbb51f3475caa3a38f605d83f0422bdf97b189950df90f0d654df079c",
+    "bytes": 4662,
+    "saved_as": "data/archived/accepted-axis/qa/latest.json.construction.mode4.json"
+  },
+  {
+    "source": "opt-qa-analytic-accepted-axis/run.log",
+    "sha256": "b880de388ad7cf264c42c8c19bcff8b48f68379327e76e163389f38f08fdf897",
+    "bytes": 296819,
+    "saved_as": "data/archived/accepted-axis/qa/run.log"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/latest.json",
+    "sha256": "1032e44e96aca39495f0442d01df5a69c40fcdb12675382e11ee9671447ece9e",
+    "bytes": 6481,
+    "saved_as": "data/archived/accepted-axis/qh/latest.json"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/latest.json.construction.mode1.json",
+    "sha256": "601d30925dacc2f9640222d2620acccd9f129f267e02466b4100b57715382380",
+    "bytes": 1256,
+    "saved_as": "data/archived/accepted-axis/qh/latest.json.construction.mode1.json"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/latest.json.construction.mode2.json",
+    "sha256": "7d455b65a7354f977fddc9826b6cb52ccdd2075c07cd8caeb7f982c31be62c4e",
+    "bytes": 2044,
+    "saved_as": "data/archived/accepted-axis/qh/latest.json.construction.mode2.json"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/latest.json.construction.mode3.json",
+    "sha256": "d4760eaf03d9cfc6726d1f2d85ecc732e3100daeee6b8d0d17db904163530916",
+    "bytes": 3187,
+    "saved_as": "data/archived/accepted-axis/qh/latest.json.construction.mode3.json"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/latest.json.construction.mode4.json",
+    "sha256": "5c181670a963d1d03e5406c7c312477812ee00c62b94fb6d33effeb2d139d274",
+    "bytes": 4633,
+    "saved_as": "data/archived/accepted-axis/qh/latest.json.construction.mode4.json"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/latest.json.construction.mode5.json",
+    "sha256": "1032e44e96aca39495f0442d01df5a69c40fcdb12675382e11ee9671447ece9e",
+    "bytes": 6481,
+    "saved_as": "data/archived/accepted-axis/qh/latest.json.construction.mode5.json"
+  },
+  {
+    "source": "opt-qh-analytic-accepted-axis/run.log",
+    "sha256": "b68510f2bb7a45ea60a4e7fd77815a68d7bf8e8f0fd74519741156cc69efc33e",
+    "bytes": 578721,
+    "saved_as": "data/archived/accepted-axis/qh/run.log"
+  },
+  {
+    "source": "meow/scripts/evaluate_landreman_qs.py",
+    "sha256": "dc786cf59b8455daaeac17d5a658119641d931d52c8589227c43ecefaa92a45a",
+    "bytes": 7093,
+    "saved_as": "data/sources/evaluate_landreman_qs.py"
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-021_QA_multiple_surfaces_relStepScan_A6_iota0.42/abs_step_1.00e-07_rel_step_3.16e-03_forward/wout_nfp2_QA_000_000063.nc",
+    "sha256": "fbcee3e1481164ed162c73e6087d04ab24cec55829a48c7453f0037238ff3cf5",
+    "bytes": 509784
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-021_QA_multiple_surfaces_relStepScan_A6_iota0.42/abs_step_1.00e-07_rel_step_3.16e-03_forward/wout_nfp2_QA_000_000113.nc",
+    "sha256": "2021f4e1ea481c53e8646e816cc4f053891c2bbb1625ef3de7a124e8bd22531e",
+    "bytes": 548728
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-021_QA_multiple_surfaces_relStepScan_A6_iota0.42/abs_step_1.00e-07_rel_step_3.16e-03_forward/wout_nfp2_QA_000_000176.nc",
+    "sha256": "196707d7246998cbc64e8f566577321c199faceafd3476980181886b3f7cdc67",
+    "bytes": 575496
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-021_QA_multiple_surfaces_relStepScan_A6_iota0.42/abs_step_1.00e-07_rel_step_3.16e-03_forward/wout_nfp2_QA_000_000248.nc",
+    "sha256": "973c4e58bcd23e57d161f9aba84822b2b432f4c776ac853c5c6f1f0afc6a01d1",
+    "bytes": 575496
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-050_QA_weightRampScan_noIotaTarget_refiningBestFrom021/weight_3.00e+01_rel_step_1.00e-05_forward/wout_nfp2_QA_000_000063.nc",
+    "sha256": "a15c44c22f209c6b9a2432bb55698971b13fb2cff068bca69ac3ee9fe59da40f",
+    "bytes": 1270200
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/configurations/new_QA/wout_20210704-01-050_weight_3.00e+01_rel_step_1.00e-05_forward_nfp2_QA.nc",
+    "sha256": "d0f549a73bbb20e264a34d3483df60b43b69c12cee94e8d0358aeb0ca4e221d7",
+    "bytes": 10137144
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/configurations/new_QA/boozmn_20210704-01-050_weight_3.00e+01_rel_step_1.00e-05_forward_nfp2_QA.nc",
+    "sha256": "31253250311358482dc1f63f8604f9f4836713ecea0b0d948130a1ca4405f8e0",
+    "bytes": 74203312
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-039_QH_multiple_surfaces_relStepScan_A8/abs_step_1.00e-07_rel_step_1.00e-03_forward/wout_nfp4_QH_000_000048.nc",
+    "sha256": "f467c7daf73d93537fc88a4cb014d3b1b869e9f73f0687c1939345b56b51dd81",
+    "bytes": 509784
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-039_QH_multiple_surfaces_relStepScan_A8/abs_step_1.00e-07_rel_step_1.00e-03_forward/wout_nfp4_QH_000_000092.nc",
+    "sha256": "1ee4ee5824b047a71e442d748aebc1f626357ca58f45566480b37ff46b125824",
+    "bytes": 548728
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-039_QH_multiple_surfaces_relStepScan_A8/abs_step_1.00e-07_rel_step_1.00e-03_forward/wout_nfp4_QH_000_000144.nc",
+    "sha256": "8001804b97ace06ac3f9aa7d2387d66e2a274b61f431b239be9dafbedd159b65",
+    "bytes": 575496
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-039_QH_multiple_surfaces_relStepScan_A8/abs_step_1.00e-07_rel_step_1.00e-03_forward/wout_nfp4_QH_000_000205.nc",
+    "sha256": "a7e9804eee27a5f0597f273d2efcfea7b370668b9a371967cd4e32ea9fda0177",
+    "bytes": 575496
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-039_QH_multiple_surfaces_relStepScan_A8/abs_step_1.00e-07_rel_step_1.00e-03_forward/wout_nfp4_QH_000_000276.nc",
+    "sha256": "20f832ee5b9685c5b06a19d1efa6982403027e203ab09cd7aab82773c7800db3",
+    "bytes": 575496
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/calculations/20210704-01-simsopt_new_quasisymmetry_metric/20210704-01-059_QH_A8_refiningBestFrom039_weightRampScan/weight_2.00e+00_rel_step_1.00e-05_forward/wout_nfp4_QH_000_000090.nc",
+    "sha256": "f8fef1160f44578f05912c33bf877274105b078933d51c7b803ed689f62bd544",
+    "bytes": 1270200
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/configurations/new_QH/wout_20210704-01-063_nfp4_QH_A8_weight_2.00e+00_rel_step_1.00e-05_forward_B1.nc",
+    "sha256": "7228b064ce0f39a0bcd49649a9d831f5ed2983503fecc7da7df1593fc98ce213",
+    "bytes": 4184568
+  },
+  {
+    "source": "20211102-01-precise_quasisymmetry_zenodo/configurations/new_QH/boozmn_20210704-01-063_nfp4_QH_A8_weight_2.00e+00_rel_step_1.00e-05_forward_B1.nc",
+    "sha256": "f5d5cffc27cb3209581f40bda29e3334cf9ec3e7443217c0a2ffd46e90582bc4",
+    "bytes": 30831984
+  }
+]

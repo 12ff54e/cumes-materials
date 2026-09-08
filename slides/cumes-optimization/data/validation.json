@@ -655,10 +655,15 @@
     "previous": true,
     "overview": true,
     "notes": true,
+    "notes_math": true,
     "help": true,
     "end": true,
     "home": true,
-    "mobile": "auto",
+    "images_loaded": true,
+    "metadata": true,
+    "all_math_rendered": true,
+    "math_case_preserved": true,
+    "mobile_scroll": true,
     "swipe": true
   },
   "print": [
@@ -939,5 +944,7 @@
       "overruns": []
     }
   ],
-  "runtimeErrors": []
+  "pdf_pages": 46,
+  "runtime_errors": [],
+  "network_failures": []
 }

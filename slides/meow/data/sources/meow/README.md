@@ -1,0 +1,162 @@
+# meow — Magnetic Equilibrium Optimizer Workbench
+
+The **Magnetic Equilibrium Optimizer Workbench (`meow`)** currently provides a
+C++20 trust-region reflective (TRF) solver for bound-constrained nonlinear
+least squares:
+
+$$\min_x \frac{1}{2}\lVert r(x)\rVert_2^2\quad\text{subject to}\quad \ell \le x \le u.$$
+
+The implementation is independent of SciPy. SciPy is used only by an optional
+CTest comparison that checks the final solutions and costs on unconstrained,
+active-bound, and box-constrained problems.
+
+## Build and test
+
+```bash
+cmake -S . -B build -G Ninja
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
+
+Requirements are CMake 3.20+, a C++20 compiler, and Eigen 3.3+. Python with
+NumPy and SciPy enables the comparison test but is not needed by the library.
+The build uses strict C++20 and treats warnings as errors by default. Set
+`MEOW_WARNINGS_AS_ERRORS=OFF` only when integrating with an unusually noisy
+toolchain.
+
+### Build with cuMES
+
+The equilibrium-backed applications can obtain cuMES directly from its public
+repository. This path is explicit so a normal meow build never downloads or
+configures CUDA code:
+
+```bash
+cmake -S . -B build-cumes -G Ninja \
+  -DMEOW_BUILD_CUMES_INTEGRATION=ON \
+  -DMEOW_FETCH_CUMES=ON \
+  -DCMAKE_BUILD_TYPE=Release
+cmake --build build-cumes
+ctest --test-dir build-cumes --output-on-failure
+```
+
+Fetch mode requires CMake 3.24+, Git, CUDA Toolkit 11.8+, a C++20 CUDA host
+compiler, Eigen 3.3+, and a GPU with compute capability 6.1 or newer. cuMES
+defaults its CUDA host compiler to `/usr/bin/g++-12`; pass
+`-DCMAKE_CUDA_HOST_COMPILER=/path/to/compiler` when that is not appropriate for
+the installed CUDA toolkit.
+
+The default is pinned to audited cuMES commit
+`f61c959334bb62e14c049c66335580b45f63610d`, rather than a moving branch. The
+embedded build retains cuMES's B-spline multigrid transfer and fetches only
+that HTTPS-compatible submodule. It disables the standalone cuMES CLI, tests,
+benchmarks, vacuum-field support, magnetic-coordinate post-processing,
+NetCDF/HDF5 output, and verification dumps. Those facilities are not required
+for meow's fixed-boundary solver API.
+
+To use an already installed cuMES package instead, leave fetch mode off and
+make its config package discoverable:
+
+```bash
+cmake -S . -B build-cumes -G Ninja \
+  -DMEOW_BUILD_CUMES_INTEGRATION=ON \
+  -DcuMES_DIR=/path/to/cuMES/lib/cmake/cuMES \
+  -DCMAKE_BUILD_TYPE=Release
+```
+
+Advanced users can deliberately override `MEOW_CUMES_GIT_REPOSITORY` and
+`MEOW_CUMES_GIT_TAG`. For an offline checkout or cuMES development build, use
+CMake's standard source override:
+
+```bash
+cmake -S . -B build-cumes -G Ninja \
+  -DMEOW_BUILD_CUMES_INTEGRATION=ON \
+  -DMEOW_FETCH_CUMES=ON \
+  -DFETCHCONTENT_SOURCE_DIR_CUMES=/path/to/cuMES
+```
+
+The repository carries the same `.clang-format` and staged-file pre-commit
+formatter as cuMES. Activate the versioned hook after cloning with:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+## Project structure
+
+```text
+apps/                 production command-line frontends
+include/              shared command-line and JSON parsing utilities
+include/meow/         public optimizer, configuration, and cuMES target APIs
+src/                  compiled optimizer and configuration implementations
+examples/landreman/   equilibrium inputs and reproducible rundown JSON files
+tests/                standalone C++ and Python verification
+docs/                 numerical contracts and reproduction records
+```
+
+The base build contains TRF and the strict rundown parser and does not require
+CUDA. Configure with `MEOW_BUILD_CUMES_INTEGRATION=ON` and either a discoverable
+cuMES package or the FetchContent option above to build the equilibrium-backed
+applications.
+
+## JSON-driven relaxation
+
+The Landreman QA/QH workflow is now an explicit sequence rather than a set of
+positional arguments and case-name defaults:
+
+```bash
+build-cumes/cumes_landreman_optimize --dry-run \
+  examples/landreman/qa-construction.rundown.json
+
+build-cumes/cumes_landreman_optimize \
+  examples/landreman/qa-construction.rundown.json
+```
+
+The rundown owns target composition, initialization and continuation,
+Jacobian policy, optimizer tolerances, output policy, and every relaxation
+step/phase. See [the schema reference](docs/relaxation-rundown.md).
+
+## C++ API
+
+```cpp
+#include <meow/trf.hpp>
+
+meow::Vector x0(2);
+x0 << -2.0, 1.0;
+
+auto residual = [](const meow::Vector& x) {
+    return (meow::Vector(2) <<
+        10.0 * (x[1] - x[0] * x[0]), 1.0 - x[0]).finished();
+};
+
+meow::TrfResult result = meow::trf_least_squares(residual, x0);
+```
+
+Pass `meow::Bounds` for box constraints and a `meow::JacobianFunction` as the
+last argument when an analytic Jacobian is available. Otherwise, the solver
+uses bound-aware forward differences. The result includes the final residual,
+Jacobian, gradient, active-bound mask, termination reason, iteration count, and
+all residual/Jacobian evaluation counts.
+
+Algorithmically, the solver uses Coleman–Li interior scaling, an exact dense
+trust-region quadratic solve, reflected steps at the first encountered bound,
+and a constrained Cauchy-step fallback. It is intended for modest numbers of
+optimization variables; residual evaluation may be arbitrarily expensive.
+
+## Boozer symmetry-breaking diagnostic
+
+The optimizer-side postprocessor compares maximum and RMS nonsymmetric
+magnetic-field harmonics from two cuMES Boozer-v3 binary results. For QA,
+the symmetric family is `n=0`, so all `n != 0` modes contribute:
+
+```bash
+python scripts/plot_boozer_symmetry_breaking.py \
+  initial-boozer.bin final-boozer.bin \
+  --output symmetry-breaking.png
+```
+
+The plotted amplitudes are normalized by the local `B_00(s)`. The calculation
+accounts for the Boozer-v3 mixed grid through
+`alpha_b = alpha + nfp*nu` and its toroidal integration Jacobian. Here
+`alpha=nfp*zeta` is the field-period angle and `nu` is stored in physical
+toroidal radians. `--helicity H` generalizes the retained symmetry family to
+`n=H*m` for quasihelical diagnostics.

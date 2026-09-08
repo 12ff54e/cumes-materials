@@ -72,6 +72,10 @@ recorded TITAN Xp; change that explicit setting for another GPU and report it.
 
 Edit narrative/tables in `scripts/build_deck.py`, then regenerate `index.html`.
 The generator reuses the original deck's control markup and the measured summary.
+It applies the shared `../../scripts/inline_math.py` formatter to variables and
+quantities in prose, tables, and notes. Use `inline(r"...")` for complete or
+ambiguous expressions, and `<code>` for literal program text. Chart labels use
+the same local KaTeX renderer. Regeneration does not rerun measurements.
 The checked-in HTML is static and requires no Python to present. `styles.css`
 and `deck.js` were copied from the original deck; `optimization.css` contains
 the new tables/charts/layouts. Vendor files are copied without modification.

@@ -3,7 +3,8 @@
 ## Purpose and working scope
 
 This repository stores presentation slides and supporting materials about the
-cuMES magnetic equilibrium solver in `../cuMES`.
+cuMES magnetic equilibrium solver in `../cuMES` and the meow optimization
+workbench in `../meow`.
 
 Carry requested slide work through research, implementation, measurement when
 needed, and validation. Make reasonable presentation and implementation choices
@@ -24,6 +25,9 @@ Preserve unrelated work in this repository and sibling repositories.
 - `slides/cumes-optimization/`: optimization history, archived evidence, and
   reproduced measurements. Edit narrative and tables in `scripts/build_deck.py`,
   then run that script to regenerate `index.html`.
+- `slides/meow/`: optimizer architecture, derivative measurements, and Landreman
+  QA/QH reproduction. Edit `scripts/build_deck.py`; redraw figures with
+  `scripts/plot_results.py` using the included frozen data.
 - Each deck's `README.md` describes its editing, preview, and reproduction workflow.
 - HTML decks use `styles.css`, `deck.js`, and local `vendor/katex/` assets. The
   optimization deck also has `optimization.css`, `evidence.md`, `data/`, and
@@ -36,7 +40,7 @@ Regenerate affected outputs; rendering slides does not require rerunning benchma
 
 ## Technical accuracy
 
-Use the relevant cuMES implementation, tests, documentation, and commit history
+Use the relevant cuMES/meow implementation, tests, documentation, and commit history
 to verify added or changed technical claims. Match the source revision to the
 claim: current behavior comes from the current implementation; historical behavior
 comes from the relevant commit or tag. Documentation can contain stale summaries
@@ -89,6 +93,14 @@ language unless the task requests a new style. For the existing HTML decks:
 - Reuse CSS layout classes and code-native diagrams where practical; choose other
   tools or assets when they improve the presentation.
 - Write equations with the existing `data-tex` convention.
+- Use inline math for mathematical variable names and numerical quantities in
+  prose, headings, tables, captions, and speaker notes. In HTML, use
+  `<span class="math-inline" data-tex="..."></span>` with proper subscripts,
+  superscripts, scientific notation, and mathematical operators. Keep literal
+  code, paths, commit IDs, versions, dates, and navigation/section labels in
+  their ordinary text or code formatting. Apply the same notation in figure
+  labels with the plotting tool's math renderer. Generated decks should retain
+  this formatting when rebuilt.
 - Maintain slide metadata (`data-title`, `data-chapter`, `data-summary`) and
   `.speaker-notes` where relevant.
 - Preserve semantic structure, accessibility, keyboard/touch navigation, and

@@ -97,9 +97,9 @@
 ./build/cumes input.json \
   <span class="token-key">--restart</span> restart.ckp</pre></div>
         <div class="stack">
-          <div class="panel"><div class="panel-title">1 · Output preflight</div><p>Resolve suffix and ensure the binary / NetCDF / HDF5 backend exists <em>before</em> creating a CUDA context.</p></div>
-          <div class="panel"><div class="panel-title">2 · Parse + validate</div><p>Strict schema is default. Compatibility mode only downgrades unknown input keys to warnings.</p></div>
-          <div class="panel"><div class="panel-title">3 · Precision guard</div><p>Mixed-float runs reject stage tolerances below <span class="math-inline" data-tex="10^{-6}"></span>; the solver would otherwise chase an impossible floor.</p></div>
+          <div class="panel"><div class="panel-title" data-math-ignore>1 · Output preflight</div><p>Resolve suffix and ensure the binary / NetCDF / HDF5 backend exists <em>before</em> creating a CUDA context.</p></div>
+          <div class="panel"><div class="panel-title" data-math-ignore>2 · Parse + validate</div><p>Strict schema is default. Compatibility mode only downgrades unknown input keys to warnings.</p></div>
+          <div class="panel"><div class="panel-title" data-math-ignore>3 · Precision guard</div><p>Mixed-float runs reject stage tolerances below <span class="math-inline" data-tex="10^{-6}"></span>; the solver would otherwise chase an impossible floor.</p></div>
         </div>
       </div>
       <footer class="slide-footer"><span>Failure is early and explicit</span><span class="footer-rule"></span><span>Input bytes are hashed once for provenance</span></footer>
@@ -157,7 +157,7 @@
           <div class="equation"><span class="math-display" data-tex="X=\sum_{m,n}\!\left[X^{cc}_{mn}\cos(m\theta)\cos(n\zeta)+X^{ss}_{mn}\sin(m\theta)\sin(n\zeta)\right]"></span><small>Stellarator symmetry is assumed; at least one <span class="math-inline" data-tex="\zeta"></span> plane has up-down symmetry.</small></div>
           <div class="equation compact"><span class="math-display" data-tex="X\in\{R,Z,\lambda\}"></span></div>
         </div>
-        <div class="panel"><div class="panel-title">Storage order</div><div class="big-number"><span class="math-inline" data-tex="6\times\mathrm{mnmax}\times n_s"></span></div><p class="metric-label"><span class="math-inline" data-tex="R^{cc}\;\cdot\;Z^{sc}\;\cdot\;L^{sc}\;\cdot\;R^{ss}\;\cdot\;Z^{cs}\;\cdot\;L^{cs}"></span></p><p style="margin-top:22px"><code>mode = m(ntor+1)+n</code><br><code>index = surface + mode·ns</code></p><p>The physical toroidal mode is <strong><span class="math-inline" data-tex="N=n\,n_{\mathrm{fp}}"></span></strong>.</p></div>
+        <div class="panel"><div class="panel-title">Storage order</div><div class="big-number formula-number"><span class="math-inline" data-tex="6\times\mathrm{mnmax}\times n_s"></span></div><p class="metric-label"><span class="math-inline" data-tex="R^{cc}\;\cdot\;Z^{sc}\;\cdot\;L^{sc}\;\cdot\;R^{ss}\;\cdot\;Z^{cs}\;\cdot\;L^{cs}"></span></p><p style="margin-top:22px"><code>mode = m(ntor+1)+n</code><br><code>index = surface + mode·ns</code></p><p>The physical toroidal mode is <strong><span class="math-inline" data-tex="N=n\,n_{\mathrm{fp}}"></span></strong>.</p></div>
       </div>
       <footer class="slide-footer"><span>Plain physical amplitudes in state</span><span class="footer-rule"></span><span>VMEC-decomposed representation for force and velocity</span></footer>
     </section>
@@ -190,9 +190,9 @@
         <svg class="schematic" viewBox="0 0 680 420" role="img" aria-label="Mode envelopes from axis to LCFS">
           <path class="muted-line" d="M80 350H620M80 350V45"/><path class="cyan-line" d="M80 350L620 75"/><path class="cyan-line" opacity=".8" d="M80 350Q350 270 620 75"/><path class="cyan-line" opacity=".6" d="M80 350Q440 345 620 75"/><path class="amber-line pulse" d="M80 300L620 115"/>
           <g fill="#91a9b9" font-size="14"><text x="65" y="375">axis</text><text x="560" y="375">LCFS</text></g>
-          <foreignObject x="492" y="88" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=1:\ \sqrt{s}"></span></div></foreignObject>
-          <foreignObject x="492" y="138" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=2:\ s"></span></div></foreignObject>
-          <foreignObject x="492" y="198" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=4:\ s^2"></span></div></foreignObject>
+          <foreignObject x="492" y="88" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=1:\ \sqrt{s}"></span></div></foreignobject>
+          <foreignObject x="492" y="138" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=2:\ s"></span></div></foreignobject>
+          <foreignObject x="492" y="198" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=4:\ s^2"></span></div></foreignobject>
         </svg>
       </div>
       <footer class="slide-footer"><span>One contiguous host staging slab</span><span class="footer-rule"></span><span>One H2D state upload</span></footer>
@@ -201,7 +201,7 @@
     <section class="slide" data-title="A checkpoint is a hot spectral seed" data-chapter="Inputs" data-summary="Restart semantics differ at the LCFS for fixed and free boundary.">
       <header class="slide-header"><div><p class="eyebrow">Alternative seed</p><h2>A checkpoint is a hot spectral seed</h2></div><span class="source-ref">seed_state.hpp::restart_state</span></header>
       <div class="content grid-2">
-        <div class="panel"><div class="panel-title">Always</div><ul><li>Read six double-precision families from checkpoint.</li><li>Convert to the build scalar <span class="math-inline" data-tex="T"></span>.</li><li>Require stage-0 <code>ns</code> and <code>mnmax</code> to match.</li><li>Patch axis regularity for <span class="math-inline" data-tex="m>0"></span>.</li></ul></div>
+        <div class="panel"><div class="panel-title">Always</div><ul><li>Read six double-precision families from checkpoint.</li><li>Convert to the build scalar <span class="math-inline" data-tex="T"></span>.</li><li>Require stage-<span class="math-inline" data-tex="0"></span> <code>ns</code> and <code>mnmax</code> to match.</li><li>Patch axis regularity for <span class="math-inline" data-tex="m>0"></span>.</li></ul></div>
         <div class="stack">
           <div class="panel"><div class="panel-title">Fixed boundary</div><p>Re-impose the input LCFS <span class="math-inline" data-tex="R/Z"></span> harmonics. The checkpoint supplies the volume state, not a new boundary contract.</p></div>
           <div class="panel free"><div class="panel-title">Free boundary</div><p>Keep the checkpoint’s LCFS row. Re-imposing the input guess would kick a valid free-boundary equilibrium.</p></div>
@@ -215,9 +215,9 @@
       <header class="slide-header"><div><p class="eyebrow">Outer numerical loop</p><h2>Multigrid makes the radial solve practical</h2></div><span class="source-ref">MultigridSolver</span></header>
       <div class="content stack" style="justify-content:center">
         <div class="timeline" style="--steps:4">
-          <div class="timeline-item"><strong>Stage 1 · coarse <span class="math-inline" data-tex="n_s"></span></strong><span>Build stage operators<br>iterate to <span class="math-inline" data-tex="f_{\mathrm{tol}}"></span></span></div>
+          <div class="timeline-item"><strong>Stage <span class="math-inline" data-tex="1"></span> · coarse <span class="math-inline" data-tex="n_s"></span></strong><span>Build stage operators<br>iterate to <span class="math-inline" data-tex="f_{\mathrm{tol}}"></span></span></div>
           <div class="timeline-item"><strong>Prolong</strong><span>Interpolate all six families<br>copy LCFS exactly</span></div>
-          <div class="timeline-item"><strong>Stage 2 · finer <span class="math-inline" data-tex="n_s"></span></strong><span>New arena and workspaces<br>continue from coarse equilibrium</span></div>
+          <div class="timeline-item"><strong>Stage <span class="math-inline" data-tex="2"></span> · finer <span class="math-inline" data-tex="n_s"></span></strong><span>New arena and workspaces<br>continue from coarse equilibrium</span></div>
           <div class="timeline-item free"><strong>Final stage</strong><span>Only this stage captures<br>publishable derived fields</span></div>
         </div>
         <div class="grid-3" style="height:auto;margin-top:28px">
@@ -254,14 +254,14 @@
       <div class="content grid-2 wide-left">
         <svg class="schematic" viewBox="0 0 720 420" role="img" aria-label="Axis row copied from first interior surface">
           <path class="muted-line" d="M90 330H650M90 330V50"/><g fill="#91a9b9" font-size="14"><text x="610" y="356">LCFS</text></g>
-          <foreignObject x="72" y="340" width="70" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="j=0"></span></div></foreignObject>
-          <foreignObject x="168" y="340" width="70" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="j=1"></span></div></foreignObject>
+          <foreignObject x="72" y="340" width="70" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="j=0"></span></div></foreignobject>
+          <foreignObject x="168" y="340" width="70" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="j=1"></span></div></foreignobject>
           <circle cx="100" cy="260" r="10" fill="#ffb454"/><circle cx="195" cy="205" r="10" fill="#43d9ff"/><path class="amber-line pulse" d="M190 210L108 254"/><path class="cyan-line" d="M195 205Q400 110 640 85"/>
-          <foreignObject x="102" y="220" width="160" height="40"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math amber">copy <span class="math-inline" data-tex="m=1"></span> row</div></foreignObject>
-          <foreignObject x="330" y="117" width="220" height="40"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math">descent updates <span class="math-inline" data-tex="j=1"></span>…</div></foreignObject>
+          <foreignObject x="102" y="220" width="160" height="40"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math amber">copy <span class="math-inline" data-tex="m=1"></span> row</div></foreignobject>
+          <foreignObject x="330" y="117" width="220" height="40"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math">descent updates <span class="math-inline" data-tex="j=1"></span>…</div></foreignobject>
         </svg>
         <div class="stack">
-          <div class="panel"><div class="panel-title">Before every inverse transform</div><p>Copy all six <span class="math-inline" data-tex="m=1"></span> families from surface 1 to <span class="math-inline" data-tex="j=0"></span>, plus the <span class="math-inline" data-tex="m=0"></span> <span class="math-inline" data-tex="L^{cs}"></span> axis row.</p></div>
+          <div class="panel"><div class="panel-title">Before every inverse transform</div><p>Copy all six <span class="math-inline" data-tex="m=1"></span> families from surface <span class="math-inline" data-tex="1"></span> to <span class="math-inline" data-tex="j=0"></span>, plus the <span class="math-inline" data-tex="m=0"></span> <span class="math-inline" data-tex="L^{cs}"></span> axis row.</p></div>
           <div class="panel"><div class="panel-title">During descent</div><p>Skip every <span class="math-inline" data-tex="m>0"></span> axis coefficient. The first interior row evolves, so the copy must repeat next pass.</p></div>
           <div class="callout"><p>This is a representation rule, not a physical force update.</p></div>
         </div>
@@ -272,17 +272,17 @@
     <section class="slide" data-title="Inverse transform synthesizes geometry" data-chapter="Shared loop" data-summary="cuFFT in zeta, direct poloidal synthesis, analytic derivatives, fused constraint fields.">
       <header class="slide-header"><div><p class="eyebrow">Pass step 1</p><h2>Inverse transform synthesizes geometry</h2></div><span class="source-ref">ToroidalFftOperator::inverse_fused</span></header>
       <div class="content grid-2">
-        <div class="panel"><div class="panel-title">Generic 3-D backend</div><div class="big-number"><span class="math-inline" data-tex="12\,m_{\mathrm{pol}}n_s"></span></div><p class="metric-label">batched real↔complex 1-D transforms in <span class="math-inline" data-tex="\zeta"></span></p><p style="margin-top:22px">Direct poloidal accumulation combines small <span class="math-inline" data-tex="\theta"></span> tables with cuFFT output. Derivatives are analytic mode multipliers.</p></div>
+        <div class="panel"><div class="panel-title">Generic <span class="math-inline" data-tex="3"></span>-D backend</div><div class="big-number"><span class="math-inline" data-tex="12\,m_{\mathrm{pol}}n_s"></span></div><p class="metric-label">batched real↔complex <span class="math-inline" data-tex="1"></span>-D transforms in <span class="math-inline" data-tex="\zeta"></span></p><p style="margin-top:22px">Direct poloidal accumulation combines small <span class="math-inline" data-tex="\theta"></span> tables with cuFFT output. Derivatives are analytic mode multipliers.</p></div>
         <div class="stack">
           <div class="flow vertical">
             <div class="flow-node"><span class="node-kicker">pack</span><span class="node-title"><span class="math-inline" data-tex="R/Z/\lambda"></span> parity slots + <span class="math-inline" data-tex="\theta/\zeta"></span> derivative slots</span></div>
             <div class="flow-node"><span class="node-kicker">transform</span><span class="node-title">cuFFT along <span class="math-inline" data-tex="\zeta"></span></span></div>
             <div class="flow-node"><span class="node-kicker">synthesize</span><span class="node-title">Direct sum over <span class="math-inline" data-tex="m"></span> into <span class="math-inline" data-tex="\theta"></span> points</span></div>
           </div>
-          <div class="callout"><p>The same launch also produces xmpq-weighted <strong>rCon/zCon</strong>; no separate transform or scratch path remains.</p></div>
+          <div class="callout"><p>The same launch also produces <span class="math-inline" data-tex="\mathtt{xmpq}"></span>-weighted <strong><span class="math-inline" data-tex="\mathtt{rCon}/\mathtt{zCon}"></span></strong>; no separate transform or scratch path remains.</p></div>
         </div>
       </div>
-      <footer class="slide-footer"><span>Axisymmetric ntor=0 uses direct poloidal kernels</span><span class="footer-rule"></span><span>CUMES_FORCE_GENERIC=1 restores generic path</span></footer>
+      <footer class="slide-footer"><span>Axisymmetric <span class="math-inline" data-tex="n_{\mathrm{tor}}=0"></span> uses direct poloidal kernels</span><span class="footer-rule"></span><span><code>CUMES_FORCE_GENERIC=1</code> restores generic path</span></footer>
     </section>
 
     <section class="slide" data-title="Geometry moves onto the half grid" data-chapter="Shared loop" data-summary="Interpolation, Jacobian, metric, and parity-split real fields.">
@@ -328,7 +328,7 @@
     <section class="slide" data-title="Preconditioner data refreshes on a cadence" data-chapter="Shared loop" data-summary="Radial tridiagonal elements and force norms update every 25 effective iterations.">
       <header class="slide-header"><div><p class="eyebrow">Pass step 4 · scheduled</p><h2>Preconditioner data refreshes on a cadence</h2></div><span class="source-ref">Preconditioner::enqueue_compute</span></header>
       <div class="content grid-2">
-        <div class="panel"><div class="big-number">25</div><p class="metric-label">effective iterations between radial-preconditioner refreshes</p><p style="margin-top:24px">A restart re-anchors the cadence, so the next good pass rebuilds both the preconditioner and constraint reference from restored geometry.</p></div>
+        <div class="panel"><div class="big-number"><span class="math-inline" data-tex="25"></span></div><p class="metric-label">effective iterations between radial-preconditioner refreshes</p><p style="margin-top:24px">A restart re-anchors the cadence, so the next good pass rebuilds both the preconditioner and constraint reference from restored geometry.</p></div>
         <div class="stack">
           <div class="panel"><div class="panel-title">Build</div><p>Compute radial tridiagonal coefficients for <span class="math-inline" data-tex="R/Z"></span> and the <span class="math-inline" data-tex="\lambda"></span> preconditioner from current geometry, profiles, and mode numbers.</p></div>
           <div class="panel"><div class="panel-title">Normalize</div><p>Reduce force-norm partial sums and finalize normalization factors on device.</p></div>
@@ -341,7 +341,7 @@
     <section class="slide" data-title="The force operator assembles ideal MHD" data-chapter="Shared loop" data-summary="Sixteen real-space force families before spectral projection.">
       <header class="slide-header"><div><p class="eyebrow">Pass step 5</p><h2>The force operator assembles ideal MHD</h2></div><span class="source-ref">ForceOperator</span></header>
       <div class="content grid-2 wide-right">
-        <div class="panel"><div class="big-number">16</div><p class="metric-label">parity-split real-space force arrays</p><div class="tag-row" style="margin-top:22px"><span class="tag">armn e/o</span><span class="tag">azmn e/o</span><span class="tag">brmn e/o</span><span class="tag">bzmn e/o</span><span class="tag">crmn e/o</span><span class="tag">czmn e/o</span><span class="tag">blmn e/o</span><span class="tag">clmn e/o</span></div></div>
+        <div class="panel"><div class="big-number"><span class="math-inline" data-tex="16"></span></div><p class="metric-label">parity-split real-space force arrays</p><div class="tag-row" style="margin-top:22px"><span class="tag">armn e/o</span><span class="tag">azmn e/o</span><span class="tag"><span class="math-inline" data-tex="\mathtt{brmn}"></span> e/o</span><span class="tag"><span class="math-inline" data-tex="\mathtt{bzmn}"></span> e/o</span><span class="tag">crmn e/o</span><span class="tag">czmn e/o</span><span class="tag">blmn e/o</span><span class="tag">clmn e/o</span></div></div>
         <div class="stack">
           <div class="equation"><span class="math-display" data-tex="\boldsymbol{F}=\boldsymbol{J}\times\boldsymbol{B}-\nabla p"></span><small>projected into the <span class="math-inline" data-tex="R"></span>, <span class="math-inline" data-tex="Z"></span>, <span class="math-inline" data-tex="\lambda"></span> variational channels</small></div>
           <div class="panel"><div class="panel-title">Kernel inputs</div><p>Real <span class="math-inline" data-tex="R/Z/\lambda"></span> derivatives, half-grid metric and <span class="math-inline" data-tex="\mathbf{B}"></span>, total pressure, and radial profiles.</p></div>
@@ -354,15 +354,15 @@
     <section class="slide" data-title="The constraint controls spectral condensation" data-chapter="Shared loop" data-summary="Reference fields, de-aliasing bandpass, and constraint force.">
       <header class="slide-header"><div><p class="eyebrow">Pass step 6</p><h2>The constraint controls spectral condensation</h2></div><span class="source-ref">ConstraintOperator</span></header>
       <div class="content grid-3">
-        <div class="panel"><div class="panel-title">Reference</div><p>rCon/zCon are generated during the fused inverse transform. On first pass or restart, LCFS-extrapolated rCon0/zCon0 becomes the reference.</p></div>
+        <div class="panel"><div class="panel-title">Reference</div><p><span class="math-inline" data-tex="\mathtt{rCon}/\mathtt{zCon}"></span> are generated during the fused inverse transform. On first pass or restart, LCFS-extrapolated <span class="math-inline" data-tex="\mathtt{rCon0}/\mathtt{zCon0}"></span> becomes the reference.</p></div>
         <div class="panel"><div class="panel-title">Bandpass</div><p>Analyze, filter, and synthesize the constraint fields through the shared spectral backend to remove aliased high modes.</p></div>
-        <div class="panel"><div class="panel-title">Apply</div><p>Use current preconditioner diagonals and tcon to add the condensation force to brmn/bzmn.</p></div>
+        <div class="panel"><div class="panel-title">Apply</div><p>Use current preconditioner diagonals and <span class="math-inline" data-tex="\mathtt{tcon}"></span> to add the condensation force to <span class="math-inline" data-tex="\mathtt{brmn}/\mathtt{bzmn}"></span>.</p></div>
       </div>
       <footer class="slide-footer"><span>Constraint shares transform plans and scratch</span><span class="footer-rule"></span><span>Free activation decays <code>rCon0/zCon0</code> <span class="math-inline" data-tex="\times 0.9"></span></span></footer>
     </section>
 
     <section class="slide" data-title="Forward projection produces the spectral residual" data-chapter="Shared loop" data-summary="Reduced-theta quadrature, decomposition, m=1 gauge, and invariant norms.">
-      <header class="slide-header"><div><p class="eyebrow">Pass steps 7–9</p><h2>Forward projection produces the spectral residual</h2></div><span class="source-ref">SpectralOperator::enqueue_forward</span></header>
+      <header class="slide-header"><div><p class="eyebrow" data-math-ignore>Pass steps 7–9</p><h2>Forward projection produces the spectral residual</h2></div><span class="source-ref">SpectralOperator::enqueue_forward</span></header>
       <div class="content stack" style="justify-content:center">
         <div class="flow">
           <div class="flow-node"><span class="node-kicker">quadrature</span><span class="node-title">Real force → six spectral families</span><span class="node-detail">reduced <span class="math-inline" data-tex="\theta"></span> trapezoid + <span class="math-inline" data-tex="\zeta"></span> transform</span></div>
@@ -401,7 +401,7 @@
       <header class="slide-header"><div><p class="eyebrow">Control plane</p><h2>The host controller owns every scalar decision</h2></div><span class="source-ref">IterationController&lt;double&gt;</span></header>
       <div class="content grid-4">
         <div class="panel"><div class="panel-title">Classify</div><h3>Converged?</h3><p>Check invariant <span class="math-inline" data-tex="\mathrm{FSQR},\mathrm{FSQZ},\mathrm{FSQL}"></span> against stage <span class="math-inline" data-tex="f_{\mathrm{tol}}"></span>.</p></div>
-        <div class="panel"><div class="panel-title">Damp</div><h3>How fast?</h3><p>Track log decrease over a ten-iteration window to update dtau, b1, and fac.</p></div>
+        <div class="panel"><div class="panel-title">Damp</div><h3>How fast?</h3><p>Track log decrease over a ten-iteration window to update <span class="math-inline" data-tex="\mathtt{dtau}"></span>, <span class="math-inline" data-tex="b_1"></span>, and <span class="math-inline" data-tex="\mathrm{fac}"></span>.</p></div>
         <div class="panel"><div class="panel-title">Protect</div><h3>Restart?</h3><p>Detect nonfinite, bad progress, large residual growth, or bad Jacobian.</p></div>
         <div class="panel"><div class="panel-title">Account</div><h3>Which iteration?</h3><p>Restored passes do not advance the effective iteration count.</p></div>
       </div>
@@ -436,7 +436,7 @@
     <section class="slide" data-title="Fixed-boundary run timeline" data-chapter="Fixed path" data-summary="Boundary input to converged equilibrium, end to end.">
       <header class="slide-header"><div><p class="eyebrow">End-to-end · fixed</p><h2>Boundary condition → final equilibrium</h2></div></header>
       <div class="content lane-diagram">
-        <div class="lane-label">host</div><div class="lane"><span class="lane-step">validate boundary + profiles</span><span class="lane-step">seed stage 0</span><span class="lane-step">controller decisions</span><span class="lane-step">publish snapshot</span></div>
+        <div class="lane-label">host</div><div class="lane"><span class="lane-step">validate boundary + profiles</span><span class="lane-step">seed stage <span class="math-inline" data-tex="0"></span></span><span class="lane-step">controller decisions</span><span class="lane-step">publish snapshot</span></div>
         <div class="lane-label">multigrid</div><div class="lane"><span class="lane-step">coarse solve</span><span class="lane-step">prolong</span><span class="lane-step">fine solve</span><span class="lane-step"><span class="math-inline" data-tex="f_{\mathrm{tol}}"></span> met</span></div>
         <div class="lane-label">GPU pass</div><div class="lane"><span class="lane-step">inverse + geometry</span><span class="lane-step"><span class="math-inline" data-tex="\mathbf{B}"></span> + MHD force</span><span class="lane-step">constraint + forward</span><span class="lane-step">precondition + descent</span></div>
         <div class="lane-label">LCFS <span class="math-inline" data-tex="R/Z"></span></div><div class="lane"><span class="lane-step">input harmonics</span><span class="lane-step">fixed</span><span class="lane-step">fixed</span><span class="lane-step">same harmonics</span></div>
@@ -501,7 +501,7 @@
         <div class="panel free"><div class="panel-title">Singular part</div><h3>Local analytic model</h3><p>Approximate the metric locally in tan-half-angle variables. Evaluate closed-form <span class="math-inline" data-tex="T_l^{\pm}"></span> and <span class="math-inline" data-tex="S_l^{\pm}"></span> recurrences plus singular expansion coefficients.</p><div class="tag-row"><span class="tag free">Miller backward recurrence</span><span class="tag free">no sampled singularity</span></div></div>
         <div class="panel"><div class="panel-title">Regularized part</div><h3>Smooth remainder</h3><p>Directly quadrature the difference kernel over the surface and all field-period images. Skip the exact coincidence point because its contribution lives in the analytic part.</p><div class="tag-row"><span class="tag">greenp</span><span class="tag">gstore</span><span class="tag">direct DFT</span></div></div>
       </div>
-      <footer class="slide-footer"><span>Axisymmetric vacuum integration uses 64 toroidal images</span><span class="footer-rule"></span><span>Small mode counts favor direct transforms</span></footer>
+      <footer class="slide-footer"><span>Axisymmetric vacuum integration uses <span class="math-inline" data-tex="64"></span> toroidal images</span><span class="footer-rule"></span><span>Small mode counts favor direct transforms</span></footer>
     </section>
 
     <section class="slide" data-title="Full updates factorize; partial updates reuse" data-chapter="Free boundary" data-summary="What changes on each NESTOR update and why nvacskip exists.">
@@ -528,7 +528,7 @@
       <header class="slide-header"><div><p class="eyebrow amber">GPU → NESTOR handoff</p><h2>The bridge translates representation and layout</h2></div><span class="source-ref">free_boundary_impl.cuh</span></header>
       <div class="content grid-3">
         <div class="panel free"><div class="panel-title">Surface averages</div><h3><code>buco / bvco</code></h3><p>Reduced-<span class="math-inline" data-tex="\theta"></span> trapezoid reduction of covariant <span class="math-inline" data-tex="\mathbf{B}"></span> on every half surface; outer two values extrapolate <code>rBtor</code> and <code>cTor</code>.</p></div>
-        <div class="panel free"><div class="panel-title">LCFS repack</div><h3>4 Fourier families</h3><p>Extract <span class="math-inline" data-tex="j=n_s-1"></span>, remove <span class="math-inline" data-tex="m_{\mathrm{scale}}n_{\mathrm{scale}}"></span>, and transpose cuMES <span class="math-inline" data-tex="m"></span>-major modes into NESTOR <span class="math-inline" data-tex="n"></span>-major order.</p></div>
+        <div class="panel free"><div class="panel-title">LCFS repack</div><h3><span class="math-inline" data-tex="4"></span> Fourier families</h3><p>Extract <span class="math-inline" data-tex="j=n_s-1"></span>, remove <span class="math-inline" data-tex="m_{\mathrm{scale}}n_{\mathrm{scale}}"></span>, and transpose cuMES <span class="math-inline" data-tex="m"></span>-major modes into NESTOR <span class="math-inline" data-tex="n"></span>-major order.</p></div>
         <div class="panel free"><div class="panel-title">Axis extract</div><h3><code>Raxis</code><span class="math-inline" data-tex="(\zeta)"></span>, <code>Zaxis</code><span class="math-inline" data-tex="(\zeta)"></span></h3><p>Sample the even-parity real geometry at <span class="math-inline" data-tex="j=0,\ \theta=0"></span> for each <span class="math-inline" data-tex="\zeta"></span> point.</p></div>
       </div>
       <footer class="slide-footer"><span>Exact accumulation and packing order match vmecpp</span><span class="footer-rule"></span><span>Bridge grids must have identical angular resolution</span></footer>
@@ -622,7 +622,7 @@
       <header class="slide-header"><div><p class="eyebrow">Memory ownership</p><h2>One arena is carved per stage</h2></div><span class="source-ref">DeviceArena</span></header>
       <div class="content grid-2 wide-left">
         <div class="panel"><div class="panel-title">Stage lifetime</div><div class="matrix" style="--cols:6"><div class="hot">state</div><div>real <span class="math-inline" data-tex="R/Z/\lambda"></span></div><div>geometry</div><div><span class="math-inline" data-tex="\mathbf{B}"></span> / pressure</div><div>forces</div><div>constraint</div><div>precon</div><div>residual</div><div>velocity</div><div>control</div><div class="hot">checkpoint</div><div>scratch</div></div><p style="margin-top:20px">Operators request aligned spans from the arena, own their logical buffers, and release everything together when the stage ends.</p></div>
-        <div class="stack"><div class="panel success"><div class="big-number green">0</div><p class="metric-label">cudaMalloc calls in the hot loop</p></div><div class="panel"><div class="panel-title">What does persist?</div><p>The spectral state moves across stages. For free boundary, the host-side vacuum solver and its accumulated response/factors also persist.</p></div></div>
+        <div class="stack"><div class="panel success"><div class="big-number green"><span class="math-inline" data-tex="0"></span></div><p class="metric-label">cudaMalloc calls in the hot loop</p></div><div class="panel"><div class="panel-title">What does persist?</div><p>The spectral state moves across stages. For free boundary, the host-side vacuum solver and its accumulated response/factors also persist.</p></div></div>
       </div>
       <footer class="slide-footer"><span>Peak/reserved arena usage prints per stage</span><span class="footer-rule"></span><span>RAII cleanup on every exit path</span></footer>
     </section>
@@ -639,7 +639,7 @@
     <section class="slide" data-title="The control fence is the CPU/GPU contract" data-chapter="Architecture" data-summary="One D2H record makes scalar decisions coherent.">
       <header class="slide-header"><div><p class="eyebrow">Synchronization</p><h2>The control fence is the CPU/GPU contract</h2></div><span class="source-ref">ControlRecord</span></header>
       <div class="content grid-2 wide-right">
-        <div class="panel"><div class="big-number">1</div><p class="metric-label">combined control-record fence per regular pass</p><p style="margin-top:22px">Jacobian stats, invariant residuals, optional preconditioned residuals, finalized force norms, and status bits arrive together.</p></div>
+        <div class="panel"><div class="big-number"><span class="math-inline" data-tex="1"></span></div><p class="metric-label">combined control-record fence per regular pass</p><p style="margin-top:22px">Jacobian stats, invariant residuals, optional preconditioned residuals, finalized force norms, and status bits arrive together.</p></div>
         <div class="flow vertical">
           <div class="flow-node"><span class="node-kicker">stream order</span><span class="node-title">All pass kernels + reductions complete</span></div>
           <div class="flow-node"><span class="node-kicker">async D2H</span><span class="node-title">Copy one double-precision ControlRecord</span></div>
@@ -662,8 +662,8 @@
     <section class="slide" data-title="Convergence produces a coherent snapshot" data-chapter="Output" data-summary="Final field reevaluation, derived currents, and one host snapshot.">
       <header class="slide-header"><div><p class="eyebrow">Solver exit</p><h2>Convergence produces a coherent snapshot</h2></div><span class="source-ref">StageSolver::run</span></header>
       <div class="content stack" style="justify-content:center">
+        <div class="callout"><p>Force convergence: <span class="math-inline" data-tex="\max(\mathrm{FSQR},\mathrm{FSQZ},\mathrm{FSQL})\le f_{\mathrm{tol}}"></span>.</p></div>
         <div class="flow">
-          <div class="flow-node success"><span class="node-kicker green">terminal</span><span class="node-title"><span class="math-inline" data-tex="\max(\mathrm{FSQR},\mathrm{FSQZ},\mathrm{FSQL})\le f_{\mathrm{tol}}"></span></span></div>
           <div class="flow-node"><span class="node-kicker">reevaluate</span><span class="node-title">Inverse + geometry + <span class="math-inline" data-tex="\mathbf{B}"></span></span><span class="node-detail">unconditional, trajectory-neutral</span></div>
           <div class="flow-node"><span class="node-kicker">derive</span><span class="node-title"><span class="math-inline" data-tex="\mathbf{J}=\nabla\times\mathbf{B}/\mu_0"></span></span><span class="node-detail">staggered radial + spectral angular derivatives</span></div>
           <div class="flow-node"><span class="node-kicker">capture</span><span class="node-title">One EquilibriumSnapshot</span><span class="node-detail">spectral state + scientific fields</span></div>
@@ -698,9 +698,9 @@
     <section class="slide" data-title="The frozen trajectories are the refactor oracle" data-chapter="Evidence" data-summary="Current fixed-boundary convergence baselines and free-boundary qualification.">
       <header class="slide-header"><div><p class="eyebrow">Acceptance anchors</p><h2>The frozen trajectories are the refactor oracle</h2></div><span class="source-ref">docs/verification.md</span></header>
       <div class="content grid-3">
-        <div class="panel success"><div class="panel-title">Solovev · fixed</div><div class="big-number green trajectory-number">251→199→456</div><p class="metric-label">effective iterations · <span class="math-inline" data-tex="\mathrm{FSQR}=9.583\times10^{-17}"></span></p></div>
-        <div class="panel success"><div class="panel-title">W7-X · fixed</div><div class="big-number green trajectory-number">1877→1617→2011</div><p class="metric-label">5505 total · <span class="math-inline" data-tex="\mathrm{FSQR}=9.778\times10^{-13}"></span></p></div>
-        <div class="panel free"><div class="panel-title">Free boundary</div><div class="big-number amber">2-D</div><p class="metric-label">double Solovev path qualified</p><p style="margin-top:18px">General 3-D and float free-boundary qualification remain pending.</p></div>
+        <div class="panel success"><div class="panel-title">Solovev · fixed</div><div class="big-number green trajectory-number"><span class="math-inline" data-tex="251\to 199\to 456"></span></div><p class="metric-label">effective iterations · <span class="math-inline" data-tex="\mathrm{FSQR}=9.583\times10^{-17}"></span></p></div>
+        <div class="panel success"><div class="panel-title">W7-X · fixed</div><div class="big-number green trajectory-number"><span class="math-inline" data-tex="1877\to 1617\to 2011"></span></div><p class="metric-label"><span class="math-inline" data-tex="5505"></span> total · <span class="math-inline" data-tex="\mathrm{FSQR}=9.778\times10^{-13}"></span></p></div>
+        <div class="panel free"><div class="panel-title">Free boundary</div><div class="big-number amber"><span class="math-inline" data-tex="2"></span>-D</div><p class="metric-label">double Solovev path qualified</p><p style="margin-top:18px">General <span class="math-inline" data-tex="3"></span>-D and float free-boundary qualification remain pending.</p></div>
       </div>
       <footer class="slide-footer"><span>Class A = byte-identical frozen trajectory</span><span class="footer-rule"></span><span>Class B = ULP-equivalent with identical controller decisions</span></footer>
     </section>
@@ -716,7 +716,7 @@
           <div class="flow-node free"><span class="node-kicker">5 · free</span><span class="node-title">Coil field / vacuum handoff / delBSq</span></div>
         </div>
         <div class="stack">
-          <div class="panel"><div class="panel-title">Runtime levers</div><div class="tag-row"><span class="tag">CUMES_DUMP=1</span><span class="tag">CUMES_DUMP_ITER</span><span class="tag">CUMES_FORCE_GENERIC=1</span><span class="tag">CUMES_DISABLE_CUDA_GRAPHS=1</span></div></div>
+          <div class="panel"><div class="panel-title">Runtime levers</div><div class="tag-row"><span class="tag"><code>CUMES_DUMP=1</code></span><span class="tag">CUMES_DUMP_ITER</span><span class="tag"><code>CUMES_FORCE_GENERIC=1</code></span><span class="tag"><code>CUMES_DISABLE_CUDA_GRAPHS=1</code></span></div></div>
           <div class="panel"><div class="panel-title">Comparison tools</div><p><code>compare_runs.py</code> for controller/trajectory data; <code>compare_states.py</code> for converged coefficients; <code>compare_bitwise.py</code> for Class A manifests.</p></div>
           <div class="callout"><p>Diagnose the first divergence, not the final symptom.</p></div>
         </div>
@@ -744,8 +744,8 @@
     <section class="slide" data-title="Current boundaries of the implementation" data-chapter="Evidence" data-summary="Known issue and scope that matter when interpreting results.">
       <header class="slide-header"><div><p class="eyebrow">Scope and caveats</p><h2>Current boundaries of the implementation</h2></div></header>
       <div class="content grid-2">
-        <div class="stack"><div class="panel"><div class="panel-title">Known representation artifact</div><p>State-file axis <span class="math-inline" data-tex="m>0"></span> coefficients are constant-extrapolated from <span class="math-inline" data-tex="j=1"></span> instead of stored as zero. They do not enter forces; real axis geometry agrees.</p></div><div class="panel"><div class="panel-title">Lambda gauge</div><p>Multigrid and single-grid runs may converge to different members of a near-degenerate <span class="math-inline" data-tex="\lambda"></span>-gauge family while representing the same physical equilibrium.</p></div></div>
-        <div class="stack"><div class="panel free"><div class="panel-title">Free-boundary qualification</div><p>Double axisymmetric Solovev is qualified. General 3-D and float free-boundary validation are still pending.</p></div><div class="panel"><div class="panel-title">Out of scope</div><p>Mercier stability, jxbout, wout, and a Python interface are not implemented; they are post-processing or interface work outside the core loop.</p></div></div>
+        <div class="stack"><div class="panel"><div class="panel-title">Known representation artifact</div><p>State-file axis <span class="math-inline" data-tex="m>0"></span> coefficients are constant-extrapolated from <span class="math-inline" data-tex="j=1"></span> instead of stored as zero. They do not enter forces; real axis geometry agrees.</p></div><div class="panel"><div class="panel-title"><span class="math-inline" data-tex="\lambda"></span> gauge</div><p>Multigrid and single-grid runs may converge to different members of a near-degenerate <span class="math-inline" data-tex="\lambda"></span>-gauge family while representing the same physical equilibrium.</p></div></div>
+        <div class="stack"><div class="panel free"><div class="panel-title">Free-boundary qualification</div><p>Double axisymmetric Solovev is qualified. General <span class="math-inline" data-tex="3"></span>-D and float free-boundary validation are still pending.</p></div><div class="panel"><div class="panel-title">Out of scope</div><p>Mercier stability, jxbout, wout, and a Python interface are not implemented; they are post-processing or interface work outside the core loop.</p></div></div>
       </div>
       <footer class="slide-footer"><span>Core fixed-boundary solver is design-complete</span><span class="footer-rule"></span><span>Pedagogical architecture, not production certification</span></footer>
     </section>

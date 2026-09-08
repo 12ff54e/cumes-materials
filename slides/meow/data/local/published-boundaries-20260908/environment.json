@@ -1,0 +1,31 @@
+{
+  "date_utc": "2026-09-08T04:08:41Z",
+  "purpose": "one accuracy re-solve per published boundary; no timing speed claim",
+  "meow_revision": "de1b324e282d5cd755b8fa025ee4ef260de81bdf",
+  "cumes_revision": "f61c959334bb62e14c049c66335580b45f63610d",
+  "gpu": "NVIDIA TITAN Xp, 580.173.02, P8, 0 %, 318 MiB",
+  "executable_sha256": "28180d7bd5b2f54c955c75dc77e858e92167c57e4ada921bfdb73581641f0231",
+  "build": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/meow-fetch-public-f61c959",
+  "runs": [
+    {
+      "case": "qa",
+      "command": [
+        "/lustre/qzhong/magnetic-equilibrium-solver/tmp/meow-fetch-public-f61c959/cumes_landreman_evaluate",
+        "/lustre/qzhong/magnetic-equilibrium-solver/meow/examples/landreman/qa.json",
+        "qa"
+      ],
+      "wall_seconds_diagnostic_only": 9.808047728613019,
+      "input_sha256": "556507bf64f9b7e62bc797f48640b65e51f08db2f00394a47f78ef78044222cc"
+    },
+    {
+      "case": "qh",
+      "command": [
+        "/lustre/qzhong/magnetic-equilibrium-solver/tmp/meow-fetch-public-f61c959/cumes_landreman_evaluate",
+        "/lustre/qzhong/magnetic-equilibrium-solver/meow/examples/landreman/qh.json",
+        "qh"
+      ],
+      "wall_seconds_diagnostic_only": 4.341457176953554,
+      "input_sha256": "ea7d2df786dc104735f1e162a8b29de98de005090aba49acec2b99fd2b92adad"
+    }
+  ]
+}
