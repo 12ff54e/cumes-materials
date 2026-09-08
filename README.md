@@ -27,10 +27,12 @@ HTML, original CSS/JavaScript, figures, and existing PDFs. Source files and
 benchmark archives remain available in the GitHub repository.
 
 Pushing `main` triggers `.github/workflows/pages.yml`. It builds `_site`, uploads
-the Pages artifact, and deploys it to the `github-pages` environment. The
-repository's Pages publishing source is **GitHub Actions**. The workflow can
-also be run manually from the Actions tab. All site paths are relative, so
-the decks work under the repository's Pages URL.
+the Pages artifact, and deploys it to the `github-pages` environment. Before the
+first deployment, open the repository's [Pages settings](https://github.com/12ff54e/cumes-materials/settings/pages)
+and set **Build and deployment → Source → GitHub Actions**. Then run
+**Publish presentations** from the Actions tab if the initial push ran before
+Pages was enabled. All site paths are relative, so the decks work under the
+repository's Pages URL.
 
 Hosted decks load KaTeX 0.18.4 CSS, JavaScript, and fonts from jsDelivr, with
 version-pinned URLs and integrity checks on the CSS/JavaScript. These are the
