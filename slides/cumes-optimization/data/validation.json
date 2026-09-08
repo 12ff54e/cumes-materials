@@ -1,0 +1,943 @@
+{
+  "slides": 46,
+  "layouts": {
+    "1600x900": [
+      {
+        "title": "Making cuMES faster",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 1
+      },
+      {
+        "title": "Two levers, two kinds of evidence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 2
+      },
+      {
+        "title": "The audit starts at overhaul closeout",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 3
+      },
+      {
+        "title": "Read every number with its measurement scope",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 4
+      },
+      {
+        "title": "Faster execution",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 5
+      },
+      {
+        "title": "The one-fence loop was the foundation",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 6
+      },
+      {
+        "title": "A graph removes launch gaps, not the control decision",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 7
+      },
+      {
+        "title": "The retained CUDA bundle: RTX 4090",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 8
+      },
+      {
+        "title": "Parallelize the Jacobian validity reduction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 9
+      },
+      {
+        "title": "Expose all theta points to the GPU",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 10
+      },
+      {
+        "title": "Production graph caching earns its complexity",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 11
+      },
+      {
+        "title": "Reproduced now: the same CUDA commit on Pascal",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 12
+      },
+      {
+        "title": "Keep the timing spread visible",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 13
+      },
+      {
+        "title": "Stop copying results that cannot be published",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 14
+      },
+      {
+        "title": "Makegrid: improve one-time host work",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 15
+      },
+      {
+        "title": "Supporting tools also became faster",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 16
+      },
+      {
+        "title": "B-spline setup belongs off the critical path",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 17
+      },
+      {
+        "title": "Later: coordinate capture, overlap independent solves",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 18
+      },
+      {
+        "title": "Measured execution ideas that did not ship",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 19
+      },
+      {
+        "title": "Resource reuse had a small upper bound",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 20
+      },
+      {
+        "title": "Fewer iterations",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 21
+      },
+      {
+        "title": "W7-X: account for every saved stage",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 22
+      },
+      {
+        "title": "Recover a step reduced by the early transient",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 23
+      },
+      {
+        "title": "Recovery scales across multigrid stages",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 24
+      },
+      {
+        "title": "Shape the interior; preserve axis order and LCFS",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 25
+      },
+      {
+        "title": "Axisymmetric tuning has three separate contributions",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 26
+      },
+      {
+        "title": "A geometric lambda seed helps fine cold starts",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 27
+      },
+      {
+        "title": "Free-boundary predictors need separate qualification",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 28
+      },
+      {
+        "title": "Activate the physical vacuum force earlier",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 29
+      },
+      {
+        "title": "Free-boundary wall measurements follow the pass counts",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 30
+      },
+      {
+        "title": "A better transfer saves work on refined grids",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 31
+      },
+      {
+        "title": "Global B-splines improve the transfer again",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 32
+      },
+      {
+        "title": "Use the transfer that each solve class qualified",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 33
+      },
+      {
+        "title": "Reproduced now: exact release convergence counts",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 34
+      },
+      {
+        "title": "Reproduced now: complete CLI wall time",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 35
+      },
+      {
+        "title": "Convergence is a residual and fixed-point claim",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 36
+      },
+      {
+        "title": "A shorter convergence path, sampled from the logs",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 37
+      },
+      {
+        "title": "Saved passes have different costs on different grids",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 38
+      },
+      {
+        "title": "Numerical ideas rejected by the evidence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 39
+      },
+      {
+        "title": "Appendix: later work",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 40
+      },
+      {
+        "title": "v1.3: very coarse 3-D seeds help QA and QH differently",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 41
+      },
+      {
+        "title": "Sensitivity reuse solves a different performance problem",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 42
+      },
+      {
+        "title": "Current float branch: accuracy unlocks convergence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 43
+      },
+      {
+        "title": "Cache the immutable float radius reference",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 44
+      },
+      {
+        "title": "The gains that the evidence supports",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 45
+      },
+      {
+        "title": "Evidence and reproduction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 46
+      }
+    ],
+    "1280x720": [
+      {
+        "title": "Making cuMES faster",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 1
+      },
+      {
+        "title": "Two levers, two kinds of evidence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 2
+      },
+      {
+        "title": "The audit starts at overhaul closeout",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 3
+      },
+      {
+        "title": "Read every number with its measurement scope",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 4
+      },
+      {
+        "title": "Faster execution",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 5
+      },
+      {
+        "title": "The one-fence loop was the foundation",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 6
+      },
+      {
+        "title": "A graph removes launch gaps, not the control decision",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 7
+      },
+      {
+        "title": "The retained CUDA bundle: RTX 4090",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 8
+      },
+      {
+        "title": "Parallelize the Jacobian validity reduction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 9
+      },
+      {
+        "title": "Expose all theta points to the GPU",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 10
+      },
+      {
+        "title": "Production graph caching earns its complexity",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 11
+      },
+      {
+        "title": "Reproduced now: the same CUDA commit on Pascal",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 12
+      },
+      {
+        "title": "Keep the timing spread visible",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 13
+      },
+      {
+        "title": "Stop copying results that cannot be published",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 14
+      },
+      {
+        "title": "Makegrid: improve one-time host work",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 15
+      },
+      {
+        "title": "Supporting tools also became faster",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 16
+      },
+      {
+        "title": "B-spline setup belongs off the critical path",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 17
+      },
+      {
+        "title": "Later: coordinate capture, overlap independent solves",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 18
+      },
+      {
+        "title": "Measured execution ideas that did not ship",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 19
+      },
+      {
+        "title": "Resource reuse had a small upper bound",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 20
+      },
+      {
+        "title": "Fewer iterations",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 21
+      },
+      {
+        "title": "W7-X: account for every saved stage",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 22
+      },
+      {
+        "title": "Recover a step reduced by the early transient",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 23
+      },
+      {
+        "title": "Recovery scales across multigrid stages",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 24
+      },
+      {
+        "title": "Shape the interior; preserve axis order and LCFS",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 25
+      },
+      {
+        "title": "Axisymmetric tuning has three separate contributions",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 26
+      },
+      {
+        "title": "A geometric lambda seed helps fine cold starts",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 27
+      },
+      {
+        "title": "Free-boundary predictors need separate qualification",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 28
+      },
+      {
+        "title": "Activate the physical vacuum force earlier",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 29
+      },
+      {
+        "title": "Free-boundary wall measurements follow the pass counts",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 30
+      },
+      {
+        "title": "A better transfer saves work on refined grids",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 31
+      },
+      {
+        "title": "Global B-splines improve the transfer again",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 32
+      },
+      {
+        "title": "Use the transfer that each solve class qualified",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 33
+      },
+      {
+        "title": "Reproduced now: exact release convergence counts",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 34
+      },
+      {
+        "title": "Reproduced now: complete CLI wall time",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 35
+      },
+      {
+        "title": "Convergence is a residual and fixed-point claim",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 36
+      },
+      {
+        "title": "A shorter convergence path, sampled from the logs",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 37
+      },
+      {
+        "title": "Saved passes have different costs on different grids",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 38
+      },
+      {
+        "title": "Numerical ideas rejected by the evidence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 39
+      },
+      {
+        "title": "Appendix: later work",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 40
+      },
+      {
+        "title": "v1.3: very coarse 3-D seeds help QA and QH differently",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 41
+      },
+      {
+        "title": "Sensitivity reuse solves a different performance problem",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 42
+      },
+      {
+        "title": "Current float branch: accuracy unlocks convergence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 43
+      },
+      {
+        "title": "Cache the immutable float radius reference",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 44
+      },
+      {
+        "title": "The gains that the evidence supports",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 45
+      },
+      {
+        "title": "Evidence and reproduction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 46
+      }
+    ]
+  },
+  "checks": {
+    "next": true,
+    "previous": true,
+    "overview": true,
+    "notes": true,
+    "help": true,
+    "end": true,
+    "home": true,
+    "mobile": "auto",
+    "swipe": true
+  },
+  "print": [
+    {
+      "slide": 1,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 2,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 3,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 4,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 5,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 6,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 7,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 8,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 9,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 10,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 11,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 12,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 13,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 14,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 15,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 16,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 17,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 18,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 19,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 20,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 21,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 22,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 23,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 24,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 25,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 26,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 27,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 28,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 29,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 30,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 31,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 32,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 33,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 34,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 35,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 36,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 37,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 38,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 39,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 40,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 41,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 42,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 43,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 44,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 45,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 46,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    }
+  ],
+  "runtimeErrors": []
+}
