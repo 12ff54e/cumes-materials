@@ -1,0 +1,17 @@
+{
+  "case": "solovev",
+  "grid": "single",
+  "version": "v1.2",
+  "repeat": 1,
+  "warmup": false,
+  "wall_s": 0.37204102613031864,
+  "returncode": 0,
+  "command": [
+    "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-optimization-slides-20260907/v1.2-build/cumes",
+    "/lustre/qzhong/magnetic-equilibrium-solver/cumes-materials/slides/cumes-optimization/data/local/input-solovev-single.json",
+    "--output",
+    "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-optimization-slides-20260907/cli-solovev-single-v1.2-1.bin"
+  ],
+  "input_sha256": "b0cc1a5c30eb2d0a42f7892023f723e8e73509957f6d2de15231c22b334d69b4",
+  "gpu_after": "NVIDIA TITAN Xp, 580.173.02, P0, 46, 1885 MHz, 5702 MHz, 80.47 W, 24 %"
+}

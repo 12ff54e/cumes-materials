@@ -1,0 +1,12 @@
+  init_state: vmecpp interpFromBoundaryAndAxis (m>0 s^(m/2))
+  profiles: ns=55 phip=-1.591549e-01 lamscale=1.591549e-01 maxToroidalFlux=-1.591549e-01
+knobs: max_iter=350 delt0=0.900 dtau_floor=0.000e+00
+
+ ITER |    FSQR        FSQZ        FSQL    |   DELT
+------+------------------------------------+----------
+  100 |   1.148e-07   8.139e-08   6.254e-08 | 9.00e-01 | Rax=3.9870 Rbnd=3.9990
+  200 |   8.763e-11   2.881e-12   4.017e-12 | 9.00e-01 | Rax=3.9890 Rbnd=3.9990
+  300 |   4.678e-13   2.673e-14   5.387e-15 | 9.00e-01 | Rax=3.9894 Rbnd=3.9990
+  351 |   6.329e-14   3.703e-15   2.616e-16 | 9.00e-01 | Rax=3.9894 Rbnd=3.9990
+transform timing: inverseDFT total 4.3 ms (0.012 ms/iter), forwardDFT total 4.1 ms (0.012 ms/iter)
+wrote benchmark JSON to /lustre/qzhong/magnetic-equilibrium-solver/cumes-materials/slides/cumes-optimization/data/local/fixed-solovev-pre-cuda-1.json

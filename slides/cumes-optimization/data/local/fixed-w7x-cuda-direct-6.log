@@ -1,0 +1,29 @@
+  init_state: vmecpp interpFromBoundaryAndAxis (m>0 s^(m/2))
+  profiles: ns=99 phip=2.769296e-01 lamscale=2.769296e-01 maxToroidalFlux=2.769296e-01
+knobs: max_iter=350 delt0=1.000 dtau_floor=0.000e+00
+
+ ITER |    FSQR        FSQZ        FSQL    |   DELT
+------+------------------------------------+----------
+  -> BAD JACOBIAN (invalid √g: min(signJ·√g)=-1.529e+00 max|√g|=4.281e+00 nonfinite=0 at jH=61) delt=9.000e-01
+    3 |   1.000e+00   1.000e+00   1.000e+00 | 9.00e-01 | Rax=5.9445 Rbnd=5.5586
+  -> BAD JACOBIAN (invalid √g: min(signJ·√g)=-2.972e-01 max|√g|=2.213e+00 nonfinite=0 at jH=39) delt=8.100e-01
+    5 |   1.000e+00   1.000e+00   1.000e+00 | 8.10e-01 | Rax=5.9532 Rbnd=5.5586
+  -> BAD JACOBIAN (invalid √g: min(signJ·√g)=-4.133e+00 max|√g|=1.607e+01 nonfinite=0 at jH=49) delt=7.290e-01
+    8 |   1.000e+00   1.000e+00   1.000e+00 | 7.29e-01 | Rax=6.0577 Rbnd=5.5586
+  -> BAD JACOBIAN (invalid √g: min(signJ·√g)=-1.441e-01 max|√g|=1.765e+00 nonfinite=0 at jH=52) delt=6.561e-01
+   11 |   1.000e+00   1.000e+00   1.000e+00 | 6.56e-01 | Rax=5.9783 Rbnd=5.5586
+  -> BAD JACOBIAN (invalid √g: min(signJ·√g)=-6.942e-02 max|√g|=1.780e+00 nonfinite=0 at jH=87) delt=5.905e-01
+   15 |   1.000e+00   1.000e+00   1.000e+00 | 5.90e-01 | Rax=5.9601 Rbnd=5.5586
+  -> BAD PROGRESS (iter2=51) delt=5.733e-01
+   51 |   2.667e-01   1.208e-01   3.772e-03 | 5.73e-01 | Rax=5.9834 Rbnd=5.5586
+  -> BAD PROGRESS (iter2=64) delt=5.566e-01
+   64 |   1.233e-01   5.600e-02   1.228e-03 | 5.57e-01 | Rax=5.9817 Rbnd=5.5586
+  -> BAD PROGRESS (iter2=78) delt=5.404e-01
+   78 |   1.192e-02   6.627e-03   8.498e-05 | 5.40e-01 | Rax=5.9833 Rbnd=5.5586
+  -> BAD PROGRESS (iter2=91) delt=5.246e-01
+   91 |   7.825e-03   3.552e-03   2.537e-05 | 5.25e-01 | Rax=5.9850 Rbnd=5.5586
+  191 |   5.767e-07   2.125e-07   1.986e-07 | 5.25e-01 | Rax=5.9934 Rbnd=5.5586
+  291 |   2.610e-08   8.539e-09   1.604e-08 | 5.25e-01 | Rax=5.9990 Rbnd=5.5586
+  342 |   1.303e-08   5.008e-09   7.127e-09 | 5.25e-01 | Rax=6.0011 Rbnd=5.5586
+transform timing: inverseDFT total 196.8 ms (0.575 ms/iter), forwardDFT total 149.2 ms (0.436 ms/iter)
+wrote benchmark JSON to /lustre/qzhong/magnetic-equilibrium-solver/cumes-materials/slides/cumes-optimization/data/local/fixed-w7x-cuda-direct-6.json

@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-07T01:37:09.696940+08:00",
+  "host": "who",
+  "platform": "Linux-6.11.0-1027-oem-x86_64-with-glibc2.39",
+  "cpu_affinity": 0,
+  "gpu": "NVIDIA TITAN Xp, 580.173.02, P8, 27, 139 MHz, 405 MHz, 8.93 W, 0 %",
+  "clocks": "unlocked; existing graphical GPU process left running",
+  "flags": "Release; sm_61; verify-double; CUDA 12.1; g++-12; NetCDF/HDF5/vacuum/magnetic-coordinate OFF",
+  "method": "Fixed: 1000-pass preheat per shape, 50 warmup + 300 timed, six alternating triples. CLI: one unmeasured pair per workload then five alternating pairs. No samples discarded.",
+  "revisions": {
+    "pre-cuda": "7c6508aa9a1067e5ec31660832cf2800672ea51b",
+    "cuda": "5379fca726afbe6c58d71184d68a0805106ce21e",
+    "v1.1": "f7036ab69a71429f14824a0aa71f310bc57467e0",
+    "v1.2": "17867d5e8af721e256834668e87eda6f20dbe8b6"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "case": "w7x",
+  "grid": "single",
+  "version": "v1.2",
+  "repeat": 0,
+  "warmup": true,
+  "wall_s": 4.696260677650571,
+  "returncode": 0,
+  "command": [
+    "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-optimization-slides-20260907/v1.2-build/cumes",
+    "/lustre/qzhong/magnetic-equilibrium-solver/cumes-materials/slides/cumes-optimization/data/local/input-w7x-single.json",
+    "--output",
+    "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-optimization-slides-20260907/cli-w7x-single-v1.2-0.bin"
+  ],
+  "input_sha256": "df31c4756fae96ac727d0b6212daa4d2ae1c802b0cb5f453360d7129f03b6f48",
+  "gpu_after": "NVIDIA TITAN Xp, 580.173.02, P0, 71, 1835 MHz, 5702 MHz, 88.53 W, 3 %"
+}
