@@ -1,0 +1,606 @@
+# cuMES performance
+
+This is the current performance contract: what has been *measured* (never
+claimed), on which hardware, and the acceptance policy that governs future
+optimization. The dated tuning-session notes have been archived in
+`overhaul-history.md`; this document supersedes them for decision-making.
+
+> **Measurement provenance.** The numbers
+> in §2 were re-measured with the overhaul's final build configuration:
+> precise double math (`CUMES_PRECISION_POLICY=verify-double`, no
+> `--use_fast_math` — its removal proved **trajectory byte-identical**, so
+> the frozen baselines stand under precise math), the single-construction
+> stage arena (one allocation + one module construction per stage, no
+> measuring pass), and the fence-delivered axis/boundary telemetry (the
+> production path has exactly one deliberate control fence per pass and no
+> per-print synchronization or allocation). Setup and iteration time are
+> reported separately. The frozen Pascal baseline is kept below, followed by
+> the 2026 RTX 4090 optimization measurement; these are different code states
+> and are not used as a cross-GPU comparison.
+
+## 1. Measurement harness (§8.1)
+
+`cumes_benchmark_fixed_iteration` runs one radial stage at a config's final
+shape (Solovev `ns=55`, W7-X `ns=99`) with `ftol=0` (never converges), discards
+a warm-up, and emits JSON: GPU identity, shape, arena/cuFFT bytes, setup vs
+solve time, median/p95 wall µs/iter, and an FNV final-state hash. The seed
+construction is shared with the CLI via `cumes/state/seed_state.hpp`.
+
+A `cumes::SolverBench` observer samples the single control fence; it is pure
+host observability (`bench == nullptr` in production leaves the hot loop
+byte-identical). A 2-pass smoke gate (`cumes_benchmark_smoke`) is registered in
+CTest.
+
+Production runs also print `device time` for every radial stage and
+`total device time` for their sum. These values are measured by CUDA events on
+the compute stream around `solver_run`; they exclude stage construction,
+publication-field re-evaluation, and file output. In free-boundary runs the
+reported interval includes the required host vacuum-coupling gaps between the
+prefix and suffix device work, so it represents end-to-end CUDA-stream elapsed
+time rather than a sum of kernel durations.
+
+## 2. Steady-state wall time (TITAN Xp, sm_61)
+
+Measured by the fixed-iteration harness with 300 timed passes after 50 warmup
+passes, three thermally stable repeats each under `verify-double`:
+
+| shape | median µs/iter | p95 µs/iter | repeats |
+| ----- | -------------: | ----------: | ------: |
+| Solovev `ns=55` (axisymmetric) | 167.0 / 167.1 / 166.5 | 175.7 / 177.2 / 175.2 | 3 |
+| Solovev `ns=55` (generic backend, `CUMES_FORCE_GENERIC=1`) | 179.1 | 194.9 | 1 |
+| W7-X `ns=99` (3D, generic toroidal-FFT) | 1757.8 / 1757.7 (first repeat 1874.4: cold-clock ramp, discarded) | 1772.4 / 1772.5 | 3 |
+
+Setup (arena + module construction + profile/table upload, one pass per
+stage): ~3.5 ms Solovev / ~3.9 ms W7-X, reported separately from the
+iteration time. The axisymmetric backend retains a measured ~7% advantage
+over the generic backend on the same shape (167 vs 179 µs/iter).
+
+CUDA Graph re-measurement on the REAL pass DAG (ADR-0003 follow-up,
+`cumes_benchmark_graph_realpass`, Solovev `ns=55`): enqueue submission
+63.9 µs/pass vs graph launch 9.8 µs/pass (54.2 µs saved), production-pattern
+wall 124.0 vs 111.3 µs/pass (12.8 µs ≈ 10% saved), GPU time 125.3 vs
+112.9 µs. The real-pass bound is therefore confirmed beneficial on the
+submission-bound Solovev workload; the later production decision is recorded
+in §3.3.
+
+### 2.1 RTX 4090 optimization measurement (CUDA 12.9, 2026-08-26)
+
+The profiling build used precise double math, NetCDF/HDF5/vacuum disabled, GPU
+2, 50 warm-up passes and 300 timed fixed iterations. After a 1000-pass preheat,
+six graph-on/graph-off pairs with alternating execution order were used for the
+production graph comparison. Medians of the six per-run medians were:
+
+| shape | direct stream | production graph | graph wall reduction |
+| ----- | ------------: | ---------------: | -------------------: |
+| Solovev `ns=55` | 117.14 µs/iter | 82.33 µs/iter | 29.7% |
+| W7-X `ns=99` | 562.10 µs/iter | 534.53 µs/iter | 4.9% |
+
+Relative to the pre-optimization fixed-iteration baselines from the same RTX
+session, the final W7-X latency fell from 660.81 to 534.53 µs/iter (19.1%, or
+1.236x throughput), and Solovev fell from 115.59 to 82.33 µs/iter (28.8%, or
+1.404x throughput). The final-state hashes are identical with graphs enabled
+and disabled: W7-X `ce46a7cbe693601a`, Solovev `3c09fd3260b003a8`.
+
+The retained kernel changes are a parallel two-stage Jacobian-statistics
+reduction (W7-X kernel time 104.7 to 7.2 µs) and a full-theta inverse-transform
+mapping. Register-capping and split forward-reduction prototypes were removed
+because they did not clear the 5% acceptance threshold.
+
+Historical hotspot profiles (different sessions; not cross-GPU ratios — see the
+blueprint §2) put the W7-X iteration work in the transform accumulation/reduction
+(~0.4 ms each on TITAN Xp) and the forward reduction (~0.11 ms on RTX 4090),
+with force, geometry, tridiagonal, and residual work smaller — i.e. structural
+transform work dominates over generic occupancy tuning, and host synchronization
+matters more as kernels shorten.
+
+### 2.2 W7-X fixed-boundary convergence recovery (2026-08-30)
+
+ADR-0007 adds a qualified one-shot recovery of a time step reduced by the
+early W7-X transient. It reduces deterministic effective iterations from 2953
+to 2711 (8.20%) without changing the per-pass CUDA DAG or its memory use.
+
+A native `sm_89` precise-double build on gervais (RTX 4090, CUDA 12.9,
+NetCDF/HDF5 disabled) reproduced both iteration counts and residuals. Six
+preheated, alternating A/B measurements pinned to NUMA-local CPU 10 gave
+2.0583 s baseline versus 1.9217 s recovery median, a 6.63% end-to-end wall
+reduction. Median absolute deviations were 6.1 ms and 7.6 ms. Unlocked GPU
+P-state transitions produced isolated slow samples (ranges 2.0510–2.5015 s
+and 1.9102–2.5244 s; interpolated p95 2.4893 s and 2.4846 s), so this set does
+not by itself establish the performance-policy confidence bound. The exact
+8.20% pass reduction, independent-solver state comparison, and frozen
+non-target trajectories are the primary acceptance evidence; the diagnostic
+opt-out retains direct A/B measurement.
+
+The same policy applied once per multigrid stage reduces W7-X from
+`1877 → 1617 → 2011` (5505 total) to `1741 → 1568 → 1635` (4944 total), a
+10.19% pass reduction. The final residual triple is FSQR `9.989e-13`, FSQZ
+`1.590e-13`, FSQL `5.116e-14`; restarting its checkpoint on the final grid
+converges at iteration 1 with the identical triple. Six alternating native
+gervais measurements gave 3.3109 s baseline versus 3.0021 s recovery median,
+a 9.33% end-to-end reduction (MAD 0.1090 s / 0.2123 s; unlocked-clock ranges
+3.1856–3.6662 s / 2.7096–3.5031 s). Solovev remains on its exact established
+trajectory because no reduced step survives to its recovery window.
+
+### 2.3 Shaped 3-D cold start (2026-08-30)
+
+ADR-0008 augments the regular `s^(m/2)` boundary-harmonic seed by the factor
+`1 + 0.12(1-s)` for fixed-boundary 3-D cold starts. It changes no LCFS value,
+preserves the required near-axis order, adds no GPU work, and can be disabled
+with `CUMES_SEED_ENVELOPE=0`.
+
+On W7-X single-grid the schedule-specific `0.129` envelope reduces effective
+iterations from 2711 to 2465 (9.07%); the earlier common `0.12` value reached
+2627. A native `sm_89` gervais run measured 1.334 s of CUDA-stream time at the
+new value versus about 1.43 s at `0.12`.
+On W7-X multigrid it changes `1741 → 1568 → 1635` (4944 total) to
+`1315 → 1559 → 1633` (4507 total), an 8.84% reduction. Combined with the
+reference controller baseline, total multigrid passes fall by 18.13%. The
+final residual triple is FSQR `9.967e-13`, FSQZ `1.563e-13`, FSQL
+`4.956e-14`, and checkpoint replay converges at iteration 1 with the identical
+triple. ADR-0008 alone leaves Solovev byte-identical because axisymmetric
+seeds are excluded; the later axisymmetric policy is measured separately
+below.
+
+Six alternating native gervais runs measured 1.9238 s versus 1.8823 s median
+for single-grid (2.16% wall reduction; MAD 6.3/14.8 ms) and 3.4419 s versus
+3.2983 s for multigrid (4.17%; MAD 0.331/0.388 s). Unlocked-clock outliers make
+these wall measurements noisier than the deterministic pass counts.
+
+### 2.4 Axisymmetric start policy (2026-08-30)
+
+ADR-0009 uses a `-0.07` envelope correction only for coarse fixed-boundary
+axisymmetric cold starts and raises the stage-initial descent step according
+to whether the state is cold, single-grid, or prolonged. It changes no GPU
+kernel, allocation, or per-pass DAG.
+
+Solovev multigrid falls from `251 -> 199 -> 456` (906 passes) to
+`235 -> 193 -> 387` (815), a 10.04% reduction, with final FSQR `9.792e-17`.
+A final-grid checkpoint replay converges at iteration 1 with a bit-identical
+state. A cold single `ns=55` grid falls from 533 to 354 passes (33.58%), with
+FSQR `9.835e-17`. W7-X remains exactly on its accepted
+`1315 -> 1559 -> 1633` trajectory.
+
+Before adding the lambda predictor, the local TITAN Xp gave 0.445 s versus
+0.395 s median multigrid wall time (11.2%), and a native sm_89 gervais build
+gave a 3.7% median reduction for the staged-step policy. The final sm_89 build
+reproduces the 815/354 pass counts. At this subsecond scale, CUDA process
+startup and unlocked P-state outliers dominate, so pass counts are the primary
+timing evidence.
+
+### 2.5 Free-boundary cold predictors (2026-08-31)
+
+ADR-0010 extends the host-only cold predictor to free-boundary starts without
+changing the vacuum-coupled iteration DAG. A resolution-limited 3-D envelope
+reduces CTH-like single-grid from 489 to 384 passes and `15 -> 25` multigrid
+from 592 to 563 total passes. The conservative fine-grid predictor reduces
+W7-X `ns=51` from 1831 to 1797 passes. The full axisymmetric lambda predictor
+reduces Solovev free-boundary from 1047 to 1025 total passes. Final FSQR values
+are `9.932e-11`, `9.942e-11`, `9.705e-13`, and `9.822e-15`, respectively.
+Adding the qualified `17/14` step on 3-D free-boundary grids through `ns=25`
+reduces CTH-like single-grid further to 347 passes and multigrid to
+`208 -> 238` (446 total), with final FSQR `9.359e-11` and `9.745e-11`.
+Activating the vacuum force at residual sum `3e-2` reduces those trajectories
+again to 309 and `198 -> 233` (431 total), with FSQR `9.635e-11` and
+`9.885e-11`. W7-X falls from the seeded 1797 to 1733 passes (FSQR
+`9.996e-13`), while Solovev remains at 1025.
+
+Seven alternating local TITAN Xp A/B pairs reduced CTH-like multigrid median
+wall time from 1.93 s to 1.50 s (22.3%; ranges 1.91--2.01 s and
+1.48--1.50 s). Five alternating W7-X pairs reduced the median from 8.37 s to
+7.93 s (5.3%; ranges 8.32--8.39 s and 7.85--7.97 s). Pass counts were
+identical in every repetition.
+
+### 2.6 Cubic multigrid transfer (2026-08-31)
+
+ADR-0011 replaces two-point linear radial prolongation with a four-point cubic
+interpolant in the existing odd-mode regularized coordinate. It changes only
+the initial state of a refined stage; force evaluation, descent, convergence,
+and the exact axis/LCFS contracts are unchanged.
+
+W7-X changes from `1315 → 1559 → 1633` (4507) to
+`1315 → 1443 → 1402` (4160), a 7.70% reduction, with FSQR
+`9.986e-13`. Solovev changes from `235 → 193 → 387` (815) to
+`235 → 190 → 341` (766), a 6.01% reduction, with FSQR `9.695e-17`.
+CTH-like free-boundary changes from `198 → 233` (431) to
+`198 → 226` (424), with FSQR `9.920e-11`. Axisymmetric free-boundary
+retains linear transfer because cubic regressed its qualified Solovev case
+from 1025 to 1045 passes. A final-grid W7-X checkpoint replay converges in one
+iteration with the identical residual triple.
+
+### 2.7 Global B-spline fixed-boundary transfer (2026-08-31)
+
+ADR-0012 replaces Catmull-Rom with an interpolating cubic B-spline for
+precise-double fixed-boundary continuation. Directly applying the reusable
+`InterpolationFunctionTemplate1D<3>` batch on the host improved the initial
+state but cost 1.90 ms for W7-X `33 → 66` and 2.94 ms for `66 → 99`, before
+PCIe transfers. The production path instead constructs the small linear
+interpolation matrix once and applies it to all six spectral families on the
+GPU, keeping the state device-resident.
+
+Matrix construction is also removed from the transition's critical path. One
+background task builds every scheduled map while the first GPU stage is
+running. Over 10,000 warmed-up `-O3 -march=native` calls, gervais measured
+median construction times of 36.7 us for W7-X `33 → 66` and 136.5 us for
+`66 → 99` (173.3 us total), versus about 462 us for one average W7-X device
+iteration. Solovev's two matrices total 9.2 us. The future is therefore ready
+long before the first transition in the qualified workloads; only the small
+matrix upload and GPU application remain at that boundary.
+
+Relative to Catmull-Rom, W7-X changes from `1315 → 1443 → 1402` (4160) to
+`1315 → 1419 → 1372` (4106), with FSQR `9.997e-13`. Solovev changes from
+`235 → 190 → 341` (766) to `235 → 193 → 326` (754), with FSQR
+`9.973e-17`. The spline is not selected for free-boundary continuation:
+CTH-like changed from 424 to 425 passes, and axisymmetric free-boundary
+Solovev regressed from 1025 to 1074. Those paths retain their qualified
+Catmull-Rom and linear transfers respectively.
+
+## 3. Phase 9 experiments and their outcomes
+
+The exit gate for §8.10–§8.12 was *"measure, then adopt or remove."* Three
+experiments were run on the TITAN Xp; one was adopted.
+
+### 3.1 Mixed-float double accumulation — historical adoption (ADR-0001)
+
+The float policy below was superseded by
+[ADR-0015](adr/0015-float-only-device-arithmetic.md), which uses float-float
+accumulation and float device records. These are the original measurements.
+
+`cumes::NormAccum<T>` (`float → double`, `double → double`) widened the
+accumulator of the three control-feeding reductions. **Class A** for the double
+build (identity); **Class B** for float, where `test_accumulation.cu` shows a
+~20× lower summation error (4.6e1 → 2.3e0 on a 1M-term dynamic-range case). It
+does not unlock a lower float `ftol` — the float-state rounding floor dominates.
+
+### 3.2 R/Z vs λ force-kernel split — not adopted (ADR-0002)
+
+The split reduced registers 108 → 82/54 but was **1.20–1.45× slower**: the
+force kernel is input-traffic-bound, so the two-kernel split doubled the
+geometry/field loads. The prototype has been removed; the conclusion
+(§8.10's remaining radial-tile / force+projection fusion ideas trade global
+traffic for registers/shared memory and are unlikely to pay) is the durable
+result.
+
+### 3.3 CUDA Graph capture — adopted for fixed boundary (ADR-0003)
+
+Empty-kernel microbenchmark: enqueue 1.94 µs/kernel, graph launch 6.43 µs/pass
+for 24 kernels → **~40 µs/pass upper-bound saving**. The real-pass
+measurement (see §2) confirmed a ~12.8 µs/pass (≈10%) wall saving on Solovev,
+with bitwise replay fidelity (`test_cuda_graph`). Modern re-measurement then
+showed a 29.7% wall reduction on Solovev and a 4.9% reduction on W7-X. The graph
+change therefore clears the adoption threshold on one primary shape while
+remaining a non-regressing improvement on the other. Fixed-boundary schedules
+are captured lazily and cached by shape. Free-boundary and verification-dump
+paths remain direct; `CUMES_DISABLE_CUDA_GRAPHS=1` is the diagnostic opt-out.
+
+### 3.4 Concurrent independent solves — adopted coordination
+
+Meow's cold finite-difference columns can run as independent equilibrium
+solves. A two-worker QA diagnostic produced bit-identical target Jacobian
+columns and reduced eight-column wall time from 2.801 s to 1.256 s. The same
+QH diagnostic exposed a runtime coordination defect: one solver can call the
+multigrid stage-boundary `cudaDeviceSynchronize` while another thread is
+capturing its fixed-boundary CUDA graph, which CUDA rejects.
+
+The scoped fix is a process-wide host mutex shared only by graph capture and
+the multigrid device-wide stage fence. Graph execution and the equilibrium hot
+loop remain unlocked, so independent solves can overlap after setup. The
+change must preserve the frozen single-solver trajectories, pass the full
+cuMES test suite, make the QH concurrent diagnostic deterministic, and show a
+positive two-worker throughput result before concurrent solves are treated as
+supported. No optimizer or target policy enters cuMES.
+
+The coordination lock passed all 96 verify tests, including a new public-API
+regression that runs two complete W7-X multigrid solves concurrently and
+requires identical spectral families. The meow diagnostics then produced
+bit-identical serial/concurrent Jacobians for both cases. Eight QA columns took
+2.823 s serial and 1.247 s with two workers (2.26x); eight QH columns took
+2.250 s and 1.025 s (2.20x). These are focused single-Jacobian throughput
+measurements, not the repeated end-to-end acceptance statistics required by
+§4; end-to-end optimizer qualification remains in meow.
+
+### 3.5 Repeated-solve resource reuse — rejected
+
+Meow now evaluates exact finite-difference Jacobian columns concurrently, but
+each column constructs a fresh `EquilibriumSolver`. The facade's implementation
+is currently empty and every `solve()` recreates its CUDA stream, multigrid
+stage arenas, cuFFT plans, operator stacks, and host snapshot transfers. Before
+introducing a session or batch API, expose structured per-call wall timings for
+pre-multigrid setup, multigrid execution, final state transfer, and total solve
+time. Keep the existing device-pass timer distinct from these host wall times.
+
+Use those timings in meow's QA and QH mode-1 Jacobian workload to determine the
+dominant repeated cost. If stream lifetime is measurable, retain one stream per
+`EquilibriumSolver` first because it does not alter seeding, stage arithmetic,
+or ownership between worker objects. Retaining topology-dependent arenas,
+cuFFT plans, and operator stacks is a larger follow-up and is allowed only when
+the timing breakdown justifies it. Any reuse must preserve cold-start semantics,
+exact serial/concurrent Jacobians, one-solver-per-worker ownership, the frozen
+single-solver trajectories, and the 96-test verify suite. End-to-end QA/QH
+acceptance remains in meow, while cuMES owns only equilibrium-solve resources
+and timings.
+
+The first Release mode-1 measurements put facade setup at only 0.12% of QA
+solve wall time and 0.19% of QH. Retaining only the CUDA stream therefore has a
+sub-percent ceiling and is rejected. Multigrid wall time accounts for more than
+99.7% of each solve, while its existing device-pass timer accounts for roughly
+90--92%. Before designing reusable stage workspaces, extend the structured
+timings to split aggregate stage setup, iterative solve, final derived-field
+capture, teardown, and non-stage multigrid orchestration. This will distinguish
+reusable arena/cuFFT construction from required output work and host/device
+iteration synchronization. The split is diagnostic only and must sum back to
+the already exposed multigrid wall time without changing solver ordering.
+
+The three-run, full-package Release profile closes that follow-up. Averaged
+over eight finite-difference solves, QA's 3.1525 s multigrid time split into
+0.13690 s stage setup (4.3%), 2.89850 s iteration (91.9%), 0.06035 s final
+derived-field capture (1.9%), 0.04174 s teardown (1.3%), and 0.01505 s other
+orchestration (0.5%). QH's 2.6627 s split into 0.14062 s setup (5.3%),
+2.40979 s iteration (90.5%), 0.06185 s capture (2.3%), 0.03798 s teardown
+(1.4%), and 0.01246 s other (0.5%). A persistent topology-keyed stage cache
+has only a 5.6%/6.7% absolute QA/QH ceiling even if it removes every setup and
+teardown cycle; seeding, uploads, and state publication would remain. It would
+also retain roughly 69 MB per worker at the W7-X final grid. That complexity is
+not justified by the removable fraction, so resource caching is rejected
+without implementation. The structured timing API remains useful
+observability for embedding applications.
+
+### 3.6 Transform launch-shape tuning — rejected
+
+With resource lifetime ruled out, optimize only the dominant device path. A
+warmed, graph-disabled W7-X `ns=99` fixed-iteration run on the TITAN Xp measured
+1.681 ms median wall time per iteration. CUDA-event instrumentation attributed
+0.657 ms/pass to inverse transforms and 0.492 ms/pass to forward transforms,
+about 68% combined. Hardware-counter collection is unavailable on this host
+(`ERR_NVGPUCTRPERM`), so experiments must use repeated alternating runs of the
+existing fixed-iteration harness and its bit-identical state hash gate.
+
+First sweep the zeta tile widths of the inverse-accumulate and forward-reduce
+kernels independently. Tile width changes only the CUDA launch decomposition:
+each output retains its existing serial poloidal accumulation order. Compare
+the shipped W7-X and Solovev workloads, retain no public/environment knob, and
+adopt a static launch policy only if W7-X clears the 5% gate while Solovev
+regresses by at most 2%. If no tile clears that gate, restore the current
+launch policy and record the negative result before considering a more invasive
+transform algorithm.
+
+The sweep compared forward zeta tiles 4, 6, 8, 12, and 16 and an inverse tile
+of 8. Every candidate produced the baseline state hash. Tile 4 was best:
+across three preheated alternating runs it reduced the W7-X median from
+1.584 ms to 1.528 ms with graphs disabled (3.5%) and from 1.573 ms to 1.518 ms
+with production graphs (3.5%). The inverse tile of 8 regressed steady-state
+latency. No launch-only variant clears the 5% gate, so the source is restored
+to tile 16 and no policy knob is retained.
+
+The next bounded transform experiment targets `inverse_pack_kernel`'s
+uncoalesced scratch writes. The current surface-fast thread order coalesces six
+coefficient reads but makes each of twelve half-spectrum writes stride by one
+FFT row. Compare a toroidal-mode-fast mapping, which coalesces those writes at
+the cost of strided coefficient reads, both alone and with the best tile-4
+forward launch. It changes no arithmetic or cuFFT layout. Retain it only if the
+combined production result clears the same acceptance gate and state hash.
+
+Five alternating production-graph runs rejected that mapping. The pack-only
+variant was flat to slightly slower than baseline; the combined variant was
+indistinguishable from tile 4 alone. All hashes remained identical. Coalescing
+twelve scratch writes does not compensate for making the six state-family
+reads surface-strided, so the original mapping is restored.
+
+The next local experiment removes two redundant poloidal-table loads in the
+forward reduction. `mcos` and `msin` are exactly `m*cos` and `-m*sin`; deriving
+them from the already loaded cosine/sine values trades two cached loads for two
+multiplications and may reduce the 72-register kernel's input pressure. First
+verify the intermediate transform and final state bitwise, then measure it
+alone and with tile 4. Reject both changes if the combined production latency
+still misses 5%.
+
+The derived-table variant retained the exact hash but regressed median latency
+by about 0.5%; combining it with tile 4 was also slower than tile 4 alone. The
+cached poloidal tables are not a limiting input source, so both source changes
+are removed.
+
+The single-solver gate does not yet answer whether tile 4 helps meow's actual
+four-stream Jacobian throughput: smaller forward-reduction blocks may permit
+more useful inter-solver residency than the isolated benchmark exposes. Build
+an otherwise identical temporary cuMES package with tile 4, run the controlled
+QA/QH mode-1 four-worker Jacobians against baseline, and require identical
+matrices and nonlinear iteration counts. Adopt the static tile only if this
+embedding workload clears 5% in repeated Release runs without violating the
+single-solver regression gate.
+
+The concurrent gate also rejects tile 4. Three alternating Release runs kept
+every Jacobian bit-identical and retained exactly 12,171 QA / 8,347 QH
+nonlinear iterations. QA's median changed from 0.814 s to 0.801 s (1.6%), while
+QH changed from 0.678 s to 0.682 s (0.7% slower). The smaller block therefore
+does not improve inter-solver residency enough to matter on the four-worker
+TITAN Xp workload. The production tile remains 16.
+
+### 3.7 Near-axisymmetric cold-start shaping — adopted
+
+The mode-1 analytic QA/QH boundaries are three-dimensional but have very small
+non-axisymmetric amplitudes; their cold solves still take roughly 1,500 passes.
+Use the existing diagnostic `CUMES_SEED_ENVELOPE` override to sweep the radial
+boundary-harmonic envelope on the exact center inputs before changing policy.
+Record per-stage iterations, final residuals, and state equivalence for both
+cases. If one value materially reduces both trajectories, derive any production
+selection from a dimensionless boundary-spectrum measure rather than a meow or
+target-function special case. The W7-X and axisymmetric frozen trajectories,
+checkpoint replay, and the full verify suite remain mandatory gates. Reject the
+idea if QA and QH prefer incompatible values or the converged state moves beyond
+the accepted equilibrium tolerance.
+
+The sweep selected `-0.10` for fixed-boundary 3-D multigrid starts with
+`initial_ns <= 12`; all other paths retain their previous policy. At the
+analytic centers, QA changed from `1178 -> 252 -> 118` (1548 total) to
+`886 -> 226 -> 100` (1212, 21.7% fewer), and QH changed from
+`445 -> 302 -> 361` (1108 total) to `303 -> 293 -> 314` (910, 17.9% fewer).
+The converged discrete states are not bit-identical, so this is qualified as a
+cold-start branch change rather than a Class-A refactor.
+
+Three four-worker mode-1 Jacobian runs retained exact serial/parallel matrices.
+QA's median fell from 0.827 s to 0.658 s (20.4%, 1.256x) and aggregate nonlinear
+work fell from 12,171 to 8,829 passes. QH's median changed from 0.693 s to
+0.687 s (0.8%) and work from 8,347 to 8,296 passes. Complete exact-Jacobian
+mode-1 gates reduced QA work from 242,168 to 208,099 passes (14.1%) with a
+0.032% objective change, and QH from 269,787 to 229,078 (15.1%) with a 0.0015%
+objective change; both remain within meow's 0.1% quality gate. The standard
+Solovev `235 -> 193 -> 326` and W7-X `1315 -> 1419 -> 1372` trajectories remain
+unchanged because their start geometries do not enter the new policy branch.
+
+### 3.8 Reuse forward weights and remove unused inverse work (2026-09-08)
+
+Two transform changes reduce repeated work relative to `f0c17f7` (v1.4.1).
+The inverse accumulator specializes which constraint output is needed: R/Z
+each compute one sum, and lambda computes neither. Basis and derivative-sign
+selection remain runtime expressions to preserve the baseline's floating-point
+contraction order. The forward transform caches its four weighted poloidal
+tables once per stage, using device arithmetic to preserve the original
+T-rounded products. The compact W7-X double cache adds 6,144 arena bytes and
+removes four multiplications and one weight load per theta contribution.
+
+The cache kernel and its completion fence run only during stage construction.
+Per-iteration launch count, graph topology, control fences, controller
+decisions, allocation count, and cuFFT workspace are unchanged. No new tuning
+option is exposed.
+
+Both architectures use precise double math and native code: TITAN Xp `sm_61`
+with CUDA 12.1, and RTX 4090 `sm_89` with CUDA 12.9. With production graphs
+enabled and the host pinned to CPU 8, each workload is measured in 16
+baseline/candidate pairs with alternating order. Each binary first receives
+1,000 warm-up plus 1,000 timed preheat passes; measured runs then use 100
+warm-up and 500 timed passes. The table reports medians of per-run median/p95
+latencies. Gains are medians of paired percentage reductions, with percentile
+95% confidence intervals from 20,000 paired bootstrap resamples; setup and
+output are excluded.
+
+| GPU / shape | median baseline → candidate (µs/iter) | p95 baseline → candidate (µs/iter) | paired reduction, 95% CI |
+| ----------- | -----------------------------------: | --------------------------------: | ------------------------: |
+| TITAN Xp / W7-X `ns=99` | 1584.330 → 1501.220 | 1735.455 → 1652.895 | 5.1905% [5.1588%, 5.2391%] |
+| TITAN Xp / Solovev `ns=55` | 124.565 → 124.335 | 193.810 → 193.985 | 0.3346% [-0.1685%, 0.5740%] |
+| RTX 4090 / W7-X `ns=99` | 535.545 → 500.770 | 622.805 → 588.895 | 6.4963% [6.4732%, 6.5137%] |
+| RTX 4090 / Solovev `ns=55` | 83.950 → 83.935 | 128.340 → 127.200 | 0.0179% [-0.0119%, 0.1303%] |
+
+The W7-X lower confidence bound clears 5% on both GPUs; the Solovev upper
+regression bounds are 0.169% and 0.012%. The noise estimate, median absolute
+deviation of run medians divided by their median, was 0.337%/0.429%
+(baseline/candidate) for Pascal W7-X and 0.265%/0.269% for Pascal Solovev;
+Ada gave 0.0065%/0.0070% and 0.0298%/0.0357%, respectively.
+
+Clocks were unlocked. Pascal post-run samples were P0, 1518–1873 MHz core,
+5702 MHz memory, 56–68 °C and 69–89 W; W7-X core samples stayed within
+1847–1873 MHz. Ada active samples were 2520–2760 MHz core, 10501 MHz memory,
+35–46 °C and 55–169 W. Drivers were 580.173.02 and 570.169, respectively.
+The Ada build used CUDA 12.9.41/GCC 12.4; its Debian 13 host required six
+`noexcept(true)` declaration fixes in a scratch copy of CUDA headers, applied
+identically to both builds. No math implementation or compiler precision flag
+was changed.
+
+Median stage setup increased from 3.844 to 4.587 ms for Pascal W7-X and
+3.422 to 4.184 ms for Pascal Solovev; Ada measured 1.695 to 1.941 ms and
+1.791 to 2.221 ms. Output is not part of the fixed-iteration harness.
+The W7-X arena grows from 69,318,752 to 69,324,896 bytes, and Solovev from
+704,456 to 706,376 bytes. cuFFT workspace remains 4,105,728/63,424 bytes
+for Pascal W7-X/Solovev and zero for both Ada cases. The graph DAG and scratch
+layouts are unchanged. Pascal fused R/Z inverse register use falls from 56 to
+48, while lambda uses 64; forward reduction remains at 72. Ada uses 48/56/72
+registers for these kernels. Neither build introduces spills.
+
+The weighted tables add a measured 1.59% W7-X reduction beyond the inverse
+change on RTX 4090. Every fixed-window final-state hash matches its baseline.
+All 65 verify and 66 float tests pass, including the float FP64-instruction
+audit and compensated W7-X cold-start/replay regression. Complete default
+multigrid dump manifests are byte-identical on both architectures: 241
+Solovev files and 472 W7-X files. The diagnostic opt-outs also retain the
+frozen trajectories. Pascal Fourier memcheck/initcheck/racecheck/synccheck,
+compensated-geometry memcheck/initcheck, and Ada Fourier memcheck pass.
+These are comparisons within each architecture, preserving the respective
+baseline's cuFFT results.
+
+These percentages qualify steady-iteration latency. Full-process Ada timings
+were too noisy for a separate end-to-end speedup claim: Nsight located a
+653 ms outlier in the first `cudaMalloc`, and an A/A comparison of the same
+baseline executable through a symlink reproduced the order-dependent startup
+delays. Full graph solves still produced identical checkpoints.
+
+The broader inverse specialization was rejected: making the basis compile-time
+changed which product the compiler fused in `c0*sin + c1*cos` and the R
+poloidal derivative, failing first-pass bitwise comparisons. Restricting
+specialization to unused constraint work restored Class A. Capturing the
+control/axis/boundary copies in the graph and omitting unused transform timing
+events were also tested and removed because they showed no reliable gain.
+They are excluded from the reported candidate.
+
+The subsequent [block-correction experiments](block-correction-experiments.md)
+retain every configured multigrid stage and tolerance. Lambda inner solves
+and a coupled radial R/Z prototype did not qualify a further default speedup;
+the report records their complete-solve results and numerical validation.
+
+The remaining [fully coupled Newton–Krylov](newton-correction-experiments.md)
+and [FAS coarse correction](coarse-correction-experiments.md) proposals were
+also tested through all original multigrid stages and tolerances. Newton's
+selected Solovev variant reduced scoped solver time by 10.05% on Pascal and
+4.16% on Ada in five paired runs; its Ada lower confidence bound was 2.28%,
+below the adoption gate. W7-X showed no reliable benefit across architectures.
+FAS increased solver wall time in both full-solve screens. Reproducible private
+patches and diagnostics are retained; these experiments do not change defaults.
+
+The [broader axisymmetric study](axisymmetric-newton-qualification.md) tests
+that same Newton policy on 19 inputs and both GPUs. All configured solves
+converge. The adapted prescribed-current case improves scoped solver time by
+19.21% on TITAN Xp and 14.51% on RTX 4090, while fresh measurements confirm
+Ada regressions for circular, low-resolution and one finite-pressure case.
+Axisymmetry alone therefore does not qualify a default policy. The report
+retains every initial pair, uncertainty-selected follow-up and solution check.
+The qualified axisymmetric forward32 policy is available through the explicit
+`--newton` flag; [ADR-0016](adr/0016-opt-in-newton-corrections.md) records its
+promotion checks. The default remains unchanged.
+
+### 3.9 Free-boundary vacuum kernels and transfers (2026-09-09)
+
+The [free-boundary qualification](free-boundary-performance.md) measures
+complete configured Solovev, CTH and W7-X solves against `bcdd3da` on both GPUs.
+Parallel axisymmetric source terms retain the original ordered sum; smaller
+blocks distribute small singular RHS systems across the GPU; pinned bridge
+copies join existing fences. The split-graph experiment was discarded.
+
+Seven paired runs give solver-interval reductions of 37.01% / 29.69% for
+precomputed-grid Solovev and 6.77% / 23.70% for positive-flux W7-X on TITAN Xp /
+RTX 4090. Coefficients, fields and numerical stage reports remain bit identical
+within each architecture. All configured stages, tolerances, caps and vacuum
+update decisions are preserved. The report includes confidence intervals,
+process-wall results, retained failures, float limitations and raw data.
+
+## 4. Acceptance policy (verification.md §7)
+
+A performance-motivated change is accepted only when, on one named target
+workload, the lower bound of the 95% confidence interval shows an improvement
+`> max(5%, measured noise floor)`, while the upper bound on the other primary
+workload's regression is `<= 2%` — unless a separately approved correctness or
+memory benefit justifies it. Requirements:
+
+- repeated thermally stable warm runs; report median, p95, CI, clocks, and the
+  noise floor (never a single timing);
+- setup and output reported separately from effective-iteration time;
+- compared on the legacy Pascal target *and* one modern architecture;
+- peak arena/cuFFT/graph memory growth beyond an agreed baseline is rejected
+  unless the measured benefit justifies it;
+- the old backend is retained until the new one passes both numerical and
+  performance gates.
+
+**Current two-architecture validation:** §3.8 qualifies the current transform
+changes against the same `f0c17f7` source baseline on TITAN Xp and RTX 4090,
+using each machine's identical baseline/candidate toolchain. The fixed-boundary
+double W7-X and Solovev iteration-latency gates and numerical comparisons pass
+on both architectures. This does not turn historical timings into same-code
+measurements or extend the timing claim to free-boundary or float solves.
+
+Equivalence class precedes any timing claim: Class A requires bitwise equality;
+Class B requires per-operator ULP bounds and identical controller decisions;
+Class C requires residual/validity qualification, independent comparisons with
+differences reported, and a written ADR.
+
+## 5. Decision records and historical inputs
+
+- `overhaul-history.md` archives the TITAN Xp optimization pass and RTX
+  4090 profiling session. Their measurements are historical comparison inputs,
+  not acceptance goldens.
+- `docs/adr/0001..0003` — the decisions behind §3.

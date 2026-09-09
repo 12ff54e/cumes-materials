@@ -2,10 +2,17 @@
 
 This deck separates implementation/execution improvements from changes to the
 convergence trajectory. It audits the CUDA history reachable in
-`dc0d0c4..194415d`: 197 commits including merged ancestry. `dc0d0c4` marks design
+`dc0d0c4..6756fd6` (v1.5.0): 244 commits including merged ancestry. `dc0d0c4` marks design
 closure; reader/safety closure finishes at `56aa1a4`. Phase 6 numbers are clearly
 marked as earlier background. The independent, unmerged `webgpu` branch is outside
 this CUDA deck. Optimizer policy in `../meow` is not a cuMES equilibrium change.
+
+The 2026-09-09 update adds 47 commits after the previous `194415d` audit,
+including the v1.4.0/v1.4.1 release completions and all 33 v1.5 commits after
+v1.4.1. It reviews the three pinned vacuum-field dependency commits as well.
+The inventory highlights 81 implementation, evidence, support and rejected
+records. New slide content uses archived release qualification; no new solver
+timings or independent reference solves were run for this update.
 
 The full inventory is [commit-audit.tsv](data/commit-audit.tsv); the selected
 implementation, evidence, support, and rejected-experiment records are in
@@ -23,7 +30,10 @@ history. The links below pin their content for later review:
   [v1.1 f7036ab](https://github.com/12ff54e/cuMES/commit/f7036ab),
   [v1.2 17867d5](https://github.com/12ff54e/cuMES/commit/17867d5), and
   [v1.3 750d6a4](https://github.com/12ff54e/cuMES/commit/750d6a4).
-- [Performance ledger at reviewed HEAD](https://github.com/12ff54e/cuMES/blob/194415d/docs/performance.md).
+- [v1.4.0 ef67884](https://github.com/12ff54e/cuMES/commit/ef67884),
+  [v1.4.1 f0c17f7](https://github.com/12ff54e/cuMES/commit/f0c17f7), and
+  [v1.5.0 6756fd6](https://github.com/12ff54e/cuMES/commit/6756fd6).
+- [Performance ledger at v1.5.0](https://github.com/12ff54e/cuMES/blob/6756fd6/docs/performance.md).
 - [Archived overhaul record](https://github.com/12ff54e/cuMES/blob/194415d/docs/overhaul-history.md).
 - [CUDA graph ADR](https://github.com/12ff54e/cuMES/blob/5379fca/docs/adr/0003-cuda-graphs.md).
 - [Recovery ADR-0007](https://github.com/12ff54e/cuMES/blob/17867d5/docs/adr/0007-single-grid-step-recovery.md).
@@ -161,7 +171,176 @@ All following numbers are archived evidence rather than new task measurements.
   559.29→543.02 μs; absolute control 526.46 μs. Same checkpoint/trajectory.
   Not comparable to double at 1e-12 as an accuracy-matched speedup.
 
-## New local reproduction: protocol and limits
+## v1.5 execution: archived qualification
+
+The tagged documents, benchmark inputs/runners/results and original transform
+samples are frozen in [data/v1.5/](data/v1.5/).
+[provenance.json](data/v1.5/provenance.json) gives source revisions/paths and
+SHA-256 hashes; [summary.json](data/v1.5/summary.json) feeds the slide tables.
+`scripts/import_v15_evidence.py` checks all displayed transform medians against
+the 128 individual timed samples, free-boundary variant medians against their
+raw process samples, and every paired percentage median against its saved
+reductions. Original confidence intervals, outliers and failures are retained.
+
+| Comparison | Pinned baseline | Retained candidate | Timing scope |
+| --- | --- | --- | --- |
+| Fourier | v1.4.1 `f0c17f7` | `66a557a` + `21b6043` | Steady fixed-shape pass wall latency; excludes setup/output |
+| Free boundary | `bcdd3da`, vacuum `edbbb280` | `cc2d91d`, vacuum `4d19939` | Summed configured-stage CUDA-event intervals and separate process wall |
+| Newton | Same preserved private binary with hook disabled | Hook enabled; later promoted in `ca33025` / `bcdd3da` | CUDA-event solver intervals including operator/Newton construction and every extra evaluation |
+
+These comparisons do not form a single v1.4.1-to-v1.5 end-to-end speedup.
+The free-boundary baseline already contains the Fourier changes. Newton's
+76 promotion checks reproduce the experiment's corresponding native outputs,
+fields, stage reports and correction counts exactly on both architectures;
+they are numerical equivalence checks, not new timing measurements.
+
+### Fourier: preserve rounding, remove repeated work
+
+[Pinned implementation](https://github.com/12ff54e/cuMES/blob/6756fd6/src/kernels/fourier_impl.cuh)
+and [qualification](data/v1.5/docs/performance.md) show that inverse R/Z each
+retain one required constraint sum and lambda retains neither. Basis/sign
+expressions remain runtime expressions to preserve FMA contraction. The four
+weighted forward tables use the original device-rounded products, caching them
+once per stage. W7-X adds 6,144 arena bytes; per-iteration graph topology,
+allocation count and control fences are unchanged.
+
+| GPU / shape | Median μs/pass, before → after | Median run p95 μs | Paired reduction, 95% CI |
+| --- | ---: | ---: | ---: |
+| TITAN Xp / W7-X | 1584.330 → 1501.220 | 1735.455 → 1652.895 | 5.1905% [5.1588, 5.2391] |
+| TITAN Xp / Solovev | 124.565 → 124.335 | 193.810 → 193.985 | 0.3346% [-0.1685, 0.5740] |
+| RTX 4090 / W7-X | 535.545 → 500.770 | 622.805 → 588.895 | 6.4963% [6.4732, 6.5137] |
+| RTX 4090 / Solovev | 83.950 → 83.935 | 128.340 → 127.200 | 0.0179% [-0.0119, 0.1303] |
+
+Sixteen alternating pairs per workload/GPU, 100 warmup + 500 timed passes per
+recorded run, production graphs, precise double, CPU 8. W7-X uses ns=99 and
+Solovev ns=55. TITAN Xp uses CUDA 12.1/native sm_61; RTX 4090 uses CUDA
+12.9.41/GCC 12.4/native sm_89. Both had unlocked clocks. Full numerical dump
+manifests match within each architecture (241 Solovev and 472 W7-X files).
+
+The original artifacts refine a shorthand in the living performance document:
+Pascal's preheat is 1000 warmup + 1000 timed passes, while the Ada report and
+runner use 100 + 1000. The measured windows are identical. Bootstrap uses
+20,000 paired resamples; Pascal seed 20260908 and interpolated percentiles,
+Ada seed 8961 and sorted indices 500/19499. These original intervals are kept.
+Stage setup grows by 0.743/0.762 ms for Pascal W7-X/Solovev and 0.246/0.430 ms
+for Ada. An Ada 653 ms first-allocation outlier and same-executable A/A control
+preclude using these iteration percentages as process-wall gains.
+
+### Free boundary: ordered vacuum kernels and fewer blocking copies
+
+The three vacuum-field commits `4acd589`, `2eb53c9`, `4d19939` were inspected
+at their exact revisions in the existing `../cumes-opt/deps/vacuum-field`
+checkout, because the primary cuMES submodule is checked out at another
+revision. Neither checkout was changed. The source/image/target terms for
+axisymmetric `gstore` are evaluated in parallel, with the original ordered
+weighted accumulation retained in a second kernel. The Solovev scratch is
+240 KiB. Singular RHS systems with at most 256 modes use eight-thread blocks;
+larger systems retain the original 256-thread launch and all per-mode sums.
+`cc2d91d` moves `buco/bvco` and guarded `delbsq` readbacks ahead of existing
+fences using pinned storage. Its zero-initialized diagnostic fixes an inherited
+pre-activation uninitialized read. The two dependency fences remain.
+
+The [complete qualification tables](data/v1.5/docs/free-boundary-performance.md)
+include median, p95, MAD, extrema, paired intervals and all limits. Seven
+alternating pairs per case/GPU follow two warmups per variant. The 20,000-pair
+bootstrap uses seed 20260909. The precise-double hardware/toolchain matrix is
+TITAN Xp/CUDA 12.1.105/GCC 12.4/sm_61 and RTX 4090/CUDA 12.9.41/GCC 12.4/sm_89,
+CPU 8, unlocked clocks. These are different baselines from the earlier
+free-boundary seed/cubic measurements.
+
+| Case | Solver reduction TITAN Xp / RTX 4090 | Process reduction TITAN Xp / RTX 4090 |
+| --- | ---: | ---: |
+| Solovev mgrid | 37.01% / 29.69% | 26.05% / -1.78% |
+| Solovev embedded MAKEGRID | 36.90% / 30.73% | 23.08% / 18.55% |
+| CTH-like | 3.84% / 2.73% | 3.16% / -0.51% |
+| W7-X positive flux | 6.77% / 23.70% | 6.15% / 22.14% |
+
+These are median paired percentages, not ratios of the separate medians.
+Ada CTH solver time is inconclusive; neither Ada CTH nor Ada mgrid Solovev has
+an established process-wall gain. Solovev's two rows are field-setup paths for
+the same geometry. W7-X's original `phiedge=-1.74` rejects against the pinned
+field in both variants; the separately predeclared positive-flux fixture uses
+`+1.74`. No original-W7-X speedup is claimed. All 180 attempts remain: 144
+completed solves including warmups and 36 sign rejections. Completed counts
+remain 389/636 for both Solovev forms, 198/226 for CTH, and 1733 effective
+iterations for positive-flux W7-X. Every successful pair has identical native
+state, published fields and numerical reports within its architecture.
+All 1281 dump files per variant/GPU match, including full stage/controller
+traces. The original float Solovev/CTH failures remain unqualified; float kernel
+equivalence alone does not establish float solve convergence.
+
+## v1.5 trajectory: optional Newton and rejected alternatives
+
+The [complete 19-case study](data/v1.5/docs/axisymmetric-newton-qualification.md)
+and [ADR-0016](data/v1.5/docs/adr/0016-opt-in-newton-corrections.md) retain the
+original five-pair results and all 15-pair uncertainty-selected follow-ups.
+The operator is the negative derivative of the frozen preconditioned descent
+map, using forward differences with maximum physical coefficient perturbation
+1e-6 and GPU GMRES with 32 steps/basis vectors. Trial scales 1, 1/2, 1/4, 1/8
+must preserve valid geometry and reduce the sum of invariant residuals by more
+than 5%. Every original component tolerance, grid and cap remains in force.
+The flag supports only fixed-boundary axisymmetric double and is off by default.
+
+The original 16-case matrix was committed before timing; a separate three-case
+finite-pressure supplement followed. All stage tolerances are 1e-16, grids
+5/11/55 except the declared 5/11/99 case, and caps 1000/2000/2000. The family
+contains correlated Solovev variations, not 19 independent devices. CPU 8,
+precise double, CUDA 12.1/sm_61 on TITAN Xp and CUDA 12.9.41/sm_89 on RTX 4090;
+clocks remain unlocked. Intervals are exploratory per-case 95% paired bootstrap
+intervals, 20,000 resamples, seed 20260908, with no multiple-comparison adjustment.
+
+Prescribed-current Solovev improves from 142.061→114.822 ms on Pascal and
+97.442→83.310 ms on Ada: 19.21% [19.11,19.63] and 14.51% [11.08,14.98].
+Outer stages change 249/211/344→152/103/200, with 136 extra equilibrium
+evaluations included in timing. Original Solovev changes 754→484 outer passes
+plus 136 evaluations, giving only 10.39%/3.96% solver-time reductions. These
+intervals include operator/Newton construction and every probe/trial/rollback,
+but exclude outer stage construction, interstage transfer, process startup
+and output. They are not whole-process or production-flag timing claims.
+
+Fresh Ada follow-ups confirm negative paired gains for cuMES circular
+(-3.11%), mpol=4 (-3.53%), VMEC++ circular (-3.77%) and the 5000 Pa linear case
+(-0.71%). Their intervals exclude zero. All four still save outer passes.
+Selection used initial interval width above 10 percentage points, regardless
+of gain sign; it did not select only favorable cases. Initial and follow-up
+samples remain separate. The complete rows and intervals are in the frozen study.
+
+All 982 configured solves converge and pass native/checkpoint checks. All
+76 Newton-disabled checkpoint replays converge at the original final tolerance
+in one pass. Twelve states are bit exact; 64 only canonicalize 68 dependent-axis
+signed-zero entries. No active/boundary/nonzero value changes a bit. Maximum
+candidate/baseline diagnostics are R/Z displacement 6.7212e-7 m, lambda relative
+L2 3.4835e-6 and native B² relative L2 7.0656e-8. Seven independent VMEC++
+references converge; maximum Newton/reference R/Z displacement is 6.7807e-8 m.
+These equal-coordinate diagnostics do not impose a blanket equivalence bound;
+VMEC++ B² equivalence was not assessed. The CUDA 12.1 graph-initcheck pivot-scale
+report occurs with Newton disabled too and remains unresolved in the archive.
+
+Rejected residual extrapolation, lambda/RZ block corrections, full 3-D Newton
+and two-level FAS are documented in the frozen experiment reports. The FAS
+8-smooth/period-100 screens cost 68.315→74.665 ms for Solovev and
+1695.322→1796.907 ms for W7-X on Ada, including extra coarse/trial work but
+excluding corrector construction. These single screens are not paired gains.
+The explicitly added final-grid CLI option and its qualification were removed
+in `a93db11`; schedule-changing experiments are not shipped optimizations.
+
+### Complete the v1.4 baseline without rewriting the old measurements
+
+Historical poloidal-only float/cache slides retain their original numbers.
+The [v1.4.1 report](data/v1.5/docs/w7x-single-grid-float.md) adds four m=1
+toroidal position sums and split odd scaling, retaining single-word higher
+mode products. Tight-checkpoint median pass costs are 546.79 μs for prior
+poloidal compensation, 562.85 μs for the retained correction and 660.94 μs
+for full odd float-float, from three alternating 300-warmup/500-pass runs.
+The old path does not complete the same ns=99 cold solve; per-pass ratios are
+not solution-time speedups. Released single-grid convergence takes 1354
+effective passes and multigrid 149/277/311 at 1e-5, with one-pass replays.
+Device arithmetic is float/float-float; native geometry remains default.
+Double-double compensated geometry remains a separate opt-in accuracy/cost
+choice, not a new native-double speedup. No float result is compared as
+accuracy-matched to W7-X double at 1e-12.
+
+## Local reproduction on 2026-09-07: protocol and limits
 
 The reproducible raw evidence is in [data/local/](data/local/), with exact
 environment in [environment.json](data/local/environment.json) and all samples

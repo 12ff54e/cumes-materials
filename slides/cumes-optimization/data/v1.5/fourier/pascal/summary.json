@@ -1,0 +1,52 @@
+{
+  "w7x": {
+    "paired_gain_percent": 5.19045225368806,
+    "paired_gain_95_ci": [
+      5.1587900749911935,
+      5.23914113681978
+    ],
+    "baseline": {
+      "median_us": 1584.33,
+      "p95_us": 1735.455,
+      "setup_us": 3844.1000000000004,
+      "median_mad_percent": 0.3373665839818742,
+      "state_hash": "580c0204ef761fe8",
+      "arena_bytes": 69318752,
+      "cufft_work_bytes": 4105728
+    },
+    "candidate": {
+      "median_us": 1501.22,
+      "p95_us": 1652.895,
+      "setup_us": 4587.3,
+      "median_mad_percent": 0.42898442600018255,
+      "state_hash": "580c0204ef761fe8",
+      "arena_bytes": 69324896,
+      "cufft_work_bytes": 4105728
+    }
+  },
+  "solovev": {
+    "paired_gain_percent": 0.3345539628590688,
+    "paired_gain_95_ci": [
+      -0.16853932584270925,
+      0.5739687620381573
+    ],
+    "baseline": {
+      "median_us": 124.565,
+      "p95_us": 193.81,
+      "setup_us": 3422.2,
+      "median_mad_percent": 0.26492192831052497,
+      "state_hash": "3d04b6eb619453ff",
+      "arena_bytes": 704456,
+      "cufft_work_bytes": 63424
+    },
+    "candidate": {
+      "median_us": 124.335,
+      "p95_us": 193.985,
+      "setup_us": 4184.25,
+      "median_mad_percent": 0.26943338561145364,
+      "state_hash": "3d04b6eb619453ff",
+      "arena_bytes": 706376,
+      "cufft_work_bytes": 63424
+    }
+  }
+}

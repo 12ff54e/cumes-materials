@@ -1,0 +1,833 @@
+{
+  "cuMES_revision": "6756fd684b2937c9838154e1577a3a6c92febb0d",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:CHANGELOG.md",
+      "sha256": "022c91d12e7a9ea9ae17fc646a6db9d946f3d319cfd4e3c918ffa5a730e2a748",
+      "bytes": 10991
+    },
+    {
+      "path": "docs/performance.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/performance.md",
+      "sha256": "e7d8e309d2b475335ce8546fe28d15ed80c086181e5ebf7caf24410903544f1b",
+      "bytes": 36471
+    },
+    {
+      "path": "docs/free-boundary-performance.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/free-boundary-performance.md",
+      "sha256": "dc3a5e9ab79ac02aa662aa9379d956f9382ead4ec21f2a32b8f08ad388ae3a16",
+      "bytes": 14156
+    },
+    {
+      "path": "docs/axisymmetric-newton-qualification.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/axisymmetric-newton-qualification.md",
+      "sha256": "8d73cc12cf52bb40cba3be439d6e67d9111498940793f4eff5789a83b5ceaecc",
+      "bytes": 18214
+    },
+    {
+      "path": "docs/adr/0016-opt-in-newton-corrections.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/adr/0016-opt-in-newton-corrections.md",
+      "sha256": "5516faca467c65817eb9bf73f5dfe5d5d29d1ab4d0e32d33a351f31b4c33908a",
+      "bytes": 5910
+    },
+    {
+      "path": "docs/aggressive-optimization-study.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/aggressive-optimization-study.md",
+      "sha256": "e07d8cab8fe1366188126061b81dea2cfbd37cb790001153b16823cc28886230",
+      "bytes": 5200
+    },
+    {
+      "path": "docs/block-correction-experiments.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/block-correction-experiments.md",
+      "sha256": "2e4d48d1e1864e577807dea82af0c589521bef78dd274ba8b5005abb0fd1916a",
+      "bytes": 12513
+    },
+    {
+      "path": "docs/newton-correction-experiments.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/newton-correction-experiments.md",
+      "sha256": "b1858c9690f1514767500aa54520db4ecacb91ddab3f9d9530844beff4a78aa4",
+      "bytes": 14657
+    },
+    {
+      "path": "docs/coarse-correction-experiments.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/coarse-correction-experiments.md",
+      "sha256": "9a2223960e00b67c451d2e78851541b1196c3d1b163dbcafcae6f3105de7e805",
+      "bytes": 10215
+    },
+    {
+      "path": "docs/w7x-single-grid-float.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/w7x-single-grid-float.md",
+      "sha256": "c6ad827c3310d168f948de0dbd9a5da9e3ac180da51aedeff5ff5149f10e7d1d",
+      "bytes": 7555
+    },
+    {
+      "path": "docs/w7x-double-compensation.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/w7x-double-compensation.md",
+      "sha256": "6f120375a65c459917270d8ee6f8fd5aa6e5dd7791867e9ae80c4306be68c534",
+      "bytes": 6106
+    },
+    {
+      "path": "docs/adr/0015-float-only-device-arithmetic.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:docs/adr/0015-float-only-device-arithmetic.md",
+      "sha256": "d87ed5a766793b12dadcf610e83b6051dd13ee0fb168baa9f45e618b71afa279",
+      "bytes": 6091
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/README.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/README.md",
+      "sha256": "cca75cfb8b4b71466ef263f6f9555929ff002b5fcff2a24eef6ae2a1abcd7c84",
+      "bytes": 11782
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/generate.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/generate.py",
+      "sha256": "5fd552999c8d16a78dff9c6153c483ed9c2170b5f7cf3112acc70958fdbb078b",
+      "bytes": 9274
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/generate_pressure.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/generate_pressure.py",
+      "sha256": "81f6a95857c9a484dc2c61dd6b472e0aabc66e661530659698670b3a009728a3",
+      "bytes": 4692
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/00_solovev_reference.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/00_solovev_reference.json",
+      "sha256": "b042c553d0320428edf9a345a934703a44ff8507d6a72425cd2d6ee14bc008f1",
+      "bytes": 740
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/01_solovev_circular.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/01_solovev_circular.json",
+      "sha256": "0c70c8b94308038ee8e7fe17c2d17daee19786b577a3bef8561e015e31acec9a",
+      "bytes": 551
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/02_solovev_elongation_low.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/02_solovev_elongation_low.json",
+      "sha256": "f5226efb004250184fc03f902043aed5f19446be555720660f8a72b836361dfc",
+      "bytes": 739
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/03_solovev_elongation_high.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/03_solovev_elongation_high.json",
+      "sha256": "0dd866d00d6741bc06650f5e956a3bd6e49939c4a7f89df48b5cd3ba116a218d",
+      "bytes": 739
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/04_solovev_triangularity_stronger.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/04_solovev_triangularity_stronger.json",
+      "sha256": "6be0377ac0c0983e9ddf590f1386a4c506a0b9c7f1c0c6074b973c13e5b00c74",
+      "bytes": 739
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/05_solovev_triangularity_reversed.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/05_solovev_triangularity_reversed.json",
+      "sha256": "d6773e131a4ba14c8124cee786f9d4ed15b86bdb8226a834fd0f78fb04636be6",
+      "bytes": 739
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/06_solovev_pressure_half.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/06_solovev_pressure_half.json",
+      "sha256": "60d2b958028c26d9a02ffbff49618c5f7b15d6cd9f684f1cdefeb007eff004db",
+      "bytes": 742
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/07_solovev_pressure_double.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/07_solovev_pressure_double.json",
+      "sha256": "96d566b04fbf7b609766654dcbc01fd675cb0793edf03662bb04d96f695e1aa5",
+      "bytes": 738
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/08_solovev_pressure_quadratic.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/08_solovev_pressure_quadratic.json",
+      "sha256": "a28591081e2735431bb1696203e9f444ed4f8e4c7b65be9893c911f6f3a47723",
+      "bytes": 750
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/09_solovev_pressure_flatcore.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/09_solovev_pressure_flatcore.json",
+      "sha256": "b274d03614e40af0ff4b6d9f2c930ca5dd80b90975ea919af5bd4c8f68782a07",
+      "bytes": 749
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/10_solovev_mpol4.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/10_solovev_mpol4.json",
+      "sha256": "1d96a796520fc17d556008393ff8af213eef2898542bdc964b08f019bc097cfb",
+      "bytes": 740
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/11_solovev_mpol10.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/11_solovev_mpol10.json",
+      "sha256": "37a95a3c35afa5ef374a6d135416ef077f18d36faf83903d6b27da8b23e9324e",
+      "bytes": 741
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/12_solovev_radial99.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/12_solovev_radial99.json",
+      "sha256": "16eabd9502530315adf88fabffc676e0f398cc8f9b1fea59a2b9f874e0b89b4a",
+      "bytes": 740
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/13_solovev_ntheta36.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/13_solovev_ntheta36.json",
+      "sha256": "663c96b033cbda5fba1b4158267e350d77912865bbb5e314f33cf3110c0c24f8",
+      "bytes": 756
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/14_vmecpp_circular.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/14_vmecpp_circular.json",
+      "sha256": "31ee50f9a6949751b2795e570e8be5e35be8d7eed6ebd9353b4697ab2189fc77",
+      "bytes": 869
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/15_vmecpp_analytical_ncurr1.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/15_vmecpp_analytical_ncurr1.json",
+      "sha256": "b928cd8eb0e1bcd5c0a37d79bd5409cffb7fd785ffdcd2c2dfc20f368b82b99d",
+      "bytes": 2110
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/16_solovev_pressure1000_linear.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/16_solovev_pressure1000_linear.json",
+      "sha256": "3711e6593e26e58dece1394741b818bd58325e380c9604a86de30cf8a18965ea",
+      "bytes": 742
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/17_solovev_pressure5000_linear.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/17_solovev_pressure5000_linear.json",
+      "sha256": "fe869dd82a474c578c80bde7e21405f1778a64f7aab309081b31956f7bda0979",
+      "bytes": 742
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/inputs/18_solovev_pressure1000_quadratic.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/inputs/18_solovev_pressure1000_quadratic.json",
+      "sha256": "736208fc6d8bd5d635ae1045b8918ea316b91107d5001539843d6150184ee572",
+      "bytes": 754
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/manifest.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/manifest.json",
+      "sha256": "90f28299f35d97d577873620e030f2b88facf9eaa08114ba0aca981f9f90f776",
+      "bytes": 26176
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/pressure_manifest.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/pressure_manifest.json",
+      "sha256": "c3df305842ae1b66857e6d5f423b9c6b33c460acf37334d848853a0efb4d67a9",
+      "bytes": 6583
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/replay.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/replay.py",
+      "sha256": "ba383fe6c482d9c9c754259c690ec5badcaac0239aca1b02269d77b7fc0c7956",
+      "bytes": 6113
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/results-20260908.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/results-20260908.json",
+      "sha256": "8b315666630f2414991df7b0e3715ea310dc312666a51a4d556fc563ace164bc",
+      "bytes": 117003
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/run.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/run.py",
+      "sha256": "503ae70a837685bf9c01ca535c56e163dd4fae6cf9ac200572ccc9b2a1ddcd6f",
+      "bytes": 13817
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/sources/VMECpp-LICENSE.txt",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/sources/VMECpp-LICENSE.txt",
+      "sha256": "d792a4b3685dc7e1ed5b108dd95433eb0feb15cc6ec8c81a8aaf0aa0cc0a0794",
+      "bytes": 1109
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/sources/solovev.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/sources/solovev.json",
+      "sha256": "8b97a3adbbfde6b1398969daded8b6a7aac4a3857f7f1a142c4cae34ba6562ab",
+      "bytes": 622
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/sources/vmecpp_circular_tokamak.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/sources/vmecpp_circular_tokamak.json",
+      "sha256": "7ee215c856b49597b6091132c1fe17c7e9abe468aa5ab51c6e9d7a3fc64d8089",
+      "bytes": 1006
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/sources/vmecpp_solovev_analytical.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/sources/vmecpp_solovev_analytical.json",
+      "sha256": "b9acd66d80f381e6e95c4a7175f58c46451047f2fdef66eb27efc260d49a5761",
+      "bytes": 2595
+    },
+    {
+      "path": "benchmarks/axisymmetric_newton/validate.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/axisymmetric_newton/validate.py",
+      "sha256": "720b62b9af27240a5ac475595077a4f7eaa702e81d834e44b0d83f1dca1c254f",
+      "bytes": 27433
+    },
+    {
+      "path": "benchmarks/free_boundary/README.md",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/README.md",
+      "sha256": "2e857c2076157ccb638b828bbee53c39c9afee5fbccbd974a451ca3d0a655201",
+      "bytes": 4161
+    },
+    {
+      "path": "benchmarks/free_boundary/analyze.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/analyze.py",
+      "sha256": "77fb9791f8140ada67a7af7615fd667342d21a7be9b4e99559f81fcd2c7a75f7",
+      "bytes": 10953
+    },
+    {
+      "path": "benchmarks/free_boundary/generate.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/generate.py",
+      "sha256": "4b839a1f9652d17285b06666e86bc9508e9978097cf7042e7a4eda27f03a154b",
+      "bytes": 10027
+    },
+    {
+      "path": "benchmarks/free_boundary/inputs/cth_multigrid.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/inputs/cth_multigrid.json",
+      "sha256": "941b4499c596714dc8908e216b749812cce2cff7b3b380e881ba7963326677da",
+      "bytes": 7292
+    },
+    {
+      "path": "benchmarks/free_boundary/inputs/solovev_embedded.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/inputs/solovev_embedded.json",
+      "sha256": "88a81cdf6c33d2bb00dd32cffca9fe0a1b6d0d80e0b825976493dfeb644b85e9",
+      "bytes": 1680
+    },
+    {
+      "path": "benchmarks/free_boundary/inputs/solovev_mgrid.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/inputs/solovev_mgrid.json",
+      "sha256": "58123d34d2dd55796f295e877bf12209619788299d2946e0302d1da0c4180878",
+      "bytes": 1323
+    },
+    {
+      "path": "benchmarks/free_boundary/inputs/w7x_original.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/inputs/w7x_original.json",
+      "sha256": "9b88f0f221a4a7e943ccf420b46a58921375d2e7601c051612edb5db5c62b30d",
+      "bytes": 12263
+    },
+    {
+      "path": "benchmarks/free_boundary/inputs/w7x_positive_flux.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/inputs/w7x_positive_flux.json",
+      "sha256": "67e0e5756f5e0f21c0bec4ceb3fcc84b54b081192a7105c2b4abf1cab9d0d8b3",
+      "bytes": 12262
+    },
+    {
+      "path": "benchmarks/free_boundary/manifest.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/manifest.json",
+      "sha256": "7977433877418a025d20882ba0a21ec9d30e93b154dd8d20e2dd127e0660db95",
+      "bytes": 9486
+    },
+    {
+      "path": "benchmarks/free_boundary/results/20260909.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/results/20260909.json",
+      "sha256": "e587a48ea6025f274ed68b12c34b094a9e51c850d305ae175a9b70a7b48a86dc",
+      "bytes": 542756
+    },
+    {
+      "path": "benchmarks/free_boundary/run.py",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/run.py",
+      "sha256": "bf70287dbf2c2d497118bb19330406b67e0312bbb77a75690b044f5a986caae1",
+      "bytes": 12123
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/VMECpp-LICENSE.txt",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/VMECpp-LICENSE.txt",
+      "sha256": "d792a4b3685dc7e1ed5b108dd95433eb0feb15cc6ec8c81a8aaf0aa0cc0a0794",
+      "bytes": 1109
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/coils.solovev",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/coils.solovev",
+      "sha256": "50f11371c1528722fd9c967f072c0ab95ce79211ef745a263a785f7d72529823",
+      "bytes": 985
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/cth_like_free_bdy_multigrid.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/cth_like_free_bdy_multigrid.json",
+      "sha256": "336acb5b1bee6560dda675db596bda377d61bb890a73aa043642179c04800557",
+      "bytes": 9603
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/makegrid_parameters_w7x.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/makegrid_parameters_w7x.json",
+      "sha256": "dcad32ec1d0d79bc446011feefaeabfa59111d6281b9fe68558a62c8657b5d1a",
+      "bytes": 312
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/solovev_free_bdy.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/solovev_free_bdy.json",
+      "sha256": "dd01ef2b5fd9475057039e9e0c548b8766b6f68b0a83c511ec795cfebbf3c1dd",
+      "bytes": 1351
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/solovev_free_bdy_embedded.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/solovev_free_bdy_embedded.json",
+      "sha256": "ed3f7606fd5d61253c1cf24f1782957fa90e1797af188b9237ace969cd1f3638",
+      "bytes": 1505
+    },
+    {
+      "path": "benchmarks/free_boundary/sources/w7x_free_bdy_vac.json",
+      "source": "cuMES:6756fd684b2937c9838154e1577a3a6c92febb0d:benchmarks/free_boundary/sources/w7x_free_bdy_vac.json",
+      "sha256": "87594b3f5beb38dd8f942abdff5da7530854fcbaa3f4d2f8f1cee27857ef7cff",
+      "bytes": 10586
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-0.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-0.json",
+      "sha256": "46f3f53a9534252e642bc34fb0270a0950b349fd48f54f13131b7845da375cba",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-1.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-1.json",
+      "sha256": "447deb0ae11162b38001093a64f9e513ea9ea5c24d21838e84bba4cce9ed1879",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-10.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-10.json",
+      "sha256": "6bf3b00146c03c765e08fcf5815ac60410f2944d6f6ed2bea06ad47d8dedce40",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-11.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-11.json",
+      "sha256": "f31d1e820c1327d8672d4985539eaad9e64a6c78c214b50e08ddb34b49e9cd57",
+      "bytes": 751
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-12.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-12.json",
+      "sha256": "19982f4856bb1e8e563d0a463d4572f8ef47fb352ae3d542ba2fa496be43251c",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-13.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-13.json",
+      "sha256": "2b01f82e0c91d2cbe7cdfcce3ac626c326e5860a7bad6d856fac08eaf559f80a",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-14.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-14.json",
+      "sha256": "b034d7704300c0a2b171d6b7a3b10556843a411940bb5a39eadcf6516201baa2",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-15.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-15.json",
+      "sha256": "829613831e6ecb54104b16ae38c63d7cf54bb3d186f53678972efb33315d3052",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-2.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-2.json",
+      "sha256": "446d5fd25817f6ec57d893e7a452b3ff8d3102a3d3cc12cafe0bb6c7d31a2a25",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-3.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-3.json",
+      "sha256": "9b4e184e75f5f4ee6498ebca1e8c4d83657976c67b462a220980825d03b61399",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-4.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-4.json",
+      "sha256": "9c3966b346e452b12569cdc99ef1b2c337cd1b7590c98af1c775bb01ebbec2aa",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-5.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-5.json",
+      "sha256": "99bc3db483e23fdc34f7de87b162ae09fe38da1176488b5e35bbc179d6519578",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-6.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-6.json",
+      "sha256": "1193149a10e993827654dbd335e00952daa9288665ad8d53b2abcf274f3a4af6",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-7.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-7.json",
+      "sha256": "a2671a6b37818190db044d0906d65bcb66da68efdd62d8780494dcd97cd2ec8e",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-8.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-8.json",
+      "sha256": "5bba11d3d6cc136a5fc35aeb3f19d769af6a7bdf6e957808ac49f37e8660fc72",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-9.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-9.json",
+      "sha256": "80ee5174c5ae666786d13220459cf39f35eb205a6b2412278759b91e43920b0f",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-baseline-preheat.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-baseline-preheat.json",
+      "sha256": "1980b0997b2b2a77101f4199af1e7c8b06ebfc18821e3bf0cf88a2da2a84fd61",
+      "bytes": 757
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-0.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-0.json",
+      "sha256": "d79cd18b5b8252c3327d1c9a471af1bbc2151a5e580e5c94c61b579761f9d81c",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-1.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-1.json",
+      "sha256": "7c64d903afd3f12d2f63c623ac066e58528d88dbaa8f13f5905b7e1795ab7d34",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-10.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-10.json",
+      "sha256": "6cfa9af0866441c26ee1e985f8bef1fcd1c50dc913d66cacb38bea52d0684b68",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-11.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-11.json",
+      "sha256": "982eb6db0d4271414aaf2ce149dee8837cb730ef480e0e323517945ae74ad961",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-12.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-12.json",
+      "sha256": "5b9f901f382db06c472916d443991c19d9a9321a51d7a0bc33c00a63d7030256",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-13.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-13.json",
+      "sha256": "aed0056de0b9654d7f5f331266afae623f5f2af167191d26b3476f93af5dfcf3",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-14.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-14.json",
+      "sha256": "9f6da83287dba03769bc4034801032b8911c21ef8d3b60ffec931ddeb5657cf2",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-15.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-15.json",
+      "sha256": "5f6c52507b7e2299f1b556e06a7ae7bf053a695c033e5e146e981d9514a2cf91",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-2.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-2.json",
+      "sha256": "2f6442dc83d5d270e78c98aff5d9605e9173896969b3fae0feb460977561b894",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-3.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-3.json",
+      "sha256": "3b31fe4980a83bc84d6275dad514d17cc83d4c8b4251f32a3139275abd0b28b8",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-4.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-4.json",
+      "sha256": "c8eba78b11f3b60a642bdd2e59f4659bc7630db56185f8fcc064ac83d59f3208",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-5.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-5.json",
+      "sha256": "5ca786aac53efbcdd6885cde542e25948218e0400bf5cdd4e3805e80473dcf38",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-6.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-6.json",
+      "sha256": "6658caf67925b167777c1f24acc92023629d9eedcd1318a2c4e6d9a2ed198cb7",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-7.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-7.json",
+      "sha256": "7cf1e33db2640a5c86be5ce25feb567ba4612e1c7fef0d27717655c8b964ebbc",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-8.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-8.json",
+      "sha256": "ebe583b19659a7603647b7033b66b4b0b9fa5ac4b40bbfd72f5b03abfe382b8e",
+      "bytes": 752
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-9.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-9.json",
+      "sha256": "dddf50266552e01baecef5da518e7648e1b09fbf106e00bfbde2f6e6161acff1",
+      "bytes": 753
+    },
+    {
+      "path": "fourier/pascal/solovev-candidate-preheat.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/solovev-candidate-preheat.json",
+      "sha256": "08b6cac0afd4482af2ec52d8cb94fbd786e6ce2328dd2336e90cdcbe54a83efc",
+      "bytes": 757
+    },
+    {
+      "path": "fourier/pascal/summary.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/summary.json",
+      "sha256": "392937cce3822c07ee4a02b5a9fcd83a3a4d7df4e6c31b7b9283a78e6179fe6c",
+      "bytes": 1338
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-0.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-0.json",
+      "sha256": "06215ec33ee7572ab4829f615bb1dbab92ecdcaad2691ae76f3a13bef82cb93a",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-1.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-1.json",
+      "sha256": "8b8990ecb53dab68d9c15e80c506223c9921a6699aac155ed6d915875f28a6d2",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-10.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-10.json",
+      "sha256": "2891a9a4c2d97bef466ee991db275a88cb2b1e0994874656cb6a69e298429b95",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-11.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-11.json",
+      "sha256": "7ff305e7d1cadac2d61e6e50f6fc205be48e7ea03acfe897f184bb5c203b3b04",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-12.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-12.json",
+      "sha256": "99839e751cce8e0dd035ed8196205f347692b26a69c5e86044ab6c2c13b44a58",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-13.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-13.json",
+      "sha256": "7a5efb5ff7b5074da531eac2c8ce87a1d21c2fd7adbf71995fd1f7ea579179a5",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-14.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-14.json",
+      "sha256": "f7748798a1f82bf75901517af1d3131cbad209b42207b70a4425bcba7523d4a4",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-15.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-15.json",
+      "sha256": "4e2be08a63c72f88fa4e51c520d469ec2582f89873f6b037f917719b0c35bb28",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-2.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-2.json",
+      "sha256": "8396cb618a33d84f7dd1bde77447918148460ac3c8648f3b57e5eec552cb877c",
+      "bytes": 760
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-3.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-3.json",
+      "sha256": "fb2bbdd227d89d6481c80e463c6cc7691c57c93d79dacbe5fd212c3c9f46427d",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-4.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-4.json",
+      "sha256": "04d801cfc6d110ce88b375efca4bcb00957155cceaf79ec82241cd0083c5e2e7",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-5.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-5.json",
+      "sha256": "354c2e690f20763da701aa28d73c640d61382470d2cc2a352b634b8888b7b14e",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-6.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-6.json",
+      "sha256": "da0ccdd6a6d625ab97d4dcc97dc4a33f5b928447b7c5718aee94b72263110d9c",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-7.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-7.json",
+      "sha256": "8a6fcef857ea8bfa1a481aa0dbd401d10cdffa932bbebd9d5ad6c8ecf376bc5e",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-8.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-8.json",
+      "sha256": "37e6d0bc4794e5e6a0c85f909497e13de6b262bce1efbc09dabd8c3b7f2874bd",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-9.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-9.json",
+      "sha256": "4456ca1fde69ae5f1d796fa4e40da607b69b611e52f14a08a319572b52437fd4",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-baseline-preheat.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-baseline-preheat.json",
+      "sha256": "de97bd85624b32697e317417ad878e64c99fae9fb775a9079721093687335d1a",
+      "bytes": 766
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-0.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-0.json",
+      "sha256": "ee5eb36266e0b7e78ad2e12a2432b4d39feee323a5b450048d2a6670ccecba07",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-1.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-1.json",
+      "sha256": "62c8965f5e5202e73132cd93d87cded28f505b076d339fc2031414da84663cea",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-10.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-10.json",
+      "sha256": "2f3d5d20a5806bef8350b75cee3071db7e4c80e848abc28d49903ea239ca3f8b",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-11.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-11.json",
+      "sha256": "6f982cddf89a846b0180758d96f89a1f4ab501dfc35e3fd04f1c5a3b7fc86a6a",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-12.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-12.json",
+      "sha256": "4de2ef5c204d1ec81fa929232ee5f9bf11f70e90b79b80fc1ae3c982d785c2b4",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-13.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-13.json",
+      "sha256": "d7d5931ea3c446ca186965cf0d94fa77a6f8413bcaa7e3fe904ca97dc3bbc245",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-14.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-14.json",
+      "sha256": "1083a4ae68f239fd9586ea443c06dd27ba6dd27ad5c2bc6f50a6665af2e17484",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-15.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-15.json",
+      "sha256": "32f69e7084556d06233897d5ba53a73e509454b9c6c6898b51f81647296436d7",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-2.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-2.json",
+      "sha256": "6b46b10324cd00423acbcef0b5a41b4405ceb54dfaa10ac9b37c0b99d0668068",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-3.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-3.json",
+      "sha256": "beeabfebdd386dd5d4f411b0d4d9f0dbcca59c761baee2cfc06e4041865eb596",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-4.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-4.json",
+      "sha256": "43eacc02f990289e0f2e4b7268700be0d0e6f834746bb00feb74d18c4c4a534e",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-5.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-5.json",
+      "sha256": "ae5e2474f07e10a49f846805c35dbb34b6eafd602c8efeb4f9665b5d21b025d5",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-6.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-6.json",
+      "sha256": "2e1a1da1ad30561f1999b1a8269fb1ccffc3d5972ad006acaf226ac3739d7826",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-7.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-7.json",
+      "sha256": "1b2e2be389c3d6aa97a8549284b0feb8cf9c07183215b54cff92797d2c096a84",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-8.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-8.json",
+      "sha256": "e365ed256c0978ad88ce111feea6943691d0d7afc5bcf368f45292bee33ef98b",
+      "bytes": 762
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-9.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-9.json",
+      "sha256": "bbf392118e0bd1e0332f6a093d20e7147daf9da08e61ce55d0d2c15d28e02105",
+      "bytes": 761
+    },
+    {
+      "path": "fourier/pascal/w7x-candidate-preheat.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/final-pascal/w7x-candidate-preheat.json",
+      "sha256": "653039f13f2dcbab9c4b8fefa6b787d1c93a3652f1e82e443bfbbe205a54db7d",
+      "bytes": 766
+    },
+    {
+      "path": "fourier/measure_pascal.py",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/measure_pascal.py",
+      "sha256": "d58f7d6891d448873ddc516f15f4345fc52aa0a2db60dbd44f7fb6d391e9beb0",
+      "bytes": 3159
+    },
+    {
+      "path": "fourier/ada-report.md",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/ada-report.md",
+      "sha256": "5422f2f46593f227b9698c7a6a95e6b0f79df882ac67484b34c391431000ec4e",
+      "bytes": 6932
+    },
+    {
+      "path": "fourier/ada/results/weighted/summary.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/ada-results.tar.gz:results/weighted/summary.json",
+      "sha256": "225c609ad20842f047bc01096b1f0e8758d8d4c635e8726662be8cde849462c9",
+      "bytes": 1634
+    },
+    {
+      "path": "fourier/ada/results/weighted-runs.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/ada-results.tar.gz:results/weighted-runs.json",
+      "sha256": "068431584149a3033edf71bcb2ffaf8b98183ab03b635bd2f05636cff770c3fb",
+      "bytes": 58128
+    },
+    {
+      "path": "fourier/ada/results/build-identity.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/ada-results.tar.gz:results/build-identity.json",
+      "sha256": "11cbe69350451ea54f76923eb4958361ae1691dd079c2c5bb9cbbc7c068dd931",
+      "bytes": 2694
+    },
+    {
+      "path": "fourier/ada/benchmark-pinned.py",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/ada-results.tar.gz:benchmark-pinned.py",
+      "sha256": "b4387a1d0c41460c806ca44c27de9f5c90676d0ca5bbe07210eff377fce49cda",
+      "bytes": 3748
+    },
+    {
+      "path": "fourier/ada/results/weighted-vs-inverse-runs.json",
+      "source": "/lustre/qzhong/magnetic-equilibrium-solver/tmp/cumes-opt-20260908/ada-results.tar.gz:results/weighted-vs-inverse-runs.json",
+      "sha256": "4e0223f8556694f16004f39da82ba1f14cb18324f05d8f7f37d62f1a5fa21202",
+      "bytes": 21865
+    }
+  ]
+}

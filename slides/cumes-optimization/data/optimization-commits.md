@@ -1,8 +1,8 @@
 # Optimization commit inventory
 
-Audited every commit reachable in `dc0d0c4..194415d` (including merged history), not just commits named perf. `dc0d0c4` closes the design overhaul; safety/reader closeout ends at `56aa1a4`. Earlier Phase 6 results are explicitly background. Release markers: `dbb0f8e` v1.0, `f7036ab` v1.1, `17867d5` v1.2, `750d6a4` v1.3. The independent, unmerged `webgpu` branch is outside this CUDA deck.
+Audited every commit reachable in `dc0d0c4..6756fd6` (including merged history), not just commits named perf. `dc0d0c4` closes the design overhaul; safety/reader closeout ends at `56aa1a4`. Earlier Phase 6 results are explicitly background. Release markers: `dbb0f8e` v1.0, `f7036ab` v1.1, `17867d5` v1.2, `750d6a4` v1.3, `ef67884` v1.4.0, `f0c17f7` v1.4.1, `6756fd6` v1.5.0. The independent, unmerged `webgpu` branch is outside this CUDA deck.
 
-Total commits inspected: 197. The complete file-level inventory is [commit-audit.tsv](commit-audit.tsv). The table below includes retained changes, rejected experiments, relevant supporting work, and measured tooling. Feature-only sensitivity construction commits remain in the complete inventory.
+Total commits inspected: 244. The complete file-level inventory is [commit-audit.tsv](commit-audit.tsv). The table below includes retained changes, rejected experiments, relevant supporting work, and measured tooling. Feature-only sensitivity construction commits remain in the complete inventory.
 
 | Commit | Category | Finding |
 | --- | --- | --- |
@@ -48,3 +48,42 @@ Total commits inspected: 197. The complete file-level inventory is [commit-audit
 | [3cebb49](https://github.com/12ff54e/cuMES/commit/3cebb495fcb5c5bab634a698905fc49bf3a26440) | accuracy | Selective compensated odd R/Z reconstruction |
 | [bd01518](https://github.com/12ff54e/cuMES/commit/bd01518cf58a6e6dd65f4a89c47642696d7bced5) | accuracy | Default float 3-D radius displacement representation |
 | [194415d](https://github.com/12ff54e/cuMES/commit/194415df8590e7523048b3904e1a59b07e789148) | execution | Cache immutable radius reference once per stage |
+| [057d753](https://github.com/12ff54e/cuMES/commit/057d753e389ad889805b4a1563d01fb6c43be695) | support | Expose native/compensated geometry precision without another numerical gain |
+| [1e4ffbc](https://github.com/12ff54e/cuMES/commit/1e4ffbc3d99d1509a9ab053b2bfb54e982d84d62) | accuracy | Double-double odd geometry reconstruction; opt-in accuracy/cost tradeoff |
+| [2f30c6c](https://github.com/12ff54e/cuMES/commit/2f30c6c470bca50eeea92069192b12462253dd40) | evidence | Document double compensation error and additional arithmetic cost |
+| [f1a14f6](https://github.com/12ff54e/cuMES/commit/f1a14f6bf0c66fe6f1279f64c0fe27a2411b418d) | accuracy | Float-only device arithmetic including control/norm reductions; new qualification counts |
+| [4b666f8](https://github.com/12ff54e/cuMES/commit/4b666f81917c807d7f1511aa070af9eacb66116b) | evidence | FP64 instruction audit and float-only device policy; not a double-matched speedup |
+| [9c59702](https://github.com/12ff54e/cuMES/commit/9c59702c6e0af8073b356b5077e3f8b183f95d04) | accuracy | Compensate only four m=1 toroidal position sums to complete float single-grid convergence |
+| [0d8482a](https://github.com/12ff54e/cuMES/commit/0d8482a0fda13d5560741d16ff0b05bfbd18abf2) | execution | Retain single-word higher odd-mode products; float corrected pass 562.85 vs full diagnostic 660.94 us |
+| [1f6e654](https://github.com/12ff54e/cuMES/commit/1f6e6543a266000599e82d8663b761d7650c191a) | evidence | Float single-grid 1354 passes, multigrid 149/277/311, replay and correction cost |
+| [66a557a](https://github.com/12ff54e/cuMES/commit/66a557a83af62c06d4f2b874adabc545be115761) | execution | Inverse R/Z compute only their required constraint sum; lambda computes neither |
+| [21b6043](https://github.com/12ff54e/cuMES/commit/21b6043b1cb95ac09c529668fcc1a0a031743cca) | execution | Cache four weighted forward bases per stage with original device-rounded products |
+| [9316169](https://github.com/12ff54e/cuMES/commit/9316169643a31799acea48c6ee5063e6c3fa908f) | evidence | 16 transform pairs on each architecture; W7-X 5.19% Pascal and 6.50% Ada, exact trajectories |
+| [e14316d](https://github.com/12ff54e/cuMES/commit/e14316d045c42f7675280491f93eb94fd69ff92e) | rejected | Residual extrapolation adds evaluations; schedule experiments change caller inputs and are not defaults |
+| [03110b5](https://github.com/12ff54e/cuMES/commit/03110b5cd78dfd94f7e3a63ba65706901242ecee) | reverted | Explicit final-grid-only CLI option; subsequently removed in a93db11 |
+| [c639d61](https://github.com/12ff54e/cuMES/commit/c639d61e3831842d72f9551b48e9cedf23a3c38e) | reverted | Final-grid schedule qualification removed with its option; not a shipped v1.5 speedup |
+| [a93db11](https://github.com/12ff54e/cuMES/commit/a93db1159abbddd36f876d88689d3aedefa9ece0) | reverted | Remove final-grid option and its qualification; preserve caller-specified stages |
+| [6888b7c](https://github.com/12ff54e/cuMES/commit/6888b7c62f19ed098275efec84c3f3be281ac707) | experiment | GPU lambda inner solve and coupled R/Z probes; no retained production correction |
+| [8e75151](https://github.com/12ff54e/cuMES/commit/8e751512c3310b2ea5b6174935534383f124a534) | support | Validate probe arguments and exact rollback before interpreting reductions |
+| [23ec41b](https://github.com/12ff54e/cuMES/commit/23ec41bbe72dfa90c11301cdfb0a897142dc7208) | rejected | Lambda and radial block corrections fail whole-solve work/cost gates |
+| [e4e6f68](https://github.com/12ff54e/cuMES/commit/e4e6f686ddb07058428544d397b8a5d0d4c2223a) | support | GPU restarted GMRES with reorthogonalization; later promoted for Newton |
+| [d1a449c](https://github.com/12ff54e/cuMES/commit/d1a449ce986ebd47678b220833932a5f0f01332f) | support | Exact production descent-coordinate maps and boundary/gauge tests |
+| [6825031](https://github.com/12ff54e/cuMES/commit/6825031a2012df16566a4798af63c12f86a45a6f) | experiment | Fully coupled frozen-epoch finite-difference Newton probe with GPU GMRES |
+| [77ad7be](https://github.com/12ff54e/cuMES/commit/77ad7be4ba4b33fabbfbf2abb6c7944d21729b2c) | rejected | Two-level FAS screen adds enough coarse/trial work to slow both complete solves |
+| [fad9e8b](https://github.com/12ff54e/cuMES/commit/fad9e8b29a8ad216da0453c1faae7a7615ff55ce) | support | Translation-unit-local probe kernel; build correctness, no independent speedup |
+| [fd10788](https://github.com/12ff54e/cuMES/commit/fd10788c70fcc6f987766c1a2a01bbd19f2cfa6b) | evidence | Full Newton/FAS outcomes; W7-X Newton lacks reliable gain across architectures |
+| [8e2ae73](https://github.com/12ff54e/cuMES/commit/8e2ae73aee89926a4ce23ff8f7b63e7cc73f10bb) | measurement | Predeclare 16 axisymmetric inputs and provenance before timing |
+| [e809507](https://github.com/12ff54e/cuMES/commit/e80950766774c3d75e906a307c9de93dff6acc05) | measurement | Separately predeclare three finite-pressure Newton cases |
+| [8e81087](https://github.com/12ff54e/cuMES/commit/8e81087ec9863ec90e8dcfd69c35d89483eefdd8) | measurement | Validate native fields, input provenance, physical geometry and independent VMEC++ references |
+| [c1c7ca6](https://github.com/12ff54e/cuMES/commit/c1c7ca61c46ee555a3934e7d976e5b3289512868) | measurement | Paired axisymmetric runner; unchanged schedules, native report checks and full cost accounting |
+| [cd153ee](https://github.com/12ff54e/cuMES/commit/cd153ee4c616f151474cd013d373e75552a77c80) | measurement | Audit checkpoint signed-zero exceptions and physical validity |
+| [26d266c](https://github.com/12ff54e/cuMES/commit/26d266cfede556f68cab61650fb172e78e9a8c27) | measurement | Replay checkpoints at original final-stage tolerance |
+| [ade135f](https://github.com/12ff54e/cuMES/commit/ade135fe86bb8afd1b40f91fe0cf184b52aad0dc) | evidence | 19 Newton cases; preserve initial and fresh follow-up pairs, gains and Ada regressions |
+| [ca33025](https://github.com/12ff54e/cuMES/commit/ca330252479978a673436ecdc052c9c9056d94ab) | support | Promote exact tested Newton/GMRES implementation into reusable CUDA library |
+| [bcdd3da](https://github.com/12ff54e/cuMES/commit/bcdd3dab5149dc0c5ec8608574f59f2d6932b398) | trajectory | Off-by-default --newton for fixed-boundary axisymmetric double; 76 promotion equivalence solves |
+| [4df6dae](https://github.com/12ff54e/cuMES/commit/4df6dae4e0e95861e485bf56b936d0f029b2490d) | measurement | Pin five free-boundary fixture variants, field hashes and original W7-X sign rejection |
+| [0bc92e2](https://github.com/12ff54e/cuMES/commit/0bc92e26e4823cc9d0e82e053b6d467ba68e7677) | execution | Vacuum dependency 4acd589: parallel axisymmetric terms, original ordered weighted sum |
+| [f8bbfa2](https://github.com/12ff54e/cuMES/commit/f8bbfa23b10950097c3fe51fdccf90e5f46d0cbf) | execution | Vacuum dependency 2eb53c9: spread singular RHS modes over eight-thread blocks |
+| [cc2d91d](https://github.com/12ff54e/cuMES/commit/cc2d91db4e55c956fd611311006ba66dd234b710) | execution | Pinned copies before existing fences; guard uninitialized diagnostic; dependency 4d19939 keeps large RHS fallback |
+| [be654be](https://github.com/12ff54e/cuMES/commit/be654be3de103bab5dcc0a40ca3aa9844816402a) | evidence | Seven free-boundary pairs per GPU/case; separate process time, exact full traces and retained failures |
+| [336c4ca](https://github.com/12ff54e/cuMES/commit/336c4cac176d2c177d6009554dcee7350217bab8) | support | Preserve saved benchmark protocols before rejecting incompatible reruns |

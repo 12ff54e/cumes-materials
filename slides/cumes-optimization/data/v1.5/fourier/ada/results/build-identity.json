@@ -1,0 +1,37 @@
+{
+  "baseline_commit": "f0c17f76bcdc319f88c4c9dd0f89e7364bf7bc91",
+  "host": "Gervais",
+  "gpu_index": 2,
+  "cpu_affinity": [
+    8
+  ],
+  "cuda": "12.9.41",
+  "host_compiler": "GCC12.4.0",
+  "driver": "570.169",
+  "architecture": "sm89",
+  "cmake": "3.28.1",
+  "precision": "verify-double",
+  "optional_backends": "NetCDF/HDF5/vacuum-field/magnetic-coordinate OFF",
+  "bspline": true,
+  "hashes": {
+    "baseline/bin/cumes": "ac7c0e9cac740cad8400681d34e4618ac76a291b4b0a416b9afb9eb19d71b34a",
+    "baseline/bin/cumes_benchmark_fixed_iteration": "e9f9aeea7971ee39287a0ac89e84912a31480afe4f77893853125d65d00c273b",
+    "baseline/source/src/kernels/fourier_impl.cuh": "372c4143dd92110d73a92253680b20eb7681382bf66bf76c38812893eb6766e4",
+    "baseline/source/src/kernels/solver_impl.cuh": "75299a930273f0c699cf04d070f565e47d2bac45d7e2fedb33a59c9f7d23cc77",
+    "baseline/source/include/cumes/transforms/toroidal_fft_operator.hpp": "78cfe85a6c686fee50210f56918478fe88145e6dad0490fa830ae91864b98a02",
+    "baseline/source/include/cumes/solver/stage_solver.hpp": "d4c745f1f31a972c2302107e4e4cd7abb383b284c58ec9d9921ec4ac93e5ec8e",
+    "inverse-only/bin/cumes": "b2278c17cc80cbff771150ab05ee58bb28c6f7003c5da74bd0ed471712da7824",
+    "inverse-only/bin/cumes_benchmark_fixed_iteration": "58af6573b94dc8ed1b92759d7dca64238289476db304c74de5d639f55f92d82d",
+    "inverse-only/source/src/kernels/fourier_impl.cuh": "4070b16d6624d9d6d72fca0654e612ff96bbd1c915958d6985f4eff684e78df9",
+    "inverse-only/source/src/kernels/solver_impl.cuh": "75299a930273f0c699cf04d070f565e47d2bac45d7e2fedb33a59c9f7d23cc77",
+    "inverse-only/source/include/cumes/transforms/toroidal_fft_operator.hpp": "78cfe85a6c686fee50210f56918478fe88145e6dad0490fa830ae91864b98a02",
+    "inverse-only/source/include/cumes/solver/stage_solver.hpp": "d4c745f1f31a972c2302107e4e4cd7abb383b284c58ec9d9921ec4ac93e5ec8e",
+    "weighted/bin/cumes": "14c5eeb8c2808e58fdd490368de92787a7432dcf7aa226b7f270aefa06d60244",
+    "weighted/bin/cumes_benchmark_fixed_iteration": "b39bc342df9ef2384e9f3b92e534c9c14be8b1e6018a98979af95be95b0a599a",
+    "weighted/source/src/kernels/fourier_impl.cuh": "042f08e68cfcfd5020d219804ea8a47af28e1cb5255f52d79ebd2a38651acf48",
+    "weighted/source/src/kernels/solver_impl.cuh": "75299a930273f0c699cf04d070f565e47d2bac45d7e2fedb33a59c9f7d23cc77",
+    "weighted/source/include/cumes/transforms/toroidal_fft_operator.hpp": "b47b3a7c5d5ba72bc6aa22e845fad1a5b01430a882635318e831f6f241d0f3a8",
+    "weighted/source/include/cumes/solver/stage_solver.hpp": "e8d3e56aedee82f25ff5f4238a49a2db40fd6098831705725d7b70ceab374ce8"
+  },
+  "compat_header_sha256": "2977b1031b5a6ee14743692f9253fe1d0fe114669105620022c4b74fb844e2b7"
+}

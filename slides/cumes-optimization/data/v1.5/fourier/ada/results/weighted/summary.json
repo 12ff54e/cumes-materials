@@ -1,0 +1,66 @@
+{
+  "solovev": {
+    "baseline": {
+      "median_us": 83.95,
+      "p95_us_median": 128.34,
+      "run_median_min": 76.01,
+      "run_median_max": 84.8,
+      "run_median_mad_pct": 0.029779630732577222,
+      "hashes": [
+        "3d04b6eb619453ff"
+      ],
+      "arena_bytes": 704456,
+      "cufft_work_bytes": 0
+    },
+    "weighted": {
+      "median_us": 83.935,
+      "p95_us_median": 127.2,
+      "run_median_min": 75.83,
+      "run_median_max": 84.95,
+      "run_median_mad_pct": 0.03574194317030325,
+      "hashes": [
+        "3d04b6eb619453ff"
+      ],
+      "arena_bytes": 706376,
+      "cufft_work_bytes": 0
+    },
+    "paired_median_gain_pct": 0.01786635968629713,
+    "paired_median_gain_bootstrap95_pct": [
+      -0.011916110581511319,
+      0.13031590650386948
+    ],
+    "hashes_match": true
+  },
+  "w7x": {
+    "baseline": {
+      "median_us": 535.545,
+      "p95_us_median": 622.8050000000001,
+      "run_median_min": 535.42,
+      "run_median_max": 539.6,
+      "run_median_mad_pct": 0.006535398519270092,
+      "hashes": [
+        "f9feb62e18f39758"
+      ],
+      "arena_bytes": 69318752,
+      "cufft_work_bytes": 0
+    },
+    "weighted": {
+      "median_us": 500.77,
+      "p95_us_median": 588.895,
+      "run_median_min": 500.73,
+      "run_median_max": 501.96,
+      "run_median_mad_pct": 0.006989236575667106,
+      "hashes": [
+        "f9feb62e18f39758"
+      ],
+      "arena_bytes": 69324896,
+      "cufft_work_bytes": 0
+    },
+    "paired_median_gain_pct": 6.496307383681709,
+    "paired_median_gain_bootstrap95_pct": [
+      6.473207436953082,
+      6.513701642248315
+    ],
+    "hashes_match": true
+  }
+}
