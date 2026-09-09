@@ -1,13 +1,14 @@
 # Making cuMES faster
 
-A 46-slide web presentation in the existing Technical Blueprint style.
+A 64-slide web presentation in the existing Technical Blueprint style,
+updated through cuMES v1.5.0 (`6756fd6`).
 The two main parts cover CUDA execution/data movement and convergence-trajectory
 changes. An appendix covers later concurrency, cold-start, sensitivity, and float
-work. The history audit includes 197 commits after design closeout, with 42
+work. The history audit includes 244 commits after design closeout, with 81
 highlighted changes and evidence records.
 
 Open [index.html](index.html), or read the exported
-[46-page PDF](cumes-optimization.pdf). To serve from the repository root:
+[64-page PDF](cumes-optimization.pdf). To serve from the repository root:
 
 ```bash
 python3 -m http.server 8000 --directory slides/cumes-optimization
@@ -33,19 +34,44 @@ the dependencies. See the repository [README](../../README.md) for deployment.
 - Slides 1–4: scope, version boundaries, measurement definitions.
 - Slides 5–20: execution, CUDA graphs, reduction/mapping changes, data movement,
   Makegrid, asynchronous transfer setup, concurrency, rejected experiments.
-- Slides 21–39: recovery, seeds, axisymmetric policy, vacuum activation, radial
+- Slides 21–29: v1.5 Fourier reuse, vacuum kernels and pinned transfers,
+  two-GPU timing intervals, process wall time, failures and exact trajectories.
+- Slides 30–48: recovery, seeds, axisymmetric policy, vacuum activation, radial
   interpolation, release comparison, local residuals and checkpoint replay.
-- Slides 40–44: later work appendix.
-- Slides 45–46: supported conclusions and evidence access.
+- Slides 49–56: v1.5 opt-in Newton, extra work, measured gains and regressions,
+  endpoint checks, and rejected block/FAS/three-dimensional corrections.
+- Slides 57–62: v1.3/v1.4 appendix, including released v1.4.1 float results.
+- Slides 63–64: supported conclusions and evidence access.
 
 Each slide has source references and speaker notes. Consult
 [evidence.md](evidence.md) for pinned sources, exact attribution, and limitations;
 [the commit inventory](data/optimization-commits.md) links individual changes.
 The separate unmerged WebGPU branch is outside this CUDA deck.
 
-## New measurements
+## v1.5 release evidence
 
-The deck includes fresh TITAN Xp / CUDA 12.1 / precise-double comparisons:
+The update uses archived release qualification, not new solver measurements:
+
+- Fourier: 16 alternating pairs on TITAN Xp and RTX 4090. W7-X steady-pass
+  reductions are 5.19% and 6.50%; the Solovev intervals cross zero.
+- Free boundary: seven pairs per case/GPU. Solovev mgrid solver intervals fall
+  37.01% / 29.69%, and separately declared positive-flux W7-X falls
+  6.77% / 23.70%. Process-wall intervals and original-W7-X failures stay visible.
+- Newton: 19 predeclared axisymmetric cases, five initial pairs and separate
+  uncertainty-selected follow-ups. Prescribed-current Solovev improves
+  19.21% / 14.51%, while Ada follow-ups confirm four regressions. The flag stays
+  off by default; extra equilibrium evaluations are included in solver timing.
+
+[data/v1.5/](data/v1.5/) freezes the tagged source documents, complete input
+manifests, runners, timing records and numerical checks. Its
+[provenance.json](data/v1.5/provenance.json) records the origin and SHA-256 of
+every imported file. The slide tables read [summary.json](data/v1.5/summary.json),
+whose medians were checked against the saved samples/paired reductions.
+Different baselines and timing scopes are not combined into a release speedup.
+
+## Local measurements from 2026-09-07
+
+The deck preserves the TITAN Xp / CUDA 12.1 / precise-double comparisons:
 
 - Exact parent/child of CUDA optimization `5379fca`: six alternating
   before/direct/graph triples per shape, 50 warmup + 300 timed passes.
@@ -95,17 +121,24 @@ pinned range. `scripts/summarize.py` preserves all samples and calculates median
 MAD, ranges, and paired bootstrap intervals. `evidence.md` records the original
 measurement campaign; update its numerical summary when replacing measurements.
 
+`scripts/import_v15_evidence.py` imports the v1.5.0 source snapshot and the
+original transform campaign at `../tmp/cumes-opt-20260908`, then validates and
+summarizes the archived measurements. It does not run solvers and refuses to
+replace imported files with different bytes. It needs the original campaign
+only when reimporting; ordinary slide/site builds use the checked-in frozen data.
+
 ## Validation
 
 The completed deck was checked in headless Chrome at 1600×900 and 1280×720:
-all 46 slides had no detected content overflow, footer collision, or KaTeX
+all 64 slides had no detected content overflow, footer collision, or KaTeX
 error. All slide screenshots were visually reviewed. The print layout was
-checked separately, and the PDF has 46 pages of 16:9 dimensions.
+checked separately, and the PDF has 64 pages of 16:9 dimensions.
 Navigation, overview, notes, help, Home/End, and mobile scrolling were exercised.
 JavaScript and Python syntax and whitespace were checked. Detailed results are
 in [data/validation.json](data/validation.json).
 
 Solver validation here consists of the measured historical runs, repeated
 state-hash checks, convergence counts/residuals, and checkpoint replays. The
-full cuMES test suite and new VMEC++ comparisons were not rerun for this
-presentation-only task.
+full cuMES test suite, GPU qualification campaigns and VMEC++ comparisons were
+not rerun for this presentation update. The v1.5 test, sanitizer and reference
+results are explicitly attributed to the archived release campaigns.

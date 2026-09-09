@@ -5,7 +5,7 @@
 | Presentation | Content | Editing source |
 | --- | --- | --- |
 | [A complete cuMES run](slides/cumes-run/) | Fixed/free boundary, CUDA loop, vacuum coupling, output | `slides/cumes-run/index.html` |
-| [Making cuMES faster](slides/cumes-optimization/) | Optimization history and measured execution/convergence improvements | `slides/cumes-optimization/scripts/build_deck.py` |
+| [Making cuMES faster](slides/cumes-optimization/) | History through v1.5: CUDA, Fourier, vacuum and optional Newton measurements | `slides/cumes-optimization/scripts/build_deck.py` |
 | [Optimizing with meow](slides/meow/) | Optimizer architecture, tangent measurements, Landreman QA/QH reproduction | `slides/meow/scripts/build_deck.py` |
 
 Each deck includes speaker notes. The optimization and meow directories also

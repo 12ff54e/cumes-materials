@@ -1,5 +1,5 @@
 {
-  "slides": 46,
+  "slides": 64,
   "layouts": {
     "1600x900": [
       {
@@ -80,7 +80,7 @@
         "slide": 11
       },
       {
-        "title": "Reproduced now: the same CUDA commit on Pascal",
+        "title": "Local reproduction: the same CUDA commit on Pascal",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
@@ -143,186 +143,312 @@
         "slide": 20
       },
       {
-        "title": "Fewer iterations",
+        "title": "v1.5: reuse Fourier work without changing sums",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 21
       },
       {
-        "title": "W7-X: account for every saved stage",
+        "title": "Fourier: W7-X improves on both architectures",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 22
       },
       {
-        "title": "Recover a step reduced by the early transient",
+        "title": "The Fourier cache trades setup for repeated work",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 23
       },
       {
-        "title": "Recovery scales across multigrid stages",
+        "title": "Vacuum kernels: parallel terms, ordered sums",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 24
       },
       {
-        "title": "Shape the interior; preserve axis order and LCFS",
+        "title": "Move downloads before the existing fences",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 25
       },
       {
-        "title": "Axisymmetric tuning has three separate contributions",
+        "title": "Free boundary: the configured workload matters",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 26
       },
       {
-        "title": "A geometric lambda seed helps fine cold starts",
+        "title": "Free boundary: faster complete solver intervals",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 27
       },
       {
-        "title": "Free-boundary predictors need separate qualification",
+        "title": "Process wall time tells a different part of the story",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 28
       },
       {
-        "title": "Activate the physical vacuum force earlier",
+        "title": "Execution gains retain the full numerical trajectory",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 29
       },
       {
-        "title": "Free-boundary wall measurements follow the pass counts",
+        "title": "Fewer iterations",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 30
       },
       {
-        "title": "A better transfer saves work on refined grids",
+        "title": "W7-X: account for every saved stage",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 31
       },
       {
-        "title": "Global B-splines improve the transfer again",
+        "title": "Recover a step reduced by the early transient",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 32
       },
       {
-        "title": "Use the transfer that each solve class qualified",
+        "title": "Recovery scales across multigrid stages",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 33
       },
       {
-        "title": "Reproduced now: exact release convergence counts",
+        "title": "Shape the interior; preserve axis order and LCFS",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 34
       },
       {
-        "title": "Reproduced now: complete CLI wall time",
+        "title": "Axisymmetric tuning has three separate contributions",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 35
       },
       {
-        "title": "Convergence is a residual and fixed-point claim",
+        "title": "A geometric lambda seed helps fine cold starts",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 36
       },
       {
-        "title": "A shorter convergence path, sampled from the logs",
+        "title": "Free-boundary predictors need separate qualification",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 37
       },
       {
-        "title": "Saved passes have different costs on different grids",
+        "title": "Activate the physical vacuum force earlier",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 38
       },
       {
-        "title": "Numerical ideas rejected by the evidence",
+        "title": "Free-boundary wall measurements follow the pass counts",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 39
       },
       {
-        "title": "Appendix: later work",
+        "title": "A better transfer saves work on refined grids",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 40
       },
       {
-        "title": "v1.3: very coarse 3-D seeds help QA and QH differently",
+        "title": "Global B-splines improve the transfer again",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 41
       },
       {
-        "title": "Sensitivity reuse solves a different performance problem",
+        "title": "Use the transfer that each solve class qualified",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 42
       },
       {
-        "title": "Current float branch: accuracy unlocks convergence",
+        "title": "Local reproduction: exact release convergence counts",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 43
       },
       {
-        "title": "Cache the immutable float radius reference",
+        "title": "Local reproduction: complete CLI wall time",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 44
       },
       {
-        "title": "The gains that the evidence supports",
+        "title": "Convergence is a residual and fixed-point claim",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 45
       },
       {
-        "title": "Evidence and reproduction",
+        "title": "A shorter convergence path, sampled from the logs",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 46
+      },
+      {
+        "title": "Saved passes have different costs on different grids",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 47
+      },
+      {
+        "title": "Numerical ideas rejected by the evidence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 48
+      },
+      {
+        "title": "v1.5: an optional Newton correction to descent",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 49
+      },
+      {
+        "title": "A Newton trial must pass the nonlinear gate",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 50
+      },
+      {
+        "title": "Newton: gains depend on the equilibrium",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 51
+      },
+      {
+        "title": "Fresh measurements confirm Newton regressions",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 52
+      },
+      {
+        "title": "Count inner evaluations as well as outer passes",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 53
+      },
+      {
+        "title": "A new trajectory needs a solution check",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 54
+      },
+      {
+        "title": "Local residual improvement is not enough",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 55
+      },
+      {
+        "title": "Coarse correction and 3-D Newton did not qualify",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 56
+      },
+      {
+        "title": "Appendix: v1.3 and v1.4",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 57
+      },
+      {
+        "title": "v1.3: very coarse 3-D seeds help QA and QH differently",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 58
+      },
+      {
+        "title": "Sensitivity reuse solves a different performance problem",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 59
+      },
+      {
+        "title": "Early float work: accuracy unlocks convergence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 60
+      },
+      {
+        "title": "Cache the immutable float radius reference",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 61
+      },
+      {
+        "title": "v1.4.1 completes the selective float correction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 62
+      },
+      {
+        "title": "The gains that the evidence supports",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 63
+      },
+      {
+        "title": "Evidence and reproduction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 64
       }
     ],
     "1280x720": [
@@ -404,7 +530,7 @@
         "slide": 11
       },
       {
-        "title": "Reproduced now: the same CUDA commit on Pascal",
+        "title": "Local reproduction: the same CUDA commit on Pascal",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
@@ -467,186 +593,312 @@
         "slide": 20
       },
       {
-        "title": "Fewer iterations",
+        "title": "v1.5: reuse Fourier work without changing sums",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 21
       },
       {
-        "title": "W7-X: account for every saved stage",
+        "title": "Fourier: W7-X improves on both architectures",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 22
       },
       {
-        "title": "Recover a step reduced by the early transient",
+        "title": "The Fourier cache trades setup for repeated work",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 23
       },
       {
-        "title": "Recovery scales across multigrid stages",
+        "title": "Vacuum kernels: parallel terms, ordered sums",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 24
       },
       {
-        "title": "Shape the interior; preserve axis order and LCFS",
+        "title": "Move downloads before the existing fences",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 25
       },
       {
-        "title": "Axisymmetric tuning has three separate contributions",
+        "title": "Free boundary: the configured workload matters",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 26
       },
       {
-        "title": "A geometric lambda seed helps fine cold starts",
+        "title": "Free boundary: faster complete solver intervals",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 27
       },
       {
-        "title": "Free-boundary predictors need separate qualification",
+        "title": "Process wall time tells a different part of the story",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 28
       },
       {
-        "title": "Activate the physical vacuum force earlier",
+        "title": "Execution gains retain the full numerical trajectory",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 29
       },
       {
-        "title": "Free-boundary wall measurements follow the pass counts",
+        "title": "Fewer iterations",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 30
       },
       {
-        "title": "A better transfer saves work on refined grids",
+        "title": "W7-X: account for every saved stage",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 31
       },
       {
-        "title": "Global B-splines improve the transfer again",
+        "title": "Recover a step reduced by the early transient",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 32
       },
       {
-        "title": "Use the transfer that each solve class qualified",
+        "title": "Recovery scales across multigrid stages",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 33
       },
       {
-        "title": "Reproduced now: exact release convergence counts",
+        "title": "Shape the interior; preserve axis order and LCFS",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 34
       },
       {
-        "title": "Reproduced now: complete CLI wall time",
+        "title": "Axisymmetric tuning has three separate contributions",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 35
       },
       {
-        "title": "Convergence is a residual and fixed-point claim",
+        "title": "A geometric lambda seed helps fine cold starts",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 36
       },
       {
-        "title": "A shorter convergence path, sampled from the logs",
+        "title": "Free-boundary predictors need separate qualification",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 37
       },
       {
-        "title": "Saved passes have different costs on different grids",
+        "title": "Activate the physical vacuum force earlier",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 38
       },
       {
-        "title": "Numerical ideas rejected by the evidence",
+        "title": "Free-boundary wall measurements follow the pass counts",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 39
       },
       {
-        "title": "Appendix: later work",
+        "title": "A better transfer saves work on refined grids",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 40
       },
       {
-        "title": "v1.3: very coarse 3-D seeds help QA and QH differently",
+        "title": "Global B-splines improve the transfer again",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 41
       },
       {
-        "title": "Sensitivity reuse solves a different performance problem",
+        "title": "Use the transfer that each solve class qualified",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 42
       },
       {
-        "title": "Current float branch: accuracy unlocks convergence",
+        "title": "Local reproduction: exact release convergence counts",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 43
       },
       {
-        "title": "Cache the immutable float radius reference",
+        "title": "Local reproduction: complete CLI wall time",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 44
       },
       {
-        "title": "The gains that the evidence supports",
+        "title": "Convergence is a residual and fixed-point claim",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 45
       },
       {
-        "title": "Evidence and reproduction",
+        "title": "A shorter convergence path, sampled from the logs",
         "contentOverflow": false,
         "overruns": [],
         "mathErrors": 0,
         "slide": 46
+      },
+      {
+        "title": "Saved passes have different costs on different grids",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 47
+      },
+      {
+        "title": "Numerical ideas rejected by the evidence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 48
+      },
+      {
+        "title": "v1.5: an optional Newton correction to descent",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 49
+      },
+      {
+        "title": "A Newton trial must pass the nonlinear gate",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 50
+      },
+      {
+        "title": "Newton: gains depend on the equilibrium",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 51
+      },
+      {
+        "title": "Fresh measurements confirm Newton regressions",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 52
+      },
+      {
+        "title": "Count inner evaluations as well as outer passes",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 53
+      },
+      {
+        "title": "A new trajectory needs a solution check",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 54
+      },
+      {
+        "title": "Local residual improvement is not enough",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 55
+      },
+      {
+        "title": "Coarse correction and 3-D Newton did not qualify",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 56
+      },
+      {
+        "title": "Appendix: v1.3 and v1.4",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 57
+      },
+      {
+        "title": "v1.3: very coarse 3-D seeds help QA and QH differently",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 58
+      },
+      {
+        "title": "Sensitivity reuse solves a different performance problem",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 59
+      },
+      {
+        "title": "Early float work: accuracy unlocks convergence",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 60
+      },
+      {
+        "title": "Cache the immutable float radius reference",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 61
+      },
+      {
+        "title": "v1.4.1 completes the selective float correction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 62
+      },
+      {
+        "title": "The gains that the evidence supports",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 63
+      },
+      {
+        "title": "Evidence and reproduction",
+        "contentOverflow": false,
+        "overruns": [],
+        "mathErrors": 0,
+        "slide": 64
       }
     ]
   },
@@ -943,9 +1195,117 @@
       "width": 1279.953125,
       "height": 720,
       "overruns": []
+    },
+    {
+      "slide": 47,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 48,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 49,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 50,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 51,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 52,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 53,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 54,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 55,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 56,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 57,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 58,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 59,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 60,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 61,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 62,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 63,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
+    },
+    {
+      "slide": 64,
+      "width": 1279.953125,
+      "height": 720,
+      "overruns": []
     }
   ],
-  "pdf_pages": 46,
+  "pdf_pages": 64,
   "runtime_errors": [],
   "network_failures": [],
   "http_requests": []

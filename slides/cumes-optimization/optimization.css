@@ -19,6 +19,7 @@
 .measure td:not(:first-child) { font-variant-numeric: tabular-nums; }
 .measure tbody tr:last-child td { border-bottom-color: rgba(67, 217, 255, .5); }
 .measure tbody tr:nth-child(even) { background: rgba(10, 34, 51, .36); }
+.release-table .measure small { font-size: .8em; color: var(--muted); }
 .table-wrap { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .panel .table-wrap { border: 0; border-radius: 0; }
 .panel .measure { font-size: clamp(15px, 1.25vw, 20px); }

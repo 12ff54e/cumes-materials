@@ -1,7 +1,8 @@
-"""Render the static, offline deck. Edit narrative here, then rerun this file."""
+"""Render the web deck from frozen evidence. Edit narrative here, then rerun."""
 from pathlib import Path
 from html import escape as esc
 import json
+import csv
 import re
 import sys
 
@@ -10,6 +11,10 @@ from inline_math import format_html, span as inline, number_tex
 
 deck=Path(__file__).resolve().parents[1]
 local=json.loads((deck/'data/local/summary.json').read_text())
+release=json.loads((deck/'data/v1.5/summary.json').read_text())
+audit=list(csv.DictReader((deck/'data/commit-audit.tsv').open(), delimiter='\t'))
+audit_count=len(audit)
+highlight_count=sum(row['classification'] != 'context' for row in audit)
 slides=[]
 def table(headers,rows):
     return '<div class="table-wrap"><table class="measure"><thead><tr>'+''.join(f'<th>{v}</th>' for v in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join(f'<td>{v}</td>' for v in row)+'</tr>' for row in rows)+'</tbody></table></div>'
@@ -33,33 +38,51 @@ def add(title,body,source,notes='',chapter='Execution',eyebrow=None,cls=''):
 def chapter(n,title,description):
     add(title,f'<div class="chapter-card"><div class="section-number">{n}</div><p class="dek">{description}</p></div>', 'Development history · 2026-08 to 2026-09',chapter=title,cls='chapter-slide')
 def fmt(x):return f'{x:.3f}'
+def interval(value, bounds):
+    return inline(rf'{value:+.2f}\%')+'<br><small>'+inline(rf'[{bounds[0]:.2f},\,{bounds[1]:.2f}]\%')+'</small>'
+def timing(before, after, digits=3):
+    return inline(rf'{before:.{digits}f}\to {after:.{digits}f}')
+def free_rows(metric):
+    rows=[]
+    for case,label in [('solovev_mgrid','Solovev · mgrid'),('solovev_embedded','Solovev · MAKEGRID'),('cth_multigrid','CTH-like'),('w7x_positive_flux','W7-X · positive flux')]:
+        row=[label]
+        for gpu in ['pascal','ada']:
+            result=release['free_boundary'][gpu][case]
+            scale=1000 if metric == 'wall_seconds' else 1
+            change=result[metric+'_reduction']
+            row.extend([timing(*(scale*result['variants'][v][metric]['median'] for v in ['baseline','candidate'])),
+                        interval(change['median_percent'], change['bootstrap_ci95_percent'])])
+        rows.append(row)
+    return rows
 
 add('Making cuMES faster',
     '<div class="hero"><div><p class="dek">Spend less time on each GPU pass.<br>Then need fewer passes to reach equilibrium.</p><div class="tag-row"><span class="tag">CUDA execution</span><span class="tag free">convergence trajectory</span><span class="tag">commit-backed measurements</span></div></div><div class="hero-metrics">'+
-    panel('RTX 4090 · iteration latency','<strong class="hero-number">−19.1%</strong><p>W7-X · 660.81 → 534.53 μs/pass</p>')+
-    panel('v1.1 → v1.2 · convergence','<strong class="hero-number amber">−25.4%</strong><p>W7-X · 5,505 → 4,106 passes</p>','free')+'</div></div>',
-    '5379fca · 17867d5 · performance.md §§2.1–2.7',
-    'These are separate measurements: the first is fixed-iteration wall latency on RTX 4090, the second is deterministic multigrid work. Do not multiply them into an end-to-end claim. New TITAN Xp reproductions appear later.',chapter='Orientation',eyebrow='Optimization during cuMES development')
+    panel('v1.5 · free-boundary execution','<strong class="hero-number">−37.01%</strong><p>Solovev mgrid · 921.648 → 580.503 ms</p>')+
+    panel('v1.5 · optional Newton correction','<strong class="hero-number amber">−19.21%</strong><p>Prescribed-current Solovev · 142.061 → 114.822 ms</p>','free')+'</div></div>',
+    'Through v1.5.0 · TITAN Xp · archived solver-interval measurements',
+    'Separate workloads and archived qualification campaigns. Free boundary compares bcdd3da with cc2d91d; Newton compares the same private executable with its hook off/on, later promoted without changing results. Both gains are medians of paired percentages, not whole-process reductions. Earlier execution and v1.1/v1.2 results remain in the historical sections.',chapter='Orientation',eyebrow='Optimization during cuMES development · v1.5.0')
 add('Two levers, two kinds of evidence',stack(
     eq(r'T_{\mathrm{run}}=T_{\mathrm{setup}}+\sum_g\left(N_g\,\bar t_g+T_{\mathrm{transfer},g}\right)+T_{\mathrm{output}}'),
     grid(panel('01 · Execution',p('Reduce submission gaps, redundant transfers, synchronization, and kernel latency. Hold the numerical problem and controller decisions fixed.')),
-         panel('02 · Trajectory',p('Change cold seeds, time-step policy, vacuum handover, and radial transfer. Validate the new equilibrium and count every stage.'),'free'))),
+         panel('02 · Trajectory',p('Change cold seeds, time-step policy, radial transfer, or add guarded Newton corrections. Validate the new equilibrium and count all evaluations.'),'free'))),
     'Timing definitions · performance.md §1; verification.md',
     'The average stage cost includes host control gaps. Class A means exact state and decisions; Class B permits bounded rounding with unchanged decisions; Class C changes the trajectory. Kernel implementation optimizations also belong in part one when they retain the numerical method.',chapter='Orientation')
 add('The audit starts at overhaul closeout',table(['Milestone','Commit / date','What this deck covers'],[
-    ['Design closure','dc0d0c4 · Aug 17','Starting boundary of the 197-commit inventory'],
+    ['Design closure','dc0d0c4 · Aug 17',f'Starting boundary of the {audit_count}-commit inventory'],
     ['Final reader closeout','56aa1a4 · Aug 18','Safety follow-ups complete; frozen trajectories retained'],
     ['v1.0','dbb0f8e · Aug 26','CUDA graphs, Jacobian reduction, inverse mapping'],
     ['v1.1','f7036ab · Aug 30','Finest-grid capture; Makegrid; zero-copy host bridge'],
     ['v1.2','17867d5 · Aug 31','Recovery, seeds, handover, cubic/B-spline transfer'],
-    ['Later CUDA work','750d6a4 → 194415d','Concurrency, coarse QA/QH seeds, float accuracy/cache']]),
-    'data/commit-audit.tsv · all 197 commits, including merged ancestry',
-    'The inventory inspects all reachable commit subjects and changed paths from dc0d0c4 through 194415d, with implementation and evidence review for optimization candidates, including dependency changes. The separate unmerged WebGPU branch is outside this CUDA presentation. Phase 6 measurements are background, not post-closeout gains.',chapter='Orientation')
+    ['v1.3 → v1.4.1','750d6a4 → f0c17f7','Concurrency, coarse QA/QH seeds, float accuracy/cache'],
+    ['v1.5.0','6756fd6 · Sep 09','Fourier reuse, vacuum kernels/transfers, opt-in Newton']]),
+    f'data/commit-audit.tsv · all {audit_count} commits, including merged ancestry',
+    'The inventory inspects all reachable commit subjects and changed paths from dc0d0c4 through v1.5.0 at 6756fd6, with implementation and evidence review for optimization candidates, including dependency changes. This update adds 47 commits beyond the previous 194415d audit. The separate unmerged WebGPU branch is outside this CUDA presentation. Phase 6 measurements are background.',chapter='Orientation')
 add('Read every number with its measurement scope',table(['Evidence','Protocol','Interpretation'],[
     ['Archived RTX 4090','CUDA 12.9; precise double; 50 warmup + 300 timed; six alternating graph pairs','Per-pass wall medians; frozen final-state hashes'],
     ['Archived convergence','ADR-0007…0012; case-specific paired runs','Effective passes and final residuals; clocks sometimes noisy'],
-    ['New TITAN Xp','CUDA 12.1; sm_61; same source-pinned builds; six fixed triples','Before / optimized-direct / optimized-graph'],
-    ['New release comparison','Five timed alternating pairs after one warmup pair','CLI wall time includes startup and native output'],
+    ['Local TITAN Xp','CUDA 12.1; sm_61; same source-pinned builds; six fixed triples','Before / optimized-direct / optimized-graph'],
+    ['Local release comparison','Five timed alternating pairs after one warmup pair','CLI wall time includes startup and native output'],
+    ['Archived v1.5 qualification','Two GPUs; 16 Fourier / 7 vacuum / 5 Newton pairs; fresh Newton follow-ups','Separate iteration, solver-interval and process scopes'],
     ['Structural accounting','Counts and byte sizes derived from implementation','Explicitly not a measured wall-time speedup']]),
     'data/local/environment.json · raw logs and JSON included',
     'New runs use Release precise-double, optional NetCDF/HDF5/vacuum/magnetic-coordinate disabled, pinned CPU, unlocked clocks, existing graphical GPU process left running. No slow samples are dropped. No cross-GPU ratio or full performance certification is claimed.',chapter='Orientation')
@@ -102,7 +125,7 @@ rows=[]
 for case,label in [('solovev','Solovev · ns=55'),('w7x','W7-X · ns=99')]:
     f=local['fixed'][case]
     rows.append([label,*[f"{f[v]['median_us']['median']:.2f} μs" for v in ('pre-cuda','cuda-direct','cuda-graph')],f"{local['comparisons'][case+'-combined']['reduction_percent']:.2f}%"])
-add('Reproduced now: the same CUDA commit on Pascal',table(['TITAN Xp','7c6508a · before','5379fca · direct','5379fca · graph','Bundle reduction'],rows)+callout('Every before/direct/graph repetition has the same final-state hash within each workload.'),
+add('Local reproduction: the same CUDA commit on Pascal',table(['TITAN Xp','7c6508a · before','5379fca · direct','5379fca · graph','Bundle reduction'],rows)+callout('Every before/direct/graph repetition has the same final-state hash within each workload.'),
     'NEW · data/local/fixed-*.json · 6 alternating triples / shape',
     'Built exact parent and child commits, sm_61, CUDA 12.1, Release, precise double. Default seed and controls are identical. The W7-X hash differs from the archived RTX session, so equality is asserted within the local controlled comparison only. Clocks are unlocked. The smaller Pascal graph gain does not contradict the separate RTX experiment.')
 rows=[]
@@ -110,7 +133,7 @@ for case in ('solovev','w7x'):
     for variant,label in [('pre-cuda','before'),('cuda-direct','direct'),('cuda-graph','graph')]:
         r=local['fixed'][case][variant];s=r['median_us']
         rows.append([case+' · '+label,f"{s['median']:.2f} ± {s['mad']:.2f}",f"{r['p95_us']['median']:.2f}",f"{s['min']:.2f}–{s['max']:.2f}"])
-add('Keep the timing spread visible',table(['New fixed-iteration runs','Median ± MAD · μs','Median run p95 · μs','Range of run medians · μs'],rows)+p('MAD and range describe six run medians. The p95 column is the median of six within-run p95 values; it is a different statistic.'),
+add('Keep the timing spread visible',table(['Local fixed-iteration runs','Median ± MAD · μs','Median run p95 · μs','Range of run medians · μs'],rows)+p('MAD and range describe six run medians. The p95 column is the median of six within-run p95 values; it is a different statistic.'),
     'NEW · data/local/summary.json · no samples excluded',
     'Paired bootstrap confidence intervals for median latency reduction are retained in summary.json. Six samples with unlocked clocks and a graphical GPU process are descriptive reproduction evidence, not the full two-architecture acceptance gate.')
 add('Stop copying results that cannot be published',grid(
@@ -152,7 +175,110 @@ add('Resource reuse had a small upper bound',table(['Eight-solve aggregate','QA'
     '6106e0b / <code>5720583</code> / 480c91d · performance.md §3.5',
     'Three-run full-package Release profile, averaged over groups of eight finite-difference solves. Rounded components need not sum exactly. Stream-only facade setup was only 0.12% QA and 0.19% QH. This is an optimistic removable-time bound, not a measured speedup.')
 
-chapter('02','Fewer iterations','Change the starting state and continuation path. Keep the force tolerances and validity gates explicit.')
+add('v1.5: reuse Fourier work without changing sums',grid(
+    panel('Inverse synthesis',table(['Output','Constraint accumulators'],[
+        ['R / Z','2 → 1 per launch'],['λ','2 → 0']])+p('Specialize only the unused constraint output. Keep basis selection and the original fused-product order.')),
+    panel('Forward projection',eq(r'\begin{aligned}w_l\cos(m\theta_l),&\quad w_l\sin(m\theta_l)\\w_lm\cos(m\theta_l),&\quad w_lm\sin(m\theta_l)\end{aligned}')+
+        p('Cache four device-rounded tables once per stage. Remove <strong>4 multiplies + 1 weight load</strong> per theta contribution.'),'free'))+
+    callout('W7-X adds 6,144 arena bytes. Per-pass launches, graph topology, control fences and cuFFT workspace stay unchanged.'),
+    'v1.5 · 66a557a / 21b6043 · fourier_impl.cuh · performance.md §3.8',
+    'Source review confirms separate SLOT0=0/4/8 instantiations and forward_basis_kernel. The broader compile-time basis specialization changed FMA contraction and failed first-pass bitwise comparisons; it was removed. Cached weighted products retain the baseline device scalar rounding. Stage construction adds one cache kernel and completion fence.',
+    chapter='v1.5 execution')
+
+rows=[]
+for gpu,gpu_label in [('pascal','TITAN Xp'),('ada','RTX 4090')]:
+    for case,label in [('w7x','W7-X'),('solovev','Solovev')]:
+        r=release['fourier'][gpu][case]
+        rows.append([gpu_label+' · '+label,
+            timing(*(r['variants'][v]['median_us'] for v in ['baseline','candidate'])),
+            timing(*(r['variants'][v]['p95_us'] for v in ['baseline','candidate'])),
+            interval(r['gain_percent'],r['ci95_percent'])])
+add('Fourier: W7-X improves on both architectures',table(
+    ['GPU / fixed shape','Median μs/pass','Run p95 μs/pass','Reduction / 95% CI'],rows)+
+    p('16 alternating pairs per shape/GPU; 100 warmup + 500 timed passes per run. Precise double, production graphs, CPU 8; setup/output excluded.')+
+    callout('W7-X clears a 5% lower confidence bound on both GPUs. Solovev has no established latency gain. All paired state hashes match.'),
+    'Archived 2026-09-08 · f0c17f7 → 21b6043 · data/v1.5/fourier/',
+    'W7-X ns=99, Solovev ns=55. TITAN Xp: CUDA 12.1/sm_61; Ada: CUDA 12.9.41/sm_89. Medians aggregate run medians; p95 is the median of within-run p95 values. Reduction is the median of paired percentages, with 20,000 paired bootstrap resamples. No sample was removed. The preserved Pascal runner preheats with 1000 warmup + 1000 timed passes; the Ada report/runner use 100 + 1000, correcting the living performance document’s common-preheat shorthand.',
+    chapter='v1.5 execution',cls='release-table')
+
+rows=[]
+for gpu,gpu_label in [('pascal','TITAN Xp'),('ada','RTX 4090')]:
+    for case,label in [('w7x','W7-X'),('solovev','Solovev')]:
+        r=release['fourier'][gpu][case]['variants']
+        rows.append([gpu_label+' · '+label,
+            timing(r['baseline']['setup_ms'],r['candidate']['setup_ms']),
+            f"{r['candidate']['arena_bytes']-r['baseline']['arena_bytes']:,} bytes",
+            timing(r['baseline']['mad_us'],r['candidate']['mad_us'])])
+add('The Fourier cache trades setup for repeated work',table(
+    ['GPU / shape','Stage setup ms','Added arena storage','Run-median MAD μs'],rows)+grid(
+    panel('Numerical qualification',p('Complete multigrid dumps match within each GPU: <strong>241 Solovev / 472 W7-X files</strong>. No spills; unchanged default stage counts.')),
+    panel('Whole-process limit',p('An Ada startup outlier spent <strong>653 ms</strong> in the first allocation. The same-executable A/A control reproduced the delay.'))),
+    'Archived 2026-09-08 · performance.md §3.8 · original sample summaries',
+    'Clocks were not locked; exact clock/temperature records are archived. Optional output/vacuum backends were disabled for the fixed-iteration harness. Setup, output and process startup are not included in the reported 5.19%/6.50% steady-iteration gains. Ada header compatibility changes were identical in both builds. The separate 12-pair weighted-vs-inverse Ada comparison gives another 1.5879% [1.5705%,1.6054%] reduction; do not add percentages from separate sessions.',
+    chapter='v1.5 execution',cls='release-table')
+
+add('Vacuum kernels: parallel terms, ordered sums',grid(
+    panel('Axisymmetric regularized source',p('Evaluate each source/image/target term in parallel. Then accumulate in the original ascending source/image order.')+
+        eq(r'g_k=\sum_{s,p}^{\mathrm{original\ order}} b_s\,w_s\,\Delta\phi\;t_{s,p,k}')+
+        p('Scratch: <strong>240 KiB</strong> for double Solovev; allocated once.')),
+    panel('Small singular RHS systems',p('For at most 256 Fourier modes, use <strong>8 threads per block</strong> instead of 256. Each mode retains its serial surface sum.')+
+        eq(r'n_{\mathrm{blocks}}=\left\lceil n_{\mathrm{modes}}/8\right\rceil')+
+        p('Larger systems retain 256-thread blocks.'),'free'))+
+    callout('Baseline profiles: axisymmetric gstore takes 43.3% of Solovev kernel time; singular bvec takes 52.0% in positive-flux W7-X.'),
+    '0bc92e2 / f8bbfa2 · vacuum-field 4acd589 / 2eb53c9 / 4d19939',
+    'Kernel-time shares are individual diagnostic profiles, not solve speedups. Scratch stores unweighted htemp-ga1 so the final multiply-add expression remains unchanged; target-fast layout coalesces accesses. The generic launch helper always sized its grid for 256 threads, so the smaller bvec launch explicitly recomputes the block count. Unit comparisons cover 18 regularized fixtures and 60 RHS arrays across float/double, tails and fallback sizes. Only double complete solves are performance-qualified.',
+    chapter='v1.5 execution')
+
+add('Move downloads before the existing fences',table(
+    ['Readback','Earlier bridge','v1.5 bridge'],[
+        ['Poloidal/toroidal covariant profiles','Prefix → fence → synchronous copy','Prefix → async pinned copy → prefix fence'],
+        ['Pressure-mismatch diagnostic','Control fence → synchronous scalar copy','Async pinned scalar copy → control fence']])+
+    grid(panel('The same host decisions',p('Vacuum update order, full/partial updates, activation, adaptive spacing, restarts and convergence gates are retained.')),
+         panel('Guard the diagnostic',p('Initialize pressure mismatch to 0. Download it only after an edge-force evaluation; otherwise retain the previous valid sample.')))+
+    callout('Free-boundary kernels keep direct launches. The split prefix/suffix graph experiment had inconsistent extra benefit and was removed.'),
+    'v1.5 · cc2d91d · src/kernels/solver_impl.cuh',
+    'The buco/bvco copy is 2*(ns-1)*sizeof(T); delbsq is one scalar. This removes two separate blocking copy calls, not either of the existing dependency fences. The guarded diagnostic fixes an inherited pre-activation uninitialized read. It is not consumed by the equilibrium or controller calculation. Timed free-boundary results measure the combined retained kernel/bridge changes, not an isolated copy speedup.',
+    chapter='v1.5 execution')
+
+add('Free boundary: the configured workload matters',table(
+    ['Case','Radial stages','Stage tolerances','Stage caps'],[
+        ['Solovev · mgrid or MAKEGRID','16 → 32','10⁻¹⁰ → 10⁻¹⁴','10,000 → 20,000'],
+        ['CTH-like · pressure/current','15 → 25','10⁻⁸ → 10⁻¹⁰','2,500 → 2,500'],
+        ['W7-X · native single grid','51','10⁻¹²','50,000']])+
+    grid(panel('Comparable variants',p('Exact input and field hashes; <strong>2 warmups + 7 alternating pairs</strong> per variant/case/GPU. Newton disabled.')),
+         panel('Explicit W7-X adaptation',p('The original flux −1.74 fails the existing field-sign check in both builds. A separately declared +1.74 input supplies the completed timing case.'))),
+    'Archived 2026-09-09 · bcdd3da → cc2d91d · free_boundary/manifest.json',
+    'Solovev mgrid and embedded MAKEGRID are two field-setup paths for the same physical geometry. W7-X ns=51 is its upstream schedule; no stage is removed. The positive-flux input changes only phiedge from the portable original; both remove an ignored free_boundary_method selector. All 36 original-W7-X sign rejections are retained. Precision/toolchains: TITAN Xp CUDA12.1.105/GCC12.4/sm_61 and RTX4090 CUDA12.9.41/GCC12.4/sm_89, CPU8, clocks unlocked.',
+    chapter='v1.5 execution')
+
+add('Free boundary: faster complete solver intervals',table(
+    ['Completed case','TITAN Xp ms','Reduction / CI','RTX 4090 ms','Reduction / CI'],free_rows('device_ms'))+
+    p('Sum of configured stage CUDA-event intervals, including vacuum work and host gaps. Excludes outer stage setup, interstage transfer and output.')+
+    callout('Solovev and positive-flux W7-X clear the 5% lower-bound gate on both GPUs. CTH on Ada remains inconclusive.'),
+    'Archived 2026-09-09 · 7 pairs · 95% paired-bootstrap intervals · precise double',
+    'Medians are calculated per variant; reduction and its interval use the median of the seven paired percentages, not a ratio of those medians. The 20,000-resample bootstrap uses seed 20260909. The baseline already contains the v1.5 Fourier changes; these are incremental vacuum/bridge gains, not a v1.4.1-to-v1.5 whole-release ratio. All per-run samples, MAD, p95, extrema and hardware telemetry are preserved in data/v1.5/benchmarks/free_boundary/results/20260909.json.',
+    chapter='v1.5 execution',cls='release-table')
+
+add('Process wall time tells a different part of the story',table(
+    ['Completed case','TITAN Xp ms','Reduction / CI','RTX 4090 ms','Reduction / CI'],free_rows('wall_seconds'))+
+    p('Whole process includes startup, field setup and native output. GPU telemetry and numerical validation run outside this timer.')+
+    callout('Ada mgrid Solovev and CTH have no established process-wall gain. Keep these results alongside the faster solver intervals.'),
+    'Archived 2026-09-09 · same 7 pairs · process wall measured separately',
+    'Every outlier is retained. Pairwise medians need not track ratios of separate variant medians: Ada mgrid Solovev has 876.645→1018.879 ms medians but a -1.78% median paired reduction. The final runner waits for blocking process completion with a separate timeout watchdog; earlier timeout-polling graph experiments could quantize process timing by 50 ms and are excluded from these claims. Confidence intervals and full samples are archived.',
+    chapter='v1.5 execution',cls='release-table')
+
+add('Execution gains retain the full numerical trajectory',table(
+    ['Completed case','Stage iterations · both variants','Preserved result'],[
+        ['Both Solovev field paths','389 → 636 = 1,025','Coefficients, fields, residual bits, restarts'],
+        ['CTH-like','198 → 226 = 424','Same configured stage and vacuum decisions'],
+        ['W7-X · positive flux','1,733 effective / 1,736 actual','Same 3 bad-Jacobian events']])+
+    grid(panel('Retain the full campaign',p('<strong>180 attempts</strong>: 144 completed solves including warmups, and 36 original-W7-X sign rejections.')),
+         panel('Compare every stage',p('<strong>1,281 dump files per variant/GPU</strong> match byte for byte, including the residual/controller traces of all 7 configured stages.'))),
+    'Archived 2026-09-09 · free-boundary-performance.md · Class A on this matrix',
+    'Exactness is within architecture, not between Pascal and Ada. W7-X bad-Jacobian events occur at actual passes 3/7/14, effective iterations 3/6/12. Output checks cover all native coefficients and published half/full fields, finite geometry, oriented Jacobian, energy, original stage tolerances and checkpoint/native consistency. Full float Solovev/CTH checks at relaxed 1e-6 fail in both variants; float kernel equivalence does not qualify free-boundary float convergence. Sanitizer and test counts are archived release evidence, not rerun in this slide task.',
+    chapter='v1.5 execution')
+
+chapter('02','Fewer iterations','Change the starting state, continuation path or correction policy. Count extra evaluations and preserve the requested tolerances.')
 add('W7-X: account for every saved stage',table(['Policy after each change','ns=33','ns=66','ns=99','Total','Saved vs prior'],[
     ['v1.1 reference','1,877','1,617','2,011','5,505','—'],
     ['Step recovery','1,741','1,568','1,635','4,944','561'],
@@ -243,14 +369,14 @@ rows=[]
 for key,label in [('solovev-multigrid','Solovev · 5/11/55'),('w7x-multigrid','W7-X · 33/66/99'),('solovev-single','Solovev · ns=55'),('w7x-single','W7-X · ns=99')]:
     r=local['cli'][key];a=r['v1.1'];b=r['v1.2']
     rows.append([label,f"{a['iterations']:,}",f"{b['iterations']:,}",f"{100*(1-b['iterations']/a['iterations']):.2f}%",b['residuals'][0]])
-add('Reproduced now: exact release convergence counts',table(['TITAN Xp · precise double','v1.1 passes','v1.2 passes','Reduction','v1.2 FSQR'],rows)+callout('All five timed repeats agree on every stage count and final printed residual triple. The input JSON is identical between versions.'),
+add('Local reproduction: exact release convergence counts',table(['TITAN Xp · precise double','v1.1 passes','v1.2 passes','Reduction','v1.2 FSQR'],rows)+callout('All five timed repeats agree on every stage count and final printed residual triple. The input JSON is identical between versions.'),
     'NEW · f7036ab vs 17867d5 · data/local/cli-*.log',
     'Single-grid inputs are derived from the shipped v1.1 arrays by keeping only the final ns/niter/ftol entry; all physical parameters are unchanged. Multigrid tolerances are 1e-16 for Solovev and 1e-12 for W7-X. These are local reproductions, not copied archive values.',chapter='Trajectory')
 rows=[]
 for key,label in [('solovev-multigrid','Solovev · multigrid'),('w7x-multigrid','W7-X · multigrid'),('solovev-single','Solovev · single'),('w7x-single','W7-X · single')]:
     r=local['cli'][key];a=r['v1.1']['wall_s'];b=r['v1.2']['wall_s']
     rows.append([label,f"{a['median']:.4f} ± {a['mad']:.4f}",f"{b['median']:.4f} ± {b['mad']:.4f}",f"{local['comparisons'][key]['reduction_percent']:.2f}%"])
-add('Reproduced now: complete CLI wall time',table(['New TITAN Xp · five pairs','v1.1 median ± MAD · s','v1.2 median ± MAD · s','Reduction'],rows)+p('Includes process startup, stage construction, iteration, final scientific fields, and native file output. Warmup runs and checkpoint gates are excluded from these five timed pairs.')+callout('Solovev wall estimates are inconclusive: confidence intervals cross zero. W7-X multigrid has a paired 95% interval of 21.77–23.45% lower wall time.'),
+add('Local reproduction: complete CLI wall time',table(['Local TITAN Xp · five pairs','v1.1 median ± MAD · s','v1.2 median ± MAD · s','Reduction'],rows)+p('Includes process startup, stage construction, iteration, final scientific fields, and native file output. Warmup runs and checkpoint gates are excluded from these five timed pairs.')+callout('Solovev wall estimates are inconclusive: confidence intervals cross zero. W7-X multigrid has a paired 95% interval of 21.77–23.45% lower wall time.'),
     'NEW · data/local/summary.json · process perf_counter timing',
     'CPU affinity and GPU state are preserved in environment.json. Both versions use binary output with optional backend libraries disabled. Clocks are unlocked; raw ranges and paired bootstrap confidence intervals are retained. These measurements are not equated with CUDA event time.',chapter='Trajectory')
 rows=[]
@@ -300,7 +426,108 @@ add('Numerical ideas rejected by the evidence',table(['Candidate','Measured resu
     'ADR-0007 / ADR-0010 · rejected experiments',
     'Rejected policies belong in the development story because fewer iterations in one favorable sample do not establish robust convergence. Aggressive predicate changes also reached states differing by up to 2.34e-3 and were not retained.',chapter='Trajectory')
 
-chapter('A','Appendix: later work','Later releases extend both themes: concurrent solves, coarse-start tuning, and precision-aware execution.')
+add('v1.5: an optional Newton correction to descent',grid(
+    panel('Differentiate the frozen descent map',
+        eq(r'G(x)=\operatorname{pack}(P^{-1}F(x))')+
+        eq(r'Aq\approx\frac{G(x)-G(x+hDq)}{h}')+
+        eq(r'A\delta=G(x),\qquad x_{\mathrm{trial}}=x+\alpha D\delta')),
+    panel('One fixed policy',p('GPU GMRES: <strong>32 steps / 32 vectors</strong>; inner relative target 10⁻³.')+
+        p('Maximum physical coefficient perturbation 10⁻⁶. Propose every 100 effective iterations, starting at 100 on each stage.'),'free'))+
+    callout('Select <code>--newton</code> explicitly. Supported scope: fixed-boundary, axisymmetric double with ntor=0 and nzeta=1. The default is off.'),
+    'v1.5 · ca33025 / bcdd3da · ADR-0016 · newton_impl.cuh',
+    'D is the exact descent-coordinate map, preserving Fourier normalization, boundaries, dependent axis entries and the mixed m=1 gauge; lambda remains active at the boundary. h=epsilon/max(abs(Dq)). The preconditioner epoch, constraint reference/multiplier and normalization are frozen, while geometry, fields, all force components and prescribed-current closure are reevaluated. This finite-difference equilibrium operator is different from the retained analytic boundary-tangent API used by meow. Unsupported requests reject before GPU setup; disabled execution allocates no Newton workspace.',
+    chapter='v1.5 trajectory')
+
+add('A Newton trial must pass the nonlinear gate',table(
+    ['Step','Production behavior'],[
+        ['Before a correction','Valid finite base, stable gauge, epoch age >20; no reference/preconditioner refresh'],
+        ['GPU linear work','Two-pass Gram–Schmidt; GPU projections, Givens rotations and triangular solve'],
+        ['Try trial scales','1, 1/2, 1/4, 1/8; valid geometry and residual-sum ratio <0.95'],
+        ['Accepted','Zero velocity; reset damping history and running residual minimum'],
+        ['Rejected / inner breakdown','Restore coefficients and reevaluate fields/current closure; verify base residuals']])+
+    callout('All three original residual tolerances still define convergence. Stage schedule, caps, timestep and restart/refresh counters are retained.'),
+    'v1.5 · solver_impl.cuh · control_policy.hpp · ADR-0016',
+    'Krylov vectors stay on the GPU; the host consumes only control/status and trial decisions. With 32 steps and basis32, the submitted product count includes 32+ceil(32/32)=33 evaluations before trials; inactive directions still submit maps, so early inner convergence does not erase their cost. mpol=4 rejects an iteration-200 trial with breakdown code2, then rolls back and completes. The archived private printer’s nonfinite marker is preserved as a parse error; it is not counted as inner convergence. Production promotion retains the same arithmetic/order.',
+    chapter='v1.5 trajectory')
+
+rows=[]
+for case,label in [('00_solovev_reference','Original Solovev'),('04_solovev_triangularity_stronger','Stronger triangularity'),('15_vmecpp_analytical_ncurr1','Prescribed-current Solovev'),('18_solovev_pressure1000_quadratic','1,000 Pa · quadratic')]:
+    row=[label]
+    for gpu in ['pascal','ada']:
+        r=release['newton'][gpu]['initial'][case]
+        row.extend([timing(*(r['variants'][v]['median_device_ms'] for v in ['baseline','newton'])),
+                    interval(r['median_gain_percent'],r['bootstrap_ci95_percent'])])
+    rows.append(row)
+add('Newton: gains depend on the equilibrium',table(
+    ['Examples from 19 cases','TITAN Xp ms','Reduction / CI','RTX 4090 ms','Reduction / CI'],rows)+
+    p('Initial 5 alternating pairs after 2 warmups per variant. Every stage at 10⁻¹⁶; grids 5 → 11 → 55, except the declared 99-point radial case.')+
+    callout('Only prescribed-current Solovev clears a 5% Ada lower bound in the initial matrix. These are scoped solver-time gains.'),
+    'Archived 2026-09-08 · same executable, Newton off/on · 95% per-case intervals',
+    'All 19 initial rows, including regressions, remain in the frozen results and evidence ledger. The family includes correlated Solovev variations, two adapted VMEC++ fixtures and three separately predeclared finite-pressure supplements; it is not 19 independent devices. Precise Release on TITAN Xp/CUDA12.1/sm_61 and RTX4090/CUDA12.9.41/sm_89, CPU8, unlocked clocks. The interval includes equilibrium/Newton construction, all probes/trials/rollback work and host gaps, but excludes outer stage setup, interstage transfer, startup and output. Exploratory paired-bootstrap intervals are not adjusted for multiple comparisons.',
+    chapter='v1.5 trajectory',cls='release-table')
+
+rows=[]
+for case,label in [('01_solovev_circular','cuMES circular'),('10_solovev_mpol4','Low resolution · mpol=4'),('14_vmecpp_circular','VMEC++ circular'),('17_solovev_pressure5000_linear','5,000 Pa · linear')]:
+    r=release['newton']['ada']['followup'][case]
+    rows.append([label,timing(*(r['variants'][v]['median_device_ms'] for v in ['baseline','newton'])),
+        interval(r['median_gain_percent'],r['bootstrap_ci95_percent'])])
+add('Fresh measurements confirm Newton regressions',table(
+    ['RTX 4090 · 15 fresh pairs','Baseline → Newton ms','Reduction / 95% CI'],rows)+
+    p('Follow-up selection was fixed to initial intervals wider than 10 percentage points, regardless of the estimated gain’s sign.')+
+    callout('All four cases use fewer outer iterations, but take longer. Axisymmetry alone is not a reliable default selector.'),
+    'Archived 2026-09-08 · separate follow-up campaign · original pairs retained',
+    'One Pascal and ten Ada cases qualified for follow-up. Each received two warmups per variant and 15 new alternating pairs; original five-pair data were neither overwritten nor pooled away. Stronger triangularity has a positive Ada follow-up of 5.40% [5.16%,9.36%]. Other follow-ups are preserved in the complete matrix. No case-specific numerical tuning follows selection; all samples and timing outliers remain. This is why the production Newton flag is opt-in.',
+    chapter='v1.5 trajectory',cls='release-table')
+
+rows=[]
+for case,label in [('00_solovev_reference','Original Solovev'),('15_vmecpp_analytical_ncurr1','Prescribed current'),('14_vmecpp_circular','VMEC++ circular'),('17_solovev_pressure5000_linear','5,000 Pa · linear')]:
+    r=release['newton']['pascal']['initial'][case]['variants']
+    counts=lambda v:' → '.join(str(x) for x in r[v]['iterations'])+' = '+str(sum(r[v]['iterations']))
+    rows.append([label,counts('baseline'),counts('newton'),str(r['newton']['extra_evaluations'])])
+add('Count inner evaluations as well as outer passes',table(
+    ['Case · both GPUs','Baseline outer passes','Newton outer passes','Extra evaluations'],rows)+
+    grid(panel('Original Solovev',p('<strong>754 → 484 outer passes</strong>, plus 136 equilibrium evaluations and Krylov vector/reduction work.')),
+         panel('Cost depends on stage and hardware',p('Probes run on the current grid. Saved outer counts do not price the additional work or predict a wall-time percentage.'))),
+    'Archived 19-case matrix · exact repeated stage/correction counts',
+    'All 19 cases reduce outer iterations, but add 136–272 equilibrium evaluations. These counts repeat on both GPUs, including fresh timing follow-ups. Existing restart evaluations and cost differences among grids also matter; do not present outer+extra as an exact count of all solver evaluations. For the original Solovev, 35.81% fewer outer passes corresponds to only 10.39%/3.96% scoped time reduction on Pascal/Ada. The archival timing includes all submitted evaluations.',
+    chapter='v1.5 trajectory',cls='release-table')
+
+add('A new trajectory needs a solution check',grid(
+    panel('Convergence and replay',p('<strong>982 / 982</strong> full configured solves converge; native reports, fields and checkpoints validate.')+
+        p('<strong>76 / 76</strong> Newton-disabled replays converge in 1 pass at the original final tolerance.')+
+        p('12 replay states are bit exact; 64 only canonicalize dependent-axis signed zeros.')),
+    panel('Largest endpoint differences',table(['Candidate vs baseline','Maximum'],[
+        ['R/Z surface displacement','6.7212e-7 m'],
+        ['λ coefficient relative L2','3.4835e-6'],
+        ['Native B² relative L2','7.0656e-8']]),'free'))+
+    callout('Seven independent VMEC++ references converge at the original tolerance. Maximum Newton/reference R/Z displacement: 6.7807e-8 m.'),
+    'Archived qualification · scientific summary · ADR-0016 promotion checks',
+    'Comparisons use equal native coordinate labels without gauge alignment and are diagnostics, not an imposed blanket equivalence tolerance. VMEC++ B² equivalence was not assessed. Replay changes 68 signed-zero entries at dependent j=0,m>0 positions; no active, boundary or nonzero coefficient changes a bit. Fresh normalization may alter replay residual bits, so every component independently passes the original tolerance. The promoted production flag reproduces all 76 corresponding off/on results across both GPUs exactly; those promotion checks are not a new performance campaign. CUDA12.1 graph-initcheck pivot-scale reports also occur with Newton disabled and remain unresolved; no blanket sanitizer-clean claim is made.',
+    chapter='v1.5 trajectory',cls='release-table')
+
+add('Local residual improvement is not enough',table(
+    ['Rejected experiment','Measured outcome','Whole-solve implication'],[
+        ['Residual extrapolation · raw frequent trials','W7-X 4,106 → 4,276 outer; 314 rejected proposals','4,608 actual evaluations; no reliable gain'],
+        ['Lambda-only correction · best one-shot W7-X','4,106 → 4,040 outer; 32 inner maps + trial','Only 1.61% outer saving before inner costs'],
+        ['Smooth R/Z basis · frozen Solovev','0.0264% residual reduction','28 ordinary passes at equal budget: 43.46%'],
+        ['Periodic lambda correction','W7-X exhausts configured stage caps','Excluded from production']])+
+    callout('The final-grid-only CLI option was added and reverted. No caller-specified stage or tolerance is silently removed by v1.5.'),
+    'e14316d · 23ec41b · 03110b5 → a93db11 · archived experiments',
+    'These bounded screens use different measurement scopes and are not paired release speedups. Solovev’s small smooth R/Z probe uses 12 basis vectors; W7-X uses24 and achieves no reduction versus16.42% from52 ordinary passes. The coupled radial preconditioner also failed to qualify. Grid/tolerance experiments explicitly changed temporary JSON inputs and remain experiments; their timings are not attributed to a shipped v1.5 optimization.',
+    chapter='v1.5 trajectory')
+
+add('Coarse correction and 3-D Newton did not qualify',table(
+    ['Complete-solve screen / comparison','Baseline → candidate','Decision'],[
+        ['FAS · Ada Solovev, 8 smooths / period 100','68.315 → 74.665 ms; 36 extra coarse evaluations','Slower single-run screen'],
+        ['FAS · Ada W7-X, 8 smooths / period 100','1,695.322 → 1,796.907 ms; 333 coarse + 103 trials','Slower despite fewer outer passes'],
+        ['3-D Newton · Pascal W7-X, 5 pairs','4,644.216 → 4,603.336 ms; +0.89% [0.78, 1.06]','Below acceptance threshold'],
+        ['3-D Newton · Ada W7-X, 5 pairs','1,691.465 → 1,696.694 ms; −0.75% [−0.83, 0.17]','No reliable cross-GPU benefit']])+
+    callout('The supported <code>--newton</code> option exposes only the qualified axisymmetric policy. FAS and the 3-D correction remain experimental.'),
+    'fd10788 · newton-correction-experiments.md · coarse-correction-experiments.md',
+    'FAS values use steady_clock solver wall after coarse-corrector construction, including all coarse, transfer and fine trial work; these are single screens, not paired estimates. Its16-smooth variant also regresses: Solovev73.722ms and W7-X1755.348ms. Newton W7-X uses central32 once at fine-grid iteration100 and CUDA-event solver intervals including operator/corrector setup, unlike the supported forward32 periodic axisymmetric policy. Neither scope is whole-process wall time.',
+    chapter='v1.5 trajectory')
+
+chapter('A','Appendix: v1.3 and v1.4','Concurrency, coarse-start tuning, and precision-aware execution complete the path to the v1.5 baseline.')
 add('v1.3: very coarse 3-D seeds help QA and QH differently',table(['Analytic center','Reference','Coarse seed −0.10','Fewer passes'],[
     ['QA','1178 → 252 → 118 = 1548','886 → 226 → 100 = 1212','21.7%'],
     ['QH','445 → 302 → 361 = 1108','303 → 293 → 314 = 910','17.9%']])+table(['Four-worker Jacobian · 3 runs','Before','After','Wall reduction'],[
@@ -312,40 +539,53 @@ add('Sensitivity reuse solves a different performance problem',grid(
     panel('Reported qualification',p('QH residual-vector derivative difference: <strong>5.2%</strong>.<br>Coordinate-invariant objective derivative difference: <strong>0.14%</strong>.')+p('No isolated timing is used here to claim faster nonlinear equilibrium convergence.'))),
     '2d07d47 / <code>0064e98</code> / c1abf20 · ADR-0013',
     'This replaces repeated nonlinear solves in a derivative workflow with retained linear solves. It is a different algorithm and workload from the v1.1→v1.2 equilibrium trajectory. Dense forward Jacobian cost still scales with parameter count. Gauge differences affect the residual-vector comparison.',chapter='Later work')
-add('Current float branch: accuracy unlocks convergence',table(['W7-X float · every stage ftol=10⁻⁵','Result','Extra per-pass work'],[
+add('Early float work: accuracy unlocks convergence',table(['Archived W7-X float · every stage ftol=10⁻⁵','Result','Extra per-pass work'],[
     ['Absolute R₀₀ quantization diagnostic','Double-evaluated FSQR 2.1083e-4','Precision floor evidence'],
     ['Quantize displacement relative to edge','FSQR 4.8304e-9 in the same diagnostic','Retain small radial structure'],
     ['Reference storage alone','Final grid still stalls; best max residual 1.4070e-5','Does not complete cold convergence'],
     ['Reference + poloidal float-float','149 → 277 → 322; FSQR 9.837748e-6','Fused into existing R/Z launches']])+callout('These are 10⁻⁵ mixed-float accuracy experiments. They cannot be compared as speedups against the 10⁻¹² double W7-X solve.'),
     'a880051 / 3cebb49 / bd01518 · ADR-0014; w7x-float-float.md',
-    'Reference representation is default for fixed 3-D float; poloidal compensation remains opt-in. Native odd reconstruction plus reference alone does not finish the qualified 1e-5 cold solve. No additional launch, scratch array or hot-loop allocation is introduced by the minimal fused poloidal option.',chapter='Later work')
+    'Historical poloidal-only experiment before v1.4.0. Current compensated float reconstruction additionally corrects m=1 toroidal sums and odd scaling; its released results appear after the cache slide. Reference representation is default for fixed 3-D float and compensated geometry is opt-in. No additional launch, scratch array or hot-loop allocation was introduced by the earlier minimal fused poloidal option.',chapter='Later work')
 add('Cache the immutable float radius reference',table(['TITAN Xp · 300 warmup + 500 measured','Before cache','After cache','Reduction'],[
     ['Reference / native float','541.90 μs','525.55 μs','3.02%'],
     ['Reference / poloidal float-float','559.29 μs','543.02 μs','2.91%'],
     ['Absolute-coefficient control','—','526.46 μs','Same-session control']])+callout('Compute the constant reference Fourier sum once per stage. One graph node disappears; no new buffer is allocated; the 149 → 277 → 322 trajectory is unchanged.'),
     '194415d · ADR-0014 · three alternating executable comparisons',
-    'Archived current-branch measurements, not newly reproduced for this deck. Cache validity and buffer lifetime are explicit; reference switching invalidates the prepared binding. Nonlinear geometry still restores absolute radius locally each pass. This is an execution optimization inside the later precision work.',chapter='Later work')
+    'Archived pre-v1.4 measurements, not newly reproduced for this deck. Cache validity and buffer lifetime are explicit; reference switching invalidates the prepared binding. Nonlinear geometry still restores absolute radius locally each pass. The final released compensation path later adds its own toroidal work; do not treat these historical pass costs as current full-path measurements.',chapter='Later work')
+add('v1.4.1 completes the selective float correction',table(
+    ['W7-X float reconstruction','Archived cost per pass','Single-grid cold result'],[
+        ['Earlier poloidal compensation','546.79 μs','Stalls even after 20,000 passes'],
+        ['Retained m=1 toroidal + poloidal','562.85 μs','1,354 effective passes at 10⁻⁵'],
+        ['Full odd float-float diagnostic','660.94 μs','1,214 effective passes at 10⁻⁵']])+
+    grid(panel('Limit the extra work',p('Only 4 toroidal position channels; <strong>114,048 bytes</strong> of channel scratch at ns=99. Higher odd modes keep single-word products.')),
+         panel('Released qualification',p('Multigrid: <strong>149 → 277 → 311</strong>. Both single-grid and multigrid checkpoints replay in 1 pass. Device kernels remain FP32/float-float.'))),
+    'Archived TITAN Xp / CUDA12.1 · 9c59702 / 0d8482a / 1f6e654',
+    'v1.4.0 first made device arithmetic float-only, including reductions/control, and exposed native/compensated geometry; v1.4.1 adds four m=1 toroidal sums and split odd scaling. Three alternating imported tight-checkpoint trials use300 warmup+500 measured passes, retaining the first poloidal601.44us outlier. Cost is2.9% above poloidal-only and14.8% below the full diagnostic. These fixed-window timings are not cold solution-time comparisons. The ordinary double results remain exact; double compensated geometry is a separately opt-in double-double accuracy/cost choice, not a new native-double speedup. Native geometry remains default. No float result is accuracy-matched to W7-X double at1e-12.',
+    chapter='Later work')
 add('The gains that the evidence supports',grid(
-    panel('Execute each pass efficiently',p('<strong>RTX W7-X:</strong> 660.81 → 534.53 μs.<br><strong>RTX Solovev:</strong> 115.59 → 82.33 μs.')+p('Graphs matter most when submission is a large fraction of latency. Keep data resident and retain only measured kernel changes.')),
-    panel('Spend fewer passes converging',p('<strong>W7-X multigrid:</strong> 5,505 → 4,106.<br><strong>Solovev multigrid:</strong> 906 → 754.')+p('Cold-start policy and smoother continuation reduce full force evaluations while meeting the configured residual tolerances.'),'free'))+
-    callout('The new TITAN Xp release comparison confirms the deterministic counts and measures complete wall time. Every headline points to commits, inputs, and raw or archived evidence.'),
-    '5379fca · 17867d5 · data/local/summary.json',
-    'Do not combine separate archived sessions into a synthetic total speedup. Execution and trajectory gains are complementary but measured under different scopes. The raw local results make the current same-machine comparison reviewable.',chapter='Closing')
+    panel('Execute the same work faster',p('<strong>v1.5 Fourier, W7-X:</strong><br>5.19% / 6.50% lower pass latency.')+
+        p('<strong>v1.5 free Solovev mgrid:</strong><br>37.01% / 29.69% lower solver intervals.')),
+    panel('Pay for useful trajectory changes',p('<strong>v1.1 → v1.2 W7-X:</strong><br>5,505 → 4,106 multigrid passes.')+
+        p('<strong>v1.5 prescribed-current Newton:</strong><br>19.21% / 14.51% lower solver intervals.'),'free'))+
+    callout('Paired GPU figures are TITAN Xp / RTX 4090. Newton stays opt-in; its measured regressions matter as much as its favorable cases.'),
+    'Through v1.5.0 · separate workload/revision comparisons · data/v1.5/',
+    'Do not multiply or add separate archived sessions into a synthetic total speedup. The Fourier baseline is v1.4.1; the vacuum baseline already includes Fourier improvements. Newton is measured against the same private executable with the correction off/on and promoted with exact numerical checks, not another timing campaign. Historical v1.1/v1.2 whole-process reproductions and the v1.5 scopes remain separately identified.',chapter='Closing')
 add('Evidence and reproduction',table(['Artifact','What it contains'],[
     ['evidence.md','Pinned source citations, measurement scopes, and limits'],
-    ['data/commit-audit.tsv','All 197 post-design-closeout commits and changed files'],
-    ['data/optimization-commits.md','42 highlighted optimization/support/evidence records'],
+    ['data/commit-audit.tsv',f'All {audit_count} post-design-closeout commits and changed files'],
+    ['data/optimization-commits.md',f'{highlight_count} highlighted optimization/support/evidence records'],
+    ['data/v1.5/','Frozen release docs, input manifests, raw samples and numerical checks'],
     ['data/local/','Raw fixed-iteration JSON, CLI logs, exact inputs, GPU provenance'],
     ['scripts/build_history.py → measure.py → summarize.py','Historical worktrees, controlled measurements, statistical summary'],
     ['scripts/build_deck.py','Static HTML generation from narrative and measured results']])+p('Open locally to present. <strong>O</strong> overview · <strong data-math-ignore>N</strong> notes · <strong>← / →</strong> navigation · browser print for 16:9 PDF.'),
-    'Web deck · Technical Blueprint style · reviewed 2026-09-07',
-    'Hosted decks load KaTeX from a pinned CDN. The standalone exporter embeds all presentation resources for offline use. Scratch worktrees and binaries live in ../tmp/cumes-optimization-slides-20260907. This deck does not alter the cuMES working checkout.',chapter='Closing')
+    'Web deck · Technical Blueprint style · reviewed through v1.5.0 on 2026-09-09',
+    'Hosted decks load KaTeX from a pinned CDN. The standalone exporter embeds all presentation resources for offline use. import_v15_evidence.py freezes source-pinned evidence and verifies sample medians without running solvers. Earlier measurement worktrees remain in ../tmp/cumes-optimization-slides-20260907. No primary cuMES checkout changes are made.',chapter='Closing')
 
 template=(deck.parent/'cumes-run/index.html').read_text()
 tail=template.split('  </main>',1)[1]
 head='''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#04101a"><meta name="description" content="Measured optimization history of cuMES: CUDA execution and convergence trajectory changes.">
+<meta name="theme-color" content="#04101a"><meta name="description" content="Measured cuMES optimization history through v1.5: CUDA execution, Fourier and vacuum performance, and guarded Newton convergence.">
 <title>Making cuMES faster</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
 '''
 (deck/'index.html').write_text(format_html(head+'\n'.join(slides)+'\n</main>'+tail))
