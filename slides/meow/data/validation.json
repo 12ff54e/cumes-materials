@@ -558,8 +558,8 @@
       "status": "loaded"
     },
     {
-      "family": "Linux Libertine Mono",
-      "weight": "400",
+      "family": "Fira Code",
+      "weight": "300 700",
       "style": "normal",
       "status": "loaded"
     }
