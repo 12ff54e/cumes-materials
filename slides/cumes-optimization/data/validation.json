@@ -903,6 +903,7 @@
     ]
   },
   "checks": {
+    "text_fonts_loaded": true,
     "next": true,
     "previous": true,
     "overview": true,
@@ -919,6 +920,56 @@
     "swipe": true,
     "offline_no_http_requests": true
   },
+  "text_fonts": [
+    {
+      "family": "Linux Libertine",
+      "weight": "400",
+      "style": "normal",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Libertine",
+      "weight": "400",
+      "style": "italic",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Libertine",
+      "weight": "700",
+      "style": "normal",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Libertine",
+      "weight": "700",
+      "style": "italic",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Biolinum",
+      "weight": "400",
+      "style": "normal",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Biolinum",
+      "weight": "700",
+      "style": "normal",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Biolinum",
+      "weight": "400",
+      "style": "italic",
+      "status": "loaded"
+    },
+    {
+      "family": "Linux Libertine Mono",
+      "weight": "400",
+      "style": "normal",
+      "status": "loaded"
+    }
+  ],
   "print": [
     {
       "slide": 1,
