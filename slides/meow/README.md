@@ -28,7 +28,7 @@ python3 -m http.server 8000
 Visit `http://localhost:8000/slides/meow/`. Use arrows, Home/End, `O` for overview,
 `N` for speaker notes, `?` for help, and `F` for fullscreen. Touch devices support
 horizontal swipes and vertical scrolling. Wide figures and tables scroll
-horizontally on small screens. KaTeX and its fonts load from a pinned CDN;
+horizontally on small screens. KaTeX and Libertine/Biolinum fonts load from pinned CDN URLs;
 figures and presentation code remain local. To present without internet access,
 export a single-file HTML deck from the repository root:
 
@@ -37,7 +37,7 @@ python3 scripts/export_standalone.py meow --output exports/meow.html
 ```
 
 The first export downloads the dependencies; later exports reuse the cache.
-The resulting file embeds scripts, styles, fonts, images, and the KaTeX license.
+The resulting file embeds scripts, styles, fonts, images, and third-party licenses.
 See the repository [README](../../README.md) for GitHub Pages publishing,
 all-deck export, and validation with browser networking disabled.
 
@@ -52,6 +52,10 @@ adds the measurement and figure layouts. The generator uses the shared controls
 markup at the end of `slides/cumes-run/index.html`. Edit the generator rather
 than its generated `index.html`.
 
+Adjust fonts and sizes in the shared [`../../typography.css`](../../typography.css),
+using the [font-size guide](../../README.md#fonts-and-font-sizes). HTML sizes
+update on reload; regenerate figures after changing the global font/figure scales.
+
 The generator applies the shared `../../scripts/inline_math.py` formatter to
 variables and quantities in prose, tables, captions, and notes. Use
 `inline(r"...")` for complete or ambiguous expressions, and `<code>` for literal
@@ -65,8 +69,10 @@ python3 slides/meow/scripts/plot_results.py
 python3 slides/meow/scripts/build_deck.py
 ```
 
-This needs Python, NumPy, and Matplotlib. It reads only this deck's frozen data
-and does not run a solver. SVG charts retain vector labels; 3-D surfaces and
+This needs Python, NumPy, and Matplotlib. It reads this deck's frozen data and
+the shared typography configuration; it does not run a solver. The first run
+downloads the pinned Biolinum fonts into `.cache/standalone/`; subsequent runs
+reuse that cache. SVG charts retain vector labels; 3-D surfaces and
 Boozer contour plots are rendered to PNG. All figures are original plots of
 the saved numerical data, not copied paper figures. QA construction geometry is
 rigidly rotated by π/nfp for visual phase alignment; inputs and objective values

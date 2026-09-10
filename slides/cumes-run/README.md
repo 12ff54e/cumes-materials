@@ -6,14 +6,13 @@ coil configuration through MAKEGRID/NESTOR coupling to the final movable LCFS.
 
 ## Present
 
-Open `index.html` directly, or serve this directory locally:
+Open `index.html` directly, or serve from the repository root:
 
 ```bash
-cd slides/cumes-run
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Then open `http://localhost:8000/slides/cumes-run/`.
 
 ## Controls
 
@@ -27,7 +26,10 @@ Then open `http://localhost:8000`.
 
 Browser printing exports the full deck as 16:9 pages. Hosted/source decks load
 KaTeX 0.18.4 and its fonts from a pinned CDN, with integrity checks on the script
-and stylesheet. Figures and presentation code remain local. For offline use,
+and stylesheet. Libertine/Biolinum text fonts also load from pinned CDN URLs.
+Adjust fonts and sizes in the shared [`../../typography.css`](../../typography.css);
+see the [font-size guide](../../README.md#fonts-and-font-sizes).
+Figures and presentation code remain local. For offline use,
 export one self-contained HTML file from the repository root:
 
 ```bash
@@ -42,6 +44,7 @@ cache. The resulting HTML needs no network or server. See the repository
 
 - `index.html`: presentation content and code-native diagrams
 - `styles.css`: Technical Blueprint visual system and print/mobile layouts
+- `../../typography.css`: shared font families and font-size controls
 - `deck.js`: navigation, overview, notes, fullscreen, fragments, and URL hashes
 - `../../licenses/KaTeX.txt`: the math renderer's MIT license, included in exports
 

@@ -404,7 +404,7 @@ def residual_plot():
         curves.append(f'<polyline points="{" ".join(coords)}" fill="none" stroke="{color}" stroke-width="3"/>')
     def label(x, y, width, html, align='left', color='#b6cbd7'):
         # KaTeX needs HTML inside the SVG; text elements cannot contain spans.
-        return f'<foreignObject x="{x:.1f}" y="{y:.1f}" width="{width}" height="30"><div xmlns="http://www.w3.org/1999/xhtml" style="font:17px/26px sans-serif;color:{color};text-align:{align};white-space:nowrap">{html}</div></foreignObject>'
+        return f'<foreignObject x="{x:.1f}" y="{y:.1f}" width="{width}" height="30"><div xmlns="http://www.w3.org/1999/xhtml" class="chart-label" style="color:{color};text-align:{align};white-space:nowrap">{html}</div></foreignObject>'
     ticks=''.join(f'<line x1="85" y1="{45+i/13*340:.1f}" x2="1010" y2="{45+i/13*340:.1f}" stroke="#224051"/>' + label(0,32+i/13*340,67,inline(f'10^{{-{i}}}'),'right') for i in (2,4,6,8,10,12))
     ticks+=''.join(label(50+i/3100*925,397,70,inline(str(i)),'center') for i in (0,500,1000,1500,2000,2500,3000))
     labels = label(90,5,460,inline(r'\max(\mathrm{FSQR},\mathrm{FSQZ},\mathrm{FSQL})')) + label(850,425,220,'reported iteration')
@@ -586,7 +586,7 @@ tail=template.split('  </main>',1)[1]
 head='''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#04101a"><meta name="description" content="Measured cuMES optimization history through v1.5: CUDA execution, Fourier and vacuum performance, and guarded Newton convergence.">
-<title>Making cuMES faster</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"></head><body><main class="deck" aria-live="polite">
+<title>Making cuMES faster</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="optimization.css"><link rel="stylesheet" href="../../typography.css"></head><body data-deck="cumes-optimization"><main class="deck" aria-live="polite">
 '''
 (deck/'index.html').write_text(format_html(head+'\n'.join(slides)+'\n</main>'+tail))
 print(f'Built {len(slides)} slides')

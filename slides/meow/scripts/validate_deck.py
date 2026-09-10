@@ -83,6 +83,16 @@ def main():
             for kind in ("keyDown", "keyUp"):
                 cdp("Input.dispatchKeyEvent", {"type": kind, "key": value, "code": code or value})
 
+        def settle():
+            # A viewport/hash change can make another font face visible.
+            js("""(async()=>{
+                await new Promise(requestAnimationFrame);
+                void document.body.offsetHeight;
+                await document.fonts.ready;
+                await new Promise(requestAnimationFrame);
+                return true;
+            })()""")
+
         cdp("Page.enable")
         cdp("Runtime.enable")
         cdp("Network.enable")
@@ -102,6 +112,13 @@ def main():
         js("document.head.insertAdjacentHTML('beforeend','<style>.slide{transition:none!important}</style>')")
         count = js("document.querySelectorAll('.slide').length")
         results = {"slides": count, "layouts": {}, "checks": {}}
+        results["text_fonts"] = js("""(async()=>{
+            const faces=[...document.fonts].filter(f=>f.family.includes('Linux'));
+            await Promise.all(faces.map(f=>f.load()));
+            return faces.map(f=>({family:f.family,weight:f.weight,style:f.style,status:f.status}));
+        })()""")
+        if results["text_fonts"]:
+            results["checks"]["text_fonts_loaded"] = all(face["status"] == "loaded" for face in results["text_fonts"])
         check = """(()=>{const s=document.querySelector('.slide.active'), c=s.querySelector('.content'),
           foot=s.querySelector('footer').getBoundingClientRect();
           const nodes=[...c.querySelectorAll('p,td,th,h3,.equation,.hero-number,.math-inline,img,pre')];
@@ -113,7 +130,7 @@ def main():
             rows = []
             for number in range(1, count + 1):
                 js(f"location.hash='#/{number}'")
-                time.sleep(.035)
+                settle()
                 row = js(check)
                 row["slide"] = number
                 rows.append(row)
@@ -157,6 +174,7 @@ def main():
         results["checks"]["swipe"] = js("location.hash==='#/2'")
         cdp("Emulation.setDeviceMetricsOverride", {"width": 1280, "height": 720, "deviceScaleFactor": 1, "mobile": False})
         cdp("Emulation.setEmulatedMedia", {"media": "print"})
+        settle()
         results["print"] = js("""[...document.querySelectorAll('.slide')].map((s,i)=>{let r=s.getBoundingClientRect(),f=s.querySelector('footer').getBoundingClientRect();return {slide:i+1,width:r.width,height:r.height,overruns:[...s.querySelectorAll('.content p,.content td,.content th,.content img,.content h3,.content .equation,.content .math-inline,.content pre')].filter(e=>{let b=e.getBoundingClientRect(),p=e.closest('.panel'),box=p&&p.getBoundingClientRect();return b.bottom>f.top+2||b.right>r.right||b.left<r.left||(box&&(b.bottom>box.bottom+1||b.right>box.right+1))||(e.classList.contains('math-inline')&&e.scrollWidth>e.clientWidth+2)}).map(e=>e.dataset.tex||e.textContent.slice(0,80)||e.getAttribute('src'))}})""")
         # Large vector decks can take longer to print. Read a stream instead of
         # making the browser serialize the entire PDF in one WebSocket message.

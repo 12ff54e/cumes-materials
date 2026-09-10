@@ -26,8 +26,9 @@ def main():
         shutil.rmtree(output)
     output.mkdir(parents=True)
     (output / ".nojekyll").touch()
-    for name in ("index.html", "site.css"):
+    for name in ("index.html", "site.css", "typography.css"):
         shutil.copy2(ROOT / name, output / name)
+    shutil.copytree(ROOT / "licenses", output / "licenses")
     for deck in sorted((ROOT / "slides").iterdir()):
         if not (deck / "index.html").is_file():
             continue

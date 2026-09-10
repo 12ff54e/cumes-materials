@@ -1,0 +1,116 @@
+/* Shared typography for the landing page, all decks, and their exports.
+ * Start here when adjusting sizes: 1 = default, 1.1 = 10% larger.
+ * The overall scale multiplies each role's scale, including print/mobile sizes.
+ * Inline math follows its surrounding text; equation-scale controls display math.
+ * Figure labels need: python3 slides/meow/scripts/plot_results.py
+ */
+:root {
+  --font-scale: 1;
+  --title-scale: 1;
+  --heading-scale: 1;
+  --text-scale: 1;
+  --table-scale: 1;
+  --equation-scale: 1;
+  --label-scale: 1;
+  --code-scale: 1;
+  --figure-scale: 1;
+
+  --serif: "Linux Libertine", Georgia, "Times New Roman", serif;
+  --sans: "Linux Biolinum", "Segoe UI", sans-serif;
+  --mono: "Linux Libertine Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+/* Pinned TypoPRO 3.7.5 distributions of Linux Libertine / Linux Biolinum.
+ * Original font bytes are served by the CDN and embedded only by the exporter.
+ * TrueType is shared with Matplotlib so browser and figure labels agree.
+ * Copyright and OFL terms: licenses/LinuxLibertine.txt, LinuxBiolinum.txt.
+ */
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-libertine@3.7.5/TypoPRO-LinuxLibertine-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-libertine@3.7.5/TypoPRO-LinuxLibertine-RegularItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-libertine@3.7.5/TypoPRO-LinuxLibertine-RegularBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Libertine";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-libertine@3.7.5/TypoPRO-LinuxLibertine-RegularBoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Biolinum";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-biolinum@3.7.5/TypoPRO-LinuxBiolinum-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Biolinum";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-biolinum@3.7.5/TypoPRO-LinuxBiolinum-RegularBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Biolinum";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-biolinum@3.7.5/TypoPRO-LinuxBiolinum-RegularItalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Linux Libertine Mono";
+  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-libertine@3.7.5/TypoPRO-LinuxLibertineMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body {
+  font-family: var(--serif);
+  font-size: calc(16px * var(--font-scale) * var(--text-scale));
+}
+
+h1, h2, h3,
+.node-title, .timeline-item strong, .overview-card strong, .overlay-panel h3,
+.eyebrow, .panel-title, .node-kicker, .node-step,
+.big-number, .hero-number, .section-number, .lane-hero .index,
+.lane-label, .lane-step, .lane b, .lane i, .state, .matrix > div,
+.tag, .slide-index, .slide-footer, .hud, .overview-card .n, .gpu-core,
+.measure, .bar-row, .result-figure figcaption, .schematic text,
+.wordmark, .site-header, .tags, .actions, .site-footer {
+  font-family: var(--sans);
+}
+
+h1, h2 { font-weight: 700; letter-spacing: -0.025em; }
+h3 { font-weight: 700; letter-spacing: -0.01em; }
+code, pre, kbd, .mono, .source-ref, .code-head { font-family: var(--mono); }
+
+/* The math renderer keeps its own font metrics and glyphs. */
+.equation { font-family: var(--serif); }
+
+.chart-label {
+  font-family: var(--sans);
+  font-size: calc(17px * var(--font-scale) * var(--figure-scale));
+  line-height: 26px;
+}
+.diagram-label {
+  font-size: calc(14px * var(--font-scale) * var(--figure-scale));
+}

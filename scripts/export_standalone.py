@@ -146,8 +146,10 @@ def export(source, destination, resources):
     parser = Exporter(source, resources)
     parser.feed(source.read_text())
     parser.close()
-    license_text = (ROOT / "licenses/KaTeX.txt").read_text()
-    license_html = '<template id="third-party-licenses"><pre>' + escape(license_text) + "</pre></template>"
+    license_html = '<template id="third-party-licenses">' + "".join(
+        "<h2>" + escape(path.stem) + "</h2><pre>" + escape(path.read_text()) + "</pre>"
+        for path in sorted((ROOT / "licenses").glob("*.txt"))
+    ) + "</template>"
     html = "".join(parser.output).replace("</body>", license_html + "\n</body>")
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_suffix(destination.suffix + ".tmp")

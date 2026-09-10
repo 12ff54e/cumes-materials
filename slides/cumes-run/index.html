@@ -8,8 +8,9 @@
   <title>From coils or boundary to equilibrium — cuMES</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex-swap.min.css" integrity="sha384-UPDcDT9bUBaTMMvcooRxZ1CFTMVIIFEcw5g0pJ7FVdzjmHL/avwg1ZUOyF/iA4Ps" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../../typography.css">
 </head>
-<body>
+<body data-deck="cumes-run">
   <main class="deck" aria-live="polite">
 
     <section class="slide title-slide" data-title="From coils or boundary to equilibrium" data-chapter="Orientation" data-summary="The complete anatomy of a cuMES run.">
@@ -168,7 +169,7 @@
         <svg class="schematic" viewBox="0 0 720 420" role="img" aria-label="Nested flux surfaces with full and half grid points">
           <g opacity=".7"><path class="gridline" d="M60 70H680M60 140H680M60 210H680M60 280H680M60 350H680"/></g>
           <g transform="translate(360 215)"><ellipse class="cyan-line" rx="55" ry="35"/><ellipse class="cyan-line" rx="110" ry="68" opacity=".85"/><ellipse class="cyan-line" rx="170" ry="102" opacity=".7"/><ellipse class="cyan-line" rx="235" ry="140" opacity=".55"/><circle cx="0" cy="0" r="5" fill="#ffb454"/></g>
-          <g fill="#91a9b9" font-size="14"><text x="348" y="209">axis</text><text x="590" y="78">LCFS</text><text x="68" y="392">full surfaces carry the evolving spectral state</text></g>
+          <g fill="#91a9b9" class="diagram-label"><text x="348" y="209">axis</text><text x="590" y="78">LCFS</text><text x="68" y="392">full surfaces carry the evolving spectral state</text></g>
         </svg>
         <div class="stack">
           <div class="panel"><div class="panel-title">Full grid</div><p><span class="math-inline" data-tex="s_j=\dfrac{j}{n_s-1},\quad j=0,\ldots,n_s-1"></span></p><p>Spectral state and full-grid <span class="math-inline" data-tex="R"></span>, <span class="math-inline" data-tex="Z"></span>, <span class="math-inline" data-tex="\lambda"></span> live here.</p></div>
@@ -189,7 +190,7 @@
         </div>
         <svg class="schematic" viewBox="0 0 680 420" role="img" aria-label="Mode envelopes from axis to LCFS">
           <path class="muted-line" d="M80 350H620M80 350V45"/><path class="cyan-line" d="M80 350L620 75"/><path class="cyan-line" opacity=".8" d="M80 350Q350 270 620 75"/><path class="cyan-line" opacity=".6" d="M80 350Q440 345 620 75"/><path class="amber-line pulse" d="M80 300L620 115"/>
-          <g fill="#91a9b9" font-size="14"><text x="65" y="375">axis</text><text x="560" y="375">LCFS</text></g>
+          <g fill="#91a9b9" class="diagram-label"><text x="65" y="375">axis</text><text x="560" y="375">LCFS</text></g>
           <foreignObject x="492" y="88" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=1:\ \sqrt{s}"></span></div></foreignobject>
           <foreignObject x="492" y="138" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=2:\ s"></span></div></foreignobject>
           <foreignObject x="492" y="198" width="160" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="m=4:\ s^2"></span></div></foreignobject>
@@ -253,7 +254,7 @@
       <header class="slide-header"><div><p class="eyebrow">Pass step 0</p><h2>Axis regularity is repaired every pass</h2></div><span class="source-ref">extrapolate_axis_kernel</span></header>
       <div class="content grid-2 wide-left">
         <svg class="schematic" viewBox="0 0 720 420" role="img" aria-label="Axis row copied from first interior surface">
-          <path class="muted-line" d="M90 330H650M90 330V50"/><g fill="#91a9b9" font-size="14"><text x="610" y="356">LCFS</text></g>
+          <path class="muted-line" d="M90 330H650M90 330V50"/><g fill="#91a9b9" class="diagram-label"><text x="610" y="356">LCFS</text></g>
           <foreignObject x="72" y="340" width="70" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="j=0"></span></div></foreignobject>
           <foreignObject x="168" y="340" width="70" height="34"><div xmlns="http://www.w3.org/1999/xhtml" class="svg-math"><span class="math-inline" data-tex="j=1"></span></div></foreignobject>
           <circle cx="100" cy="260" r="10" fill="#ffb454"/><circle cx="195" cy="205" r="10" fill="#43d9ff"/><path class="amber-line pulse" d="M190 210L108 254"/><path class="cyan-line" d="M195 205Q400 110 640 85"/>

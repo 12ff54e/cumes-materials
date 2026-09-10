@@ -12,6 +12,47 @@ Each deck includes speaker notes. The optimization and meow directories also
 contain PDF exports, evidence ledgers, frozen data, and reproduction commands.
 Solver benchmarks are independent of building or publishing the website.
 
+## Fonts and font sizes
+
+Edit **[typography.css](typography.css)** at the repository root. It is shared by
+the landing page and every deck, and included in standalone exports. Libertine
+is used for prose, Biolinum for headings, tables and labels, and Libertine Mono
+for code. KaTeX keeps its math fonts because equation layout depends on their
+glyph metrics.
+
+The variables at the top are multipliers: `1` is the default, `1.1` is 10% larger,
+and `0.95` is 5% smaller. Start with `--font-scale` to resize everything, or
+adjust a particular role:
+
+| Variable | Controls |
+| --- | --- |
+| `--font-scale` | Overall text size, including mobile and print |
+| `--title-scale` | Cover titles, large metrics and chapter numbers |
+| `--heading-scale` | Slide and panel headings |
+| `--text-scale` | Prose and speaker notes |
+| `--table-scale` | Measurement tables, including their inline math |
+| `--equation-scale` | Display equations; inline math follows its surrounding text |
+| `--label-scale` | Labels, captions, footers and navigation |
+| `--code-scale` | Code blocks and source references |
+| `--figure-scale` | SVG diagram labels and regenerated meow figure labels |
+
+Overall and role scales multiply. For example, set `--font-scale: 1.05;` to
+enlarge the default sizes by 5%. For a change to just one deck, add a rule at
+the bottom of the same file:
+
+```css
+body[data-deck="cumes-optimization"] {
+  --text-scale: 1.05;
+}
+```
+
+Reload the page after editing; HTML typography needs no regeneration. Meow's
+saved figures contain glyph outlines or pixels: after changing `--font-scale`
+or `--figure-scale`, run `python3 slides/meow/scripts/plot_results.py` to redraw
+them from frozen data. Figure generation reads the global scales. Regenerate
+PDFs and standalone exports after typography changes, and check for wrapping
+or clipping when increasing sizes.
+
 ## Preview and publish
 
 From the repository root:
@@ -36,8 +77,9 @@ repository's Pages URL.
 
 Hosted decks load KaTeX 0.18.4 CSS, JavaScript, and fonts from jsDelivr, with
 version-pinned URLs and integrity checks on the CSS/JavaScript. These are the
-same library bytes used for the validated original decks. No library binaries
-or fonts are included in the deployed site or current source tree.
+same library bytes used for the validated original decks. Text fonts load from
+the pinned TypoPRO 3.7.5 Libertine/Biolinum packages on jsDelivr. The hosted HTML
+does not vendor library or font binaries; PDF exports embed their font subsets.
 
 ## Standalone export
 
@@ -54,7 +96,7 @@ python3 scripts/export_standalone.py --all
 ```
 
 The output files in `exports/` embed styles, scripts, fonts, figures, and the
-KaTeX license. Copy one HTML file to another computer and open it directly;
+KaTeX and font licenses. Copy one HTML file to another computer and open it directly;
 presenting needs no server or internet access. Navigation, equations, notes,
 touch controls, and browser printing remain available.
 
@@ -93,3 +135,7 @@ screenshots as well. See `AGENTS.md` for notation and evidence requirements.
 The deployment follows GitHub's [custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 The CDN setup follows the [KaTeX browser documentation](https://katex.org/docs/browser.html);
 its MIT license is retained in [licenses/KaTeX.txt](licenses/KaTeX.txt).
+The [TypoPRO font distributions](https://github.com/rse/typopro) provide Linux
+Libertine and Biolinum under the Open Font License; their notices are retained
+in [licenses/LinuxLibertine.txt](licenses/LinuxLibertine.txt) and
+[licenses/LinuxBiolinum.txt](licenses/LinuxBiolinum.txt), on Pages and in exports.

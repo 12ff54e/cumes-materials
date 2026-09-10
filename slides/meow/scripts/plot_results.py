@@ -3,6 +3,7 @@
 
 import json
 from pathlib import Path
+import sys
 
 import matplotlib
 matplotlib.use("Agg")
@@ -11,11 +12,15 @@ from matplotlib.colors import LightSource
 import numpy as np
 
 DECK = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(DECK.parents[1] / "scripts"))
+from figure_typography import configure, scale_labels
+
+FIGURE_FONT, FIGURE_SCALE = configure()
 DATA, ASSETS = DECK / "data", DECK / "assets"
 CYAN, AMBER, GREEN, RED = "#43d9ff", "#ffb454", "#72e5b3", "#ff8390"
 INK, MUTED, BG = "#e8f4fc", "#a0b8c9", "#071725"
 plt.rcParams.update({
-    "font.family": "DejaVu Sans", "font.size": 14,
+    "font.family": FIGURE_FONT, "font.size": 14,
     "axes.facecolor": BG, "figure.facecolor": BG, "savefig.facecolor": BG,
     "text.color": INK, "axes.labelcolor": MUTED, "axes.edgecolor": "#34536a",
     "xtick.color": MUTED, "ytick.color": MUTED, "grid.color": "#294257",
@@ -31,6 +36,7 @@ def read(name):
 
 
 def finish(fig, name):
+    scale_labels(fig, FIGURE_SCALE)
     fig.savefig(ASSETS / name, dpi=190, bbox_inches="tight", pad_inches=0.12,
                 metadata={"Date": None} if name.endswith(".svg") else None)
     plt.close(fig)

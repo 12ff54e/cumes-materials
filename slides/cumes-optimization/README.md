@@ -11,14 +11,17 @@ Open [index.html](index.html), or read the exported
 [64-page PDF](cumes-optimization.pdf). To serve from the repository root:
 
 ```bash
-python3 -m http.server 8000 --directory slides/cumes-optimization
+python3 -m http.server 8000
 ```
 
-Visit `http://localhost:8000`. Arrow keys/Space/Page Up/Page Down navigate;
+Visit `http://localhost:8000/slides/cumes-optimization/`. Arrow keys/Space/Page Up/Page Down navigate;
 `O` opens overview, `N` opens notes, `F` requests fullscreen, `?` opens help,
 and Escape closes overlays. Home/End jump to the first/last slide. Touch supports
 horizontal swipes; narrow layouts scroll vertically and wide tables horizontally.
-Browser printing uses 16:9 pages. KaTeX and its fonts load from a pinned CDN.
+Browser printing uses 16:9 pages. KaTeX and the Libertine/Biolinum fonts load
+from pinned CDN URLs. Adjust fonts and sizes in the shared
+[`../../typography.css`](../../typography.css); see the
+[font-size guide](../../README.md#fonts-and-font-sizes).
 For a single-file offline deck, run this from the repository root:
 
 ```bash
@@ -26,7 +29,7 @@ python3 scripts/export_standalone.py cumes-optimization
 ```
 
 The exported `exports/cumes-optimization.html` includes all scripts, styles,
-fonts, figures, and the KaTeX license. Only the first export needs to download
+fonts, figures, and third-party licenses. Only the first export needs to download
 the dependencies. See the repository [README](../../README.md) for deployment.
 
 ## Content
