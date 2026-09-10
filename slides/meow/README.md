@@ -28,7 +28,9 @@ python3 -m http.server 8000
 Visit `http://localhost:8000/slides/meow/`. Use arrows, Home/End, `O` for overview,
 `N` for speaker notes, `?` for help, and `F` for fullscreen. Touch devices support
 horizontal swipes and vertical scrolling. Wide figures and tables scroll
-horizontally on small screens. KaTeX and Libertine/Biolinum fonts load from pinned CDN URLs;
+horizontally on small screens. Click **Aa** to resize text and math, adjust math
+separately, or reset; your browser remembers settings for this deck.
+KaTeX and Libertine/Biolinum/Fira Code fonts load from pinned CDN URLs;
 figures and presentation code remain local. To present without internet access,
 export a single-file HTML deck from the repository root:
 

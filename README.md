@@ -14,9 +14,18 @@ Solver benchmarks are independent of building or publishing the website.
 
 ## Fonts and font sizes
 
+Click **Aa** in a deck's bottom-right controls to adjust sizes while presenting.
+**Text and math** scales slide text and equations together; **Math only** adds
+an independent scale for inline and display equations. Both sliders run from
+80% to 140% of the authored sizes. Your browser remembers settings separately
+for each deck; **Reset to default** restores 100%. The controls also work in
+standalone exports. Enlarged slides can scroll to keep their content reachable.
+Labels inside saved plot images keep their original size. Reset before printing
+to use the deck's validated 16:9 layout.
+
 Edit **[typography.css](typography.css)** at the repository root. It is shared by
 the landing page and every deck, and included in standalone exports. Libertine
-is used for prose, Biolinum for headings, tables and labels, and Libertine Mono
+is used for prose, Biolinum for headings, tables and labels, and Fira Code
 for code. KaTeX keeps its math fonts because equation layout depends on their
 glyph metrics.
 
@@ -78,8 +87,9 @@ repository's Pages URL.
 Hosted decks load KaTeX 0.18.4 CSS, JavaScript, and fonts from jsDelivr, with
 version-pinned URLs and integrity checks on the CSS/JavaScript. These are the
 same library bytes used for the validated original decks. Text fonts load from
-the pinned TypoPRO 3.7.5 Libertine/Biolinum packages on jsDelivr. The hosted HTML
-does not vendor library or font binaries; PDF exports embed their font subsets.
+the pinned TypoPRO 3.7.5 Libertine/Biolinum and Fira Code 6.2.0 packages on
+jsDelivr. The hosted HTML does not vendor library or font binaries; PDF exports
+embed their font subsets.
 
 ## Standalone export
 
@@ -139,3 +149,5 @@ The [TypoPRO font distributions](https://github.com/rse/typopro) provide Linux
 Libertine and Biolinum under the Open Font License; their notices are retained
 in [licenses/LinuxLibertine.txt](licenses/LinuxLibertine.txt) and
 [licenses/LinuxBiolinum.txt](licenses/LinuxBiolinum.txt), on Pages and in exports.
+[Fira Code](https://github.com/tonsky/FiraCode) also uses the Open Font License;
+its notice is retained in [licenses/FiraCode.txt](licenses/FiraCode.txt).

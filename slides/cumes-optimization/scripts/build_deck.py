@@ -116,7 +116,7 @@ add('Expose all theta points to the GPU',grid(
     'This is launch decomposition of the existing inverse synthesis, not a new Fourier method. It is measured as part of the retained CUDA bundle. Register caps and split forward reductions were tried and removed.')
 add('Production graph caching earns its complexity',table(['RTX 4090 · precise double','Direct stream','Graph replay','Wall reduction'],[
     ['Solovev · ns=55','117.14 μs','82.33 μs','29.7%'],['W7-X · ns=99','562.10 μs','534.53 μs','4.9%']])+grid(
-    panel('Numerical gate',p('Final-state hashes match graph on/off:<br><code>3c09fd3260b003a8</code> · Solovev<br><code>ce46a7cbe693601a</code> · W7-X')),
+    panel('Same numerical result',p('Graph replay and direct execution produce <strong>matching final states</strong> for both Solovev and W7-X.')),
     panel('Measurement',p('1,000-pass preheat; six alternating pairs; each run discards 50 warmup passes and times 300. No graph-node argument mutation.'))),
     '5379fca · ADR-0003 · GPU 2 on gervais, 2026-08-26',
     'The original Pascal graph experiment was deferred despite a real-pass microbenchmark gain: enqueue 63.9 versus graph launch 9.8 μs, production-pattern wall 124.0 versus 111.3 μs. These older harness numbers are distinct from full production iteration latency.')

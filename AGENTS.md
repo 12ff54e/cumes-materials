@@ -35,8 +35,10 @@ Preserve unrelated work in this repository and sibling repositories.
 - Root `typography.css` is the shared font and font-size configuration for the
   landing page and all decks. Use its scale variables for size changes; preserve
   their use in responsive and print rules. Libertine is the prose face, Biolinum
-  the heading/label face, and Libertine Mono the code face. Meow's figure script
-  reads the same font URLs and global font/figure scales through
+  the heading/label face, and Fira Code the code face. Root `typography.js` drives
+  the decks' Aa controls for text/math sizing and per-deck browser preferences.
+  Keep range-input keyboard and touch gestures independent of slide navigation.
+  Meow's figure script reads the same font URLs and global font/figure scales through
   `scripts/figure_typography.py`; redraw figures after changing those scales.
 - `index.html` and `site.css` form the GitHub Pages landing page.
   `scripts/build_site.py` stages the published site in `_site/`.
@@ -131,7 +133,7 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000/slides/<topic>/` for the target deck.
 Hosted/source decks need internet access for KaTeX and text fonts. Serve from the
-repository root so each deck can load the shared `typography.css`. To preview the
+repository root so each deck can load `typography.css` and `typography.js`. To preview the
 complete Pages site, run `python3 scripts/build_site.py` and serve `_site/`. Validate standalone
 exports with browser networking disabled; rendering must not request remote assets.
 Publishing from `main` uses `.github/workflows/pages.yml`. Keep temporary exports,

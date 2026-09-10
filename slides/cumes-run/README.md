@@ -23,10 +23,11 @@ Then open `http://localhost:8000/slides/cumes-run/`.
 - `?`: help
 - Home/End: first/last slide
 - Horizontal swipe: navigate on touch devices
+- Aa: resize text and math, with separate math sizing and a reset button
 
 Browser printing exports the full deck as 16:9 pages. Hosted/source decks load
 KaTeX 0.18.4 and its fonts from a pinned CDN, with integrity checks on the script
-and stylesheet. Libertine/Biolinum text fonts also load from pinned CDN URLs.
+and stylesheet. Libertine, Biolinum, and Fira Code text fonts also load from pinned CDN URLs.
 Adjust fonts and sizes in the shared [`../../typography.css`](../../typography.css);
 see the [font-size guide](../../README.md#fonts-and-font-sizes).
 Figures and presentation code remain local. For offline use,
@@ -45,6 +46,7 @@ cache. The resulting HTML needs no network or server. See the repository
 - `index.html`: presentation content and code-native diagrams
 - `styles.css`: Technical Blueprint visual system and print/mobile layouts
 - `../../typography.css`: shared font families and font-size controls
+- `../../typography.js`: live font-size controls and per-deck browser preferences
 - `deck.js`: navigation, overview, notes, fullscreen, fragments, and URL hashes
 - `../../licenses/KaTeX.txt`: the math renderer's MIT license, included in exports
 

@@ -165,6 +165,9 @@
       return;
     }
 
+    if (event.target.closest?.("input, select, textarea, [contenteditable], .font-controls[open]")) return;
+    if ((event.key === " " || event.key === "Enter") && event.target.closest?.("button, summary")) return;
+
     if (overview.classList.contains("open") || notesOverlay.classList.contains("open") || helpOverlay.classList.contains("open")) {
       return;
     }
@@ -222,6 +225,18 @@
   });
 
   document.addEventListener("touchstart", (event) => {
+    if (event.target.closest?.("input, select, textarea, button, summary, .font-controls, .overlay, .overview")) {
+      touchStartX = null;
+      touchStartY = null;
+      return;
+    }
+    for (let node = event.target; node instanceof Element; node = node.parentElement) {
+      if (node.scrollWidth > node.clientWidth + 1 && /auto|scroll/.test(getComputedStyle(node).overflowX)) {
+        touchStartX = null;
+        touchStartY = null;
+        return;
+      }
+    }
     touchStartX = event.changedTouches[0].clientX;
     touchStartY = event.changedTouches[0].clientY;
   }, { passive: true });

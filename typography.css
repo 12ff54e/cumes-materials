@@ -17,7 +17,8 @@
 
   --serif: "Linux Libertine", Georgia, "Times New Roman", serif;
   --sans: "Linux Biolinum", "Segoe UI", sans-serif;
-  --mono: "Linux Libertine Mono", "SFMono-Regular", Consolas, monospace;
+  --mono: "Fira Code", "SFMono-Regular", Consolas, monospace;
+  --view-math-scale: 1;
 }
 
 /* Pinned TypoPRO 3.7.5 distributions of Linux Libertine / Linux Biolinum.
@@ -74,10 +75,11 @@
   font-style: italic;
   font-display: swap;
 }
+/* Pinned Fira Code 6.2.0, under the OFL in licenses/FiraCode.txt. */
 @font-face {
-  font-family: "Linux Libertine Mono";
-  src: url("https://cdn.jsdelivr.net/npm/@typopro/web-linux-libertine@3.7.5/TypoPRO-LinuxLibertineMono-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-family: "Fira Code";
+  src: url("https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/woff2/FiraCode-VF.woff2") format("woff2");
+  font-weight: 300 700;
   font-style: normal;
   font-display: swap;
 }
@@ -105,6 +107,10 @@ code, pre, kbd, .mono, .source-ref, .code-head { font-family: var(--mono); }
 
 /* The math renderer keeps its own font metrics and glyphs. */
 .equation { font-family: var(--serif); }
+.math-inline .katex,
+.math-display .katex {
+  font-size: calc(1em * var(--view-math-scale));
+}
 
 .chart-label {
   font-family: var(--sans);
@@ -113,4 +119,63 @@ code, pre, kbd, .mono, .source-ref, .code-head { font-family: var(--mono); }
 }
 .diagram-label {
   font-size: calc(14px * var(--font-scale) * var(--figure-scale));
+}
+
+/* Keep the size controls readable at every presentation zoom level. */
+.font-controls { position: relative; font: 16px/1.4 var(--sans); }
+.font-controls summary { list-style: none; font: 700 16px var(--sans); }
+.font-controls summary::-webkit-details-marker { display: none; }
+.font-controls[open] summary { border-color: var(--cyan); color: var(--cyan); }
+.controls:has(.font-controls[open]) { opacity: 1; }
+.font-controls-panel {
+  position: absolute;
+  right: 0;
+  bottom: 46px;
+  width: min(310px, calc(100vw - 36px));
+  max-height: calc(100dvh - 95px);
+  overflow-y: auto;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #071b29;
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+.font-controls-header, .font-setting-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.font-controls-header { margin-bottom: 20px; }
+.font-controls-header strong { font: 700 19px var(--sans); }
+.font-setting { display: block; margin: 0 0 18px; }
+.font-setting-label output { font: 13px var(--mono); color: var(--cyan); }
+.font-setting input { display: block; width: 100%; margin: 12px 0 0; accent-color: var(--cyan); }
+.font-controls button {
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+.font-controls button:hover { border-color: var(--cyan); }
+.font-controls :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+/* Enlarged slides may scroll instead of hiding content beyond a fixed frame. */
+@media screen {
+  body.font-size-adjusted .slide {
+    overflow: auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(min-content, 1fr) auto;
+  }
+  body.font-size-adjusted .content { min-height: min-content; }
+  body.font-size-adjusted .narrative { justify-content: flex-start; }
+  body.font-size-adjusted .table-wrap,
+  body.font-size-adjusted .code-panel,
+  body.font-size-adjusted pre { overflow: auto; }
+  body.font-size-adjusted .code-panel pre { height: auto; }
+  body.font-size-adjusted .equation { overflow: auto; justify-items: safe center; }
 }

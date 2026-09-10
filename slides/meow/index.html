@@ -228,7 +228,22 @@ cmake --build ../tmp/meow-slides-build -j 6</code></pre></article><article class
     <button class="control-button" type="button" data-action="next" aria-label="Next slide">→</button>
     <button class="control-button" type="button" data-action="overview" aria-label="Slide overview">▦</button>
     <button class="control-button" type="button" data-action="notes" aria-label="Speaker notes">N</button>
-    <button class="control-button" type="button" data-action="fullscreen" aria-label="Fullscreen">⛶</button>
+    <button class="control-button" type="button" data-action="fullscreen" aria-label="Fullscreen"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2H2v4m8-4h4v4M2 10v4h4m4 0h4v-4"/></svg></button>
+    <details class="font-controls" data-math-ignore>
+      <summary class="control-button" aria-label="Adjust font size" title="Adjust font size">Aa</summary>
+      <div class="font-controls-panel" role="group" aria-label="Font size">
+        <div class="font-controls-header"><strong>Font size</strong><button type="button" data-font-close aria-label="Close font size controls">×</button></div>
+        <label class="font-setting" for="font-text-size">
+          <span class="font-setting-label"><span>Text and math</span><output id="font-text-value" for="font-text-size">100%</output></span>
+          <input id="font-text-size" type="range" min="80" max="140" step="5" value="100">
+        </label>
+        <label class="font-setting" for="font-math-size">
+          <span class="font-setting-label"><span>Math only</span><output id="font-math-value" for="font-math-size">100%</output></span>
+          <input id="font-math-size" type="range" min="80" max="140" step="5" value="100">
+        </label>
+        <button type="button" data-font-reset>Reset to default</button>
+      </div>
+    </details>
   </div>
   <div class="progress-track" aria-hidden="true"><div class="progress-bar"></div></div>
   <div class="overview" aria-hidden="true" aria-label="Slide overview"></div>
@@ -242,10 +257,12 @@ cmake --build ../tmp/meow-slides-build -j 6</code></pre></article><article class
       <p><span class="key">O</span> overview</p><p><span class="key">N</span> speaker notes</p>
       <p><span class="key">F</span> fullscreen</p><p><span class="key">?</span> this help</p>
       <p><span class="key">Home</span> first slide</p><p><span class="key">End</span> last slide</p>
+      <p><span class="key">Aa</span> text and math size</p>
     </div><p class="muted" style="margin:24px 0 0">Swipe horizontally on touch devices. Print from the browser to export a 16:9 PDF. Press Esc to close.</p></div>
   </div>
 
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.js" integrity="sha384-ykMNcWQhhTUb0YV9SPpPUFURHZ+tWmubkakGBP+OgNK/UXdO2gtzglWx0Rj9hnO3" crossorigin="anonymous"></script>
   <script defer src="deck.js"></script>
+  <script defer src="../../typography.js"></script>
 </body>
 </html>

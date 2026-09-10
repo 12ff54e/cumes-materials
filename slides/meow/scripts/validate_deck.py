@@ -113,7 +113,7 @@ def main():
         count = js("document.querySelectorAll('.slide').length")
         results = {"slides": count, "layouts": {}, "checks": {}}
         results["text_fonts"] = js("""(async()=>{
-            const faces=[...document.fonts].filter(f=>f.family.includes('Linux'));
+            const faces=[...document.fonts].filter(f=>f.family.includes('Linux')||f.family.includes('Fira Code'));
             await Promise.all(faces.map(f=>f.load()));
             return faces.map(f=>({family:f.family,weight:f.weight,style:f.style,status:f.status}));
         })()""")

@@ -18,7 +18,9 @@ Visit `http://localhost:8000/slides/cumes-optimization/`. Arrow keys/Space/Page 
 `O` opens overview, `N` opens notes, `F` requests fullscreen, `?` opens help,
 and Escape closes overlays. Home/End jump to the first/last slide. Touch supports
 horizontal swipes; narrow layouts scroll vertically and wide tables horizontally.
-Browser printing uses 16:9 pages. KaTeX and the Libertine/Biolinum fonts load
+Click **Aa** to resize text and math, adjust math separately, or reset to the
+authored sizes. Settings are saved per deck in your browser.
+Browser printing uses 16:9 pages. KaTeX and the Libertine/Biolinum/Fira Code fonts load
 from pinned CDN URLs. Adjust fonts and sizes in the shared
 [`../../typography.css`](../../typography.css); see the
 [font-size guide](../../README.md#fonts-and-font-sizes).

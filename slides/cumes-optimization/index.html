@@ -54,7 +54,7 @@
 <aside class="speaker-notes">This is launch decomposition of the existing inverse synthesis, not a new Fourier method. It is measured as part of the retained CUDA bundle. Register caps and split forward reductions were tried and removed. Source paths refer to the sibling cuMES repository; pinned references and qualifications are in evidence.md.</aside></section>
 <section class="slide " data-title="Production graph caching earns its complexity" data-chapter="Execution" data-summary="Production graph caching earns its complexity">
 <header class="slide-header"><div><p class="eyebrow">Execution</p><h2>Production graph caching earns its complexity</h2></div><span class="slide-index">11</span></header>
-<div class="content narrative"><div class="table-wrap"><table class="measure"><thead><tr><th>RTX 4090 · precise double</th><th>Direct stream</th><th>Graph replay</th><th>Wall reduction</th></tr></thead><tbody><tr><td>Solovev · <span class="math-inline" data-tex="n_s=55"></span></td><td><span class="math-inline" data-tex="117.14\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="82.33\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="29.7\%"></span></td></tr><tr><td>W7-X · <span class="math-inline" data-tex="n_s=99"></span></td><td><span class="math-inline" data-tex="562.10\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="534.53\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="4.9\%"></span></td></tr></tbody></table></div><div class="grid-2"><article class="panel "><div class="panel-title">Numerical gate</div><p>Final-state hashes match graph on/off:<br><code>3c09fd3260b003a8</code> · Solovev<br><code>ce46a7cbe693601a</code> · W7-X</p></article><article class="panel "><div class="panel-title">Measurement</div><p><span class="math-inline" data-tex="1{,}000"></span>-pass preheat; six alternating pairs; each run discards <span class="math-inline" data-tex="50"></span> warmup passes and times <span class="math-inline" data-tex="300"></span>. No graph-node argument mutation.</p></article></div></div>
+<div class="content narrative"><div class="table-wrap"><table class="measure"><thead><tr><th>RTX 4090 · precise double</th><th>Direct stream</th><th>Graph replay</th><th>Wall reduction</th></tr></thead><tbody><tr><td>Solovev · <span class="math-inline" data-tex="n_s=55"></span></td><td><span class="math-inline" data-tex="117.14\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="82.33\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="29.7\%"></span></td></tr><tr><td>W7-X · <span class="math-inline" data-tex="n_s=99"></span></td><td><span class="math-inline" data-tex="562.10\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="534.53\,\mu\mathrm{s}"></span></td><td><span class="math-inline" data-tex="4.9\%"></span></td></tr></tbody></table></div><div class="grid-2"><article class="panel "><div class="panel-title">Same numerical result</div><p>Graph replay and direct execution produce <strong>matching final states</strong> for both Solovev and W7-X.</p></article><article class="panel "><div class="panel-title">Measurement</div><p><span class="math-inline" data-tex="1{,}000"></span>-pass preheat; six alternating pairs; each run discards <span class="math-inline" data-tex="50"></span> warmup passes and times <span class="math-inline" data-tex="300"></span>. No graph-node argument mutation.</p></article></div></div>
 <footer class="slide-footer"><span>5379fca · ADR-0003 · GPU 2 on gervais, 2026-08-26</span><span class="footer-rule"></span><span>Execution · cuMES</span></footer>
 <aside class="speaker-notes">The original Pascal graph experiment was deferred despite a real-pass microbenchmark gain: enqueue <span class="math-inline" data-tex="63.9"></span> versus graph launch <span class="math-inline" data-tex="9.8\,\mu\mathrm{s}"></span>, production-pattern wall <span class="math-inline" data-tex="124.0"></span> versus <span class="math-inline" data-tex="111.3\,\mu\mathrm{s}"></span>. These older harness numbers are distinct from full production iteration latency. Source paths refer to the sibling cuMES repository; pinned references and qualifications are in evidence.md.</aside></section>
 <section class="slide " data-title="Local reproduction: the same CUDA commit on Pascal" data-chapter="Execution" data-summary="Local reproduction: the same CUDA commit on Pascal">
@@ -330,7 +330,22 @@
     <button class="control-button" type="button" data-action="next" aria-label="Next slide">→</button>
     <button class="control-button" type="button" data-action="overview" aria-label="Slide overview">▦</button>
     <button class="control-button" type="button" data-action="notes" aria-label="Speaker notes">N</button>
-    <button class="control-button" type="button" data-action="fullscreen" aria-label="Fullscreen">⛶</button>
+    <button class="control-button" type="button" data-action="fullscreen" aria-label="Fullscreen"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 2H2v4m8-4h4v4M2 10v4h4m4 0h4v-4"/></svg></button>
+    <details class="font-controls" data-math-ignore>
+      <summary class="control-button" aria-label="Adjust font size" title="Adjust font size">Aa</summary>
+      <div class="font-controls-panel" role="group" aria-label="Font size">
+        <div class="font-controls-header"><strong>Font size</strong><button type="button" data-font-close aria-label="Close font size controls">×</button></div>
+        <label class="font-setting" for="font-text-size">
+          <span class="font-setting-label"><span>Text and math</span><output id="font-text-value" for="font-text-size">100%</output></span>
+          <input id="font-text-size" type="range" min="80" max="140" step="5" value="100">
+        </label>
+        <label class="font-setting" for="font-math-size">
+          <span class="font-setting-label"><span>Math only</span><output id="font-math-value" for="font-math-size">100%</output></span>
+          <input id="font-math-size" type="range" min="80" max="140" step="5" value="100">
+        </label>
+        <button type="button" data-font-reset>Reset to default</button>
+      </div>
+    </details>
   </div>
   <div class="progress-track" aria-hidden="true"><div class="progress-bar"></div></div>
   <div class="overview" aria-hidden="true" aria-label="Slide overview"></div>
@@ -344,10 +359,12 @@
       <p><span class="key">O</span> overview</p><p><span class="key">N</span> speaker notes</p>
       <p><span class="key">F</span> fullscreen</p><p><span class="key">?</span> this help</p>
       <p><span class="key">Home</span> first slide</p><p><span class="key">End</span> last slide</p>
+      <p><span class="key">Aa</span> text and math size</p>
     </div><p class="muted" style="margin:24px 0 0">Swipe horizontally on touch devices. Print from the browser to export a 16:9 PDF. Press Esc to close.</p></div>
   </div>
 
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.js" integrity="sha384-ykMNcWQhhTUb0YV9SPpPUFURHZ+tWmubkakGBP+OgNK/UXdO2gtzglWx0Rj9hnO3" crossorigin="anonymous"></script>
   <script defer src="deck.js"></script>
+  <script defer src="../../typography.js"></script>
 </body>
 </html>
